@@ -1,0 +1,6 @@
+[
+  { "id": "builder-1", "name": "Builder 1" },
+  { "id": "builder-2", "name": "Builder 2" },
+  { "id": "fable", "name": "Fable" },
+  { "id": "debugger", "name": "Debugger" }
+]

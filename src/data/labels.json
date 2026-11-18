@@ -1,0 +1,38 @@
+{
+  "languageStatus": { "complete": "Complete", "in-progress": "In progress" },
+  "deployResult": { "live": "Live", "blocked": "Blocked" },
+  "statDescription": {
+    "languages-live": "Public in the app",
+    "a1-coverage": "Main path, average across languages",
+    "drafts-waiting": "For a native speaker",
+    "failed-checks": "In the last build"
+  },
+  "auditResult": { "pass": "Pass", "fail": "Fail" },
+  "runResult": { "done": "Done", "flagged": "Flagged", "stopped": "Stopped" },
+  "statTiles": {
+    "growth": [
+      { "id": "languages", "label": "Languages", "description": "In the app" },
+      { "id": "lessons", "label": "Lessons", "description": "Across all languages" },
+      { "id": "sentences", "label": "Sentences", "description": "Across all languages" },
+      { "id": "a1-words-covered", "label": "A1 words covered", "description": "Main path, average across languages" }
+    ],
+    "health": [
+      { "id": "uptime", "label": "Uptime this month", "description": "A check every 5 minutes" },
+      { "id": "response-time", "label": "Average response time", "description": "Last 14 days" },
+      { "id": "checks-passed", "label": "Checks passed", "description": "In the last build" },
+      { "id": "deploys-this-week", "label": "Deploys this week", "description": "Last 7 days" }
+    ],
+    "activity": [
+      { "id": "agent-runs", "label": "Agent runs this week", "description": "Last 7 days, all agents" },
+      { "id": "fable-reviews", "label": "Fable reviews", "description": "Last 7 days" },
+      { "id": "items-flagged", "label": "Items Fable flagged", "description": "Last 7 days" },
+      { "id": "runs-stopped", "label": "Runs stopped by a stop rule", "description": "Last 7 days" }
+    ],
+    "cost": [
+      { "id": "cost-this-month", "label": "Cost this month", "description": "All agents, month to date" },
+      { "id": "cost-per-run", "label": "Average cost per run", "description": "Month to date" },
+      { "id": "tokens-this-month", "label": "Tokens this month", "description": "All agents, month to date" },
+      { "id": "highest-cost-agent", "label": "Highest-cost agent", "description": "Month to date" }
+    ]
+  }
+}

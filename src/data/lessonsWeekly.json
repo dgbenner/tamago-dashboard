@@ -1,0 +1,14 @@
+[
+  { "date": "2026-09-01", "french": 174, "spanish": 96, "italian": 42, "german": 88, "portuguese": 14, "dutch": 0 },
+  { "date": "2026-09-08", "french": 176, "spanish": 100, "italian": 48, "german": 92, "portuguese": 20, "dutch": 0 },
+  { "date": "2026-09-15", "french": 178, "spanish": 104, "italian": 55, "german": 96, "portuguese": 27, "dutch": 0 },
+  { "date": "2026-09-22", "french": 178, "spanish": 109, "italian": 62, "german": 100, "portuguese": 34, "dutch": 0 },
+  { "date": "2026-09-29", "french": 180, "spanish": 113, "italian": 70, "german": 104, "portuguese": 42, "dutch": 0 },
+  { "date": "2026-10-06", "french": 180, "spanish": 118, "italian": 78, "german": 109, "portuguese": 50, "dutch": 0 },
+  { "date": "2026-10-13", "french": 180, "spanish": 122, "italian": 86, "german": 113, "portuguese": 58, "dutch": 4 },
+  { "date": "2026-10-20", "french": 181, "spanish": 127, "italian": 94, "german": 118, "portuguese": 66, "dutch": 9 },
+  { "date": "2026-10-27", "french": 181, "spanish": 131, "italian": 102, "german": 122, "portuguese": 74, "dutch": 15 },
+  { "date": "2026-11-03", "french": 182, "spanish": 136, "italian": 110, "german": 126, "portuguese": 82, "dutch": 22 },
+  { "date": "2026-11-10", "french": 182, "spanish": 141, "italian": 119, "german": 131, "portuguese": 90, "dutch": 30 },
+  { "date": "2026-11-17", "french": 182, "spanish": 146, "italian": 127, "german": 135, "portuguese": 98, "dutch": 38 }
+]
