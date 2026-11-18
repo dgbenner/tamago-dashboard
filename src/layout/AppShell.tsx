@@ -1,4 +1,5 @@
 import { useEffect, useRef, type ReactNode } from 'react'
+import { TriangleAlert } from 'lucide-react'
 
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
@@ -9,6 +10,9 @@ import { NAV_ITEMS, pageHref, type PageId } from './nav'
  * The app shell. At lg and up: a fixed-width sidebar on the left, content on the right.
  * Below lg: the sidebar becomes a compact top bar (product name and the nav links in one row,
  * which scrolls sideways inside the bar when it runs out of room), content below.
+ *
+ * A warning banner runs across the full width above everything. The shell fills the window and only
+ * the content area scrolls, so the banner (and the sidebar or top bar) always stay in view.
  */
 export function AppShell({
   current = 'content-health',
@@ -18,6 +22,12 @@ export function AppShell({
   children: ReactNode
 }) {
   const navRef = useRef<HTMLElement>(null)
+  const mainRef = useRef<HTMLElement>(null)
+
+  // A newly opened page starts at its top.
+  useEffect(() => {
+    mainRef.current?.scrollTo(0, 0)
+  }, [current])
 
   // In the narrow top bar the nav row scrolls sideways; keep the current item in view.
   useEffect(() => {
@@ -27,11 +37,22 @@ export function AppShell({
   }, [current])
 
   return (
-    <div className="flex min-h-svh w-full flex-col bg-background text-foreground lg:flex-row">
+    <div className="flex h-dvh w-full flex-col bg-background text-foreground">
+      {/* Same colors as the destructive Badge, the library's warning style. */}
+      <div
+        role="note"
+        aria-label="Warning"
+        className="flex shrink-0 items-center justify-center gap-2 bg-destructive px-4 py-2 text-center text-sm font-semibold text-white dark:bg-destructive/60"
+      >
+        <TriangleAlert className="size-4 shrink-0" aria-hidden="true" />
+        <p>Placeholder numbers. Nothing on this page is real data yet.</p>
+      </div>
+
+      <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
       <aside
         className={
-          'sticky top-0 z-10 flex min-w-0 items-center gap-2 border-b border-sidebar-border bg-sidebar px-4 py-2 text-sidebar-foreground ' +
-          'lg:h-svh lg:w-60 lg:shrink-0 lg:flex-col lg:items-stretch lg:gap-0 lg:border-r lg:border-b-0 lg:px-3 lg:py-4'
+          'flex min-w-0 shrink-0 items-center gap-2 border-b border-sidebar-border bg-sidebar px-4 py-2 text-sidebar-foreground ' +
+          'lg:w-60 lg:flex-col lg:items-stretch lg:gap-0 lg:overflow-y-auto lg:border-r lg:border-b-0 lg:px-3 lg:py-4'
         }
       >
         <p className="shrink-0 text-sm font-semibold tracking-tight lg:px-3 lg:text-base">Tamago</p>
@@ -61,7 +82,10 @@ export function AppShell({
         </nav>
       </aside>
 
-      <main className="min-w-0 flex-1">{children}</main>
+      <main ref={mainRef} className="min-h-0 min-w-0 flex-1 overflow-y-auto">
+        {children}
+      </main>
+      </div>
     </div>
   )
 }

@@ -70,10 +70,7 @@ function App() {
   const [current, setCurrent] = useState<PageId>(pageFromHash)
 
   useEffect(() => {
-    const onHashChange = () => {
-      setCurrent(pageFromHash())
-      window.scrollTo(0, 0)
-    }
+    const onHashChange = () => setCurrent(pageFromHash())
     window.addEventListener('hashchange', onHashChange)
     return () => window.removeEventListener('hashchange', onHashChange)
   }, [])
