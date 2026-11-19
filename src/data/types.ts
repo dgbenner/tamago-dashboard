@@ -56,6 +56,10 @@ export interface RealLanguage {
   level: string | null
   /** Words in the course's word list. */
   words: number | null
+  /** Words whose meaning and hint come from Wiktionary. */
+  wordsWiktionary: number | null
+  /** Words and sentences with a real person's recording from Lingua Libre. */
+  recordingsLinguaLibre: number | null
   sentences: number | null
   /** Of those, sentences from Tatoeba. */
   sentencesTatoeba: number | null

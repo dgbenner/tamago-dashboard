@@ -13,7 +13,7 @@ import { EMPTY, cell, head, numberCell, pinnedCell, pinnedRow } from './cells'
 import { SortableHead, type HeadAlign } from './SortableHead'
 import { useSort, type SortValue } from './sort'
 
-type ColumnKey = 'name' | 'sentences' | 'sentencesTatoeba' | 'sentencesDrafted' | 'draftsWaiting'
+type ColumnKey = 'name' | 'sentences' | 'sentencesTatoeba' | 'sentencesDrafted' | 'draftsWaiting' | 'wordsWiktionary' | 'recordingsLinguaLibre'
 
 interface Column {
   key: ColumnKey
@@ -32,6 +32,8 @@ const columns: Column[] = [
   { key: 'sentencesTatoeba', label: 'From Tatoeba', help: 'tatoeba', align: 'right' },
   { key: 'sentencesDrafted', label: 'Drafted', help: 'drafted', align: 'right' },
   { key: 'draftsWaiting', label: 'Awaiting Native Check', help: 'awaiting', align: 'right' },
+  { key: 'wordsWiktionary', label: 'From Wiktionary', help: 'wiktionary', align: 'right' },
+  { key: 'recordingsLinguaLibre', label: 'From Lingua Libre', help: 'linguaLibre', align: 'right' },
 ]
 
 // What each column sorts by. A null (no value in the snapshot) sorts last either way.
@@ -41,6 +43,8 @@ const sortValues: Record<ColumnKey, (row: RealLanguage) => SortValue> = {
   sentencesTatoeba: (row) => row.sentencesTatoeba,
   sentencesDrafted: (row) => row.sentencesDrafted,
   draftsWaiting: (row) => row.draftsWaiting,
+  wordsWiktionary: (row) => row.wordsWiktionary,
+  recordingsLinguaLibre: (row) => row.recordingsLinguaLibre,
 }
 
 /** A count, or the em dash when the snapshot has no value. */
@@ -91,6 +95,8 @@ export function SentencesTable() {
                 <TableCell className={numberCell}>{count(row.sentencesTatoeba)}</TableCell>
                 <TableCell className={numberCell}>{count(row.sentencesDrafted)}</TableCell>
                 <TableCell className={numberCell}>{count(row.draftsWaiting)}</TableCell>
+                <TableCell className={numberCell}>{count(row.wordsWiktionary)}</TableCell>
+                <TableCell className={numberCell}>{count(row.recordingsLinguaLibre)}</TableCell>
               </TableRow>
             ))}
           </TableBody>

@@ -199,6 +199,8 @@
     "drafted": "Sentences written for Tamago where Tatoeba had no good one",
     "awaiting": "Drafted sentences already used in lessons but not yet checked by a native speaker. It matches Drafted today because no checks have come back yet",
     "coverage": "How much of the official word list for the course's level (shown under Parts) the course teaches, with the list it is measured against under each number",
-    "lastDeploy": "The newest version that changed this course"
+    "lastDeploy": "The newest version that changed this course",
+    "wiktionary": "Words whose meaning and hint come from Wiktionary, the free dictionary, out of the course's words",
+    "linguaLibre": "Words and sentences with a recording of a real person from Lingua Libre, a free library of recorded speech. Everything else is spoken by the device's own voice"
   }
 }

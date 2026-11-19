@@ -20,6 +20,8 @@ export interface SnapshotLanguageJson {
   circles: number | null
   level: string | null
   words: number | null
+  wordsWiktionary: number | null
+  recordingsLinguaLibre: number | null
   sentences: number | null
   sentencesTatoeba: number | null
   sentencesDrafted: number | null

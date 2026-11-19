@@ -90,7 +90,7 @@ const languages = courses.map(({ id, name, ready }) => {
   const dir = `src/${dirOf(id)}`
   // Planned: listed in the app, no content pushed. Started: content pushed, not open in the app yet.
   if (!existsSync(path.join(CLONE, dir, 'sentences.json'))) {
-    return { id, name, state: 'coming-soon', status: null, partsLive: null, partsTotal: null, level: null, circles: null, words: null, sentences: null, sentencesTatoeba: null, sentencesDrafted: null, coverage: null, draftsWaiting: null, lastDeploy: null }
+    return { id, name, state: 'coming-soon', status: null, partsLive: null, partsTotal: null, level: null, circles: null, words: null, wordsWiktionary: null, recordingsLinguaLibre: null, sentences: null, sentencesTatoeba: null, sentencesDrafted: null, coverage: null, draftsWaiting: null, lastDeploy: null }
   }
   const sentences = readJson(`${dir}/sentences.json`).filter((s) => s.status === 'live')
   noteSentences(sentences)
@@ -109,6 +109,12 @@ const languages = courses.map(({ id, name, ready }) => {
     circles: readJson(`${dir}/tree_layout.json`).length,
     // Words: the course's shipped word list (src/content*/words.json), the same count a1-coverage reports.
     words: readJson(`${dir}/words.json`).length,
+    // The three outside language sources: Tatoeba (sentences, below), Wiktionary (a word's meaning and hint, when
+    // the word's hint_source names it) and Lingua Libre (a real person's recording, for a word or a sentence).
+    // Counts only: never the recorders' names.
+    wordsWiktionary: readJson(`${dir}/words.json`).filter((w) => /wiktionary/i.test(String(w.hint_source ?? ''))).length,
+    recordingsLinguaLibre: readJson(`${dir}/words.json`).filter((w) => w.lingua_libre?.audio_file).length
+      + sentences.filter((s) => s.audio_source === 'lingua_libre').length,
     sentences: sentences.length,
     sentencesTatoeba: sentences.filter((s) => s.source === 'tatoeba').length,
     sentencesDrafted: drafted.length,
