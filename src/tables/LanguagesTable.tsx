@@ -2,11 +2,10 @@ import type { ComponentProps } from 'react'
 
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Table, TableBody, TableCell, TableHeader, TableRow } from '@/components/ui/table'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { cn } from '@/lib/utils'
 import {
   comingSoonLanguages,
-  coverageListLabel,
   formatCount,
   formatDate,
   formatParts,
@@ -21,7 +20,7 @@ import {
   type RealLanguage,
 } from '@/data'
 
-import { cell, centredCell, EMPTY, numberCell, pinnedCell, pinnedRow } from './cells'
+import { EMPTY, cell, centredCell, head, numberCell, pinnedCell, pinnedRow } from './cells'
 import { SortableHead, type HeadAlign } from './SortableHead'
 import { useSort, type SortValue } from './sort'
 
@@ -30,13 +29,16 @@ type ColumnKey = 'name' | 'status' | 'parts' | 'circles' | 'words' | 'coverage' 
 interface Column {
   key: ColumnKey
   label: string
-  help: LanguageColumnHelpKey
+  /** The tooltip beside the heading; none when the column needs no explaining. */
+  help?: LanguageColumnHelpKey
+  /** false for a column that doesn't sort (Language). */
+  sortable?: boolean
   align?: HeadAlign
 }
 
 const columns: Column[] = [
-  { key: 'name', label: 'Language', help: 'language' },
-  { key: 'status', label: 'Status', help: 'status', align: 'center' },
+  { key: 'name', label: 'Language', sortable: false },
+  { key: 'status', label: 'Status', align: 'center' },
   { key: 'parts', label: 'Parts', help: 'parts', align: 'right' },
   { key: 'circles', label: 'Circles', help: 'circles', align: 'right' },
   { key: 'words', label: 'Words', help: 'words', align: 'right' },
@@ -85,15 +87,21 @@ function LanguageRow({ row }: { row: RealLanguage }) {
           {realLanguageStatusLabels[statusKey]}
         </Badge>
       </TableCell>
-      <TableCell className={numberCell}>{formatParts(row) || EMPTY}</TableCell>
+      <TableCell className={numberCell}>
+        {row.level ? (
+          <>
+            {row.level}{' '}
+            <span className="font-light text-muted-foreground italic">({formatParts(row)})</span>
+          </>
+        ) : (
+          EMPTY
+        )}
+      </TableCell>
       <TableCell className={numberCell}>{count(row.circles)}</TableCell>
       <TableCell className={numberCell}>{count(row.words)}</TableCell>
       <TableCell className={numberCell}>
         {row.coverage ? (
-          <>
-            {formatPercent(row.coverage.percent)}
-            <div className="text-xs text-muted-foreground">{coverageListLabel(row.coverage)}</div>
-          </>
+          formatPercent(row.coverage.percent)
         ) : (
           EMPTY
         )}
@@ -101,8 +109,8 @@ function LanguageRow({ row }: { row: RealLanguage }) {
       <TableCell className={cn(cell, 'whitespace-nowrap')}>
         {row.lastDeploy ? (
           <>
-            {row.lastDeploy.name} <span className="tabular-nums">{row.lastDeploy.number}</span>{' '}
-            <span className="text-muted-foreground">{formatDate(row.lastDeploy.date)}</span>
+            {row.lastDeploy.name} <span className="tabular-nums">{row.lastDeploy.number}</span>
+            <div className="text-xs text-muted-foreground">{formatDate(row.lastDeploy.date)}</div>
           </>
         ) : (
           EMPTY
@@ -132,17 +140,23 @@ export function LanguagesTable() {
         <Table>
           <TableHeader>
             <TableRow>
-              {columns.map((column, i) => (
-                <SortableHead
-                  key={column.key}
-                  label={column.label}
-                  direction={directionOf(column.key)}
-                  onSort={() => toggleSort(column.key)}
-                  align={column.align}
-                  help={languageColumnHelp[column.help]}
-                  className={i === 0 ? pinnedCell : undefined}
-                />
-              ))}
+              {columns.map((column, i) =>
+                column.sortable === false ? (
+                  <TableHead key={column.key} className={cn(head, i === 0 && pinnedCell)}>
+                    {column.label}
+                  </TableHead>
+                ) : (
+                  <SortableHead
+                    key={column.key}
+                    label={column.label}
+                    direction={directionOf(column.key)}
+                    onSort={() => toggleSort(column.key)}
+                    align={column.align}
+                    help={column.help ? languageColumnHelp[column.help] : undefined}
+                    className={i === 0 ? pinnedCell : undefined}
+                  />
+                ),
+              )}
             </TableRow>
           </TableHeader>
           <TableBody>

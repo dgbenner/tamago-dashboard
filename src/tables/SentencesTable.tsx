@@ -1,5 +1,5 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { Table, TableBody, TableCell, TableHeader, TableRow } from '@/components/ui/table'
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { cn } from '@/lib/utils'
 import {
   formatCount,
@@ -9,7 +9,7 @@ import {
   type RealLanguage,
 } from '@/data'
 
-import { cell, EMPTY, numberCell, pinnedCell, pinnedRow } from './cells'
+import { EMPTY, cell, head, numberCell, pinnedCell, pinnedRow } from './cells'
 import { SortableHead, type HeadAlign } from './SortableHead'
 import { useSort, type SortValue } from './sort'
 
@@ -18,13 +18,16 @@ type ColumnKey = 'name' | 'sentences' | 'sentencesTatoeba' | 'sentencesDrafted' 
 interface Column {
   key: ColumnKey
   label: string
-  help: LanguageColumnHelpKey
+  /** The tooltip beside the heading; none when the column needs no explaining. */
+  help?: LanguageColumnHelpKey
+  /** false for a column that doesn't sort (Language). */
+  sortable?: boolean
   align?: HeadAlign
 }
 
 // Drafted and Awaiting Native Check sit side by side: the second is the part of the first still unchecked.
 const columns: Column[] = [
-  { key: 'name', label: 'Language', help: 'language' },
+  { key: 'name', label: 'Language', sortable: false },
   { key: 'sentences', label: 'Sentences', help: 'sentences', align: 'right' },
   { key: 'sentencesTatoeba', label: 'From Tatoeba', help: 'tatoeba', align: 'right' },
   { key: 'sentencesDrafted', label: 'Drafted', help: 'drafted', align: 'right' },
@@ -61,17 +64,23 @@ export function SentencesTable() {
         <Table>
           <TableHeader>
             <TableRow>
-              {columns.map((column, i) => (
-                <SortableHead
-                  key={column.key}
-                  label={column.label}
-                  direction={directionOf(column.key)}
-                  onSort={() => toggleSort(column.key)}
-                  align={column.align}
-                  help={languageColumnHelp[column.help]}
-                  className={i === 0 ? pinnedCell : undefined}
-                />
-              ))}
+              {columns.map((column, i) =>
+                column.sortable === false ? (
+                  <TableHead key={column.key} className={cn(head, i === 0 && pinnedCell)}>
+                    {column.label}
+                  </TableHead>
+                ) : (
+                  <SortableHead
+                    key={column.key}
+                    label={column.label}
+                    direction={directionOf(column.key)}
+                    onSort={() => toggleSort(column.key)}
+                    align={column.align}
+                    help={column.help ? languageColumnHelp[column.help] : undefined}
+                    className={i === 0 ? pinnedCell : undefined}
+                  />
+                ),
+              )}
             </TableRow>
           </TableHeader>
           <TableBody>

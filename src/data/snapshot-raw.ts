@@ -18,6 +18,7 @@ export interface SnapshotLanguageJson {
   partsLive: number | null
   partsTotal: number | null
   circles: number | null
+  level: string | null
   words: number | null
   sentences: number | null
   sentencesTatoeba: number | null

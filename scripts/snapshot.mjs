@@ -90,7 +90,7 @@ const languages = courses.map(({ id, name, ready }) => {
   const dir = `src/${dirOf(id)}`
   // Planned: listed in the app, no content pushed. Started: content pushed, not open in the app yet.
   if (!existsSync(path.join(CLONE, dir, 'sentences.json'))) {
-    return { id, name, state: 'coming-soon', status: null, partsLive: null, partsTotal: null, circles: null, words: null, sentences: null, sentencesTatoeba: null, sentencesDrafted: null, coverage: null, draftsWaiting: null, lastDeploy: null }
+    return { id, name, state: 'coming-soon', status: null, partsLive: null, partsTotal: null, level: null, circles: null, words: null, sentences: null, sentencesTatoeba: null, sentencesDrafted: null, coverage: null, draftsWaiting: null, lastDeploy: null }
   }
   const sentences = readJson(`${dir}/sentences.json`).filter((s) => s.status === 'live')
   noteSentences(sentences)
@@ -103,6 +103,8 @@ const languages = courses.map(({ id, name, ready }) => {
     // Live: every part live. Live, incomplete: open in the app with parts still to come. Started: not open yet.
     status: !ready ? 'started' : partsLive === parts.length ? 'complete' : 'incomplete',
     partsLive, partsTotal: parts.length,
+    // The CEFR level the course teaches: its units' cefr column ("A1"; "A1–A2" if it ever spans two).
+    level: [...new Set(readJson(`${dir}/units.json`).map((u) => u.cefr).filter(Boolean))].sort().join('–') || null,
     // Circles: the places on the tree (tree_layout). Topic packs chosen inside a "Pick Your Own" circle are not counted.
     circles: readJson(`${dir}/tree_layout.json`).length,
     // Words: the course's shipped word list (src/content*/words.json), the same count a1-coverage reports.

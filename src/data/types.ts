@@ -52,6 +52,8 @@ export interface RealLanguage {
   /** Circles on the course tree. */
   circles: number | null
   /** Live sentences. */
+  /** The CEFR level the course teaches, e.g. "A1". */
+  level: string | null
   /** Words in the course's word list. */
   words: number | null
   sentences: number | null
