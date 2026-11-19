@@ -29,11 +29,12 @@ interface Column {
 const columns: Column[] = [
   { key: 'name', label: 'Language', sortable: false },
   { key: 'sentences', label: 'Sentences', help: 'sentences', align: 'right' },
-  { key: 'sentencesTatoeba', label: 'From Tatoeba', help: 'tatoeba', align: 'right' },
   { key: 'sentencesDrafted', label: 'Drafted', help: 'drafted', align: 'right' },
   { key: 'draftsWaiting', label: 'Awaiting Native Check', help: 'awaiting', align: 'right' },
-  { key: 'wordsWiktionary', label: 'From Wiktionary', help: 'wiktionary', align: 'right' },
+  // The three outside language sources, together and in alphabetical order (Dan, 2026-11-19).
   { key: 'recordingsLinguaLibre', label: 'From Lingua Libre', help: 'linguaLibre', align: 'right' },
+  { key: 'sentencesTatoeba', label: 'From Tatoeba', help: 'tatoeba', align: 'right' },
+  { key: 'wordsWiktionary', label: 'From Wiktionary', help: 'wiktionary', align: 'right' },
 ]
 
 // What each column sorts by. A null (no value in the snapshot) sorts last either way.
@@ -60,7 +61,7 @@ export function SentencesTable() {
     <Card className="min-w-0">
       <CardHeader>
         <CardTitle>Vocabulary and Content</CardTitle>
-        <CardDescription>Count of each course's content.</CardDescription>
+        <CardDescription>Count of each course's content and sources</CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
@@ -92,11 +93,11 @@ export function SentencesTable() {
                   {row.name}
                 </TableCell>
                 <TableCell className={numberCell}>{count(row.sentences)}</TableCell>
-                <TableCell className={numberCell}>{count(row.sentencesTatoeba)}</TableCell>
                 <TableCell className={numberCell}>{count(row.sentencesDrafted)}</TableCell>
                 <TableCell className={numberCell}>{count(row.draftsWaiting)}</TableCell>
-                <TableCell className={numberCell}>{count(row.wordsWiktionary)}</TableCell>
                 <TableCell className={numberCell}>{count(row.recordingsLinguaLibre)}</TableCell>
+                <TableCell className={numberCell}>{count(row.sentencesTatoeba)}</TableCell>
+                <TableCell className={numberCell}>{count(row.wordsWiktionary)}</TableCell>
               </TableRow>
             ))}
           </TableBody>

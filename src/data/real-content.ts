@@ -31,7 +31,16 @@ const allLanguages: RealLanguage[] = snapshot.languages.map((language) => {
 
 check(new Set(allLanguages.map((l) => l.id)).size === allLanguages.length, 'snapshot.languages repeats a language id')
 
-/** The languages that are public in the app, in the snapshot's order. */
+/**
+ * The default order on load (Dan, 2026-11-19): Live, then Live, Incomplete, then In Progress, then Planned,
+ * and alphabetical by name within each.
+ */
+const STATUS_ORDER = { complete: 0, incomplete: 1, started: 2 } as const
+const byStatusThenName = (a: RealLanguage, b: RealLanguage) =>
+  (a.status === null ? 3 : STATUS_ORDER[a.status]) - (b.status === null ? 3 : STATUS_ORDER[b.status]) || a.name.localeCompare(b.name)
+allLanguages.sort(byStatusThenName)
+
+/** The languages that are public in the app: Live first, then Live, Incomplete; alphabetical within each. */
 export const liveLanguages: RealLanguage[] = allLanguages.filter((l) => l.state === 'live')
 
 /** The languages the app lists as coming soon, in the snapshot's order. */
