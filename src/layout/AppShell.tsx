@@ -111,11 +111,10 @@ export function AppShell({
               asChild
               variant="ghost"
               size="sm"
-              // The current page (Dan, 2026-11-19): a light Tamago-yellow fill with a thin Tamago-green outline
-              // around the icon and title, so it reads at a glance; the others stay plain.
+              // The current page (Dan, 2026-11-19): a light Tamago-yellow fill, so it reads at a glance; the others stay plain.
               className={
                 'shrink-0 whitespace-nowrap lg:w-full lg:justify-start ' +
-                (id === current ? 'bg-tamago-yellow/25 font-semibold ring-1 ring-tamago-green/70 hover:bg-tamago-yellow/35' : '')
+                (id === current ? 'bg-tamago-yellow/25 font-semibold hover:bg-tamago-yellow/35' : '')
               }
             >
               <a href={pageHref(id)} aria-current={id === current ? 'page' : undefined}>

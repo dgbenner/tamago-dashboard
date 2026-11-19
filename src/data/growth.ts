@@ -28,11 +28,10 @@ const LANGUAGE_IDS = ['french', 'spanish', 'italian', 'german', 'portuguese', 'd
  */
 export const lessonsWeekly: LessonsWeek[] = lessonsWeeklyJson satisfies LessonsWeek[]
 
-/** The six lines of the lessons chart: `{ id, name }` per mock language. */
-export const lessonsSeries: ChartSeries[] = languages.map((language) => ({
-  id: oneOf(LANGUAGE_IDS, language.id, 'language id'),
-  name: language.name,
-}))
+/** The six lines of the lessons chart: `{ id, name }` per mock language, alphabetical (Dan, 2026-11-19). */
+export const lessonsSeries: ChartSeries[] = languages
+  .map((language) => ({ id: oneOf(LANGUAGE_IDS, language.id, 'language id'), name: language.name }))
+  .sort((a, b) => a.name.localeCompare(b.name))
 
 check(lessonsSeries.length === LANGUAGE_IDS.length, 'lessonsWeekly.json and growthLanguages.json list different languages')
 check(lessonsWeekly[lessonsWeekly.length - 1].date === today, 'the last week of lessonsWeekly.json must end today')

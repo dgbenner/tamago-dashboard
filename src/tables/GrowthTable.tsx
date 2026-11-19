@@ -18,8 +18,8 @@ interface Column {
 
 const columns: Column[] = [
   { key: 'name', label: 'Language' },
-  { key: 'addedThisWeek', label: 'Added This Week', align: 'right' },
-  { key: 'addedThisMonth', label: 'Added This Month', align: 'right' },
+  { key: 'addedThisWeek', label: 'New Lessons This Week', align: 'right' },
+  { key: 'addedThisMonth', label: 'New Lessons This Month', align: 'right' },
   { key: 'totalLessons', label: 'Total Lessons', align: 'right' },
 ]
 
@@ -37,10 +37,10 @@ export function GrowthTable() {
     <Card className="min-w-0">
       <CardHeader>
         <CardTitle>Lessons by Language</CardTitle>
-        <CardDescription>One row per language. Select a column heading to sort.</CardDescription>
+        <CardDescription>Growth of lessons per language</CardDescription>
       </CardHeader>
       <CardContent>
-        <Table>
+        <Table className="w-auto">
           <TableHeader>
             <TableRow>
               {columns.map((column) => (

@@ -24,7 +24,7 @@ export function LessonsChart() {
     <Card>
       <CardHeader>
         <CardTitle>{title}</CardTitle>
-        <CardDescription>Total lessons, weekly, {span}</CardDescription>
+        <CardDescription>How many lessons each language has, and its growth over time</CardDescription>
       </CardHeader>
       <CardContent>
         <ChartContainer
