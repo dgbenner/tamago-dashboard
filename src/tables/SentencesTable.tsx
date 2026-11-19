@@ -55,10 +55,8 @@ export function SentencesTable() {
   return (
     <Card className="min-w-0">
       <CardHeader>
-        <CardTitle>Sentences</CardTitle>
-        <CardDescription>
-          Where each course's sentences come from, and how many still need a native speaker's check.
-        </CardDescription>
+        <CardTitle>Vocabulary and Content</CardTitle>
+        <CardDescription>Count of each course's content.</CardDescription>
       </CardHeader>
       <CardContent>
         <Table>

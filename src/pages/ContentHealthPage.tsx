@@ -37,7 +37,7 @@ export function ContentHealthPage({ stats, languages, sentences, deploys }: Cont
     >
       <PageSection label="Key Numbers">{stats}</PageSection>
       <PageSection label="Languages">{languages}</PageSection>
-      <PageSection label="Sentences">{sentences}</PageSection>
+      <PageSection label="Vocabulary and Content">{sentences}</PageSection>
       <PageSection label="Recent Deploys">{deploys}</PageSection>
     </PageFrame>
   )
