@@ -1,6 +1,6 @@
 import type { ReactNode } from 'react'
 
-import { formatDate, latestDeploy } from '@/data'
+import { formatDate, recentDeploys } from '@/data'
 import { PageFrame, PageSection } from '@/layout/PageFrame'
 
 interface ContentHealthPageProps {
@@ -14,16 +14,23 @@ interface ContentHealthPageProps {
 
 /** The Content health page: header, then stats row, languages table, deploys table. */
 export function ContentHealthPage({ stats, languages, deploys }: ContentHealthPageProps) {
+  // Newest first; undefined when the snapshot has no deploys.
+  const latest = recentDeploys.at(0)
+
   return (
     <PageFrame
       title="Content health"
-      sample
       description="The state of every language course, and the builds that shipped them."
       note={
-        <>
-          Latest deploy: <span className="font-medium text-foreground">{latestDeploy.animal}</span>,{' '}
-          <time dateTime={latestDeploy.date}>{formatDate(latestDeploy.date)}</time>
-        </>
+        latest ? (
+          <>
+            Latest deploy:{' '}
+            <span className="font-medium text-foreground">
+              {latest.name} {latest.number}
+            </span>
+            , <time dateTime={latest.date}>{formatDate(latest.date)}</time>
+          </>
+        ) : undefined
       }
     >
       <PageSection label="Key numbers">{stats}</PageSection>

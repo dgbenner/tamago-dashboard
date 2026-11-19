@@ -8,6 +8,15 @@ export const ROOT = path.resolve(import.meta.dirname, '../..')
 /** The five pages, by the id used in the address (`#/growth`). */
 export const PAGE_IDS = ['content-health', 'growth', 'health', 'agent-activity', 'cost']
 
+/** Pages that show the real snapshot. The others are placeholders and must say so. */
+export const REAL_PAGES = ['content-health', 'health', 'agent-activity']
+
+/**
+ * Pages that need not have a chart. Health shows "Not measured yet" where its chart would be, and Content health has
+ * trend lines only once the snapshot history holds two snapshots.
+ */
+export const PAGES_WITHOUT_CHART = ['health', 'content-health']
+
 export const LOCAL_URL = 'http://localhost:5173/'
 export const LIVE_URL = 'https://dgbenner.github.io/tamago-dashboard/'
 

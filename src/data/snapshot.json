@@ -1,0 +1,632 @@
+{
+  "takenAt": "2026-11-19T14:44:00-06:00",
+  "source": {
+    "repo": "dgbenner/tamago",
+    "branch": "main",
+    "commit": "a7a215e",
+    "commitDate": "2026-11-16T17:52:11-06:00"
+  },
+  "languages": [
+    {
+      "id": "fr",
+      "name": "French",
+      "state": "live",
+      "status": "complete",
+      "partsLive": 6,
+      "partsTotal": 6,
+      "circles": 103,
+      "sentences": 4464,
+      "sentencesTatoeba": 3574,
+      "sentencesDrafted": 890,
+      "coverage": {
+        "list": "FLELex",
+        "scope": "core 600",
+        "taught": 581,
+        "total": 600,
+        "percent": 97
+      },
+      "draftsWaiting": 890,
+      "lastDeploy": {
+        "number": 55,
+        "name": "Aardvark",
+        "date": "2026-11-16T08:13:56-06:00"
+      }
+    },
+    {
+      "id": "es",
+      "name": "Spanish",
+      "state": "live",
+      "status": "complete",
+      "partsLive": 4,
+      "partsTotal": 4,
+      "circles": 74,
+      "sentences": 4022,
+      "sentencesTatoeba": 3213,
+      "sentencesDrafted": 809,
+      "coverage": {
+        "list": "Instituto Cervantes",
+        "scope": "full list",
+        "taught": 479,
+        "total": 534,
+        "percent": 90
+      },
+      "draftsWaiting": 809,
+      "lastDeploy": {
+        "number": 55,
+        "name": "Aardvark",
+        "date": "2026-11-16T08:13:56-06:00"
+      }
+    },
+    {
+      "id": "de",
+      "name": "German",
+      "state": "live",
+      "status": "complete",
+      "partsLive": 4,
+      "partsTotal": 4,
+      "circles": 74,
+      "sentences": 4237,
+      "sentencesTatoeba": 3621,
+      "sentencesDrafted": 616,
+      "coverage": {
+        "list": "Goethe-Institut",
+        "scope": "full list",
+        "taught": 572,
+        "total": 627,
+        "percent": 91
+      },
+      "draftsWaiting": 616,
+      "lastDeploy": {
+        "number": 55,
+        "name": "Aardvark",
+        "date": "2026-11-16T08:13:56-06:00"
+      }
+    },
+    {
+      "id": "it",
+      "name": "Italian",
+      "state": "live",
+      "status": "complete",
+      "partsLive": 4,
+      "partsTotal": 4,
+      "circles": 72,
+      "sentences": 3793,
+      "sentencesTatoeba": 2768,
+      "sentencesDrafted": 1025,
+      "coverage": {
+        "list": "Kelly project",
+        "scope": "core 600",
+        "taught": 550,
+        "total": 600,
+        "percent": 92
+      },
+      "draftsWaiting": 1025,
+      "lastDeploy": {
+        "number": 55,
+        "name": "Aardvark",
+        "date": "2026-11-16T08:13:56-06:00"
+      }
+    },
+    {
+      "id": "pt",
+      "name": "Portuguese",
+      "state": "live",
+      "status": "in-progress",
+      "partsLive": 3,
+      "partsTotal": 4,
+      "circles": 55,
+      "sentences": 2548,
+      "sentencesTatoeba": 1929,
+      "sentencesDrafted": 619,
+      "coverage": {
+        "list": "Camões",
+        "scope": "full list",
+        "taught": 445,
+        "total": 649,
+        "percent": 69
+      },
+      "draftsWaiting": 619,
+      "lastDeploy": {
+        "number": 55,
+        "name": "Aardvark",
+        "date": "2026-11-16T08:13:56-06:00"
+      }
+    },
+    {
+      "id": "nl",
+      "name": "Dutch",
+      "state": "coming-soon",
+      "status": null,
+      "partsLive": null,
+      "partsTotal": null,
+      "circles": null,
+      "sentences": null,
+      "sentencesTatoeba": null,
+      "sentencesDrafted": null,
+      "coverage": null,
+      "draftsWaiting": null,
+      "lastDeploy": null
+    },
+    {
+      "id": "sv",
+      "name": "Swedish",
+      "state": "coming-soon",
+      "status": null,
+      "partsLive": null,
+      "partsTotal": null,
+      "circles": null,
+      "sentences": null,
+      "sentencesTatoeba": null,
+      "sentencesDrafted": null,
+      "coverage": null,
+      "draftsWaiting": null,
+      "lastDeploy": null
+    },
+    {
+      "id": "da",
+      "name": "Danish",
+      "state": "coming-soon",
+      "status": null,
+      "partsLive": null,
+      "partsTotal": null,
+      "circles": null,
+      "sentences": null,
+      "sentencesTatoeba": null,
+      "sentencesDrafted": null,
+      "coverage": null,
+      "draftsWaiting": null,
+      "lastDeploy": null
+    },
+    {
+      "id": "pl",
+      "name": "Polish",
+      "state": "coming-soon",
+      "status": null,
+      "partsLive": null,
+      "partsTotal": null,
+      "circles": null,
+      "sentences": null,
+      "sentencesTatoeba": null,
+      "sentencesDrafted": null,
+      "coverage": null,
+      "draftsWaiting": null,
+      "lastDeploy": null
+    },
+    {
+      "id": "ro",
+      "name": "Romanian",
+      "state": "coming-soon",
+      "status": null,
+      "partsLive": null,
+      "partsTotal": null,
+      "circles": null,
+      "sentences": null,
+      "sentencesTatoeba": null,
+      "sentencesDrafted": null,
+      "coverage": null,
+      "draftsWaiting": null,
+      "lastDeploy": null
+    },
+    {
+      "id": "no",
+      "name": "Norwegian",
+      "state": "coming-soon",
+      "status": null,
+      "partsLive": null,
+      "partsTotal": null,
+      "circles": null,
+      "sentences": null,
+      "sentencesTatoeba": null,
+      "sentencesDrafted": null,
+      "coverage": null,
+      "draftsWaiting": null,
+      "lastDeploy": null
+    },
+    {
+      "id": "fi",
+      "name": "Finnish",
+      "state": "coming-soon",
+      "status": null,
+      "partsLive": null,
+      "partsTotal": null,
+      "circles": null,
+      "sentences": null,
+      "sentencesTatoeba": null,
+      "sentencesDrafted": null,
+      "coverage": null,
+      "draftsWaiting": null,
+      "lastDeploy": null
+    },
+    {
+      "id": "cs",
+      "name": "Czech",
+      "state": "coming-soon",
+      "status": null,
+      "partsLive": null,
+      "partsTotal": null,
+      "circles": null,
+      "sentences": null,
+      "sentencesTatoeba": null,
+      "sentencesDrafted": null,
+      "coverage": null,
+      "draftsWaiting": null,
+      "lastDeploy": null
+    },
+    {
+      "id": "hu",
+      "name": "Hungarian",
+      "state": "coming-soon",
+      "status": null,
+      "partsLive": null,
+      "partsTotal": null,
+      "circles": null,
+      "sentences": null,
+      "sentencesTatoeba": null,
+      "sentencesDrafted": null,
+      "coverage": null,
+      "draftsWaiting": null,
+      "lastDeploy": null
+    },
+    {
+      "id": "el",
+      "name": "Greek",
+      "state": "coming-soon",
+      "status": null,
+      "partsLive": null,
+      "partsTotal": null,
+      "circles": null,
+      "sentences": null,
+      "sentencesTatoeba": null,
+      "sentencesDrafted": null,
+      "coverage": null,
+      "draftsWaiting": null,
+      "lastDeploy": null
+    }
+  ],
+  "deploys": [
+    {
+      "number": 58,
+      "name": "Dolphin",
+      "date": "2026-11-16T17:52:11-06:00",
+      "commit": "a7a215e",
+      "changes": [
+        "Tiered testing: a fast tier before every push, the full suite in GitHub Actions after it"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "passed",
+        "tests": 259,
+        "passed": 259,
+        "failed": 0
+      }
+    },
+    {
+      "number": 57,
+      "name": "Capybara",
+      "date": "2026-11-16T15:52:12-06:00",
+      "commit": "6e13c35",
+      "changes": [
+        "Accent guard: a missing accent that makes another course word is wrong, with the accent note",
+        "Full suite split to run in about 9 minutes (was 28); typo guard covers every course word"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "not-recorded",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 56,
+      "name": "Badger",
+      "date": "2026-11-16T15:01:47-06:00",
+      "commit": "073c9a8",
+      "changes": [
+        "Answer checking allows two typos (was one)"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "not-recorded",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 55,
+      "name": "Aardvark",
+      "date": "2026-11-16T08:13:56-06:00",
+      "commit": "945b566",
+      "changes": [
+        "Nine Town pictures (Batch 1) in every course that teaches the words; testing rule in Team",
+        "Portuguese A1 Part 3, Time and Plans: 17 circles, Brush-Up C05 and C06, 32 task items; Camões A1 from 277 to 445 (69%); audits clean",
+        "Italian: Fable's Parts 2 to 4 review applied; Italian and Portuguese public; nine Coming Soon flags",
+        "Interface sounds levelled for phone and tablet speakers: each file to -22 LUFS, peaks under -1 dBFS",
+        "Portuguese A1 Part 2, Everyday Life: 17 circles, Brush-Up C03 and C04, 28 task items; Camões A1 from 136 to 277 (43%); audits clean"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "not-recorded",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 54,
+      "name": "Zebra",
+      "date": "2026-11-16T06:36:02-06:00",
+      "commit": "426b0b8",
+      "changes": [
+        "Version bump for the people-picture fix and shared pictures",
+        "Pictures another course already has, mapped to 54 words in Spanish, German, Italian and Portuguese",
+        "Pictures of people meet the bottom edge of their circle or frame"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "not-recorded",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 53,
+      "name": "Yak",
+      "date": "2026-11-16T03:47:30-06:00",
+      "commit": "6a4bfd9",
+      "changes": [
+        "Version bump for Italian Parts 2 to 4",
+        "Italian A1 Part 4, Out and About: 17 circles, Brush-Up C07 and C08, 34 task items; Kelly core 600 from 345 to 552 (92%); mock CELI Impatt…",
+        "Italian A1 Part 3, Time and Plans: 17 circles, Brush-Up C05 and C06, 32 task items (three Read and Answer texts per circle); Kelly core 6…",
+        "Italian A1 Part 2, Everyday Life: 17 circles, Brush-Up C03 and C04, 28 task items (three Read and Answer texts per circle); Kelly core 60…",
+        "Interface sounds (all courses): Reduce Motion no longer mutes them (the cause of no sounds on iPhone and iPad); played from rendered file…",
+        "Team: pull, re-test, then push; never force-push"
+      ],
+      "changesHidden": 1,
+      "test": {
+        "result": "not-recorded",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 52,
+      "name": "Xerus",
+      "date": "2026-11-15T21:25:12-06:00",
+      "commit": "56940e7",
+      "changes": [
+        "Answer sounds (all courses): correct Warm lift and incorrect Muted minor at the instant of Check; the voice starts at its usual moment an…"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "not-recorded",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 51,
+      "name": "Walrus",
+      "date": "2026-11-15T21:18:37-06:00",
+      "commit": "cb8626f",
+      "changes": [
+        "iPhone fixes (all courses): interface sounds no longer muted by Safari's stuck speaking flag or a sleeping audio context, Speak and Compa…"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "not-recorded",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 50,
+      "name": "Vole",
+      "date": "2026-11-15T20:47:59-06:00",
+      "commit": "fb7d5f8",
+      "changes": [
+        "Design fixes (all courses): circle icons grouped and centred, bigger on phones; QT09 bubble waits for the first chip, chips left-aligned;…"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "not-recorded",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 49,
+      "name": "Urchin",
+      "date": "2026-11-15T19:43:22-06:00",
+      "commit": "7e0d933",
+      "changes": [
+        "Three fixes (all courses): appeler reads its own page (appelle), Type the Word takes the Spain twin (coche for carro), Spanish reflexive…"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "not-recorded",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    }
+  ],
+  "health": {
+    "fullSuite": {
+      "result": "passed",
+      "startedAt": "2026-11-16T23:54:04Z",
+      "finishedAt": "2026-11-17T00:16:27Z",
+      "durationSeconds": 1343,
+      "tests": 259,
+      "passed": 259,
+      "failed": 0,
+      "skipped": 0,
+      "commit": "a7a215e",
+      "deploy": {
+        "number": 58,
+        "name": "Dolphin"
+      },
+      "runsRecorded": 1
+    },
+    "auditNote": {
+      "date": "2026-11-16",
+      "entry": "Italian A1 Parts 2 to 4 (overnight; Developer only)"
+    },
+    "audits": null,
+    "smokeTest": null,
+    "fastTier": null,
+    "uptimePercent": null,
+    "responseTimeMs": null
+  },
+  "activity": {
+    "days": [
+      {
+        "date": "2026-11-06",
+        "commits": 0,
+        "pushes": 0,
+        "deploys": 0
+      },
+      {
+        "date": "2026-11-07",
+        "commits": 14,
+        "pushes": 0,
+        "deploys": 0
+      },
+      {
+        "date": "2026-11-08",
+        "commits": 0,
+        "pushes": 0,
+        "deploys": 0
+      },
+      {
+        "date": "2026-11-09",
+        "commits": 38,
+        "pushes": 20,
+        "deploys": 0
+      },
+      {
+        "date": "2026-11-10",
+        "commits": 106,
+        "pushes": 77,
+        "deploys": 0
+      },
+      {
+        "date": "2026-11-11",
+        "commits": 21,
+        "pushes": 14,
+        "deploys": 17
+      },
+      {
+        "date": "2026-11-12",
+        "commits": 6,
+        "pushes": 4,
+        "deploys": 5
+      },
+      {
+        "date": "2026-11-13",
+        "commits": 11,
+        "pushes": 3,
+        "deploys": 4
+      },
+      {
+        "date": "2026-11-14",
+        "commits": 34,
+        "pushes": 7,
+        "deploys": 12
+      },
+      {
+        "date": "2026-11-15",
+        "commits": 23,
+        "pushes": 11,
+        "deploys": 14
+      },
+      {
+        "date": "2026-11-16",
+        "commits": 21,
+        "pushes": 5,
+        "deploys": 6
+      },
+      {
+        "date": "2026-11-17",
+        "commits": 0,
+        "pushes": 0,
+        "deploys": 0
+      },
+      {
+        "date": "2026-11-18",
+        "commits": 0,
+        "pushes": 0,
+        "deploys": 0
+      },
+      {
+        "date": "2026-11-19",
+        "commits": 0,
+        "pushes": 0,
+        "deploys": 0
+      }
+    ],
+    "firstCommit": "2026-11-07T08:41:36-06:00",
+    "commitsTotal": 274,
+    "deploysTotal": 58,
+    "reviewsApplied": [
+      {
+        "date": "2026-11-16T06:14:35-06:00",
+        "subject": "Italian: Fable's Parts 2 to 4 review applied; Italian and Portuguese public; nine Coming Soon flags"
+      },
+      {
+        "date": "2026-11-15T15:50:08-06:00",
+        "subject": "Fable's Spanish Part 4 and German Parts 3-4 reviews applied"
+      },
+      {
+        "date": "2026-11-15T14:00:27-06:00",
+        "subject": "Fable's Spanish Part 3 review applied: 343 lines in, swaps, Mexican words with Spain's accepted, senses, tables, N205"
+      },
+      {
+        "date": "2026-11-15T09:30:19-06:00",
+        "subject": "French Parts 5-6 review applied (Fable): 397 lines in, 40 swaps, draft and text fixes, rappeler and asseoir tables, 22 senses; French A1…"
+      },
+      {
+        "date": "2026-11-14T19:09:33-06:00",
+        "subject": "French Parts 3-4 review applied; accent-pair choices; Match Pairs deselect; flag order; word senses"
+      },
+      {
+        "date": "2026-11-14T18:49:06-06:00",
+        "subject": "Portuguese prepared for merge: wired in (Developer only), Fable's review applied"
+      },
+      {
+        "date": "2026-11-14T16:50:02-06:00",
+        "subject": "Italian Part 1: Fable's review applied (97 Tatoeba lines in, 9 swaps, 4 fixes, 1 cut)"
+      },
+      {
+        "date": "2026-11-14T11:29:55-06:00",
+        "subject": "Fable's Part 2 reviews applied: Spanish 333 Tatoeba lines in, 11 swaps, S48108 fix, 4 accepted answers; German 317 in, 13 swaps, 5 fixes,…"
+      },
+      {
+        "date": "2026-11-11T18:52:11-06:00",
+        "subject": "Version Lemur: Fable's vocabulary review in all three courses. Use candidates swapped in with Fable's English picks (French 24, Spanish 1…"
+      },
+      {
+        "date": "2026-11-10T16:29:36-06:00",
+        "subject": "German: Fable's candidates applied (15 drafts swapped), week pair cut, 4 accepted answers; review files committed"
+      },
+      {
+        "date": "2026-11-10T14:00:00-06:00",
+        "subject": "French: 40 drafts swapped for Fable-reviewed Tatoeba sentences (workbook v25; native-speaker list 293 to 253; 38 held: pair halves and al…"
+      },
+      {
+        "date": "2026-11-10T13:43:08-06:00",
+        "subject": "Spanish: 31 drafts swapped for Fable-reviewed Tatoeba sentences (native-speaker list 158 to 127; 31 held: pair halves and already-used ca…"
+      }
+    ],
+    "runsByAgent": null,
+    "runDurations": null,
+    "itemsFlagged": null,
+    "runsStopped": null
+  }
+}

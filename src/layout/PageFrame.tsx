@@ -51,7 +51,7 @@ export function PageSection({ label, children }: { label: string; children: Reac
   )
 }
 
-/** The three slots every sample-data page takes. */
+/** The three slots a stats, chart and table page takes. */
 export interface DashboardPageProps {
   /** The stat cards. Lays out its own responsive grid. */
   stats: ReactNode
@@ -61,17 +61,21 @@ export interface DashboardPageProps {
   table: ReactNode
 }
 
-/** A sample-data page: header with the badge, then stats, chart, table. */
+/**
+ * A stats, chart and table page: header, then the three slots. `sample` shows the "Sample data"
+ * badge; only placeholder pages set it.
+ */
 export function DashboardPage({
   title,
   description,
   note,
+  sample = false,
   stats,
   chart,
   table,
-}: DashboardPageProps & { title: string; description: string; note?: ReactNode }) {
+}: DashboardPageProps & { title: string; description: string; note?: ReactNode; sample?: boolean }) {
   return (
-    <PageFrame title={title} description={description} note={note} sample>
+    <PageFrame title={title} description={description} note={note} sample={sample}>
       <PageSection label="Key numbers">{stats}</PageSection>
       <PageSection label="Chart">{chart}</PageSection>
       <PageSection label="Table">{table}</PageSection>

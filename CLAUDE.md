@@ -25,10 +25,24 @@ for `src/`.
 
    The main session (the coordinator) owns everything else: `src/App.tsx`, `src/main.tsx`,
    `src/index.css`, `src/components/ui/`, config files and these docs. Agents may read any file.
-3. **No real data and no network calls.** Everything comes from `src/data/`.
+3. **No network calls.** Everything a page shows comes from `src/data/`.
 4. **Every number on a page comes from the data files**, never typed into a page. This includes
    counts, percentages, dates and totals. Derived numbers (an average, a sum) are computed from the
    data, in code.
+
+## Real data and placeholders
+
+- Content health, Health and Agent activity show **real** numbers from `src/data/snapshot.json`, written by
+  `npm run snapshot` (`scripts/snapshot.mjs`, owned by the coordinator). Growth and Cost are placeholders with mock data.
+- `snapshot.json` and `snapshot-history.json` are generated. Nobody edits them by hand, the `data` agent included.
+- **Never invent or estimate a number.** An empty value in the snapshot reaches the page as "Not measured yet"
+  (or "Not recorded"), never as 0.
+- Counts only: no sentence text, nothing from Tamago's `_review/` files, no personal details.
+- The snapshot reads a clean copy of the pushed Tamago repo kept in `.cache/` and the GitHub API. Nothing in this
+  project reads or writes `~/Sites/tamago`.
+- A trend line is drawn only when the history holds two or more snapshots.
+- A real page carries the quiet line "Real data, snapshot from …" and no "Sample data" badge. A placeholder page
+  carries the red banner and the badge.
 
 ## Working here
 

@@ -6,6 +6,7 @@ export function CostPage(props: DashboardPageProps) {
     <DashboardPage
       title="Cost"
       description="What the agent runs cost."
+      sample
       {...props}
     />
   )

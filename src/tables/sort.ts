@@ -8,10 +8,13 @@ export interface SortState<Key extends string> {
   direction: SortDirection
 }
 
-/** The value a column sorts by: text is compared alphabetically, numbers numerically. */
-export type SortValue = string | number
+/**
+ * The value a column sorts by: text is compared alphabetically, numbers numerically. `null` means
+ * the row has no value for that column; those rows go last whichever way the column is sorted.
+ */
+export type SortValue = string | number | null
 
-function compare(a: SortValue, b: SortValue): number {
+function compare(a: string | number, b: string | number): number {
   if (typeof a === 'number' && typeof b === 'number') return a - b
   return String(a).localeCompare(String(b))
 }
@@ -31,7 +34,12 @@ export function useSort<Row, Key extends string>(
     if (!sort) return [...rows]
     const value = accessors[sort.key]
     const sign = sort.direction === 'ascending' ? 1 : -1
-    return [...rows].sort((a, b) => sign * compare(value(a), value(b)))
+    return [...rows].sort((rowA, rowB) => {
+      const a = value(rowA)
+      const b = value(rowB)
+      if (a === null || b === null) return a === b ? 0 : a === null ? 1 : -1
+      return sign * compare(a, b)
+    })
   }, [rows, accessors, sort])
 
   function toggleSort(key: Key) {

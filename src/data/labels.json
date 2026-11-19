@@ -1,15 +1,53 @@
 {
-  "languageStatus": { "complete": "Complete", "in-progress": "In progress" },
-  "deployResult": { "live": "Live", "blocked": "Blocked" },
-  "statDescription": {
-    "languages-live": "Public in the app",
-    "a1-coverage": "Main path, average across languages",
-    "drafts-waiting": "For a native speaker",
-    "failed-checks": "In the last build"
+  "notMeasured": "Not measured yet",
+  "notRecorded": "Not recorded",
+  "realLanguageStatus": { "complete": "Complete", "in-progress": "In progress", "coming-soon": "Coming Soon" },
+  "parts": "{live} of {total}",
+  "coverageList": { "fullList": "{list}", "scoped": "{list}, {scope}" },
+  "deployTest": { "passed": "Passed", "failed": "Failed", "running": "Running" },
+  "deployTestCounts": "{passed}/{tests}",
+  "deployName": "{name} {number}",
+  "fullTestRun": {
+    "withDeploy": "Full test run, {deploy}",
+    "withoutDeploy": "Full test run",
+    "none": "No full test run is recorded"
   },
-  "auditResult": { "pass": "Pass", "fail": "Fail" },
-  "runResult": { "done": "Done", "flagged": "Flagged", "stopped": "Stopped" },
+  "healthCheckResult": { "pass": "Pass", "fail": "Fail" },
+  "healthChecks": {
+    "full-suite": {
+      "name": "Full test suite (GitHub Actions)",
+      "counts": "{passed} of {tests} tests",
+      "noCounts": "Test counts not recorded; ran",
+      "withDuration": "{counts} in {duration}",
+      "onDeploy": "{detail}, on {deploy}",
+      "none": "No full test run is recorded."
+    },
+    "audits": {
+      "name": "Content audits",
+      "detail": "No result is kept.",
+      "detailWithNote": "The build log says both audits were clean on {date} ({entry}), but no result file is kept. This is a note, not a measurement."
+    },
+    "smoke": { "name": "Smoke test", "detail": "Runs before each push. No result is kept." },
+    "fast-tier": { "name": "Fast tests before each push", "detail": "Run before each push. No result is kept." },
+    "uptime": { "name": "Uptime", "detail": "Needs a check that visits the site every few minutes." },
+    "response-time": { "name": "Response time", "detail": "Needs a check that visits the site every few minutes." }
+  },
+  "activitySeries": { "commits": "Commits", "pushes": "Pushes", "deploys": "Deploys" },
+  "activityNotRecorded": {
+    "pushes": "pushes",
+    "runsByAgent": "which agent did the work",
+    "runDurations": "how long each run took",
+    "itemsFlagged": "items an agent flagged",
+    "runsStopped": "runs stopped by a stop rule"
+  },
+  "lastDays": { "plain": "Last {days} days", "withTotal": "Last {days} days; {total} in all" },
   "statTiles": {
+    "content": [
+      { "id": "languages-live", "label": "Languages live", "description": "Public in the app; {comingSoon} more coming soon" },
+      { "id": "a1-coverage", "label": "A1 coverage", "description": "Average of each course's own official list" },
+      { "id": "drafts-waiting", "label": "Drafts waiting", "description": "For a native speaker" },
+      { "id": "failed-checks", "label": "Failed checks", "description": "{run}" }
+    ],
     "growth": [
       { "id": "languages", "label": "Languages", "description": "In the app" },
       { "id": "lessons", "label": "Lessons", "description": "Across all languages" },
@@ -17,16 +55,16 @@
       { "id": "a1-words-covered", "label": "A1 words covered", "description": "Main path, average across languages" }
     ],
     "health": [
-      { "id": "uptime", "label": "Uptime this month", "description": "A check every 5 minutes" },
-      { "id": "response-time", "label": "Average response time", "description": "Last 14 days" },
-      { "id": "checks-passed", "label": "Checks passed", "description": "In the last build" },
-      { "id": "deploys-this-week", "label": "Deploys this week", "description": "Last 7 days" }
+      { "id": "uptime", "label": "Uptime this month", "description": "No uptime check exists yet" },
+      { "id": "response-time", "label": "Average response time", "description": "No response-time check exists yet" },
+      { "id": "checks-passed", "label": "Checks passed", "description": "{run}" },
+      { "id": "deploys-this-week", "label": "Deploys this week", "description": "{period}" }
     ],
     "activity": [
-      { "id": "agent-runs", "label": "Agent runs this week", "description": "Last 7 days, all agents" },
-      { "id": "fable-reviews", "label": "Fable reviews", "description": "Last 7 days" },
-      { "id": "items-flagged", "label": "Items Fable flagged", "description": "Last 7 days" },
-      { "id": "runs-stopped", "label": "Runs stopped by a stop rule", "description": "Last 7 days" }
+      { "id": "commits", "label": "Commits", "description": "{period}" },
+      { "id": "pushes", "label": "Pushes", "description": "{period}" },
+      { "id": "deploys", "label": "Deploys", "description": "{period}" },
+      { "id": "reviews-applied", "label": "Reviews applied", "description": "{period}" }
     ],
     "cost": [
       { "id": "cost-this-month", "label": "Cost this month", "description": "All agents, month to date" },

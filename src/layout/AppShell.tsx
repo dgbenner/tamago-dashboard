@@ -4,15 +4,18 @@ import { TriangleAlert } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Separator } from '@/components/ui/separator'
 
-import { NAV_ITEMS, pageHref, type PageId } from './nav'
+import { snapshotLabel, snapshotTakenAt } from '@/data'
+
+import { NAV_ITEMS, isRealPage, pageHref, type PageId } from './nav'
 
 /**
  * The app shell. At lg and up: a fixed-width sidebar on the left, content on the right.
  * Below lg: the sidebar becomes a compact top bar (product name and the nav links in one row,
  * which scrolls sideways inside the bar when it runs out of room), content below.
  *
- * A warning banner runs across the full width above everything. The shell fills the window and only
- * the content area scrolls, so the banner (and the sidebar or top bar) always stay in view.
+ * A banner runs across the full width above everything: a quiet line naming the snapshot on a page of
+ * real data, the red warning on a placeholder page. The shell fills the window and only the content
+ * area scrolls, so the banner (and the sidebar or top bar) always stay in view.
  */
 export function AppShell({
   current = 'content-health',
@@ -38,15 +41,28 @@ export function AppShell({
 
   return (
     <div className="flex h-dvh w-full flex-col bg-background text-foreground">
-      {/* Same colors as the destructive Badge, the library's warning style. */}
-      <div
-        role="note"
-        aria-label="Warning"
-        className="flex shrink-0 items-center justify-center gap-2 bg-destructive px-4 py-2 text-center text-sm font-semibold text-white dark:bg-destructive/60"
-      >
-        <TriangleAlert className="size-4 shrink-0" aria-hidden="true" />
-        <p>Placeholder numbers. Nothing on this page is real data yet.</p>
-      </div>
+      {isRealPage(current) ? (
+        <div
+          role="note"
+          data-banner="real"
+          className="shrink-0 border-b bg-muted px-4 py-1.5 text-center text-xs text-muted-foreground"
+        >
+          <p>
+            Real data, snapshot from <time dateTime={snapshotTakenAt}>{snapshotLabel}</time>
+          </p>
+        </div>
+      ) : (
+        // Same colors as the destructive Badge, the library's warning style.
+        <div
+          role="note"
+          aria-label="Warning"
+          data-banner="placeholder"
+          className="flex shrink-0 items-center justify-center gap-2 bg-destructive px-4 py-2 text-center text-sm font-semibold text-white dark:bg-destructive/60"
+        >
+          <TriangleAlert className="size-4 shrink-0" aria-hidden="true" />
+          <p>Placeholder numbers. Nothing on this page is real data yet.</p>
+        </div>
+      )}
 
       <div className="flex min-h-0 flex-1 flex-col lg:flex-row">
       <aside

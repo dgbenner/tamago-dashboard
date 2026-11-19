@@ -6,6 +6,7 @@ export function GrowthPage(props: DashboardPageProps) {
     <DashboardPage
       title="Growth"
       description="How much Tamago's content has grown."
+      sample
       {...props}
     />
   )

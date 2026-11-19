@@ -1,11 +1,10 @@
-// The agents and what they did each day. The one source for both the Agent activity and Cost pages.
+// The mock agents and what they did each day, for the Cost page (a placeholder page).
 
 import agentDailyJson from './agentDaily.json'
-import agentDailyEventsJson from './agentDailyEvents.json'
 import agentsJson from './agents.json'
 import { check, daysBetween, oneOf } from './internal'
 import { periods } from './periods'
-import type { Agent, AgentDay, AgentDayEvents, AgentId, AgentTotals, ChartSeries } from './types'
+import type { Agent, AgentDay, AgentId, AgentTotals, ChartSeries } from './types'
 
 export const AGENT_IDS = ['builder-1', 'builder-2', 'fable', 'debugger'] as const satisfies readonly AgentId[]
 
@@ -15,7 +14,7 @@ export const agents: Agent[] = agentsJson.map((agent) => ({
   id: oneOf(AGENT_IDS, agent.id, 'agent id'),
 }))
 
-/** The agents as chart series `{ id, name }`, for the stacked runs-per-day chart. */
+/** The agents as chart series `{ id, name }`. */
 export const agentSeries: ChartSeries[] = agents
 
 /** An agent's display name, e.g. 'builder-1' → "Builder 1". */
@@ -36,18 +35,11 @@ export const agentDaily: AgentDay[] = (agentDailyJson satisfies AgentDayJson[]).
   agentId: oneOf(AGENT_IDS, day.agentId, `agentDaily ${day.date} agentId`),
 }))
 
-/** One record per day for the same 30 days: items Fable flagged and runs stopped by a stop rule. */
-export const agentDailyEvents: AgentDayEvents[] = agentDailyEventsJson satisfies AgentDayEvents[]
-
 const last30Days = daysBetween(periods.last30Days.start, periods.last30Days.end)
 check(
   agentDaily.map((day) => `${day.date} ${day.agentId}`).join() ===
     last30Days.flatMap((date) => AGENT_IDS.map((id) => `${date} ${id}`)).join(),
   'agentDaily.json must have one row per agent for each of the last 30 days, in order',
-)
-check(
-  agentDailyEvents.map((day) => day.date).join() === last30Days.join(),
-  'agentDailyEvents.json must have one row for each of the last 30 days, in order',
 )
 for (const day of agentDaily) {
   check(day.runs > 0 || (day.tokens === 0 && day.cost === 0), `agentDaily ${day.date} ${day.agentId}: cost without runs`)

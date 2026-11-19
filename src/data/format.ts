@@ -1,6 +1,7 @@
 // Every formatter pages need, so no page formats a number or a date itself.
 
 import { toUtcDate } from './internal'
+import { dayOf, wallClock } from './snapshot-raw'
 import type { IsoDate, IsoDateTime } from './types'
 
 const countFormat = new Intl.NumberFormat('en-US', { maximumFractionDigits: 0 })
@@ -63,24 +64,31 @@ export function formatDuration(seconds: number): string {
 const longDateFormat = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', year: 'numeric', timeZone: 'UTC' })
 const shortDateFormat = new Intl.DateTimeFormat('en-US', { month: 'short', day: 'numeric', timeZone: 'UTC' })
 
-/** 'YYYY-MM-DD' → "Nov 16, 2026". The same in every time zone. */
-export function formatDate(date: IsoDate): string {
-  return longDateFormat.format(toUtcDate(date))
+// The four date formatters below take any date the data holds:
+//   'YYYY-MM-DD'                      a day
+//   'YYYY-MM-DDTHH:mm:ss'             a wall-clock time with no zone (mock data): digits as written
+//   'YYYY-MM-DDTHH:mm:ss-06:00'       a time with an offset (the snapshot): digits as written
+//   'YYYY-MM-DDTHH:mm:ssZ'            a UTC time (the snapshot): moved to the snapshot's own offset
+// so every time on a page is in one zone, and the machine's time zone is never used.
+
+/** → "Nov 16, 2026". The same on every machine. */
+export function formatDate(date: IsoDate | IsoDateTime): string {
+  return longDateFormat.format(toUtcDate(dayOf(date)))
 }
 
-/** 'YYYY-MM-DD' → "Nov 16". For chart axes, tooltips and tight table cells. */
-export function formatShortDate(date: IsoDate): string {
-  return shortDateFormat.format(toUtcDate(date))
+/** → "Nov 16". For chart axes, tooltips and tight table cells. */
+export function formatShortDate(date: IsoDate | IsoDateTime): string {
+  return shortDateFormat.format(toUtcDate(dayOf(date)))
 }
 
-/** 'YYYY-MM-DDTHH:mm:ss' → "2:05 PM". Reads the digits as written, so no time zone is involved. */
+/** → "2:05 PM". */
 export function formatTime(dateTime: IsoDateTime): string {
-  const [hours, minutes] = dateTime.slice(11, 16).split(':').map(Number)
+  const [hours, minutes] = wallClock(dateTime).slice(11, 16).split(':').map(Number)
   const hour12 = hours % 12 === 0 ? 12 : hours % 12
   return `${hour12}:${String(minutes).padStart(2, '0')} ${hours < 12 ? 'AM' : 'PM'}`
 }
 
-/** 'YYYY-MM-DDTHH:mm:ss' → "Nov 17, 2:05 PM". The same in every time zone. */
+/** → "Nov 17, 2:05 PM". */
 export function formatDateTime(dateTime: IsoDateTime): string {
-  return `${formatShortDate(dateTime.slice(0, 10))}, ${formatTime(dateTime)}`
+  return `${formatShortDate(dateTime)}, ${formatTime(dateTime)}`
 }

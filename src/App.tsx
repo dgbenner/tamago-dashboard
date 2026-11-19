@@ -1,12 +1,11 @@
 import { useEffect, useState, type ReactNode } from 'react'
 
+import { ActivityByDayChart } from '@/charts/ActivityByDayChart'
 import { CostByDayChart } from '@/charts/CostByDayChart'
 import { LessonsChart } from '@/charts/LessonsChart'
 import { ResponseTimeChart } from '@/charts/ResponseTimeChart'
-import { RunsByDayChart } from '@/charts/RunsByDayChart'
-import { StatCards } from '@/charts/StatCards'
 import { StatTiles } from '@/charts/StatTiles'
-import { activityStatCards, costStatCards, growthStatCards, healthStatCards } from '@/data'
+import { activityStatTiles, contentStatTiles, costStatCards, growthStatCards, healthStatTiles } from '@/data'
 import { AppShell } from '@/layout/AppShell'
 import { NAV_ITEMS, type PageId } from '@/layout/nav'
 import { AgentActivityPage } from '@/pages/AgentActivityPage'
@@ -15,17 +14,18 @@ import { CostPage } from '@/pages/CostPage'
 import { GrowthPage } from '@/pages/GrowthPage'
 import { HealthPage } from '@/pages/HealthPage'
 import { AgentCostTable } from '@/tables/AgentCostTable'
-import { AgentRunsTable } from '@/tables/AgentRunsTable'
-import { AuditsTable } from '@/tables/AuditsTable'
 import { DeploysTable } from '@/tables/DeploysTable'
 import { GrowthTable } from '@/tables/GrowthTable'
+import { HealthChecksTable } from '@/tables/HealthChecksTable'
 import { LanguagesTable } from '@/tables/LanguagesTable'
+import { ReviewsAppliedTable } from '@/tables/ReviewsAppliedTable'
 
 // Assembled by the coordinator: each section comes from the agent that owns it.
+// Content health, Health and Agent activity read the real snapshot (npm run snapshot); Growth and Cost are placeholders.
 const PAGES: Record<PageId, () => ReactNode> = {
   'content-health': () => (
     <ContentHealthPage
-      stats={<StatCards />}
+      stats={<StatTiles tiles={contentStatTiles} />}
       languages={<LanguagesTable />}
       deploys={<DeploysTable />}
     />
@@ -39,16 +39,16 @@ const PAGES: Record<PageId, () => ReactNode> = {
   ),
   health: () => (
     <HealthPage
-      stats={<StatTiles tiles={healthStatCards} />}
+      stats={<StatTiles tiles={healthStatTiles} />}
       chart={<ResponseTimeChart />}
-      table={<AuditsTable />}
+      table={<HealthChecksTable />}
     />
   ),
   'agent-activity': () => (
     <AgentActivityPage
-      stats={<StatTiles tiles={activityStatCards} />}
-      chart={<RunsByDayChart />}
-      table={<AgentRunsTable />}
+      stats={<StatTiles tiles={activityStatTiles} />}
+      chart={<ActivityByDayChart />}
+      table={<ReviewsAppliedTable />}
     />
   ),
   cost: () => (

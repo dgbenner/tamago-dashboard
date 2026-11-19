@@ -23,7 +23,7 @@ node scripts/checks/screenshots.mjs live     # the published site
 
 Opens all five pages at 1440 px and 390 px wide and saves a full-height screenshot of each to
 `screenshots/`, replacing the old ones. It fails if a page logs a console error, scrolls sideways, or
-has no cards, table rows or chart. It does not judge how a page looks; open the screenshots for that.
+has no cards or table rows, or no chart on a page that should have one. It does not judge how a page looks; open the screenshots for that.
 
 ## Component audit
 
@@ -76,9 +76,12 @@ Opens each page from its own address, the way a bookmark would, scrolls to the b
 For each page it prints `DONE` or `NOT DONE` with the reasons. A page is done when:
 
 - the right page opens, and is the same after a refresh
-- the warning banner has its exact text and is still at the top after scrolling
-- the "Sample data" badge is in the header
-- it has cards, table rows and a chart
+- a real page (Content health, Health, Agent activity) has the line "Real data, snapshot from …" with a date and
+  time, and no "Sample data" badge
+- a placeholder page (Growth, Cost) has the red warning banner with its exact text, and the "Sample data" badge
+- the banner is still at the top after scrolling
+- it has cards and table rows, and a chart where the page has one
+- it asks the network for nothing beyond the site's own files
 - the `noindex` tag is present
 
 Run it a minute or two after a push, once the deploy in the repo's Actions tab has finished.
@@ -93,5 +96,9 @@ gitleaks git --redact .
 
 ## If the pages change
 
-- The page list and the two addresses are in `shared.mjs`.
-- The banner text is in `live-check.mjs`.
+- The page list, which pages are real, and the two addresses are in `shared.mjs`.
+- The banner texts are in `live-check.mjs`.
+
+## A new snapshot
+
+`npm run snapshot` collects the real numbers again (see the main README). Run these checks after it, before pushing.

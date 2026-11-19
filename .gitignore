@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# The snapshot command keeps its clean copy of the Tamago repo here.
+.cache

@@ -7,7 +7,7 @@ import { mkdirSync } from 'node:fs'
 import path from 'node:path'
 import { chromium } from 'playwright'
 
-import { baseUrl, PAGE_IDS, ROOT } from './shared.mjs'
+import { baseUrl, PAGE_IDS, PAGES_WITHOUT_CHART, ROOT } from './shared.mjs'
 
 const base = baseUrl(process.argv[2])
 const outDir = path.join(ROOT, 'screenshots')
@@ -52,7 +52,7 @@ for (const width of WIDTHS) {
     if (!seen.title) problems.push(`${label}: no page title`)
     if (!seen.cards) problems.push(`${label}: no cards`)
     if (!seen.tableRows) problems.push(`${label}: no table rows`)
-    if (!seen.charts) problems.push(`${label}: no chart`)
+    if (!seen.charts && !PAGES_WITHOUT_CHART.includes(id)) problems.push(`${label}: no chart`)
     if (seen.sideways) problems.push(`${label}: the page scrolls sideways`)
     console.log(`${label}: ${seen.title}, ${seen.cards} cards, ${seen.tableRows} table rows, ${seen.charts} charts`)
   }

@@ -1,26 +1,35 @@
+import type { ComponentProps } from 'react'
+
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHeader, TableRow } from '@/components/ui/table'
 import {
+  comingSoonLanguages,
+  coverageListLabel,
   formatCount,
   formatDate,
+  formatParts,
   formatPercent,
-  languages,
-  languageStatusLabels,
-  type Language,
+  languageStatusKey,
+  liveLanguages,
+  realLanguageStatusLabels,
+  type RealLanguage,
 } from '@/data'
 
+import { EMPTY, numberCell } from './cells'
 import { SortableHead } from './SortableHead'
 import { useSort, type SortValue } from './sort'
 
 type ColumnKey =
   | 'name'
   | 'status'
+  | 'parts'
   | 'circles'
   | 'sentences'
-  | 'a1Coverage'
+  | 'sentencesTatoeba'
+  | 'sentencesDrafted'
+  | 'coverage'
   | 'draftsWaiting'
-  | 'candidatesWaiting'
   | 'lastDeploy'
 
 interface Column {
@@ -32,36 +41,103 @@ interface Column {
 const columns: Column[] = [
   { key: 'name', label: 'Language' },
   { key: 'status', label: 'Status' },
+  { key: 'parts', label: 'Parts', numeric: true },
   { key: 'circles', label: 'Circles', numeric: true },
   { key: 'sentences', label: 'Sentences', numeric: true },
-  { key: 'a1Coverage', label: 'A1 coverage', numeric: true },
+  { key: 'sentencesTatoeba', label: 'From Tatoeba', numeric: true },
+  { key: 'sentencesDrafted', label: 'Drafted', numeric: true },
+  { key: 'coverage', label: 'A1 coverage', numeric: true },
   { key: 'draftsWaiting', label: 'Drafts waiting', numeric: true },
-  { key: 'candidatesWaiting', label: 'Candidates waiting for Fable', numeric: true },
   { key: 'lastDeploy', label: 'Last deploy' },
 ]
 
-// What each column sorts by. ISO dates ('YYYY-MM-DD') sort correctly as text.
-const sortValues: Record<ColumnKey, (row: Language) => SortValue> = {
+// What each column sorts by. A null (no value in the snapshot) sorts last either way.
+const sortValues: Record<ColumnKey, (row: RealLanguage) => SortValue> = {
   name: (row) => row.name,
-  status: (row) => languageStatusLabels[row.status],
+  status: (row) => realLanguageStatusLabels[languageStatusKey(row)],
+  parts: (row) => row.partsLive,
   circles: (row) => row.circles,
   sentences: (row) => row.sentences,
-  a1Coverage: (row) => row.a1Coverage,
+  sentencesTatoeba: (row) => row.sentencesTatoeba,
+  sentencesDrafted: (row) => row.sentencesDrafted,
+  coverage: (row) => row.coverage?.percent ?? null,
   draftsWaiting: (row) => row.draftsWaiting,
-  candidatesWaiting: (row) => row.candidatesWaiting,
-  lastDeploy: (row) => row.lastDeploy.date,
+  lastDeploy: (row) => row.lastDeploy?.number ?? null,
 }
 
-const numberCell = 'text-right tabular-nums'
+type StatusKey = ReturnType<typeof languageStatusKey>
+
+// The label text carries the meaning; the variant only adds emphasis.
+const statusVariants: Record<StatusKey, ComponentProps<typeof Badge>['variant']> = {
+  complete: 'default',
+  'in-progress': 'secondary',
+  'coming-soon': 'outline',
+}
+
+/** A count, or the em dash when the snapshot has no value. */
+function count(value: number | null): string {
+  return value === null ? EMPTY : formatCount(value)
+}
+
+function LanguageRow({ row }: { row: RealLanguage }) {
+  const statusKey = languageStatusKey(row)
+  const comingSoon = statusKey === 'coming-soon'
+
+  return (
+    <TableRow className={comingSoon ? 'text-muted-foreground' : undefined}>
+      <TableCell className="font-medium whitespace-nowrap">{row.name}</TableCell>
+      <TableCell>
+        <Badge
+          variant={statusVariants[statusKey]}
+          className={comingSoon ? 'text-muted-foreground' : undefined}
+        >
+          {realLanguageStatusLabels[statusKey]}
+        </Badge>
+      </TableCell>
+      <TableCell className={numberCell}>{formatParts(row) || EMPTY}</TableCell>
+      <TableCell className={numberCell}>{count(row.circles)}</TableCell>
+      <TableCell className={numberCell}>{count(row.sentences)}</TableCell>
+      <TableCell className={numberCell}>{count(row.sentencesTatoeba)}</TableCell>
+      <TableCell className={numberCell}>{count(row.sentencesDrafted)}</TableCell>
+      <TableCell className={numberCell}>
+        {row.coverage ? (
+          <>
+            {formatPercent(row.coverage.percent)}
+            <div className="text-xs text-muted-foreground">{coverageListLabel(row.coverage)}</div>
+          </>
+        ) : (
+          EMPTY
+        )}
+      </TableCell>
+      <TableCell className={numberCell}>{count(row.draftsWaiting)}</TableCell>
+      <TableCell className="whitespace-nowrap">
+        {row.lastDeploy ? (
+          <>
+            {row.lastDeploy.name} <span className="tabular-nums">{row.lastDeploy.number}</span>{' '}
+            <span className="text-muted-foreground">{formatDate(row.lastDeploy.date)}</span>
+          </>
+        ) : (
+          EMPTY
+        )}
+      </TableCell>
+    </TableRow>
+  )
+}
 
 export function LanguagesTable() {
-  const { sorted, toggleSort, directionOf } = useSort(languages, sortValues)
+  // Only the live rows are sorted. The coming-soon rows have no data to sort by, so they are
+  // appended after them and stay at the bottom whatever the sort.
+  const { sorted, toggleSort, directionOf } = useSort(liveLanguages, sortValues)
 
   return (
     <Card className="min-w-0">
       <CardHeader>
         <CardTitle>Languages</CardTitle>
-        <CardDescription>One row per language. Select a column heading to sort.</CardDescription>
+        <CardDescription>
+          One row per language: {formatCount(liveLanguages.length)} live,{' '}
+          {formatCount(comingSoonLanguages.length)} coming soon. Select a column heading to sort the
+          live languages.
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
@@ -81,23 +157,10 @@ export function LanguagesTable() {
           </TableHeader>
           <TableBody>
             {sorted.map((row) => (
-              <TableRow key={row.id}>
-                <TableCell className="font-medium">{row.name}</TableCell>
-                <TableCell>
-                  <Badge variant={row.status === 'complete' ? 'default' : 'secondary'}>
-                    {languageStatusLabels[row.status]}
-                  </Badge>
-                </TableCell>
-                <TableCell className={numberCell}>{formatCount(row.circles)}</TableCell>
-                <TableCell className={numberCell}>{formatCount(row.sentences)}</TableCell>
-                <TableCell className={numberCell}>{formatPercent(row.a1Coverage)}</TableCell>
-                <TableCell className={numberCell}>{formatCount(row.draftsWaiting)}</TableCell>
-                <TableCell className={numberCell}>{formatCount(row.candidatesWaiting)}</TableCell>
-                <TableCell>
-                  {row.lastDeploy.animal}{' '}
-                  <span className="text-muted-foreground">{formatDate(row.lastDeploy.date)}</span>
-                </TableCell>
-              </TableRow>
+              <LanguageRow key={row.id} row={row} />
+            ))}
+            {comingSoonLanguages.map((row) => (
+              <LanguageRow key={row.id} row={row} />
             ))}
           </TableBody>
         </Table>
