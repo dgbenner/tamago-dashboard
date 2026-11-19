@@ -46,7 +46,7 @@
     "content": [
       { "id": "languages-live", "label": "Languages live", "description": "Public in the app; {comingSoon} more coming soon" },
       { "id": "courses-complete", "label": "Courses complete", "description": "Live courses with every part live" },
-      { "id": "drafts-waiting", "label": "Drafts waiting", "description": "For a native speaker" },
+      { "id": "drafts-waiting", "label": "Awaiting native check", "description": "Live in lessons, not yet checked by a native speaker" },
       { "id": "failed-checks", "label": "Failed checks", "description": "{run}" }
     ],
     "growth": [

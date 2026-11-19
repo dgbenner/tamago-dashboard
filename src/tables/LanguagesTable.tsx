@@ -47,7 +47,7 @@ const columns: Column[] = [
   { key: 'sentencesTatoeba', label: 'From Tatoeba', numeric: true },
   { key: 'sentencesDrafted', label: 'Drafted', numeric: true },
   { key: 'coverage', label: 'A1 coverage', numeric: true },
-  { key: 'draftsWaiting', label: 'Drafts waiting', numeric: true },
+  { key: 'draftsWaiting', label: 'Awaiting native check', numeric: true },
   { key: 'lastDeploy', label: 'Last deploy' },
 ]
 
@@ -136,7 +136,8 @@ export function LanguagesTable() {
         <CardDescription>
           One row per language: {formatCount(liveLanguages.length)} live,{' '}
           {formatCount(comingSoonLanguages.length)} coming soon. Select a column heading to sort the
-          live languages.
+          live languages. Awaiting native check: drafted sentences that are live in lessons but not yet
+          checked by a native speaker.
         </CardDescription>
       </CardHeader>
       <CardContent>

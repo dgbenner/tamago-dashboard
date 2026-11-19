@@ -106,7 +106,7 @@ const failedChecks = snapshot.health.fullSuite?.failed ?? null
 
 /**
  * The Content health page's four stat cards, in page order: Languages live, Courses complete,
- * Drafts waiting, Failed checks.
+ * Awaiting native check, Failed checks.
  */
 export const contentStatTiles: StatTile[] = buildRealTiles('content', {
   'languages-live': {

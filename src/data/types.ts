@@ -58,7 +58,7 @@ export interface RealLanguage {
   /** Of those, sentences drafted for the course. */
   sentencesDrafted: number | null
   coverage: Coverage | null
-  /** Drafted sentences still waiting for a native speaker's check. */
+  /** Awaiting native check: drafted sentences live in lessons but not yet checked by a native speaker. */
   draftsWaiting: number | null
   /** The latest deploy that changed this language. `date` is a date-time: use `formatDate`. */
   lastDeploy: { number: number; name: string; date: IsoDateTime } | null
