@@ -3,7 +3,8 @@
   "notRecorded": "Not recorded",
   "realLanguageStatus": {
     "complete": "Live",
-    "in-progress": "In Progress",
+    "incomplete": "Live, Incomplete",
+    "started": "In Progress",
     "coming-soon": "Planned"
   },
   "parts": "{live} of {total}",
@@ -189,7 +190,7 @@
   },
   "columnHelp": {
     "language": "The course, by the language it teaches",
-    "status": "Live: every part is in the app. In Progress: some parts are in the app, the rest are still being built. Planned: listed in the app, not built yet",
+    "status": "Live: every part is in the app. Live, Incomplete: in the app, with more parts still to come. In Progress: being built, not in the app yet. Planned: listed in the app, not started",
     "parts": "Parts in the app, out of the parts the course will have. A part is a stretch of the tree, such as First Steps",
     "circles": "Places on the course tree: lesson circles, help circles, Brush-Ups and Pick Your Own",
     "words": "Words in the course word list",

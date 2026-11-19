@@ -1,5 +1,5 @@
 {
-  "takenAt": "2026-11-19T15:24:00-06:00",
+  "takenAt": "2026-11-19T15:45:00-06:00",
   "source": {
     "repo": "dgbenner/tamago",
     "branch": "main",
@@ -115,7 +115,7 @@
       "id": "pt",
       "name": "Portuguese",
       "state": "live",
-      "status": "in-progress",
+      "status": "incomplete",
       "partsLive": 3,
       "partsTotal": 4,
       "circles": 55,

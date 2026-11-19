@@ -9,8 +9,8 @@ import { snapshot } from './snapshot-raw'
 import { buildRealTiles } from './tiles'
 import type { Coverage, DeployTestResult, LanguageState, RealDeploy, RealLanguage, StatTile } from './types'
 
-const LANGUAGE_STATES = ['live', 'coming-soon'] as const satisfies readonly LanguageState[]
-const COURSE_STATUSES = ['complete', 'in-progress'] as const
+const LANGUAGE_STATES = ['live', 'started', 'coming-soon'] as const satisfies readonly LanguageState[]
+const COURSE_STATUSES = ['complete', 'incomplete', 'started'] as const
 const DEPLOY_TEST_RESULTS = ['passed', 'failed', 'running', 'not-recorded'] as const satisfies readonly DeployTestResult[]
 
 /** The scope the snapshot writes when a course is measured against its whole list. */
@@ -23,8 +23,9 @@ const allLanguages: RealLanguage[] = snapshot.languages.map((language) => {
   const state = oneOf(LANGUAGE_STATES, language.state, `${where}.state`)
   const status = language.status === null ? null : oneOf(COURSE_STATUSES, language.status, `${where}.status`)
   check(typeof language.name === 'string' && language.name !== '', `${where} has no name`)
-  check(state === 'coming-soon' || status !== null, `${where} is live but has no status`)
-  check(state === 'live' || status === null, `${where} is coming soon but has a status`)
+  check(state === 'coming-soon' || status !== null, `${where} has content but no status`)
+  check(state !== 'coming-soon' || status === null, `${where} is planned but has a status`)
+  check((state === 'started') === (status === 'started'), `${where}: only a course not yet open in the app is started`)
   return { ...language, state, status }
 })
 
@@ -36,14 +37,22 @@ export const liveLanguages: RealLanguage[] = allLanguages.filter((l) => l.state 
 /** The languages the app lists as coming soon, in the snapshot's order. */
 export const comingSoonLanguages: RealLanguage[] = allLanguages.filter((l) => l.state === 'coming-soon')
 
-/** Every language: the live ones first, then the coming-soon ones. */
-export const realLanguages: RealLanguage[] = [...liveLanguages, ...comingSoonLanguages]
+/** Languages with content pushed but not open in the app yet ("In Progress"), in the snapshot's order. */
+export const startedLanguages: RealLanguage[] = allLanguages.filter((l) => l.state === 'started')
 
-/** Badge text: complete → "Live", in-progress → "In Progress", coming-soon → "Planned". */
-export const realLanguageStatusLabels: Record<'complete' | 'in-progress' | 'coming-soon', string> = labelsJson.realLanguageStatus
+/** The languages that have content: open in the app first, then started. These rows have numbers. */
+export const languagesWithContent: RealLanguage[] = [...liveLanguages, ...startedLanguages]
+
+/** Every language: open in the app, then started, then planned. */
+export const realLanguages: RealLanguage[] = [...liveLanguages, ...startedLanguages, ...comingSoonLanguages]
+
+export type LanguageStatusKey = 'complete' | 'incomplete' | 'started' | 'coming-soon'
+
+/** Badge text: complete → "Live", incomplete → "Live, Incomplete", started → "In Progress", coming-soon → "Planned". */
+export const realLanguageStatusLabels: Record<LanguageStatusKey, string> = labelsJson.realLanguageStatus
 
 /** The key into `realLanguageStatusLabels` for a language. */
-export function languageStatusKey(language: RealLanguage): 'complete' | 'in-progress' | 'coming-soon' {
+export function languageStatusKey(language: RealLanguage): LanguageStatusKey {
   if (language.state === 'coming-soon' || language.status === null) return 'coming-soon'
   return language.status
 }

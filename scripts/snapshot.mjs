@@ -88,7 +88,8 @@ function coverageOf(id) {
 
 const languages = courses.map(({ id, name, ready }) => {
   const dir = `src/${dirOf(id)}`
-  if (!ready || !existsSync(path.join(CLONE, dir, 'sentences.json'))) {
+  // Planned: listed in the app, no content pushed. Started: content pushed, not open in the app yet.
+  if (!existsSync(path.join(CLONE, dir, 'sentences.json'))) {
     return { id, name, state: 'coming-soon', status: null, partsLive: null, partsTotal: null, circles: null, words: null, sentences: null, sentencesTatoeba: null, sentencesDrafted: null, coverage: null, draftsWaiting: null, lastDeploy: null }
   }
   const sentences = readJson(`${dir}/sentences.json`).filter((s) => s.status === 'live')
@@ -97,9 +98,10 @@ const languages = courses.map(({ id, name, ready }) => {
   const partsLive = parts.filter((p) => p.status === 'live').length
   const drafted = sentences.filter((s) => s.source === 'tamago_original')
   return {
-    id, name, state: 'live',
+    id, name, state: ready ? 'live' : 'started',
     // Complete when every part the course lists is live.
-    status: partsLive === parts.length ? 'complete' : 'in-progress',
+    // Live: every part live. Live, incomplete: open in the app with parts still to come. Started: not open yet.
+    status: !ready ? 'started' : partsLive === parts.length ? 'complete' : 'incomplete',
     partsLive, partsTotal: parts.length,
     // Circles: the places on the tree (tree_layout). Topic packs chosen inside a "Pick Your Own" circle are not counted.
     circles: readJson(`${dir}/tree_layout.json`).length,

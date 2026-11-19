@@ -13,7 +13,9 @@ import {
   formatPercent,
   languageColumnHelp,
   languageStatusKey,
+  languagesWithContent,
   liveLanguages,
+  startedLanguages,
   realLanguageStatusLabels,
   type LanguageColumnHelpKey,
   type RealLanguage,
@@ -58,7 +60,8 @@ type StatusKey = ReturnType<typeof languageStatusKey>
 // The label text carries the meaning; the variant only adds emphasis.
 const statusVariants: Record<StatusKey, ComponentProps<typeof Badge>['variant']> = {
   complete: 'default',
-  'in-progress': 'secondary',
+  incomplete: 'secondary',
+  started: 'outline',
   'coming-soon': 'outline',
 }
 
@@ -111,9 +114,9 @@ function LanguageRow({ row }: { row: RealLanguage }) {
 
 /** The courses themselves: status, size and coverage. Every language, coming soon last. */
 export function LanguagesTable() {
-  // Only the live rows are sorted. The coming-soon rows have no data to sort by, so they are
-  // appended after them and stay at the bottom whatever the sort.
-  const { sorted, toggleSort, directionOf } = useSort(liveLanguages, sortValues)
+  // Only the rows with content are sorted (in the app, and In Progress). The planned rows have no data
+  // to sort by, so they are appended after them and stay at the bottom whatever the sort.
+  const { sorted, toggleSort, directionOf } = useSort(languagesWithContent, sortValues)
 
   return (
     <Card className="min-w-0">
@@ -121,8 +124,8 @@ export function LanguagesTable() {
         <CardTitle>Languages</CardTitle>
         <CardDescription>
           What is live, what is partly done, and what is queued up.{' '}
-          {formatCount(liveLanguages.length)} in the app, {formatCount(comingSoonLanguages.length)} planned.
-          Select a column heading to sort the languages in the app.
+          {formatCount(liveLanguages.length)} in the app, {formatCount(startedLanguages.length)} in progress,{' '}
+          {formatCount(comingSoonLanguages.length)} planned. Select a column heading to sort the languages with content.
         </CardDescription>
       </CardHeader>
       <CardContent>

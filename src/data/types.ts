@@ -19,7 +19,7 @@ export interface TrendPoint {
 
 // ══ Content health (real) ════════════════════════════════════════════════════
 
-export type LanguageState = 'live' | 'coming-soon'
+export type LanguageState = 'live' | 'started' | 'coming-soon'
 
 /** How much of a course's official A1 word list the course teaches. */
 export interface Coverage {
@@ -46,7 +46,7 @@ export interface RealLanguage {
   name: string
   state: LanguageState
   /** Whether every part of the course is live. null for coming-soon. Use `languageStatusKey`. */
-  status: 'complete' | 'in-progress' | null
+  status: 'complete' | 'incomplete' | 'started' | null
   partsLive: number | null
   partsTotal: number | null
   /** Circles on the course tree. */

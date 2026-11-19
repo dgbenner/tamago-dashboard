@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils'
 import {
   formatCount,
   languageColumnHelp,
-  liveLanguages,
+  languagesWithContent,
   type LanguageColumnHelpKey,
   type RealLanguage,
 } from '@/data'
@@ -45,9 +45,9 @@ function count(value: number | null): string {
   return value === null ? EMPTY : formatCount(value)
 }
 
-/** Where each live course's sentences come from. Coming-soon languages have none, so are left out. */
+/** Where each course's sentences come from: courses in the app and In Progress. Planned ones have none. */
 export function SentencesTable() {
-  const { sorted, toggleSort, directionOf } = useSort(liveLanguages, sortValues)
+  const { sorted, toggleSort, directionOf } = useSort(languagesWithContent, sortValues)
 
   return (
     <Card className="min-w-0">
