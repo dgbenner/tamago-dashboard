@@ -2,9 +2,9 @@
   "notMeasured": "Not measured yet",
   "notRecorded": "Not recorded",
   "realLanguageStatus": {
-    "complete": "Complete",
+    "complete": "Live",
     "in-progress": "In Progress",
-    "coming-soon": "Coming Soon"
+    "coming-soon": "Planned"
   },
   "parts": "{live} of {total}",
   "coursesComplete": "{complete} of {live}",
@@ -80,12 +80,12 @@
       {
         "id": "languages-live",
         "label": "Languages Live",
-        "description": "Public in the app; {comingSoon} more coming soon"
+        "description": "Public in the app; {comingSoon} more planned"
       },
       {
         "id": "courses-complete",
         "label": "Courses Complete",
-        "description": "Live courses with every part live"
+        "description": "Courses with every part in the app"
       },
       {
         "id": "drafts-waiting",
@@ -189,14 +189,14 @@
   },
   "columnHelp": {
     "language": "The course, by the language it teaches",
-    "status": "Complete: every part is live. In Progress: some parts are live, more are planned. Coming Soon: listed in the app, not built yet",
-    "parts": "Parts live, out of the parts the course lists. A part is a stretch of the tree, such as First Steps",
+    "status": "Live: every part is in the app. In Progress: some parts are in the app, the rest are still being built. Planned: listed in the app, not built yet",
+    "parts": "Parts in the app, out of the parts the course will have. A part is a stretch of the tree, such as First Steps",
     "circles": "Places on the course tree: lesson circles, help circles, Brush-Ups and Pick Your Own",
     "words": "Words in the course word list",
-    "sentences": "Every sentence live in lessons",
+    "sentences": "Every sentence used in lessons",
     "tatoeba": "Sentences taken from Tatoeba, a free collection of sentences translated by volunteers. Already written by speakers of the language",
     "drafted": "Sentences written for Tamago where Tatoeba had no good one",
-    "awaiting": "Drafted sentences live in lessons but not yet checked by a native speaker. It matches Drafted today because no checks have come back yet",
+    "awaiting": "Drafted sentences already used in lessons but not yet checked by a native speaker. It matches Drafted today because no checks have come back yet",
     "coverage": "How much of the official A1 word list the course teaches, and which list it is measured against",
     "lastDeploy": "The newest version that changed this course"
   }

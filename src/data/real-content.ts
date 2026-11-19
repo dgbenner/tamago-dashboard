@@ -39,7 +39,7 @@ export const comingSoonLanguages: RealLanguage[] = allLanguages.filter((l) => l.
 /** Every language: the live ones first, then the coming-soon ones. */
 export const realLanguages: RealLanguage[] = [...liveLanguages, ...comingSoonLanguages]
 
-/** Badge text: complete → "Complete", in-progress → "In progress", coming-soon → "Coming Soon". */
+/** Badge text: complete → "Live", in-progress → "In Progress", coming-soon → "Planned". */
 export const realLanguageStatusLabels: Record<'complete' | 'in-progress' | 'coming-soon', string> = labelsJson.realLanguageStatus
 
 /** The key into `realLanguageStatusLabels` for a language. */

@@ -47,22 +47,20 @@ export function SortableHead({
   const icon = (
     <Icon aria-hidden="true" className={cn(direction === 'none' && 'text-muted-foreground')} />
   )
-  const numeric = align === 'right'
-
   return (
     <TableHead aria-sort={direction} className={cn(head, className)}>
-      <div className={cn('flex items-center gap-0.5', justify[align])}>
-        {/* The negative margin lines the heading text up with the cell text below it. In number
-            columns the icon comes first, so the text sits towards the numbers. */}
+      {/* One order in every column (Dan, 2026-11-19): label, sort arrows, info button, kept close
+          together and aligned as a group. The negative margin lines a left-aligned label up with the
+          cells below it; in a right-aligned column the group ends at the column's edge. */}
+      <div className={cn('flex items-center gap-0', justify[align])}>
         <Button
           variant="ghost"
           size="sm"
           onClick={onSort}
-          className={cn(align === 'left' && '-ml-2.5', numeric && !help && '-mr-2.5')}
+          className={cn('gap-1 px-1.5 has-[>svg]:px-1.5', align === 'left' && '-ml-1.5', align === 'right' && !help && '-mr-1.5')}
         >
-          {numeric && icon}
           {label}
-          {!numeric && icon}
+          {icon}
         </Button>
         {help && <ColumnHelp column={label} text={help} />}
       </div>

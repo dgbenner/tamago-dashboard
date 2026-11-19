@@ -15,7 +15,7 @@ export function ColumnHelp({ column, text }: ColumnHelpProps) {
   return (
     <Tooltip>
       <TooltipTrigger asChild>
-        <Button variant="ghost" size="icon-xs" aria-label={`About ${column}`}>
+        <Button variant="ghost" size="icon-xs" aria-label={`About ${column}`} className="-ml-0.5 size-5">
           <Info aria-hidden="true" className="size-3.5 text-muted-foreground" />
         </Button>
       </TooltipTrigger>
