@@ -91,8 +91,8 @@ function LanguageRow({ row }: { row: RealLanguage }) {
       <TableCell className={numberCell}>
         {row.level ? (
           <>
-            {row.level}{' '}
-            <span className="font-light text-muted-foreground italic">({formatParts(row)})</span>
+            {row.level}
+            <div className="text-xs text-muted-foreground">{formatParts(row)}</div>
           </>
         ) : (
           EMPTY
