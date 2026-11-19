@@ -6,6 +6,7 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { cn } from '@/lib/utils'
 import {
   comingSoonLanguages,
+  coverageListLabel,
   formatCount,
   formatDate,
   formatParts,
@@ -42,7 +43,7 @@ const columns: Column[] = [
   { key: 'parts', label: 'Parts', help: 'parts', align: 'right' },
   { key: 'circles', label: 'Circles', help: 'circles', align: 'right' },
   { key: 'words', label: 'Words', help: 'words', align: 'right' },
-  { key: 'coverage', label: 'A1 Coverage', help: 'coverage', align: 'right' },
+  { key: 'coverage', label: 'CEFR Coverage', help: 'coverage', align: 'right' },
   { key: 'lastDeploy', label: 'Last Deploy', help: 'lastDeploy' },
 ]
 
@@ -101,7 +102,10 @@ function LanguageRow({ row }: { row: RealLanguage }) {
       <TableCell className={numberCell}>{count(row.words)}</TableCell>
       <TableCell className={numberCell}>
         {row.coverage ? (
-          formatPercent(row.coverage.percent)
+          <>
+            {formatPercent(row.coverage.percent)}
+            <div className="text-xs text-muted-foreground">{coverageListLabel(row.coverage)}</div>
+          </>
         ) : (
           EMPTY
         )}

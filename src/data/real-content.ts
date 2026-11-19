@@ -143,16 +143,5 @@ export const contentStatTiles: StatTile[] = buildRealTiles('content', {
 /** The Languages tables' column keys that have an explanation. */
 export type LanguageColumnHelpKey = keyof typeof labelsJson.columnHelp
 
-/**
- * What each Languages column means, for the tooltip beside its heading. The A1 Coverage text names each
- * course's list (from the snapshot), since the table shows the percent alone.
- */
-export const languageColumnHelp: Record<LanguageColumnHelpKey, string> = {
-  ...labelsJson.columnHelp,
-  coverage: fill(labelsJson.columnHelp.coverage, {
-    lists: languagesWithContent
-      .filter((language) => language.coverage)
-      .map((language) => fill(labelsJson.coverageListItem, { name: language.name, list: coverageListLabel(language.coverage as Coverage) }))
-      .join('; '),
-  }),
-}
+/** What each Languages column means, for the tooltip beside its heading. */
+export const languageColumnHelp: Record<LanguageColumnHelpKey, string> = labelsJson.columnHelp
