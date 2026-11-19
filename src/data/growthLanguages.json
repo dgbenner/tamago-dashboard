@@ -1,8 +1,0 @@
-[
-  { "id": "french", "name": "French", "sentences": 2140, "a1Coverage": 100 },
-  { "id": "spanish", "name": "Spanish", "sentences": 1620, "a1Coverage": 84 },
-  { "id": "italian", "name": "Italian", "sentences": 1310, "a1Coverage": 78 },
-  { "id": "german", "name": "German", "sentences": 1480, "a1Coverage": 81 },
-  { "id": "portuguese", "name": "Portuguese", "sentences": 960, "a1Coverage": 62 },
-  { "id": "dutch", "name": "Dutch", "sentences": 340, "a1Coverage": 21 }
-]

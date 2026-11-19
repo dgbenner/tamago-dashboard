@@ -36,7 +36,8 @@
       "noCounts": "Test counts not recorded; ran",
       "withDuration": "{counts} in {duration}",
       "onDeploy": "{detail}, on {deploy}",
-      "none": "No full test run is recorded."
+      "none": "No full test run is recorded.",
+      "stoppedBeforeTests": "Stopped at \"{step}\" before any test ran"
     },
     "audits": {
       "name": "Content Audits",
@@ -101,24 +102,24 @@
     ],
     "growth": [
       {
-        "id": "languages",
-        "label": "Languages",
-        "description": "In the app"
+        "id": "total-lessons",
+        "label": "Total Lessons",
+        "description": "Across {courses} courses in the app"
       },
       {
-        "id": "lessons",
-        "label": "Lessons",
-        "description": "Across all languages"
+        "id": "new-this-week",
+        "label": "New Lessons This Week",
+        "description": "Last 7 days"
+      },
+      {
+        "id": "new-this-month",
+        "label": "New Lessons This Month",
+        "description": "Since {monthStart}"
       },
       {
         "id": "sentences",
         "label": "Sentences",
-        "description": "Across all languages"
-      },
-      {
-        "id": "a1-words-covered",
-        "label": "A1 Words Covered",
-        "description": "Main path, average across languages"
+        "description": "Across {courses} courses in the app"
       }
     ],
     "health": [

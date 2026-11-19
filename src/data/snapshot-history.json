@@ -293,5 +293,109 @@
         "coveragePercent": 69
       }
     }
+  },
+  {
+    "takenAt": "2026-11-19T17:32:00-06:00",
+    "commit": "d926c14",
+    "languagesLive": 5,
+    "coursesComplete": 4,
+    "sentences": 19064,
+    "circles": 378,
+    "draftsWaiting": 3959,
+    "coveragePercentAverage": 87.8,
+    "deployNumber": 59,
+    "testsPassed": null,
+    "testsFailed": null,
+    "commitsTotal": 301,
+    "lessons": 14355,
+    "languages": {
+      "fr": {
+        "words": 989,
+        "sentences": 4464,
+        "circles": 103,
+        "draftsWaiting": 890,
+        "coveragePercent": 97
+      },
+      "es": {
+        "words": 907,
+        "sentences": 4022,
+        "circles": 74,
+        "draftsWaiting": 809,
+        "coveragePercent": 90
+      },
+      "de": {
+        "words": 934,
+        "sentences": 4237,
+        "circles": 74,
+        "draftsWaiting": 616,
+        "coveragePercent": 91
+      },
+      "it": {
+        "words": 1101,
+        "sentences": 3793,
+        "circles": 72,
+        "draftsWaiting": 1025,
+        "coveragePercent": 92
+      },
+      "pt": {
+        "words": 759,
+        "sentences": 2548,
+        "circles": 55,
+        "draftsWaiting": 619,
+        "coveragePercent": 69
+      }
+    }
+  },
+  {
+    "takenAt": "2026-11-19T17:33:00-06:00",
+    "commit": "d926c14",
+    "languagesLive": 5,
+    "coursesComplete": 4,
+    "sentences": 19064,
+    "circles": 378,
+    "draftsWaiting": 3959,
+    "coveragePercentAverage": 87.8,
+    "deployNumber": 59,
+    "testsPassed": null,
+    "testsFailed": null,
+    "commitsTotal": 301,
+    "lessons": 14355,
+    "languages": {
+      "fr": {
+        "words": 989,
+        "sentences": 4464,
+        "circles": 103,
+        "draftsWaiting": 890,
+        "coveragePercent": 97
+      },
+      "es": {
+        "words": 907,
+        "sentences": 4022,
+        "circles": 74,
+        "draftsWaiting": 809,
+        "coveragePercent": 90
+      },
+      "de": {
+        "words": 934,
+        "sentences": 4237,
+        "circles": 74,
+        "draftsWaiting": 616,
+        "coveragePercent": 91
+      },
+      "it": {
+        "words": 1101,
+        "sentences": 3793,
+        "circles": 72,
+        "draftsWaiting": 1025,
+        "coveragePercent": 92
+      },
+      "pt": {
+        "words": 759,
+        "sentences": 2548,
+        "circles": 55,
+        "draftsWaiting": 619,
+        "coveragePercent": 69
+      }
+    }
   }
 ]

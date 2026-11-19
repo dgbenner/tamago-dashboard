@@ -193,27 +193,24 @@ export interface ChartSeries {
 
 // ══ Growth (mock) ════════════════════════════════════════════════════════════
 
-/** The six mock language ids of the Growth page. */
-export type LanguageId = 'french' | 'spanish' | 'italian' | 'german' | 'portuguese' | 'dutch'
-
 /**
- * One week of the lessons line chart: the cumulative number of lessons in each language at the end of
- * that week. Keyed by language id, so it is ready for a multi-line chart.
+ * One day of the lessons line chart: the number of lessons each live course had at the end of that day, keyed by
+ * course id ('fr', 'es' …). null where the course didn't record its lessons yet. Use `lessonsSeries` for the lines.
  */
-export type LessonsWeek = { /** Week-ending day, 'YYYY-MM-DD'. */ date: IsoDate } & Record<LanguageId, number>
+export type LessonsDay = { /** 'YYYY-MM-DD'. */ date: IsoDate } & Record<string, number | null | string>
 
-/** One row of the Growth table (one per mock language). */
+/** One row of the Content Growth table, one per live course. null where a number can't be measured. */
 export interface GrowthRow {
-  /** Language id, e.g. 'french'. */
-  id: LanguageId
+  /** Course id, e.g. 'fr'. */
+  id: string
   /** Display name, e.g. "French". */
   name: string
-  /** Lessons added in the latest week: the last weekly point minus the one before. */
-  addedThisWeek: number
-  /** Lessons added this month: the last weekly point minus the latest point before the month began. */
-  addedThisMonth: number
-  /** Total lessons now: the last weekly point. */
-  totalLessons: number
+  /** Lessons added in the last 7 days. */
+  addedThisWeek: number | null
+  /** Lessons added since the month began. */
+  addedThisMonth: number | null
+  /** Lessons in the course now. */
+  totalLessons: number | null
 }
 
 // ══ Agents (mock; for the Cost page) ══════════════════════════════════════════

@@ -29,6 +29,8 @@ for (const width of WIDTHS) {
   for (const id of PAGE_IDS) {
     await page.goto(`${base}#/${id}`, { waitUntil: 'networkidle' })
     await page.waitForTimeout(300)
+    // Hold any animation at its start (the sidebar sushi hops off screen part of the time).
+    await page.evaluate(() => { for (const animation of document.getAnimations()) { animation.pause(); animation.currentTime = 0 } })
 
     // Only the content area scrolls, so grow the window to the content's full height to capture all of it.
     const fullHeight = await page.evaluate(() => {

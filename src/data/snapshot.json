@@ -1,10 +1,10 @@
 {
-  "takenAt": "2026-11-19T16:12:00-06:00",
+  "takenAt": "2026-11-19T17:33:00-06:00",
   "source": {
     "repo": "dgbenner/tamago",
     "branch": "main",
-    "commit": "a7a215e",
-    "commitDate": "2026-11-16T17:52:11-06:00"
+    "commit": "d926c14",
+    "commitDate": "2026-11-19T16:36:21-06:00"
   },
   "languages": [
     {
@@ -31,9 +31,9 @@
       },
       "draftsWaiting": 890,
       "lastDeploy": {
-        "number": 55,
-        "name": "Aardvark",
-        "date": "2026-11-16T08:13:56-06:00"
+        "number": 59,
+        "name": "Elephant",
+        "date": "2026-11-19T16:36:21-06:00"
       }
     },
     {
@@ -60,9 +60,9 @@
       },
       "draftsWaiting": 809,
       "lastDeploy": {
-        "number": 55,
-        "name": "Aardvark",
-        "date": "2026-11-16T08:13:56-06:00"
+        "number": 59,
+        "name": "Elephant",
+        "date": "2026-11-19T16:36:21-06:00"
       }
     },
     {
@@ -89,9 +89,9 @@
       },
       "draftsWaiting": 616,
       "lastDeploy": {
-        "number": 55,
-        "name": "Aardvark",
-        "date": "2026-11-16T08:13:56-06:00"
+        "number": 59,
+        "name": "Elephant",
+        "date": "2026-11-19T16:36:21-06:00"
       }
     },
     {
@@ -118,9 +118,9 @@
       },
       "draftsWaiting": 1025,
       "lastDeploy": {
-        "number": 55,
-        "name": "Aardvark",
-        "date": "2026-11-16T08:13:56-06:00"
+        "number": 59,
+        "name": "Elephant",
+        "date": "2026-11-19T16:36:21-06:00"
       }
     },
     {
@@ -147,9 +147,9 @@
       },
       "draftsWaiting": 619,
       "lastDeploy": {
-        "number": 55,
-        "name": "Aardvark",
-        "date": "2026-11-16T08:13:56-06:00"
+        "number": 59,
+        "name": "Elephant",
+        "date": "2026-11-19T16:36:21-06:00"
       }
     },
     {
@@ -345,6 +345,46 @@
   ],
   "deploys": [
     {
+      "number": 59,
+      "name": "Elephant",
+      "date": "2026-11-19T16:36:21-06:00",
+      "commit": "d926c14",
+      "changes": [
+        "Elephant: deploy 59",
+        "Answer checking: leaving out a word is a miss, never a missing space",
+        "Adopt branch: components only, no visual change",
+        "Design System Card: Proposed, Not in the App",
+        "Publish script: reword a message Tailwind read as a class (app CSS identical again)",
+        "Publish script for the Storybook; Compare views fit the window",
+        "iOS bottom bar: a circle behind the current tab's icon, wholly inside the tab",
+        "Bottom bar: room around the sushi in Android's active pill; iOS gets a pill too",
+        "Circle ears on phones: quieter (28% at rest); the 5% notebook scale is phone-only",
+        "Circle ears: further up and out, the notebook drawn 5% smaller, every sample circle with a note",
+        "Circle icons sit above the circle like ears on phones (info upper left, note upper right)",
+        "Design system demonstration, step 4: the two full screens",
+        "iOS and Android styles: plain iOS banner, touch padding on tool pills, check or X on the Android answer bar",
+        "Styles page: the table as a real table (Storybook's docs don't render Markdown tables)",
+        "Design system demonstration, step 3: iOS and Android styles",
+        "In-progress circles: no \"Recall 72%\" in the screen-reader label, behind the same RECALL_FADE switch",
+        "Tree: a finished circle always shows a full, solid ring and just \"Finished\"",
+        "Dark theme chosen in Settings gets the dark icon-hover blue (--electric), and the duplicate line goes",
+        "Button kinds get plain names (main, continue, outline, link); unused toast kinds labeled",
+        "Design system demonstration, step 2: the rest of the first set",
+        "COMPONENTS.md: Duplicates to Settle (Pick What You Heard's own choice list)",
+        "Design system demonstration, step 1: Storybook with ChoiceList, AnswerBar and Sheet",
+        "Brush-Up green ring: only when emptied by the learner, or everything it covers is finished",
+        "Brush-Ups, checkpoints and the part review stay faded until reached or used",
+        "Grammar notes and circle overviews: the target language is bold and carries its language; the sweep in all five courses"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "failed",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
       "number": 58,
       "name": "Dolphin",
       "date": "2026-11-16T17:52:11-06:00",
@@ -499,40 +539,25 @@
         "passed": null,
         "failed": null
       }
-    },
-    {
-      "number": 49,
-      "name": "Urchin",
-      "date": "2026-11-15T19:43:22-06:00",
-      "commit": "7e0d933",
-      "changes": [
-        "Three fixes (all courses): appeler reads its own page (appelle), Type the Word takes the Spain twin (coche for carro), Spanish reflexive…"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "not-recorded",
-        "tests": null,
-        "passed": null,
-        "failed": null
-      }
     }
   ],
   "health": {
     "fullSuite": {
-      "result": "passed",
-      "startedAt": "2026-11-16T23:54:04Z",
-      "finishedAt": "2026-11-17T00:16:27Z",
-      "durationSeconds": 1343,
-      "tests": 259,
-      "passed": 259,
-      "failed": 0,
-      "skipped": 0,
-      "commit": "a7a215e",
+      "result": "failed",
+      "startedAt": "2026-11-19T22:49:41Z",
+      "finishedAt": "2026-11-19T22:50:02Z",
+      "durationSeconds": 21,
+      "tests": null,
+      "passed": null,
+      "failed": null,
+      "skipped": null,
+      "commit": "d926c14",
       "deploy": {
-        "number": 58,
-        "name": "Dolphin"
+        "number": 59,
+        "name": "Elephant"
       },
-      "runsRecorded": 1
+      "runsRecorded": 2,
+      "stoppedAt": "Run npm ci"
     },
     "auditNote": {
       "date": "2026-11-16",
@@ -608,7 +633,7 @@
       },
       {
         "date": "2026-11-16",
-        "commits": 21,
+        "commits": 22,
         "pushes": 5,
         "deploys": 6
       },
@@ -620,20 +645,20 @@
       },
       {
         "date": "2026-11-18",
-        "commits": 0,
+        "commits": 2,
         "pushes": 0,
         "deploys": 0
       },
       {
         "date": "2026-11-19",
-        "commits": 0,
+        "commits": 24,
         "pushes": 0,
-        "deploys": 0
+        "deploys": 1
       }
     ],
     "firstCommit": "2026-11-07T08:41:36-06:00",
-    "commitsTotal": 274,
-    "deploysTotal": 58,
+    "commitsTotal": 301,
+    "deploysTotal": 59,
     "reviewsApplied": [
       {
         "date": "2026-11-16T06:14:35-06:00",
@@ -688,5 +713,177 @@
     "runDurations": null,
     "itemsFlagged": null,
     "runsStopped": null
+  },
+  "growth": {
+    "days": [
+      {
+        "date": "2026-11-07",
+        "lessons": {
+          "fr": null,
+          "es": 0,
+          "de": 0,
+          "it": 0,
+          "pt": 0
+        }
+      },
+      {
+        "date": "2026-11-08",
+        "lessons": {
+          "fr": null,
+          "es": 0,
+          "de": 0,
+          "it": 0,
+          "pt": 0
+        }
+      },
+      {
+        "date": "2026-11-09",
+        "lessons": {
+          "fr": null,
+          "es": 0,
+          "de": 0,
+          "it": 0,
+          "pt": 0
+        }
+      },
+      {
+        "date": "2026-11-10",
+        "lessons": {
+          "fr": 1018,
+          "es": 681,
+          "de": 681,
+          "it": 0,
+          "pt": 0
+        }
+      },
+      {
+        "date": "2026-11-11",
+        "lessons": {
+          "fr": 1022,
+          "es": 687,
+          "de": 686,
+          "it": 0,
+          "pt": 0
+        }
+      },
+      {
+        "date": "2026-11-12",
+        "lessons": {
+          "fr": 1022,
+          "es": 687,
+          "de": 686,
+          "it": 0,
+          "pt": 0
+        }
+      },
+      {
+        "date": "2026-11-13",
+        "lessons": {
+          "fr": 1022,
+          "es": 687,
+          "de": 686,
+          "it": 0,
+          "pt": 0
+        }
+      },
+      {
+        "date": "2026-11-14",
+        "lessons": {
+          "fr": 2713,
+          "es": 1399,
+          "de": 1543,
+          "it": 666,
+          "pt": 725
+        }
+      },
+      {
+        "date": "2026-11-15",
+        "lessons": {
+          "fr": 3386,
+          "es": 3007,
+          "de": 3155,
+          "it": 1185,
+          "pt": 725
+        }
+      },
+      {
+        "date": "2026-11-16",
+        "lessons": {
+          "fr": 3399,
+          "es": 3048,
+          "de": 3192,
+          "it": 2837,
+          "pt": 1879
+        }
+      },
+      {
+        "date": "2026-11-17",
+        "lessons": {
+          "fr": 3399,
+          "es": 3048,
+          "de": 3192,
+          "it": 2837,
+          "pt": 1879
+        }
+      },
+      {
+        "date": "2026-11-18",
+        "lessons": {
+          "fr": 3399,
+          "es": 3048,
+          "de": 3192,
+          "it": 2837,
+          "pt": 1879
+        }
+      },
+      {
+        "date": "2026-11-19",
+        "lessons": {
+          "fr": 3399,
+          "es": 3048,
+          "de": 3192,
+          "it": 2837,
+          "pt": 1879
+        }
+      }
+    ],
+    "firstMeasured": "2026-11-10",
+    "languages": [
+      {
+        "id": "fr",
+        "name": "French",
+        "totalLessons": 3399,
+        "newThisWeek": 2377,
+        "newThisMonth": 3399
+      },
+      {
+        "id": "es",
+        "name": "Spanish",
+        "totalLessons": 3048,
+        "newThisWeek": 2361,
+        "newThisMonth": 3048
+      },
+      {
+        "id": "de",
+        "name": "German",
+        "totalLessons": 3192,
+        "newThisWeek": 2506,
+        "newThisMonth": 3192
+      },
+      {
+        "id": "it",
+        "name": "Italian",
+        "totalLessons": 2837,
+        "newThisWeek": 2837,
+        "newThisMonth": 2837
+      },
+      {
+        "id": "pt",
+        "name": "Portuguese",
+        "totalLessons": 1879,
+        "newThisWeek": 1879,
+        "newThisMonth": 1879
+      }
+    ]
   }
 }

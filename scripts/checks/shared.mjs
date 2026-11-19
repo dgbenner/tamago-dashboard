@@ -9,7 +9,7 @@ export const ROOT = path.resolve(import.meta.dirname, '../..')
 export const PAGE_IDS = ['content-health', 'growth', 'health', 'agent-activity', 'cost']
 
 /** Pages that show the real snapshot. The others are placeholders and must say so. */
-export const REAL_PAGES = ['content-health', 'health', 'agent-activity']
+export const REAL_PAGES = ['content-health', 'growth', 'health', 'agent-activity']
 
 /**
  * Pages that need not have a chart. Health shows "Not measured yet" where its chart would be, and Content health has

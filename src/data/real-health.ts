@@ -34,8 +34,12 @@ const checkTexts = labelsJson.healthChecks
 function fullSuiteDetail(): string {
   const text = checkTexts['full-suite']
   if (!fullSuite) return text.none
+  // A failed run with no test counts and a recorded step never reached its tests (an install step, say).
+  const stoppedAt = (fullSuite as { stoppedAt?: string | null }).stoppedAt
   const counts =
-    fullSuite.passed === null || fullSuite.tests === null
+    fullSuite.passed === null && stoppedAt
+      ? fill(text.stoppedBeforeTests, { step: stoppedAt })
+      : fullSuite.passed === null || fullSuite.tests === null
       ? text.noCounts
       : fill(text.counts, { passed: formatCount(fullSuite.passed), tests: formatCount(fullSuite.tests) })
   const detail = fill(text.withDuration, { counts, duration: formatDuration(fullSuite.durationSeconds) })

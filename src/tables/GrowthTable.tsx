@@ -4,7 +4,7 @@ import { formatCount, formatDelta, growthRows, type GrowthRow } from '@/data'
 
 import { cn } from '@/lib/utils'
 
-import { cell, numberCell } from './cells'
+import { cell, EMPTY, numberCell } from './cells'
 import { SortableHead } from './SortableHead'
 import { useSort, type SortValue } from './sort'
 
@@ -58,9 +58,9 @@ export function GrowthTable() {
             {sorted.map((row) => (
               <TableRow key={row.id}>
                 <TableCell className={cn(cell, 'font-medium whitespace-nowrap')}>{row.name}</TableCell>
-                <TableCell className={numberCell}>{formatDelta(row.addedThisWeek)}</TableCell>
-                <TableCell className={numberCell}>{formatDelta(row.addedThisMonth)}</TableCell>
-                <TableCell className={numberCell}>{formatCount(row.totalLessons)}</TableCell>
+                <TableCell className={numberCell}>{row.addedThisWeek === null ? EMPTY : formatDelta(row.addedThisWeek)}</TableCell>
+                <TableCell className={numberCell}>{row.addedThisMonth === null ? EMPTY : formatDelta(row.addedThisMonth)}</TableCell>
+                <TableCell className={numberCell}>{row.totalLessons === null ? EMPTY : formatCount(row.totalLessons)}</TableCell>
               </TableRow>
             ))}
           </TableBody>

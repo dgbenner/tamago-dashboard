@@ -27,12 +27,11 @@
 // PERIODS (./periods) — the fixed dates of the MOCK pages only
 //   periods ({ today, thisWeek, thisMonth, last14Days, last30Days }), today, isInPeriod, inPeriod
 //
-// GROWTH, mock (./growth)
+// CONTENT GROWTH, real (./growth)
 //   Stat cards:  growthStatCards: StatTile[]
-//   Line chart:  lessonsWeekly: LessonsWeek[] (12 weeks, { date, french, spanish, … }),
-//                lessonsSeries: ChartSeries[] ({ id, name } per language)
+//   Line chart:  lessonsByDay: LessonsDay[] ({ date, fr, es, … } per day since lessons were first recorded),
+//                lessonsSeries: ChartSeries[] ({ id, name } per live course, alphabetical)
 //   Table:       growthRows: GrowthRow[]
-//   Helpers:     totalLessons, totalSentences
 //
 // AGENTS, mock (./agents) — behind the Cost page
 //   agents, agentSeries, agentName, agentDaily, sumAgentDays, averageCostPerRun

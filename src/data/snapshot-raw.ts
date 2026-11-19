@@ -60,7 +60,7 @@ export interface SnapshotJson {
   languages: SnapshotLanguageJson[]
   deploys: SnapshotDeployJson[]
   health: {
-    fullSuite: SnapshotFullSuiteJson | null
+    fullSuite: (SnapshotFullSuiteJson & { stoppedAt?: string | null }) | null
     auditNote: { date: string; entry: string | null } | null
     // No source exists for these today, so the snapshot holds null. See real-health.ts.
     audits: unknown
@@ -68,6 +68,11 @@ export interface SnapshotJson {
     fastTier: unknown
     uptimePercent: unknown
     responseTimeMs: unknown
+  }
+  growth: {
+    days: { date: string; lessons: Record<string, number | null> }[]
+    firstMeasured: string | null
+    languages: { id: string; name: string; totalLessons: number | null; newThisWeek: number | null; newThisMonth: number | null }[]
   }
   activity: {
     days: { date: string; commits: number; pushes: number | null; deploys: number }[]
@@ -96,6 +101,8 @@ export interface SnapshotHistoryEntryJson {
   testsPassed: number | null
   testsFailed: number | null
   commitsTotal: number | null
+  /** Lessons in every live course together. Missing from snapshots taken before 2026-11-19 5 PM. */
+  lessons?: number | null
   languages: Record<string, { words?: number | null; sentences: number | null; circles: number | null; draftsWaiting: number | null; coveragePercent: number | null }>
 }
 

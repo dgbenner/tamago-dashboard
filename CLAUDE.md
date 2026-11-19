@@ -32,8 +32,8 @@ for `src/`.
 
 ## Real data and placeholders
 
-- Content health, Health and Agent activity show **real** numbers from `src/data/snapshot.json`, written by
-  `npm run snapshot` (`scripts/snapshot.mjs`, owned by the coordinator). Growth and Cost are placeholders with mock data.
+- Content Health, Content Growth, Health and Agent Activity show **real** numbers from `src/data/snapshot.json`,
+  written by `npm run snapshot` (`scripts/snapshot.mjs`, owned by the coordinator). Cost is a placeholder with mock data.
 - `snapshot.json` and `snapshot-history.json` are generated. Nobody edits them by hand, the `data` agent included.
 - **Never invent or estimate a number.** An empty value in the snapshot reaches the page as "Not measured yet"
   (or "Not recorded"), never as 0.

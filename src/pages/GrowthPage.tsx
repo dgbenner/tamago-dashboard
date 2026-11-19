@@ -1,12 +1,11 @@
 import { DashboardPage, type DashboardPageProps } from '@/layout/PageFrame'
 
-/** The Growth page: header with the Sample Data badge, then stats, chart, table. */
+/** The Content Growth page (real data): header, then stats, chart, table. */
 export function GrowthPage(props: DashboardPageProps) {
   return (
     <DashboardPage
-      title="Growth"
+      title="Content Growth"
       description="How much Tamago's content has grown."
-      sample
       {...props}
     />
   )

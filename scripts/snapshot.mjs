@@ -217,6 +217,14 @@ let auditNote = null
   }
 }
 
+// The step a failed run stopped at, from the run's jobs, so a run that never reached its tests says so.
+let stoppedAt = null
+if (latestRun && latestRun.conclusion !== 'success') {
+  try {
+    const jobs = JSON.parse(gh('api', `repos/${REPO}/actions/runs/${latestRun.id}/jobs`)).jobs
+    stoppedAt = jobs.flatMap((job) => job.steps ?? []).find((step) => step.conclusion === 'failure')?.name ?? null
+  } catch { /* the step stays unknown */ }
+}
 const health = {
   fullSuite: latestRun ? {
     result: latestRun.conclusion === 'success' ? 'passed' : 'failed',
@@ -225,6 +233,7 @@ const health = {
     tests: latestCounts?.tests ?? null, passed: latestCounts?.passed ?? null, failed: latestCounts?.failed ?? null, skipped: latestCounts?.skipped ?? null,
     commit: latestRun.sha.slice(0, 7), deploy: deployOfRun ? { number: deployOfRun.number, name: deployOfRun.name } : null,
     runsRecorded: runs.length,
+    stoppedAt,
   } : null,
   // Written in the build log, not measured by this snapshot.
   auditNote,
@@ -264,6 +273,65 @@ const activity = {
   runsByAgent: null, runDurations: null, itemsFlagged: null, runsStopped: null,
 }
 
+// ---- 6b. Content growth ------------------------------------------------------------------------------------------
+// Lessons per course, read from each course's units.json at past versions of main. A course's lessons are the sum of
+// every unit's lesson_counts (five rounds each; topic packs included, since they are lessons a learner can take).
+// lesson_counts first appears in the repo on 2026-11-10; before a course records them for every unit, its total is
+// null (not measured), never estimated. A course whose content folder doesn't exist yet at that version has none.
+const lessonsAt = (() => {
+  const cache = new Map()
+  return (sha, id) => {
+    const key = `${sha}:${id}`
+    if (cache.has(key)) return cache.get(key)
+    let total = 0
+    try {
+      const units = JSON.parse(run('git', ['-C', CLONE, 'show', `${sha}:src/${dirOf(id)}/units.json`], { stdio: ['ignore', 'pipe', 'ignore'] }))
+      const withLessons = units.filter((u) => u.is_topic_pick !== 'node') // a topic node holds no lessons of its own
+      total = withLessons.every((u) => Array.isArray(u.lesson_counts))
+        ? withLessons.reduce((n, u) => n + u.lesson_counts.reduce((a, b) => a + b, 0), 0)
+        : null
+    } catch {
+      total = 0 // the course's content folder isn't there yet at this version
+    }
+    cache.set(key, total)
+    return total
+  }
+})()
+// main as it stood at the end of each local day: the last commit on its first-parent line by then.
+const mainLine = git('log', '--first-parent', '--format=%H\t%cI', 'HEAD').split('\n').filter(Boolean).map((line) => line.split('\t'))
+const shaAt = (moment) => mainLine.find(([, date]) => new Date(date) <= moment)?.[0] ?? null
+const endOfDay = (date) => new Date(`${date}T23:59:59`)
+const liveIds = languages.filter((l) => l.state === 'live').map((l) => l.id)
+const firstDay = localDay(mainLine.at(-1)[1])
+const growthDays = []
+for (let d = new Date(`${firstDay}T12:00:00`); localDay(d) <= localDay(new Date()); d.setDate(d.getDate() + 1)) {
+  const sha = shaAt(endOfDay(localDay(d)))
+  growthDays.push({ date: localDay(d), lessons: Object.fromEntries(liveIds.map((id) => [id, sha ? lessonsAt(sha, id) : 0])) })
+}
+// Totals now, and how many were added since the start of the snapshot's week (last 7 days) and month. A period that
+// starts before the repo's first commit starts from zero, since there was no course then.
+const totalAt = (moment, id) => { const sha = shaAt(moment); return sha ? lessonsAt(sha, id) : 0 }
+const now = new Date()
+const weekStart = new Date(now); weekStart.setDate(weekStart.getDate() - 7)
+const monthStart = new Date(now.getFullYear(), now.getMonth(), 1)
+const growthLanguages = liveIds.map((id) => {
+  const total = lessonsAt(git('rev-parse', 'HEAD'), id)
+  const week = totalAt(weekStart, id)
+  const month = totalAt(monthStart, id)
+  return {
+    id,
+    name: languages.find((l) => l.id === id).name,
+    totalLessons: total,
+    newThisWeek: total === null || week === null ? null : total - week,
+    newThisMonth: total === null || month === null ? null : total - month,
+  }
+})
+const growth = {
+  days: growthDays,
+  firstMeasured: growthDays.find((day) => Object.values(day.lessons).some((n) => n !== null && n > 0))?.date ?? null,
+  languages: growthLanguages,
+}
+
 // ---- 7. Write ---------------------------------------------------------------------------------------------------
 const offset = -takenAt.getTimezoneOffset()
 const stamp = `${localDay(takenAt)}T${String(takenAt.getHours()).padStart(2, '0')}:${String(takenAt.getMinutes()).padStart(2, '0')}:00${offset >= 0 ? '+' : '-'}${String(Math.floor(Math.abs(offset) / 60)).padStart(2, '0')}:${String(Math.abs(offset) % 60).padStart(2, '0')}`
@@ -274,6 +342,7 @@ const snapshot = {
   deploys: deploys.slice(0, RECENT_DEPLOYS).map(({ range, ...deploy }) => deploy),
   health,
   activity,
+  growth,
 }
 writeFileSync(path.join(DATA, 'snapshot.json'), `${JSON.stringify(snapshot, null, 2)}\n`)
 
@@ -294,6 +363,7 @@ const entry = {
   testsPassed: health.fullSuite?.passed ?? null,
   testsFailed: health.fullSuite?.failed ?? null,
   commitsTotal: activity.commitsTotal,
+  lessons: growthLanguages.every((l) => l.totalLessons !== null) ? growthLanguages.reduce((n, l) => n + l.totalLessons, 0) : null,
   languages: Object.fromEntries(live.map((l) => [l.id, { words: l.words, sentences: l.sentences, circles: l.circles, draftsWaiting: l.draftsWaiting, coveragePercent: l.coverage?.percent ?? null }])),
 }
 // A second run in the same minute replaces the first.

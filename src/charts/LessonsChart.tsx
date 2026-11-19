@@ -8,13 +8,13 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart'
-import { formatCount, formatShortDate, lessonsSeries, lessonsWeekly } from '@/data'
+import { formatCount, formatShortDate, lessonsByDay, lessonsSeries } from '@/data'
 
 import { seriesConfig } from './seriesColor'
 import { rowDate, TooltipRow } from './TooltipRow'
 
 const title = 'Lessons per Language'
-const span = `last ${lessonsWeekly.length} weeks`
+const span = `${lessonsByDay.length} days`
 const config = seriesConfig(lessonsSeries)
 const names = new Map(lessonsSeries.map((series) => [series.id, series.name]))
 
@@ -34,7 +34,7 @@ export function LessonsChart() {
           className="aspect-auto h-72 w-full"
         >
           <LineChart
-            data={lessonsWeekly}
+            data={lessonsByDay}
             accessibilityLayer
             margin={{ top: 8, right: 12, bottom: 0, left: 0 }}
           >
@@ -53,14 +53,14 @@ export function LessonsChart() {
               tickLine={false}
               axisLine={false}
               allowDecimals={false}
-              width={36}
+              width={48}
             />
             <ChartTooltip
               content={
                 <ChartTooltipContent
                   labelFormatter={(_, payload) => {
                     const date = rowDate(payload)
-                    return date ? `Week Ending ${formatShortDate(date)}` : null
+                    return date ? formatShortDate(date) : null
                   }}
                   formatter={(value, name, item) => (
                     <TooltipRow
