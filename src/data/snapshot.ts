@@ -32,7 +32,7 @@ export const snapshotSource: { repo: string; branch: string; commit: string } = 
 }
 
 type HistoryNumberField = {
-  [K in keyof SnapshotHistoryEntryJson]: SnapshotHistoryEntryJson[K] extends number | null ? K : never
+  [K in keyof SnapshotHistoryEntryJson]-?: NonNullable<SnapshotHistoryEntryJson[K]> extends number ? K : never
 }[keyof SnapshotHistoryEntryJson]
 
 /** The fewest snapshots a trend needs. With fewer, there is no trend and pages show the number alone. */

@@ -273,6 +273,7 @@ const entry = {
   takenAt: stamp,
   commit: head.commit,
   languagesLive: live.length,
+  coursesComplete: live.filter((l) => l.status === 'complete').length,
   sentences: live.reduce((n, l) => n + l.sentences, 0),
   circles: live.reduce((n, l) => n + l.circles, 0),
   draftsWaiting: live.reduce((n, l) => n + l.draftsWaiting, 0),

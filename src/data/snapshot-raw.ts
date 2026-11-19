@@ -86,6 +86,8 @@ export interface SnapshotHistoryEntryJson {
   circles: number | null
   draftsWaiting: number | null
   coveragePercentAverage: number | null
+  /** Live courses with every part live. Missing from snapshots taken before 2026-11-19 3 PM. */
+  coursesComplete?: number | null
   deployNumber: number | null
   testsPassed: number | null
   testsFailed: number | null

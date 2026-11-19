@@ -8,6 +8,9 @@ import {
 } from '@/components/ui/chart'
 import { formatDateTime, type TrendPoint } from '@/data'
 
+/** Half the Y range given to a trend that sits flat at zero. */
+const FLAT_ZERO_PAD = 1
+
 /** The lowest and highest value of a trend. */
 function extent(trend: TrendPoint[]): [number, number] {
   const values = trend.map((point) => point.value)
@@ -21,7 +24,8 @@ function extent(trend: TrendPoint[]): [number, number] {
 function yDomain(trend: TrendPoint[]): [number, number] {
   const [min, max] = extent(trend)
   if (min < max) return [min, max]
-  const pad = Math.abs(min) || Number.MIN_VALUE
+  // A flat line at zero gets a range of one either side: a vanishingly small range breaks the chart's tick maths.
+  const pad = Math.abs(min) || FLAT_ZERO_PAD
   return [min - pad, max + pad]
 }
 

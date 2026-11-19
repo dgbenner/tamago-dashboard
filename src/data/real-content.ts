@@ -2,7 +2,7 @@
 // from the snapshot. Nothing here is typed in or estimated: a null in the snapshot stays null.
 
 import labelsJson from './labels.json'
-import { formatCount, formatPercent } from './format'
+import { formatCount } from './format'
 import { check, fill, oneOf } from './internal'
 import { NOT_RECORDED, fullTestRunLabel, trendOf } from './snapshot'
 import { snapshot } from './snapshot-raw'
@@ -97,21 +97,15 @@ function sumOverLive(read: (language: RealLanguage) => number | null): number | 
 }
 
 /**
- * The average of each live course's own coverage percent, rounded to one decimal. null when there
- * is no live course or any live course has no coverage figure (an average of the rest would mislead).
+ * Live courses where every part is live: the same test as the Status column (languageStatusKey).
+ * null when there is no live course.
  */
-function averageCoveragePercent(): number | null {
-  const sum = sumOverLive((language) => language.coverage?.percent ?? null)
-  if (sum === null || liveLanguages.length === 0) return null
-  return Math.round((sum / liveLanguages.length) * 10) / 10
-}
-
-const coverageAverage = averageCoveragePercent()
+const coursesComplete = liveLanguages.length === 0 ? null : liveLanguages.filter((language) => languageStatusKey(language) === 'complete').length
 const draftsWaitingTotal = sumOverLive((language) => language.draftsWaiting)
 const failedChecks = snapshot.health.fullSuite?.failed ?? null
 
 /**
- * The Content health page's four stat cards, in page order: Languages live, A1 coverage,
+ * The Content health page's four stat cards, in page order: Languages live, Courses complete,
  * Drafts waiting, Failed checks.
  */
 export const contentStatTiles: StatTile[] = buildRealTiles('content', {
@@ -120,9 +114,9 @@ export const contentStatTiles: StatTile[] = buildRealTiles('content', {
     vars: { comingSoon: formatCount(comingSoonLanguages.length) },
     trend: trendOf('languagesLive'),
   },
-  'a1-coverage': {
-    value: coverageAverage === null ? null : formatPercent(coverageAverage),
-    trend: trendOf('coveragePercentAverage'),
+  'courses-complete': {
+    value: coursesComplete === null ? null : fill(labelsJson.coursesComplete, { complete: formatCount(coursesComplete), live: formatCount(liveLanguages.length) }),
+    trend: trendOf('coursesComplete'),
   },
   'drafts-waiting': {
     value: draftsWaitingTotal === null ? null : formatCount(draftsWaitingTotal),

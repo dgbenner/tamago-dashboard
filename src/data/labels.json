@@ -3,6 +3,7 @@
   "notRecorded": "Not recorded",
   "realLanguageStatus": { "complete": "Complete", "in-progress": "In progress", "coming-soon": "Coming Soon" },
   "parts": "{live} of {total}",
+  "coursesComplete": "{complete} of {live}",
   "coverageList": { "fullList": "{list}", "scoped": "{list}, {scope}" },
   "deployTest": { "passed": "Passed", "failed": "Failed", "running": "Running" },
   "deployTestCounts": "{passed}/{tests}",
@@ -44,7 +45,7 @@
   "statTiles": {
     "content": [
       { "id": "languages-live", "label": "Languages live", "description": "Public in the app; {comingSoon} more coming soon" },
-      { "id": "a1-coverage", "label": "A1 coverage", "description": "Average of each course's own official list" },
+      { "id": "courses-complete", "label": "Courses complete", "description": "Live courses with every part live" },
       { "id": "drafts-waiting", "label": "Drafts waiting", "description": "For a native speaker" },
       { "id": "failed-checks", "label": "Failed checks", "description": "{run}" }
     ],
