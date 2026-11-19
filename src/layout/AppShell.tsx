@@ -109,9 +109,14 @@ export function AppShell({
             <Button
               key={id}
               asChild
-              variant={id === current ? 'secondary' : 'ghost'}
+              variant="ghost"
               size="sm"
-              className="shrink-0 whitespace-nowrap lg:w-full lg:justify-start"
+              // The current page (Dan, 2026-11-19): a light Tamago-yellow fill with a thin Tamago-green outline
+              // around the icon and title, so it reads at a glance; the others stay plain.
+              className={
+                'shrink-0 whitespace-nowrap lg:w-full lg:justify-start ' +
+                (id === current ? 'bg-tamago-yellow/25 font-semibold ring-1 ring-tamago-green/70 hover:bg-tamago-yellow/35' : '')
+              }
             >
               <a href={pageHref(id)} aria-current={id === current ? 'page' : undefined}>
                 <Icon className="hidden lg:block" aria-hidden="true" />
