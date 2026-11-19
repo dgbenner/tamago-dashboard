@@ -68,19 +68,32 @@ export function AppShell({
       <aside
         className={
           'flex min-w-0 shrink-0 items-center gap-2 border-b border-sidebar-border bg-sidebar px-4 py-2 text-sidebar-foreground ' +
-          'lg:w-60 lg:flex-col lg:items-stretch lg:gap-0 lg:overflow-y-auto lg:border-r lg:border-b-0 lg:px-3 lg:py-4'
+          'lg:w-60 lg:flex-col lg:items-stretch lg:gap-0 lg:overflow-visible lg:border-r lg:border-b-0 lg:px-3 lg:py-4'
         }
       >
         {/* The product lockup. Narrow: a small sushi to the left of the name, on one line.
             Wide: the name with the sushi centred under it, as on the Tamago app's loading screen. */}
         <div className="flex shrink-0 items-center gap-2 lg:flex-col-reverse lg:gap-1.5 lg:px-3">
-          <img
-            src={`${import.meta.env.BASE_URL}tamago-sushi.webp`}
-            alt=""
-            width={384}
-            height={256}
-            className="h-auto w-7 shrink-0 lg:w-15"
-          />
+          {/* Wide screens: every 10 seconds the sushi rocks, crouches, hops off the top of the screen for about
+              1.5 s and lands again, while its shadow fades and shrinks and comes back (index.css .sushi-*).
+              Three wrappers so each motion keeps its own pivot: fly moves it, rock pivots on the bottom centre,
+              land squashes from the top centre. Still under reduced motion and on phones. */}
+          <span className="sushi-mark relative flex shrink-0 flex-col items-center">
+            <span className="sushi-fly relative z-50 block">
+              <span className="sushi-rock block">
+                <span className="sushi-land block">
+                  <img
+                    src={`${import.meta.env.BASE_URL}tamago-sushi.webp`}
+                    alt=""
+                    width={384}
+                    height={256}
+                    className="block h-auto w-7 lg:w-15"
+                  />
+                </span>
+              </span>
+            </span>
+            <span className="sushi-shadow pointer-events-none absolute bottom-0 left-1/2 hidden h-2 w-[70%] lg:block" aria-hidden="true" />
+          </span>
           <p className="whitespace-nowrap text-sm font-semibold tracking-tight lg:text-base">Tamago Metrics</p>
         </div>
 

@@ -42,7 +42,7 @@ export function StatTiles({ tiles }: { tiles: StatTile[] }) {
                   {tile.value}
                 </CardTitle>
               )}
-              <p className="text-xs text-muted-foreground">{tile.description}</p>
+              <p className="mx-auto w-[65%] text-xs text-muted-foreground italic">{tile.description}</p>
             </CardHeader>
             {trend ? (
               <CardContent>
