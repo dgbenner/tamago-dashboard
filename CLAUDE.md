@@ -41,7 +41,7 @@ for `src/`.
 - The snapshot reads a clean copy of the pushed Tamago repo kept in `.cache/` and the GitHub API. Nothing in this
   project reads or writes `~/Sites/tamago`.
 - A trend line is drawn only when the history holds two or more snapshots.
-- A real page carries the quiet line "Real data, snapshot from …" and no "Sample data" badge. A placeholder page
+- A real page carries the quiet line "Real data, snapshot from …" and no "Sample Data" badge. A placeholder page
   carries the red banner and the badge.
 
 ## Working here

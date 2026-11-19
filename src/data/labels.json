@@ -1,11 +1,22 @@
 {
   "notMeasured": "Not measured yet",
   "notRecorded": "Not recorded",
-  "realLanguageStatus": { "complete": "Complete", "in-progress": "In progress", "coming-soon": "Coming Soon" },
+  "realLanguageStatus": {
+    "complete": "Complete",
+    "in-progress": "In Progress",
+    "coming-soon": "Coming Soon"
+  },
   "parts": "{live} of {total}",
   "coursesComplete": "{complete} of {live}",
-  "coverageList": { "fullList": "{list}", "scoped": "{list}, {scope}" },
-  "deployTest": { "passed": "Passed", "failed": "Failed", "running": "Running" },
+  "coverageList": {
+    "fullList": "{list}",
+    "scoped": "{list}, {scope}"
+  },
+  "deployTest": {
+    "passed": "Passed",
+    "failed": "Failed",
+    "running": "Running"
+  },
   "deployTestCounts": "{passed}/{tests}",
   "deployName": "{name} {number}",
   "fullTestRun": {
@@ -13,10 +24,13 @@
     "withoutDeploy": "Full test run",
     "none": "No full test run is recorded"
   },
-  "healthCheckResult": { "pass": "Pass", "fail": "Fail" },
+  "healthCheckResult": {
+    "pass": "Pass",
+    "fail": "Fail"
+  },
   "healthChecks": {
     "full-suite": {
-      "name": "Full test suite (GitHub Actions)",
+      "name": "Full Test Suite (GitHub Actions)",
       "counts": "{passed} of {tests} tests",
       "noCounts": "Test counts not recorded; ran",
       "withDuration": "{counts} in {duration}",
@@ -24,16 +38,32 @@
       "none": "No full test run is recorded."
     },
     "audits": {
-      "name": "Content audits",
+      "name": "Content Audits",
       "detail": "No result is kept.",
       "detailWithNote": "The build log says both audits were clean on {date} ({entry}), but no result file is kept. This is a note, not a measurement."
     },
-    "smoke": { "name": "Smoke test", "detail": "Runs before each push. No result is kept." },
-    "fast-tier": { "name": "Fast tests before each push", "detail": "Run before each push. No result is kept." },
-    "uptime": { "name": "Uptime", "detail": "Needs a check that visits the site every few minutes." },
-    "response-time": { "name": "Response time", "detail": "Needs a check that visits the site every few minutes." }
+    "smoke": {
+      "name": "Smoke Test",
+      "detail": "Runs before each push. No result is kept."
+    },
+    "fast-tier": {
+      "name": "Fast Tests Before Each Push",
+      "detail": "Run before each push. No result is kept."
+    },
+    "uptime": {
+      "name": "Uptime",
+      "detail": "Needs a check that visits the site every few minutes."
+    },
+    "response-time": {
+      "name": "Response Time",
+      "detail": "Needs a check that visits the site every few minutes."
+    }
   },
-  "activitySeries": { "commits": "Commits", "pushes": "Pushes", "deploys": "Deploys" },
+  "activitySeries": {
+    "commits": "Commits",
+    "pushes": "Pushes",
+    "deploys": "Deploys"
+  },
   "activityNotRecorded": {
     "pushes": "pushes",
     "runsByAgent": "which agent did the work",
@@ -41,37 +71,133 @@
     "itemsFlagged": "items an agent flagged",
     "runsStopped": "runs stopped by a stop rule"
   },
-  "lastDays": { "plain": "Last {days} days", "withTotal": "Last {days} days; {total} in all" },
+  "lastDays": {
+    "plain": "Last {days} days",
+    "withTotal": "Last {days} days; {total} in all"
+  },
   "statTiles": {
     "content": [
-      { "id": "languages-live", "label": "Languages live", "description": "Public in the app; {comingSoon} more coming soon" },
-      { "id": "courses-complete", "label": "Courses complete", "description": "Live courses with every part live" },
-      { "id": "drafts-waiting", "label": "Awaiting native check", "description": "Live in lessons, not yet checked by a native speaker" },
-      { "id": "failed-checks", "label": "Failed checks", "description": "{run}" }
+      {
+        "id": "languages-live",
+        "label": "Languages Live",
+        "description": "Public in the app; {comingSoon} more coming soon"
+      },
+      {
+        "id": "courses-complete",
+        "label": "Courses Complete",
+        "description": "Live courses with every part live"
+      },
+      {
+        "id": "drafts-waiting",
+        "label": "Awaiting Native Check",
+        "description": "Live in lessons, not yet checked by a native speaker"
+      },
+      {
+        "id": "failed-checks",
+        "label": "Failed Checks",
+        "description": "{run}"
+      }
     ],
     "growth": [
-      { "id": "languages", "label": "Languages", "description": "In the app" },
-      { "id": "lessons", "label": "Lessons", "description": "Across all languages" },
-      { "id": "sentences", "label": "Sentences", "description": "Across all languages" },
-      { "id": "a1-words-covered", "label": "A1 words covered", "description": "Main path, average across languages" }
+      {
+        "id": "languages",
+        "label": "Languages",
+        "description": "In the app"
+      },
+      {
+        "id": "lessons",
+        "label": "Lessons",
+        "description": "Across all languages"
+      },
+      {
+        "id": "sentences",
+        "label": "Sentences",
+        "description": "Across all languages"
+      },
+      {
+        "id": "a1-words-covered",
+        "label": "A1 Words Covered",
+        "description": "Main path, average across languages"
+      }
     ],
     "health": [
-      { "id": "uptime", "label": "Uptime this month", "description": "No uptime check exists yet" },
-      { "id": "response-time", "label": "Average response time", "description": "No response-time check exists yet" },
-      { "id": "checks-passed", "label": "Checks passed", "description": "{run}" },
-      { "id": "deploys-this-week", "label": "Deploys this week", "description": "{period}" }
+      {
+        "id": "uptime",
+        "label": "Uptime This Month",
+        "description": "No uptime check exists yet"
+      },
+      {
+        "id": "response-time",
+        "label": "Average Response Time",
+        "description": "No response-time check exists yet"
+      },
+      {
+        "id": "checks-passed",
+        "label": "Checks Passed",
+        "description": "{run}"
+      },
+      {
+        "id": "deploys-this-week",
+        "label": "Deploys This Week",
+        "description": "{period}"
+      }
     ],
     "activity": [
-      { "id": "commits", "label": "Commits", "description": "{period}" },
-      { "id": "pushes", "label": "Pushes", "description": "{period}" },
-      { "id": "deploys", "label": "Deploys", "description": "{period}" },
-      { "id": "reviews-applied", "label": "Reviews applied", "description": "{period}" }
+      {
+        "id": "commits",
+        "label": "Commits",
+        "description": "{period}"
+      },
+      {
+        "id": "pushes",
+        "label": "Pushes",
+        "description": "{period}"
+      },
+      {
+        "id": "deploys",
+        "label": "Deploys",
+        "description": "{period}"
+      },
+      {
+        "id": "reviews-applied",
+        "label": "Reviews Applied",
+        "description": "{period}"
+      }
     ],
     "cost": [
-      { "id": "cost-this-month", "label": "Cost this month", "description": "All agents, month to date" },
-      { "id": "cost-per-run", "label": "Average cost per run", "description": "Month to date" },
-      { "id": "tokens-this-month", "label": "Tokens this month", "description": "All agents, month to date" },
-      { "id": "highest-cost-agent", "label": "Highest-cost agent", "description": "Month to date" }
+      {
+        "id": "cost-this-month",
+        "label": "Cost This Month",
+        "description": "All agents, month to date"
+      },
+      {
+        "id": "cost-per-run",
+        "label": "Average Cost per Run",
+        "description": "Month to date"
+      },
+      {
+        "id": "tokens-this-month",
+        "label": "Tokens This Month",
+        "description": "All agents, month to date"
+      },
+      {
+        "id": "highest-cost-agent",
+        "label": "Highest-Cost Agent",
+        "description": "Month to date"
+      }
     ]
+  },
+  "columnHelp": {
+    "language": "The course, by the language it teaches",
+    "status": "Complete: every part is live. In Progress: some parts are live, more are planned. Coming Soon: listed in the app, not built yet",
+    "parts": "Parts live, out of the parts the course lists. A part is a stretch of the tree, such as First Steps",
+    "circles": "Places on the course tree: lesson circles, help circles, Brush-Ups and Pick Your Own",
+    "words": "Words in the course word list",
+    "sentences": "Every sentence live in lessons",
+    "tatoeba": "Sentences taken from Tatoeba, a free collection of sentences translated by volunteers. Already written by speakers of the language",
+    "drafted": "Sentences written for Tamago where Tatoeba had no good one",
+    "awaiting": "Drafted sentences live in lessons but not yet checked by a native speaker. It matches Drafted today because no checks have come back yet",
+    "coverage": "How much of the official A1 word list the course teaches, and which list it is measured against",
+    "lastDeploy": "The newest version that changed this course"
   }
 }

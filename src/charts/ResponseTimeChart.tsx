@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { NOT_MEASURED } from '@/data'
 
-const title = 'Response time'
+const title = 'Response Time'
 
 /**
  * Where the response-time line chart will go. Nothing measures response time yet, so the card says

@@ -5,7 +5,7 @@ import { DashboardPage, type DashboardPageProps } from '@/layout/PageFrame'
 export function AgentActivityPage(props: DashboardPageProps) {
   return (
     <DashboardPage
-      title="Agent activity"
+      title="Agent Activity"
       description="What the repo and GitHub record."
       note={
         activityNotRecorded.length > 0

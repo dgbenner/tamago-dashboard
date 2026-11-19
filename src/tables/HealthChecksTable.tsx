@@ -10,7 +10,9 @@ import {
   type HealthCheckResult,
 } from '@/data'
 
-import { EMPTY, wrappingText } from './cells'
+import { cn } from '@/lib/utils'
+
+import { cell, centredCell, EMPTY, head, wrappingText } from './cells'
 
 // The label text carries the meaning; the variant only adds emphasis.
 const resultVariants: Record<HealthCheckResult, ComponentProps<typeof Badge>['variant']> = {
@@ -32,20 +34,20 @@ export function HealthChecksTable() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Check</TableHead>
-              <TableHead>Last run</TableHead>
-              <TableHead>Result</TableHead>
-              <TableHead>Detail</TableHead>
+              <TableHead className={head}>Check</TableHead>
+              <TableHead className={head}>Last Run</TableHead>
+              <TableHead className={cn(head, centredCell)}>Result</TableHead>
+              <TableHead className={head}>Detail</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {healthChecks.map((check) => (
               <TableRow key={check.id}>
-                <TableCell className="align-top font-medium whitespace-nowrap">{check.name}</TableCell>
-                <TableCell className="align-top whitespace-nowrap">
+                <TableCell className={cn(cell, 'align-top font-medium whitespace-nowrap')}>{check.name}</TableCell>
+                <TableCell className={cn(cell, 'align-top whitespace-nowrap')}>
                   {check.lastRun === null ? EMPTY : formatDateTime(check.lastRun)}
                 </TableCell>
-                <TableCell className="align-top">
+                <TableCell className={cn(cell, centredCell, 'align-top')}>
                   <Badge
                     variant={resultVariants[check.result]}
                     className={check.result === 'not-measured' ? 'text-muted-foreground' : undefined}
@@ -53,7 +55,7 @@ export function HealthChecksTable() {
                     {healthCheckResultLabels[check.result]}
                   </Badge>
                 </TableCell>
-                <TableCell className="align-top text-muted-foreground">
+                <TableCell className={cn(cell, 'align-top text-muted-foreground')}>
                   <div className={wrappingText}>{check.detail}</div>
                 </TableCell>
               </TableRow>

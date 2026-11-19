@@ -89,7 +89,7 @@ function coverageOf(id) {
 const languages = courses.map(({ id, name, ready }) => {
   const dir = `src/${dirOf(id)}`
   if (!ready || !existsSync(path.join(CLONE, dir, 'sentences.json'))) {
-    return { id, name, state: 'coming-soon', status: null, partsLive: null, partsTotal: null, circles: null, sentences: null, sentencesTatoeba: null, sentencesDrafted: null, coverage: null, draftsWaiting: null, lastDeploy: null }
+    return { id, name, state: 'coming-soon', status: null, partsLive: null, partsTotal: null, circles: null, words: null, sentences: null, sentencesTatoeba: null, sentencesDrafted: null, coverage: null, draftsWaiting: null, lastDeploy: null }
   }
   const sentences = readJson(`${dir}/sentences.json`).filter((s) => s.status === 'live')
   noteSentences(sentences)
@@ -103,6 +103,8 @@ const languages = courses.map(({ id, name, ready }) => {
     partsLive, partsTotal: parts.length,
     // Circles: the places on the tree (tree_layout). Topic packs chosen inside a "Pick Your Own" circle are not counted.
     circles: readJson(`${dir}/tree_layout.json`).length,
+    // Words: the course's shipped word list (src/content*/words.json), the same count a1-coverage reports.
+    words: readJson(`${dir}/words.json`).length,
     sentences: sentences.length,
     sentencesTatoeba: sentences.filter((s) => s.source === 'tatoeba').length,
     sentencesDrafted: drafted.length,
@@ -282,7 +284,7 @@ const entry = {
   testsPassed: health.fullSuite?.passed ?? null,
   testsFailed: health.fullSuite?.failed ?? null,
   commitsTotal: activity.commitsTotal,
-  languages: Object.fromEntries(live.map((l) => [l.id, { sentences: l.sentences, circles: l.circles, draftsWaiting: l.draftsWaiting, coveragePercent: l.coverage?.percent ?? null }])),
+  languages: Object.fromEntries(live.map((l) => [l.id, { words: l.words, sentences: l.sentences, circles: l.circles, draftsWaiting: l.draftsWaiting, coveragePercent: l.coverage?.percent ?? null }])),
 }
 // A second run in the same minute replaces the first.
 const kept = history.filter((h) => h.takenAt !== stamp)

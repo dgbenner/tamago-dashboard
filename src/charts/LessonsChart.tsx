@@ -13,7 +13,7 @@ import { formatCount, formatShortDate, lessonsSeries, lessonsWeekly } from '@/da
 import { seriesConfig } from './seriesColor'
 import { rowDate, TooltipRow } from './TooltipRow'
 
-const title = 'Lessons per language'
+const title = 'Lessons per Language'
 const span = `last ${lessonsWeekly.length} weeks`
 const config = seriesConfig(lessonsSeries)
 const names = new Map(lessonsSeries.map((series) => [series.id, series.name]))
@@ -60,7 +60,7 @@ export function LessonsChart() {
                 <ChartTooltipContent
                   labelFormatter={(_, payload) => {
                     const date = rowDate(payload)
-                    return date ? `Week ending ${formatShortDate(date)}` : null
+                    return date ? `Week Ending ${formatShortDate(date)}` : null
                   }}
                   formatter={(value, name, item) => (
                     <TooltipRow

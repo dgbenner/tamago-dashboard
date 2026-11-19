@@ -62,10 +62,10 @@ for (const id of PAGE_IDS) {
   const real = REAL_PAGES.includes(id)
   if (real) {
     if (first.bannerKind !== 'real' || !REAL_BANNER.test(first.banner ?? '')) problems.push(`the "Real data, snapshot from …" line is missing or wrong: ${first.banner}`)
-    if (first.badge) problems.push('a real page still shows the "Sample data" badge')
+    if (first.badge) problems.push('a real page still shows the "Sample Data" badge')
   } else {
     if (first.bannerKind !== 'placeholder' || first.banner !== PLACEHOLDER_BANNER) problems.push('placeholder warning banner missing or its text changed')
-    if (first.badge !== 'Sample data') problems.push('"Sample data" badge missing')
+    if (first.badge !== 'Sample Data') problems.push('"Sample Data" badge missing')
   }
   if (!scrolled.bannerAtTop) problems.push('the banner is not at the top after scrolling')
   if (!first.cards) problems.push('no cards')

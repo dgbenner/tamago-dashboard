@@ -52,6 +52,8 @@ export interface RealLanguage {
   /** Circles on the course tree. */
   circles: number | null
   /** Live sentences. */
+  /** Words in the course's word list. */
+  words: number | null
   sentences: number | null
   /** Of those, sentences from Tatoeba. */
   sentencesTatoeba: number | null

@@ -8,19 +8,21 @@ interface ContentHealthPageProps {
   stats: ReactNode
   /** The languages table, already inside its own Card. */
   languages: ReactNode
+  /** The sentences-per-language table, already inside its own Card. */
+  sentences: ReactNode
   /** The deploys table, already inside its own Card. */
   deploys: ReactNode
 }
 
-/** The Content health page: header, then stats row, languages table, deploys table. */
-export function ContentHealthPage({ stats, languages, deploys }: ContentHealthPageProps) {
+/** The Content Health page: header, then stats row, languages table, sentences table, deploys table. */
+export function ContentHealthPage({ stats, languages, sentences, deploys }: ContentHealthPageProps) {
   // Newest first; undefined when the snapshot has no deploys.
   const latest = recentDeploys.at(0)
 
   return (
     <PageFrame
-      title="Content health"
-      description="The state of every language course, and the builds that shipped them."
+      title="Content Health"
+      description="The state of every language course: content, checks and deploys."
       note={
         latest ? (
           <>
@@ -33,9 +35,10 @@ export function ContentHealthPage({ stats, languages, deploys }: ContentHealthPa
         ) : undefined
       }
     >
-      <PageSection label="Key numbers">{stats}</PageSection>
+      <PageSection label="Key Numbers">{stats}</PageSection>
       <PageSection label="Languages">{languages}</PageSection>
-      <PageSection label="Deploys">{deploys}</PageSection>
+      <PageSection label="Sentences">{sentences}</PageSection>
+      <PageSection label="Recent Deploys">{deploys}</PageSection>
     </PageFrame>
   )
 }

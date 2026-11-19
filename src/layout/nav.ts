@@ -7,10 +7,10 @@ export type PageId = 'content-health' | 'growth' | 'health' | 'agent-activity' |
  * `real` is true when the page shows data from the snapshot, false when it shows placeholder numbers.
  */
 export const NAV_ITEMS: { id: PageId; label: string; icon: LucideIcon; real: boolean }[] = [
-  { id: 'content-health', label: 'Content health', icon: Activity, real: true },
+  { id: 'content-health', label: 'Content Health', icon: Activity, real: true },
   { id: 'growth', label: 'Growth', icon: TrendingUp, real: false },
   { id: 'health', label: 'Health', icon: HeartPulse, real: true },
-  { id: 'agent-activity', label: 'Agent activity', icon: Bot, real: true },
+  { id: 'agent-activity', label: 'Agent Activity', icon: Bot, real: true },
   { id: 'cost', label: 'Cost', icon: CircleDollarSign, real: false },
 ]
 

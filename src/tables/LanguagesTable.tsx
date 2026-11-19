@@ -3,6 +3,7 @@ import type { ComponentProps } from 'react'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHeader, TableRow } from '@/components/ui/table'
+import { cn } from '@/lib/utils'
 import {
   comingSoonLanguages,
   coverageListLabel,
@@ -10,45 +11,35 @@ import {
   formatDate,
   formatParts,
   formatPercent,
+  languageColumnHelp,
   languageStatusKey,
   liveLanguages,
   realLanguageStatusLabels,
+  type LanguageColumnHelpKey,
   type RealLanguage,
 } from '@/data'
 
-import { EMPTY, numberCell } from './cells'
-import { SortableHead } from './SortableHead'
+import { cell, centredCell, EMPTY, numberCell, pinnedCell, pinnedRow } from './cells'
+import { SortableHead, type HeadAlign } from './SortableHead'
 import { useSort, type SortValue } from './sort'
 
-type ColumnKey =
-  | 'name'
-  | 'status'
-  | 'parts'
-  | 'circles'
-  | 'sentences'
-  | 'sentencesTatoeba'
-  | 'sentencesDrafted'
-  | 'coverage'
-  | 'draftsWaiting'
-  | 'lastDeploy'
+type ColumnKey = 'name' | 'status' | 'parts' | 'circles' | 'words' | 'coverage' | 'lastDeploy'
 
 interface Column {
   key: ColumnKey
   label: string
-  numeric?: boolean
+  help: LanguageColumnHelpKey
+  align?: HeadAlign
 }
 
 const columns: Column[] = [
-  { key: 'name', label: 'Language' },
-  { key: 'status', label: 'Status' },
-  { key: 'parts', label: 'Parts', numeric: true },
-  { key: 'circles', label: 'Circles', numeric: true },
-  { key: 'sentences', label: 'Sentences', numeric: true },
-  { key: 'sentencesTatoeba', label: 'From Tatoeba', numeric: true },
-  { key: 'sentencesDrafted', label: 'Drafted', numeric: true },
-  { key: 'coverage', label: 'A1 coverage', numeric: true },
-  { key: 'draftsWaiting', label: 'Awaiting native check', numeric: true },
-  { key: 'lastDeploy', label: 'Last deploy' },
+  { key: 'name', label: 'Language', help: 'language' },
+  { key: 'status', label: 'Status', help: 'status', align: 'center' },
+  { key: 'parts', label: 'Parts', help: 'parts', align: 'right' },
+  { key: 'circles', label: 'Circles', help: 'circles', align: 'right' },
+  { key: 'words', label: 'Words', help: 'words', align: 'right' },
+  { key: 'coverage', label: 'A1 Coverage', help: 'coverage', align: 'right' },
+  { key: 'lastDeploy', label: 'Last Deploy', help: 'lastDeploy' },
 ]
 
 // What each column sorts by. A null (no value in the snapshot) sorts last either way.
@@ -57,11 +48,8 @@ const sortValues: Record<ColumnKey, (row: RealLanguage) => SortValue> = {
   status: (row) => realLanguageStatusLabels[languageStatusKey(row)],
   parts: (row) => row.partsLive,
   circles: (row) => row.circles,
-  sentences: (row) => row.sentences,
-  sentencesTatoeba: (row) => row.sentencesTatoeba,
-  sentencesDrafted: (row) => row.sentencesDrafted,
+  words: (row) => row.words,
   coverage: (row) => row.coverage?.percent ?? null,
-  draftsWaiting: (row) => row.draftsWaiting,
   lastDeploy: (row) => row.lastDeploy?.number ?? null,
 }
 
@@ -84,9 +72,9 @@ function LanguageRow({ row }: { row: RealLanguage }) {
   const comingSoon = statusKey === 'coming-soon'
 
   return (
-    <TableRow className={comingSoon ? 'text-muted-foreground' : undefined}>
-      <TableCell className="font-medium whitespace-nowrap">{row.name}</TableCell>
-      <TableCell>
+    <TableRow className={cn(pinnedRow, comingSoon && 'text-muted-foreground')}>
+      <TableCell className={cn(cell, pinnedCell, 'font-medium whitespace-nowrap')}>{row.name}</TableCell>
+      <TableCell className={cn(cell, centredCell)}>
         <Badge
           variant={statusVariants[statusKey]}
           className={comingSoon ? 'text-muted-foreground' : undefined}
@@ -96,9 +84,7 @@ function LanguageRow({ row }: { row: RealLanguage }) {
       </TableCell>
       <TableCell className={numberCell}>{formatParts(row) || EMPTY}</TableCell>
       <TableCell className={numberCell}>{count(row.circles)}</TableCell>
-      <TableCell className={numberCell}>{count(row.sentences)}</TableCell>
-      <TableCell className={numberCell}>{count(row.sentencesTatoeba)}</TableCell>
-      <TableCell className={numberCell}>{count(row.sentencesDrafted)}</TableCell>
+      <TableCell className={numberCell}>{count(row.words)}</TableCell>
       <TableCell className={numberCell}>
         {row.coverage ? (
           <>
@@ -109,8 +95,7 @@ function LanguageRow({ row }: { row: RealLanguage }) {
           EMPTY
         )}
       </TableCell>
-      <TableCell className={numberCell}>{count(row.draftsWaiting)}</TableCell>
-      <TableCell className="whitespace-nowrap">
+      <TableCell className={cn(cell, 'whitespace-nowrap')}>
         {row.lastDeploy ? (
           <>
             {row.lastDeploy.name} <span className="tabular-nums">{row.lastDeploy.number}</span>{' '}
@@ -124,6 +109,7 @@ function LanguageRow({ row }: { row: RealLanguage }) {
   )
 }
 
+/** The courses themselves: status, size and coverage. Every language, coming soon last. */
 export function LanguagesTable() {
   // Only the live rows are sorted. The coming-soon rows have no data to sort by, so they are
   // appended after them and stay at the bottom whatever the sort.
@@ -134,25 +120,25 @@ export function LanguagesTable() {
       <CardHeader>
         <CardTitle>Languages</CardTitle>
         <CardDescription>
-          One row per language: {formatCount(liveLanguages.length)} live,{' '}
-          {formatCount(comingSoonLanguages.length)} coming soon. Select a column heading to sort the
-          live languages. Awaiting native check: drafted sentences that are live in lessons but not yet
-          checked by a native speaker.
+          What is live, what is partly done, and what is queued up.{' '}
+          {formatCount(liveLanguages.length)} live, {formatCount(comingSoonLanguages.length)} coming
+          soon. Select a column heading to sort the live languages.
         </CardDescription>
       </CardHeader>
       <CardContent>
         <Table>
           <TableHeader>
             <TableRow>
-              {columns.map((column) => (
+              {columns.map((column, i) => (
                 <SortableHead
                   key={column.key}
+                  label={column.label}
                   direction={directionOf(column.key)}
                   onSort={() => toggleSort(column.key)}
-                  numeric={column.numeric}
-                >
-                  {column.label}
-                </SortableHead>
+                  align={column.align}
+                  help={languageColumnHelp[column.help]}
+                  className={i === 0 ? pinnedCell : undefined}
+                />
               ))}
             </TableRow>
           </TableHeader>

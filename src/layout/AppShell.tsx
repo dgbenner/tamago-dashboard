@@ -71,7 +71,18 @@ export function AppShell({
           'lg:w-60 lg:flex-col lg:items-stretch lg:gap-0 lg:overflow-y-auto lg:border-r lg:border-b-0 lg:px-3 lg:py-4'
         }
       >
-        <p className="shrink-0 text-sm font-semibold tracking-tight lg:px-3 lg:text-base">Tamago</p>
+        {/* The product lockup. Narrow: a small sushi to the left of the name, on one line.
+            Wide: the name with the sushi centred under it, as on the Tamago app's loading screen. */}
+        <div className="flex shrink-0 items-center gap-2 lg:flex-col-reverse lg:gap-1.5 lg:px-3">
+          <img
+            src={`${import.meta.env.BASE_URL}tamago-sushi.webp`}
+            alt=""
+            width={384}
+            height={256}
+            className="h-auto w-7 shrink-0 lg:w-15"
+          />
+          <p className="whitespace-nowrap text-sm font-semibold tracking-tight lg:text-base">Tamago Metrics</p>
+        </div>
 
         <Separator orientation="vertical" className="data-[orientation=vertical]:h-5 lg:hidden" />
         <Separator className="my-3 hidden lg:block" />

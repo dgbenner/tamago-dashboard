@@ -2,15 +2,17 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { formatCount, formatDate, reviewsApplied } from '@/data'
 
-import { wrappingText } from './cells'
+import { cn } from '@/lib/utils'
 
-const columns = ['Date', 'What was applied']
+import { cell, head, wrappingText } from './cells'
+
+const columns = ['Date', 'What Was Applied']
 
 export function ReviewsAppliedTable() {
   return (
     <Card className="min-w-0">
       <CardHeader>
-        <CardTitle>Reviews applied</CardTitle>
+        <CardTitle>Reviews Applied</CardTitle>
         <CardDescription>
           The commits that record a review being applied to the course:{' '}
           {formatCount(reviewsApplied.length)} in all, newest first.
@@ -21,22 +23,22 @@ export function ReviewsAppliedTable() {
           <TableHeader>
             <TableRow>
               {columns.map((label) => (
-                <TableHead key={label}>{label}</TableHead>
+                <TableHead key={label} className={head}>{label}</TableHead>
               ))}
             </TableRow>
           </TableHeader>
           <TableBody>
             {reviewsApplied.length === 0 && (
               <TableRow>
-                <TableCell colSpan={columns.length} className="text-muted-foreground">
+                <TableCell colSpan={columns.length} className={cn(cell, 'text-muted-foreground')}>
                   No applied reviews are recorded.
                 </TableCell>
               </TableRow>
             )}
             {reviewsApplied.map((review, i) => (
               <TableRow key={`${review.date}-${i}`}>
-                <TableCell className="align-top whitespace-nowrap">{formatDate(review.date)}</TableCell>
-                <TableCell className="align-top">
+                <TableCell className={cn(cell, 'align-top whitespace-nowrap')}>{formatDate(review.date)}</TableCell>
+                <TableCell className={cn(cell, 'align-top')}>
                   <div className={wrappingText}>{review.subject}</div>
                 </TableCell>
               </TableRow>

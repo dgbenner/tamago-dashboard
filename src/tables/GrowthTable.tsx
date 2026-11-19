@@ -2,6 +2,9 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Table, TableBody, TableCell, TableHeader, TableRow } from '@/components/ui/table'
 import { formatCount, formatDelta, growthRows, type GrowthRow } from '@/data'
 
+import { cn } from '@/lib/utils'
+
+import { cell, numberCell } from './cells'
 import { SortableHead } from './SortableHead'
 import { useSort, type SortValue } from './sort'
 
@@ -10,14 +13,14 @@ type ColumnKey = 'name' | 'addedThisWeek' | 'addedThisMonth' | 'totalLessons'
 interface Column {
   key: ColumnKey
   label: string
-  numeric?: boolean
+  align?: 'right'
 }
 
 const columns: Column[] = [
   { key: 'name', label: 'Language' },
-  { key: 'addedThisWeek', label: 'Added this week', numeric: true },
-  { key: 'addedThisMonth', label: 'Added this month', numeric: true },
-  { key: 'totalLessons', label: 'Total lessons', numeric: true },
+  { key: 'addedThisWeek', label: 'Added This Week', align: 'right' },
+  { key: 'addedThisMonth', label: 'Added This Month', align: 'right' },
+  { key: 'totalLessons', label: 'Total Lessons', align: 'right' },
 ]
 
 const sortValues: Record<ColumnKey, (row: GrowthRow) => SortValue> = {
@@ -27,15 +30,13 @@ const sortValues: Record<ColumnKey, (row: GrowthRow) => SortValue> = {
   totalLessons: (row) => row.totalLessons,
 }
 
-const numberCell = 'text-right whitespace-nowrap tabular-nums'
-
 export function GrowthTable() {
   const { sorted, toggleSort, directionOf } = useSort(growthRows, sortValues)
 
   return (
     <Card className="min-w-0">
       <CardHeader>
-        <CardTitle>Lessons by language</CardTitle>
+        <CardTitle>Lessons by Language</CardTitle>
         <CardDescription>One row per language. Select a column heading to sort.</CardDescription>
       </CardHeader>
       <CardContent>
@@ -47,17 +48,16 @@ export function GrowthTable() {
                   key={column.key}
                   direction={directionOf(column.key)}
                   onSort={() => toggleSort(column.key)}
-                  numeric={column.numeric}
-                >
-                  {column.label}
-                </SortableHead>
+                  label={column.label}
+                  align={column.align}
+                />
               ))}
             </TableRow>
           </TableHeader>
           <TableBody>
             {sorted.map((row) => (
               <TableRow key={row.id}>
-                <TableCell className="font-medium whitespace-nowrap">{row.name}</TableCell>
+                <TableCell className={cn(cell, 'font-medium whitespace-nowrap')}>{row.name}</TableCell>
                 <TableCell className={numberCell}>{formatDelta(row.addedThisWeek)}</TableCell>
                 <TableCell className={numberCell}>{formatDelta(row.addedThisMonth)}</TableCell>
                 <TableCell className={numberCell}>{formatCount(row.totalLessons)}</TableCell>

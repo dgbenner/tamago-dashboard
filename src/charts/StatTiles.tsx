@@ -31,14 +31,14 @@ export function StatTiles({ tiles }: { tiles: StatTile[] }) {
 
         return (
           <Card key={tile.id}>
-            <CardHeader>
+            <CardHeader className="justify-items-center text-center">
               <CardDescription>{tile.label}</CardDescription>
               {tile.measured ? (
-                <CardTitle className="min-w-0 text-3xl font-semibold tabular-nums wrap-anywhere">
+                <CardTitle className="max-w-full min-w-0 text-4xl font-semibold tabular-nums wrap-anywhere">
                   {tile.value}
                 </CardTitle>
               ) : (
-                <CardTitle className="min-w-0 py-1.5 text-base font-medium text-muted-foreground wrap-anywhere">
+                <CardTitle className="max-w-full min-w-0 py-1.5 text-[1.2rem] font-medium text-muted-foreground wrap-anywhere">
                   {tile.value}
                 </CardTitle>
               )}

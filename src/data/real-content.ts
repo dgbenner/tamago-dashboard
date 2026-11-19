@@ -128,3 +128,11 @@ export const contentStatTiles: StatTile[] = buildRealTiles('content', {
     trend: trendOf('testsFailed'),
   },
 })
+
+// ── Column help ──────────────────────────────────────────────────────────────
+
+/** The Languages tables' column keys that have an explanation. */
+export type LanguageColumnHelpKey = keyof typeof labelsJson.columnHelp
+
+/** What each Languages column means, for the tooltip beside its heading. */
+export const languageColumnHelp: Record<LanguageColumnHelpKey, string> = labelsJson.columnHelp

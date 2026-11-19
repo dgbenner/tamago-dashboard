@@ -7,7 +7,7 @@ interface PageFrameProps {
   title: string
   /** One line under the title. */
   description: string
-  /** Shows a "Sample data" badge next to the title. */
+  /** Shows a "Sample Data" badge next to the title. */
   sample?: boolean
   /** A short, smaller muted line under the description. */
   note?: ReactNode
@@ -25,7 +25,7 @@ export function PageFrame({ title, description, sample = false, note, children }
         {sample ? (
           <div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1">
             {heading}
-            <Badge variant="outline">Sample data</Badge>
+            <Badge variant="outline">Sample Data</Badge>
           </div>
         ) : (
           heading
@@ -62,7 +62,7 @@ export interface DashboardPageProps {
 }
 
 /**
- * A stats, chart and table page: header, then the three slots. `sample` shows the "Sample data"
+ * A stats, chart and table page: header, then the three slots. `sample` shows the "Sample Data"
  * badge; only placeholder pages set it.
  */
 export function DashboardPage({
@@ -76,7 +76,7 @@ export function DashboardPage({
 }: DashboardPageProps & { title: string; description: string; note?: ReactNode; sample?: boolean }) {
   return (
     <PageFrame title={title} description={description} note={note} sample={sample}>
-      <PageSection label="Key numbers">{stats}</PageSection>
+      <PageSection label="Key Numbers">{stats}</PageSection>
       <PageSection label="Chart">{chart}</PageSection>
       <PageSection label="Table">{table}</PageSection>
     </PageFrame>

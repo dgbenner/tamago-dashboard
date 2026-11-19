@@ -13,7 +13,9 @@ import {
   type RealDeploy,
 } from '@/data'
 
-import { EMPTY, wrappingText } from './cells'
+import { cn } from '@/lib/utils'
+
+import { cell, centredCell, EMPTY, head, pinnedCell, pinnedRow, wrappingText } from './cells'
 
 // The label text carries the meaning; the variant only adds emphasis.
 const testVariants: Record<DeployTestResult, ComponentProps<typeof Badge>['variant']> = {
@@ -46,7 +48,7 @@ export function DeploysTable() {
   return (
     <Card className="min-w-0">
       <CardHeader>
-        <CardTitle>Recent deploys</CardTitle>
+        <CardTitle>Recent Deploys</CardTitle>
         <CardDescription>
           The last {formatCount(recentDeploys.length)} deploys, newest first. A test result exists
           only for deploys made since the full test run was set up on GitHub.
@@ -56,28 +58,28 @@ export function DeploysTable() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead>Version</TableHead>
-              <TableHead>Date</TableHead>
-              <TableHead>What was in it</TableHead>
-              <TableHead>Test result</TableHead>
+              <TableHead className={cn(head, pinnedCell)}>Version</TableHead>
+              <TableHead className={head}>Date</TableHead>
+              <TableHead className={head}>What Was in It</TableHead>
+              <TableHead className={cn(head, centredCell)}>Test Result</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
             {recentDeploys.map((deploy) => {
               const counts = formatDeployTest(deploy)
               return (
-                <TableRow key={deploy.number}>
-                  <TableCell className="align-top whitespace-nowrap">
+                <TableRow key={deploy.number} className={pinnedRow}>
+                  <TableCell className={cn(cell, pinnedCell, 'align-top whitespace-nowrap')}>
                     {deploy.name}{' '}
                     <span className="text-muted-foreground tabular-nums">{deploy.number}</span>
                   </TableCell>
-                  <TableCell className="align-top whitespace-nowrap">
+                  <TableCell className={cn(cell, 'align-top whitespace-nowrap')}>
                     {formatDateTime(deploy.date)}
                   </TableCell>
-                  <TableCell className="align-top">
+                  <TableCell className={cn(cell, 'align-top')}>
                     <Changes deploy={deploy} />
                   </TableCell>
-                  <TableCell className="align-top whitespace-nowrap">
+                  <TableCell className={cn(cell, centredCell, 'align-top whitespace-nowrap')}>
                     <Badge
                       variant={testVariants[deploy.test.result]}
                       className={

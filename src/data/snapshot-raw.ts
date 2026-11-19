@@ -18,6 +18,7 @@ export interface SnapshotLanguageJson {
   partsLive: number | null
   partsTotal: number | null
   circles: number | null
+  words: number | null
   sentences: number | null
   sentencesTatoeba: number | null
   sentencesDrafted: number | null
@@ -92,7 +93,7 @@ export interface SnapshotHistoryEntryJson {
   testsPassed: number | null
   testsFailed: number | null
   commitsTotal: number | null
-  languages: Record<string, { sentences: number | null; circles: number | null; draftsWaiting: number | null; coveragePercent: number | null }>
+  languages: Record<string, { words?: number | null; sentences: number | null; circles: number | null; draftsWaiting: number | null; coveragePercent: number | null }>
 }
 
 /** The current snapshot, exactly as generated. */

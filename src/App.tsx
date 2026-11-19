@@ -19,6 +19,7 @@ import { GrowthTable } from '@/tables/GrowthTable'
 import { HealthChecksTable } from '@/tables/HealthChecksTable'
 import { LanguagesTable } from '@/tables/LanguagesTable'
 import { ReviewsAppliedTable } from '@/tables/ReviewsAppliedTable'
+import { SentencesTable } from '@/tables/SentencesTable'
 
 // Assembled by the coordinator: each section comes from the agent that owns it.
 // Content health, Health and Agent activity read the real snapshot (npm run snapshot); Growth and Cost are placeholders.
@@ -27,6 +28,7 @@ const PAGES: Record<PageId, () => ReactNode> = {
     <ContentHealthPage
       stats={<StatTiles tiles={contentStatTiles} />}
       languages={<LanguagesTable />}
+      sentences={<SentencesTable />}
       deploys={<DeploysTable />}
     />
   ),

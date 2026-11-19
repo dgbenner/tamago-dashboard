@@ -77,8 +77,8 @@ For each page it prints `DONE` or `NOT DONE` with the reasons. A page is done wh
 
 - the right page opens, and is the same after a refresh
 - a real page (Content health, Health, Agent activity) has the line "Real data, snapshot from …" with a date and
-  time, and no "Sample data" badge
-- a placeholder page (Growth, Cost) has the red warning banner with its exact text, and the "Sample data" badge
+  time, and no "Sample Data" badge
+- a placeholder page (Growth, Cost) has the red warning banner with its exact text, and the "Sample Data" badge
 - the banner is still at the top after scrolling
 - it has cards and table rows, and a chart where the page has one
 - it asks the network for nothing beyond the site's own files

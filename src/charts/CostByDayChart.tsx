@@ -12,7 +12,7 @@ import { costByDay, formatCurrency, formatShortDate } from '@/data'
 import { seriesColor } from './seriesColor'
 import { rowDate, TooltipRow } from './TooltipRow'
 
-const title = 'Cost per day'
+const title = 'Cost per Day'
 const seriesName = 'Cost'
 const span = `last ${costByDay.length} days`
 const config = { cost: { label: seriesName, color: seriesColor(0) } } satisfies ChartConfig

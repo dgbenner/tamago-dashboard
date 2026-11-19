@@ -20,7 +20,7 @@ function seriesPhrase(names: string[]): string {
   return `${words.slice(0, -1).join(', ')} and ${words[words.length - 1]}`
 }
 
-const title = 'Activity per day'
+const title = 'Activity per Day'
 const span = `last ${activityByDay.length} days`
 const description = `${seriesPhrase(activitySeries.map((series) => series.name))}, ${span}`
 const config = seriesConfig(activitySeries)
