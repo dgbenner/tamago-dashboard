@@ -30,7 +30,7 @@ export function StatTiles({ tiles }: { tiles: StatTile[] }) {
           tile.trend !== null && tile.trend.length >= TREND_MIN_POINTS ? tile.trend : null
 
         return (
-          <Card key={tile.id}>
+          <Card key={tile.id} className="gap-4 py-4">
             <CardHeader className="justify-items-center text-center">
               <CardDescription>{tile.label}</CardDescription>
               {tile.measured ? (

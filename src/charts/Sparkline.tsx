@@ -89,8 +89,7 @@ export function Sparkline({
           type={movesInSteps(trend) ? 'step' : 'monotone'}
           stroke="var(--color-value)"
           strokeWidth={2}
-          fill="var(--color-value)"
-          fillOpacity={0.12}
+          fill="none"
           dot={false}
           isAnimationActive={false}
         />

@@ -50,7 +50,10 @@ export function trendOf(field: HistoryNumberField): TrendPoint[] | null {
     const value = entry[field]
     if (typeof value === 'number') points.push({ takenAt: entry.takenAt, value })
   }
-  return points.length >= TREND_MIN_SNAPSHOTS ? points : null
+  if (points.length < TREND_MIN_SNAPSHOTS) return null
+  // Nothing is drawn until the number has actually changed between snapshots (Dan, 2026-11-19): a flat line
+  // only says "no change", and the card reads better ending after its description.
+  return points.some((point) => point.value !== points[0].value) ? points : null
 }
 
 /** A deploy as text, e.g. "Dolphin 58". */
