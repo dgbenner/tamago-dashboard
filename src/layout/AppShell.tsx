@@ -45,7 +45,7 @@ export function AppShell({
         <div
           role="note"
           data-banner="real"
-          className="shrink-0 border-b bg-muted px-4 py-1.5 text-center text-xs text-muted-foreground"
+          className="shrink-0 bg-linear-to-r from-tamago-yellow to-tamago-green px-4 py-1.5 text-center text-xs font-medium text-tamago-ink"
         >
           <p>
             Real data, snapshot from <time dateTime={snapshotTakenAt}>{snapshotLabel}</time>

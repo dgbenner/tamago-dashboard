@@ -37,6 +37,9 @@
     --color-chart-5: var(--chart-5);
     --color-chart-6: var(--chart-6);
     --color-chart-neutral: var(--chart-neutral);
+    --color-tamago-yellow: var(--tamago-yellow);
+    --color-tamago-green: var(--tamago-green);
+    --color-tamago-ink: var(--tamago-ink);
     --color-sidebar: var(--sidebar);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar-primary: var(--sidebar-primary);
@@ -75,6 +78,11 @@
     --chart-5: #e87ba4;
     --chart-6: #008300;
     /* Neutral, for sparklines and other single marks that carry no identity. */
+    /* The Tamago app's own colours (its src/index.css): --accent yellow, the lighter logo green, --accent-ink.
+       Used for the snapshot strip. The same in light and dark, as in the app. */
+    --tamago-yellow: #ffc21a;
+    --tamago-green: #22b573;
+    --tamago-ink: #1c1a17;
     --chart-neutral: oklch(0.556 0 0);
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
