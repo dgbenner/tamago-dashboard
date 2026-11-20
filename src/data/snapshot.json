@@ -1,10 +1,10 @@
 {
-  "takenAt": "2026-11-19T17:33:00-06:00",
+  "takenAt": "2026-11-20T08:31:00-06:00",
   "source": {
     "repo": "dgbenner/tamago",
     "branch": "main",
-    "commit": "d926c14",
-    "commitDate": "2026-11-19T16:36:21-06:00"
+    "commit": "9981c1f",
+    "commitDate": "2026-11-20T08:15:27-06:00"
   },
   "languages": [
     {
@@ -127,86 +127,129 @@
       "id": "pt",
       "name": "Portuguese",
       "state": "live",
-      "status": "incomplete",
-      "partsLive": 3,
+      "status": "complete",
+      "partsLive": 4,
       "partsTotal": 4,
       "level": "A1",
-      "circles": 55,
-      "words": 759,
-      "wordsWiktionary": 759,
-      "recordingsLinguaLibre": 662,
-      "sentences": 2548,
-      "sentencesTatoeba": 1929,
-      "sentencesDrafted": 619,
+      "circles": 72,
+      "words": 1006,
+      "wordsWiktionary": 990,
+      "recordingsLinguaLibre": 841,
+      "sentences": 3726,
+      "sentencesTatoeba": 2860,
+      "sentencesDrafted": 866,
       "coverage": {
         "list": "Camões",
         "scope": "full list",
-        "taught": 445,
+        "taught": 620,
         "total": 649,
-        "percent": 69
+        "percent": 96
       },
-      "draftsWaiting": 619,
+      "draftsWaiting": 866,
       "lastDeploy": {
-        "number": 59,
-        "name": "Elephant",
-        "date": "2026-11-19T16:36:21-06:00"
+        "number": 64,
+        "name": "Jaguar",
+        "date": "2026-11-20T07:55:29-06:00"
       }
     },
     {
       "id": "nl",
       "name": "Dutch",
-      "state": "coming-soon",
-      "status": null,
-      "partsLive": null,
-      "partsTotal": null,
-      "level": null,
-      "circles": null,
-      "words": null,
-      "wordsWiktionary": null,
-      "recordingsLinguaLibre": null,
-      "sentences": null,
-      "sentencesTatoeba": null,
-      "sentencesDrafted": null,
-      "coverage": null,
-      "draftsWaiting": null,
+      "state": "started",
+      "status": "started",
+      "partsLive": 1,
+      "partsTotal": 4,
+      "level": "A1",
+      "circles": 21,
+      "words": 240,
+      "wordsWiktionary": 211,
+      "recordingsLinguaLibre": 171,
+      "sentences": 776,
+      "sentencesTatoeba": 623,
+      "sentencesDrafted": 153,
+      "coverage": {
+        "list": "hermitdave FrequencyWords",
+        "scope": "core 600",
+        "taught": 148,
+        "total": 600,
+        "percent": 25
+      },
+      "draftsWaiting": 153,
       "lastDeploy": null
     },
     {
-      "id": "sv",
-      "name": "Swedish",
-      "state": "coming-soon",
-      "status": null,
-      "partsLive": null,
-      "partsTotal": null,
-      "level": null,
-      "circles": null,
-      "words": null,
-      "wordsWiktionary": null,
-      "recordingsLinguaLibre": null,
-      "sentences": null,
-      "sentencesTatoeba": null,
-      "sentencesDrafted": null,
-      "coverage": null,
-      "draftsWaiting": null,
+      "id": "no",
+      "name": "Norwegian",
+      "state": "started",
+      "status": "started",
+      "partsLive": 1,
+      "partsTotal": 4,
+      "level": "A1",
+      "circles": 21,
+      "words": 219,
+      "wordsWiktionary": 174,
+      "recordingsLinguaLibre": 0,
+      "sentences": 258,
+      "sentencesTatoeba": 123,
+      "sentencesDrafted": 135,
+      "coverage": {
+        "list": "hermitdave FrequencyWords",
+        "scope": "core 600",
+        "taught": 115,
+        "total": 600,
+        "percent": 19
+      },
+      "draftsWaiting": 135,
       "lastDeploy": null
     },
     {
       "id": "da",
       "name": "Danish",
-      "state": "coming-soon",
-      "status": null,
-      "partsLive": null,
-      "partsTotal": null,
-      "level": null,
-      "circles": null,
-      "words": null,
-      "wordsWiktionary": null,
-      "recordingsLinguaLibre": null,
-      "sentences": null,
-      "sentencesTatoeba": null,
-      "sentencesDrafted": null,
-      "coverage": null,
-      "draftsWaiting": null,
+      "state": "started",
+      "status": "started",
+      "partsLive": 1,
+      "partsTotal": 4,
+      "level": "A1",
+      "circles": 21,
+      "words": 217,
+      "wordsWiktionary": 212,
+      "recordingsLinguaLibre": 30,
+      "sentences": 536,
+      "sentencesTatoeba": 426,
+      "sentencesDrafted": 110,
+      "coverage": {
+        "list": "hermitdave FrequencyWords",
+        "scope": "core 600",
+        "taught": 118,
+        "total": 600,
+        "percent": 20
+      },
+      "draftsWaiting": 110,
+      "lastDeploy": null
+    },
+    {
+      "id": "sv",
+      "name": "Swedish",
+      "state": "started",
+      "status": "started",
+      "partsLive": 1,
+      "partsTotal": 4,
+      "level": "A1",
+      "circles": 21,
+      "words": 225,
+      "wordsWiktionary": 180,
+      "recordingsLinguaLibre": 42,
+      "sentences": 519,
+      "sentencesTatoeba": 449,
+      "sentencesDrafted": 70,
+      "coverage": {
+        "list": "Swedish Kelly list",
+        "scope": "core 600",
+        "taught": 83,
+        "total": 600,
+        "percent": 14
+      },
+      "draftsWaiting": 70,
       "lastDeploy": null
     },
     {
@@ -231,25 +274,6 @@
     {
       "id": "ro",
       "name": "Romanian",
-      "state": "coming-soon",
-      "status": null,
-      "partsLive": null,
-      "partsTotal": null,
-      "level": null,
-      "circles": null,
-      "words": null,
-      "wordsWiktionary": null,
-      "recordingsLinguaLibre": null,
-      "sentences": null,
-      "sentencesTatoeba": null,
-      "sentencesDrafted": null,
-      "coverage": null,
-      "draftsWaiting": null,
-      "lastDeploy": null
-    },
-    {
-      "id": "no",
-      "name": "Norwegian",
       "state": "coming-soon",
       "status": null,
       "partsLive": null,
@@ -345,6 +369,148 @@
   ],
   "deploys": [
     {
+      "number": 67,
+      "name": "Meerkat",
+      "date": "2026-11-20T08:15:27-06:00",
+      "commit": "9981c1f",
+      "changes": [
+        "Part dividers on the tree: A1: Part N at the top from Part 2, A1: Part N · Midpoint in every part; they replace the level markers"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "running",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 66,
+      "name": "Lemur",
+      "date": "2026-11-20T08:04:39-06:00",
+      "commit": "005c5e5",
+      "changes": [
+        "Norwegian: app wiring (Developer only), titles to the copy rule; gender corrections need a reason (vann is et)",
+        "Norwegian Part 1: apply Fable's review",
+        "Norwegian (Bokmål) A1 Part 1: content build on lang/norwegian"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "failed",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 65,
+      "name": "Koala",
+      "date": "2026-11-20T08:00:58-06:00",
+      "commit": "1141dbc",
+      "changes": [
+        "Danish: app wiring (Developer only), titles to the copy rule, icons, by-ear decision",
+        "Danish Part 1: apply Fable's review",
+        "Danish (da) Part 1: content build on lang/danish"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "failed",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 64,
+      "name": "Jaguar",
+      "date": "2026-11-20T07:55:29-06:00",
+      "commit": "392ca09",
+      "changes": [
+        "Swedish: app wiring (Developer only), titles to the copy rule, icons, six words moved to the circle that first uses them; no-exam general…",
+        "Dutch titles to the copy rule (workbook v3); one-word color gloss in Dutch and Portuguese; final check runs the general format for a cour…",
+        "Apply Fable's Swedish Part 1 review",
+        "Dutch notes and overview lines: Dutch runs in bold, as every course since 2026-11-16 (wording unchanged)",
+        "Swedish A1 Part 1 (content only, Builder 2)"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "failed",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 63,
+      "name": "Iguana",
+      "date": "2026-11-20T06:59:54-06:00",
+      "commit": "a7c4cb4",
+      "changes": [
+        "Dutch wiring, part 2: exam, conversations, tests and audits; additive gender override; content rebuilt under main (US spelling)",
+        "Dutch wiring, part 1: tables, course entry (Developer only), converse LANG, auth, admin, Developer, vite, voice lab, articles",
+        "Apply Fable's Dutch Part 1 review",
+        "Add Dutch (nl) course, A1 Part 1"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "passed",
+        "tests": 281,
+        "passed": 281,
+        "failed": 0
+      }
+    },
+    {
+      "number": 62,
+      "name": "Hedgehog",
+      "date": "2026-11-20T06:40:40-06:00",
+      "commit": "05e6505",
+      "changes": [
+        "Portuguese: Fable's Parts 2-4 review applied; Brazilian words taught, Portugal's accepted; senses, impersonal verbs, você commands",
+        "Portuguese A1 Part 4, Out and About: 17 circles, 34 task items, mock ACESSO; Camões A1 from 445 to 625 (96%); audits clean",
+        "Portuguese A1 Part 4 (work in progress, parked): config, workbook v7, import and Wiktionary check"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "failed",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 61,
+      "name": "Gecko",
+      "date": "2026-11-19T20:13:05-06:00",
+      "commit": "bfec7ec",
+      "changes": [
+        "Opening screen live: FlagRow and opening-screen notes, version bump",
+        "Opening screen: halftone fade-in, the wordmark and sushi drop with a rebound, flags ripple in, hover and press"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "passed",
+        "tests": 272,
+        "passed": 272,
+        "failed": 0
+      }
+    },
+    {
+      "number": 60,
+      "name": "Flamingo",
+      "date": "2026-11-19T18:09:22-06:00",
+      "commit": "6f14443",
+      "changes": [
+        "Favicon: the sushi icon from the dashboard (32 px)"
+      ],
+      "changesHidden": 1,
+      "test": {
+        "result": "passed",
+        "tests": 272,
+        "passed": 272,
+        "failed": 0
+      }
+    },
+    {
       "number": 59,
       "name": "Elephant",
       "date": "2026-11-19T16:36:21-06:00",
@@ -399,165 +565,25 @@
         "passed": 259,
         "failed": 0
       }
-    },
-    {
-      "number": 57,
-      "name": "Capybara",
-      "date": "2026-11-16T15:52:12-06:00",
-      "commit": "6e13c35",
-      "changes": [
-        "Accent guard: a missing accent that makes another course word is wrong, with the accent note",
-        "Full suite split to run in about 9 minutes (was 28); typo guard covers every course word"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "not-recorded",
-        "tests": null,
-        "passed": null,
-        "failed": null
-      }
-    },
-    {
-      "number": 56,
-      "name": "Badger",
-      "date": "2026-11-16T15:01:47-06:00",
-      "commit": "073c9a8",
-      "changes": [
-        "Answer checking allows two typos (was one)"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "not-recorded",
-        "tests": null,
-        "passed": null,
-        "failed": null
-      }
-    },
-    {
-      "number": 55,
-      "name": "Aardvark",
-      "date": "2026-11-16T08:13:56-06:00",
-      "commit": "945b566",
-      "changes": [
-        "Nine Town pictures (Batch 1) in every course that teaches the words; testing rule in Team",
-        "Portuguese A1 Part 3, Time and Plans: 17 circles, Brush-Up C05 and C06, 32 task items; Camões A1 from 277 to 445 (69%); audits clean",
-        "Italian: Fable's Parts 2 to 4 review applied; Italian and Portuguese public; nine Coming Soon flags",
-        "Interface sounds levelled for phone and tablet speakers: each file to -22 LUFS, peaks under -1 dBFS",
-        "Portuguese A1 Part 2, Everyday Life: 17 circles, Brush-Up C03 and C04, 28 task items; Camões A1 from 136 to 277 (43%); audits clean"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "not-recorded",
-        "tests": null,
-        "passed": null,
-        "failed": null
-      }
-    },
-    {
-      "number": 54,
-      "name": "Zebra",
-      "date": "2026-11-16T06:36:02-06:00",
-      "commit": "426b0b8",
-      "changes": [
-        "Version bump for the people-picture fix and shared pictures",
-        "Pictures another course already has, mapped to 54 words in Spanish, German, Italian and Portuguese",
-        "Pictures of people meet the bottom edge of their circle or frame"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "not-recorded",
-        "tests": null,
-        "passed": null,
-        "failed": null
-      }
-    },
-    {
-      "number": 53,
-      "name": "Yak",
-      "date": "2026-11-16T03:47:30-06:00",
-      "commit": "6a4bfd9",
-      "changes": [
-        "Version bump for Italian Parts 2 to 4",
-        "Italian A1 Part 4, Out and About: 17 circles, Brush-Up C07 and C08, 34 task items; Kelly core 600 from 345 to 552 (92%); mock CELI Impatt…",
-        "Italian A1 Part 3, Time and Plans: 17 circles, Brush-Up C05 and C06, 32 task items (three Read and Answer texts per circle); Kelly core 6…",
-        "Italian A1 Part 2, Everyday Life: 17 circles, Brush-Up C03 and C04, 28 task items (three Read and Answer texts per circle); Kelly core 60…",
-        "Interface sounds (all courses): Reduce Motion no longer mutes them (the cause of no sounds on iPhone and iPad); played from rendered file…",
-        "Team: pull, re-test, then push; never force-push"
-      ],
-      "changesHidden": 1,
-      "test": {
-        "result": "not-recorded",
-        "tests": null,
-        "passed": null,
-        "failed": null
-      }
-    },
-    {
-      "number": 52,
-      "name": "Xerus",
-      "date": "2026-11-15T21:25:12-06:00",
-      "commit": "56940e7",
-      "changes": [
-        "Answer sounds (all courses): correct Warm lift and incorrect Muted minor at the instant of Check; the voice starts at its usual moment an…"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "not-recorded",
-        "tests": null,
-        "passed": null,
-        "failed": null
-      }
-    },
-    {
-      "number": 51,
-      "name": "Walrus",
-      "date": "2026-11-15T21:18:37-06:00",
-      "commit": "cb8626f",
-      "changes": [
-        "iPhone fixes (all courses): interface sounds no longer muted by Safari's stuck speaking flag or a sleeping audio context, Speak and Compa…"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "not-recorded",
-        "tests": null,
-        "passed": null,
-        "failed": null
-      }
-    },
-    {
-      "number": 50,
-      "name": "Vole",
-      "date": "2026-11-15T20:47:59-06:00",
-      "commit": "fb7d5f8",
-      "changes": [
-        "Design fixes (all courses): circle icons grouped and centred, bigger on phones; QT09 bubble waits for the first chip, chips left-aligned;…"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "not-recorded",
-        "tests": null,
-        "passed": null,
-        "failed": null
-      }
     }
   ],
   "health": {
     "fullSuite": {
       "result": "failed",
-      "startedAt": "2026-11-19T22:49:41Z",
-      "finishedAt": "2026-11-19T22:50:02Z",
-      "durationSeconds": 21,
+      "startedAt": "2026-11-20T14:07:34Z",
+      "finishedAt": "2026-11-20T14:23:16Z",
+      "durationSeconds": 942,
       "tests": null,
       "passed": null,
       "failed": null,
       "skipped": null,
-      "commit": "d926c14",
+      "commit": "005c5e5",
       "deploy": {
-        "number": 59,
-        "name": "Elephant"
+        "number": 66,
+        "name": "Lemur"
       },
-      "runsRecorded": 2,
-      "stoppedAt": "Run npm ci"
+      "runsRecorded": 10,
+      "stoppedAt": null
     },
     "auditNote": {
       "date": "2026-11-16",
@@ -571,12 +597,6 @@
   },
   "activity": {
     "days": [
-      {
-        "date": "2026-11-06",
-        "commits": 0,
-        "pushes": 0,
-        "deploys": 0
-      },
       {
         "date": "2026-11-07",
         "commits": 14,
@@ -651,15 +671,25 @@
       },
       {
         "date": "2026-11-19",
-        "commits": 24,
+        "commits": 41,
+        "pushes": 1,
+        "deploys": 3
+      },
+      {
+        "date": "2026-11-20",
+        "commits": 26,
         "pushes": 0,
-        "deploys": 1
+        "deploys": 6
       }
     ],
     "firstCommit": "2026-11-07T08:41:36-06:00",
-    "commitsTotal": 301,
-    "deploysTotal": 59,
+    "commitsTotal": 344,
+    "deploysTotal": 67,
     "reviewsApplied": [
+      {
+        "date": "2026-11-19T21:12:12-06:00",
+        "subject": "Portuguese: Fable's Parts 2-4 review applied; Brazilian words taught, Portugal's accepted; senses, impersonal verbs, você commands"
+      },
       {
         "date": "2026-11-16T06:14:35-06:00",
         "subject": "Italian: Fable's Parts 2 to 4 review applied; Italian and Portuguese public; nine Coming Soon flags"
@@ -845,6 +875,16 @@
           "it": 2837,
           "pt": 1879
         }
+      },
+      {
+        "date": "2026-11-20",
+        "lessons": {
+          "fr": 3399,
+          "es": 3048,
+          "de": 3192,
+          "it": 2837,
+          "pt": 2758
+        }
       }
     ],
     "firstMeasured": "2026-11-10",
@@ -880,9 +920,9 @@
       {
         "id": "pt",
         "name": "Portuguese",
-        "totalLessons": 1879,
-        "newThisWeek": 1879,
-        "newThisMonth": 1879
+        "totalLessons": 2758,
+        "newThisWeek": 2758,
+        "newThisMonth": 2758
       }
     ]
   }
