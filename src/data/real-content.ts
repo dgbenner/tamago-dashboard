@@ -72,11 +72,18 @@ export function formatParts(language: RealLanguage): string {
   return fill(labelsJson.parts, { live: formatCount(language.partsLive), total: formatCount(language.partsTotal) })
 }
 
-/** The list a coverage figure is measured against, e.g. "FLELex, core 600" or "Goethe-Institut". */
+/**
+ * A list or scope name as the page shows it. Tamago's report writes some in lower case ("Kelly project", "core 600");
+ * on the page they are labels, so they are capitalised from labels.json. Names not listed there show as written.
+ */
+const displayNames: Record<string, string> = labelsJson.coverageList.displayNames
+const displayName = (name: string) => displayNames[name] ?? name
+
+/** The list a coverage figure is measured against, e.g. "FLELex, Core 600" or "Goethe-Institut". */
 export function coverageListLabel(coverage: Coverage): string {
   return coverage.scope === FULL_LIST_SCOPE
-    ? fill(labelsJson.coverageList.fullList, { list: coverage.list })
-    : fill(labelsJson.coverageList.scoped, { list: coverage.list, scope: coverage.scope })
+    ? fill(labelsJson.coverageList.fullList, { list: displayName(coverage.list) })
+    : fill(labelsJson.coverageList.scoped, { list: displayName(coverage.list), scope: displayName(coverage.scope) })
 }
 
 // ── Deploys ──────────────────────────────────────────────────────────────────

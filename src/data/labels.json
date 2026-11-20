@@ -11,7 +11,13 @@
   "coursesComplete": "{complete} of {live}",
   "coverageList": {
     "fullList": "{list}",
-    "scoped": "{list}, {scope}"
+    "scoped": "{list}, {scope}",
+    "displayNames": {
+      "Kelly project": "Kelly Project",
+      "Swedish Kelly list": "Swedish Kelly List",
+      "hermitdave FrequencyWords": "HermitDave FrequencyWords",
+      "core 600": "Core 600"
+    }
   },
   "deployTest": {
     "passed": "Passed",
