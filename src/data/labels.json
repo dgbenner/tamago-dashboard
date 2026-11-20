@@ -223,12 +223,12 @@
       },
       {
         "name": "Round",
-        "definition": "One of 5 passes through a circle, with less help each time: Round 1 recognizes, Round 5 recalls from scratch.",
+        "definition": "Not a step you tap. Each circle is practiced 5 times over, with less help each pass: Round 1 recognizes, Round 5 recalls from scratch. You see it as the ring filling around the circle.",
         "example": "Round 1 → Round 5"
       },
       {
         "name": "Lesson",
-        "definition": "One ~10-question block, a single sitting. A round is split into lessons.",
+        "definition": "Not a step you tap. One ~10-question block, a single sitting; a round is split into lessons.",
         "example": "~10 questions · one sitting"
       },
       {
