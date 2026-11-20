@@ -203,5 +203,39 @@
     "lastDeploy": "The newest version that changed this course",
     "wiktionary": "Words whose meaning and hint come from Wiktionary, the free dictionary, out of the course's words",
     "linguaLibre": "Words and sentences with a recording of a real person from Lingua Libre, a free library of recorded speech. Everything else is spoken by the device's own voice"
+  },
+  "contentHierarchy": {
+    "levels": [
+      {
+        "name": "Course",
+        "definition": "One language.",
+        "example": "French"
+      },
+      {
+        "name": "Part",
+        "definition": "A stage of A1, built around a theme.",
+        "example": "Part 1 of 6 · First Words"
+      },
+      {
+        "name": "Circle",
+        "definition": "One topic node on the tree, pairing words with a grammar point.",
+        "example": "At the Café"
+      },
+      {
+        "name": "Round",
+        "definition": "One of 5 passes through a circle, with less help each time: Round 1 recognizes, Round 5 recalls from scratch.",
+        "example": "Round 1 → Round 5"
+      },
+      {
+        "name": "Lesson",
+        "definition": "One ~10-question block, a single sitting. A round is split into lessons.",
+        "example": "~10 questions · one sitting"
+      },
+      {
+        "name": "Question",
+        "definition": "One exercise.",
+        "example": "Pick the meaning of “bonjour”"
+      }
+    ]
   }
 }

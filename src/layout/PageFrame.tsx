@@ -11,25 +11,30 @@ interface PageFrameProps {
   sample?: boolean
   /** A short, smaller muted line under the description. */
   note?: ReactNode
+  /** Something small on the right of the title row (desktop); at phone width it wraps below the title. */
+  aside?: ReactNode
   /** The page's sections, usually `PageSection`s, stacked in order. */
   children: ReactNode
 }
 
 /** The frame every page shares: max width, padding, the header, then the sections in a stack. */
-export function PageFrame({ title, description, sample = false, note, children }: PageFrameProps) {
+export function PageFrame({ title, description, sample = false, note, aside, children }: PageFrameProps) {
   const heading = <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>
 
   return (
     <div className="mx-auto flex w-full max-w-7xl min-w-0 flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
       <header className="flex min-w-0 flex-col gap-1">
-        {sample ? (
-          <div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1">
-            {heading}
-            <Badge variant="outline">Sample Data</Badge>
-          </div>
-        ) : (
-          heading
-        )}
+        <div className="flex min-w-0 flex-wrap items-center justify-between gap-x-6 gap-y-2">
+          {sample ? (
+            <div className="flex min-w-0 flex-wrap items-center gap-x-3 gap-y-1">
+              {heading}
+              <Badge variant="outline">Sample Data</Badge>
+            </div>
+          ) : (
+            heading
+          )}
+          {aside}
+        </div>
         <p className="text-sm text-muted-foreground">{description}</p>
         {note ? <p className="text-xs text-muted-foreground">{note}</p> : null}
       </header>
@@ -69,13 +74,14 @@ export function DashboardPage({
   title,
   description,
   note,
+  aside,
   sample = false,
   stats,
   chart,
   table,
-}: DashboardPageProps & { title: string; description: string; note?: ReactNode; sample?: boolean }) {
+}: DashboardPageProps & { title: string; description: string; note?: ReactNode; aside?: ReactNode; sample?: boolean }) {
   return (
-    <PageFrame title={title} description={description} note={note} sample={sample}>
+    <PageFrame title={title} description={description} note={note} aside={aside} sample={sample}>
       <PageSection label="Key Numbers">{stats}</PageSection>
       <PageSection label="Chart">{chart}</PageSection>
       <PageSection label="Table">{table}</PageSection>

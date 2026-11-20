@@ -32,6 +32,7 @@
 //   Line chart:  lessonsByDay: LessonsDay[] ({ date, fr, es, … } per day since lessons were first recorded),
 //                lessonsSeries: ChartSeries[] ({ id, name } per live course, alphabetical)
 //   Table:       growthRows: GrowthRow[]
+//   Legend:      contentHierarchy: { levels: HierarchyLevel[] } (text, beside the title)
 //
 // AGENTS, mock (./agents) — behind the Cost page
 //   agents, agentSeries, agentName, agentDaily, sumAgentDays, averageCostPerRun

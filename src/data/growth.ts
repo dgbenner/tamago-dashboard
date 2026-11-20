@@ -3,6 +3,7 @@
 // lessons are first recorded on 2026-11-10, so the chart starts there.
 
 import { formatCount, formatDate } from './format'
+import labelsJson from './labels.json'
 import { check } from './internal'
 import { liveLanguages } from './real-content'
 import { trendOf } from './snapshot'
@@ -61,3 +62,13 @@ export const growthStatCards: StatTile[] = buildRealTiles('growth', {
   'new-this-month': { value: value(sum((row) => row.addedThisMonth)), vars: { monthStart: formatDate(monthStart) } },
   sentences: { value: value(sentences), vars: { courses: formatCount(liveLanguages.length) }, trend: trendOf('sentences') },
 })
+
+/** The content-hierarchy legend beside the page title: Tamago's six levels, largest first, each with a definition
+ * and an example. Text only; nothing here is measured. */
+export interface HierarchyLevel {
+  name: string
+  definition: string
+  example: string
+}
+export const contentHierarchy: { levels: HierarchyLevel[] } = labelsJson.contentHierarchy
+check(contentHierarchy.levels.length === 6, 'src/data/labels.json: contentHierarchy needs the six levels')
