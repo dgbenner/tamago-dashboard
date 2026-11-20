@@ -75,7 +75,7 @@ export interface RealLanguage {
 // ══ Deploys (real; on the Content health page) ═══════════════════════════════
 
 /** 'not-recorded': no test run exists for this deploy. Its counts are then null. */
-export type DeployTestResult = 'passed' | 'failed' | 'running' | 'not-recorded'
+export type DeployTestResult = 'passed' | 'failed' | 'cancelled' | 'running' | 'not-recorded'
 
 export interface RealDeploy {
   /** The deploy number, e.g. 58. Use it as the React key. */

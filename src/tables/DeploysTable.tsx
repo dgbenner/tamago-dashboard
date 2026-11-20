@@ -21,6 +21,7 @@ import { cell, centredCell, EMPTY, head, pinnedCell, pinnedRow, wrappingText } f
 const testVariants: Record<DeployTestResult, ComponentProps<typeof Badge>['variant']> = {
   passed: 'secondary',
   failed: 'destructive',
+  cancelled: 'outline',
   running: 'outline',
   'not-recorded': 'outline',
 }

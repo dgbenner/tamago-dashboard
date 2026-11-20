@@ -16,6 +16,7 @@
   "deployTest": {
     "passed": "Passed",
     "failed": "Failed",
+    "cancelled": "Cancelled",
     "running": "Running"
   },
   "deployTestCounts": "{passed}/{tests}",

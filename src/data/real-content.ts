@@ -11,7 +11,7 @@ import type { Coverage, DeployTestResult, LanguageState, RealDeploy, RealLanguag
 
 const LANGUAGE_STATES = ['live', 'started', 'coming-soon'] as const satisfies readonly LanguageState[]
 const COURSE_STATUSES = ['complete', 'incomplete', 'started'] as const
-const DEPLOY_TEST_RESULTS = ['passed', 'failed', 'running', 'not-recorded'] as const satisfies readonly DeployTestResult[]
+const DEPLOY_TEST_RESULTS = ['passed', 'failed', 'cancelled', 'running', 'not-recorded'] as const satisfies readonly DeployTestResult[]
 
 /** The scope the snapshot writes when a course is measured against its whole list. */
 const FULL_LIST_SCOPE = 'full list'

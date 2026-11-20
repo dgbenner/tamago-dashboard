@@ -166,7 +166,8 @@ const testOf = (run) => {
   if (!run) return { result: 'not-recorded', tests: null, passed: null, failed: null }
   if (run.status !== 'completed') return { result: 'running', tests: null, passed: null, failed: null }
   const counts = countsOf(run)
-  return { result: run.conclusion === 'success' ? 'passed' : 'failed', tests: counts?.tests ?? null, passed: counts?.passed ?? null, failed: counts?.failed ?? null }
+  const result = run.conclusion === 'success' ? 'passed' : run.conclusion === 'cancelled' ? 'cancelled' : 'failed'
+  return { result, tests: counts?.tests ?? null, passed: counts?.passed ?? null, failed: counts?.failed ?? null }
 }
 
 const deploys = allDeploys.map((bump, index) => {
@@ -199,7 +200,8 @@ for (const language of languages.filter((l) => l.state === 'live')) {
 }
 
 // ---- 5. Health --------------------------------------------------------------------------------------------------
-const latestRun = runs.find((r) => r.status === 'completed') ?? null
+// The newest run that finished. A cancelled run (a newer push replaced it) has no result, so it is passed over.
+const latestRun = runs.find((r) => r.status === 'completed' && r.conclusion !== 'cancelled') ?? null
 const latestCounts = latestRun ? countsOf(latestRun) : null
 function isAncestor(a, b) { try { run('git', ['-C', CLONE, 'merge-base', '--is-ancestor', a, b]); return true } catch { return false } }
 const deployOfRun = latestRun ? deploys.find((d) => isAncestor(d.commit, latestRun.sha)) : null
