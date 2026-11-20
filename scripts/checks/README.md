@@ -76,7 +76,7 @@ Opens each page from its own address, the way a bookmark would, scrolls to the b
 For each page it prints `DONE` or `NOT DONE` with the reasons. A page is done when:
 
 - the right page opens, and is the same after a refresh
-- a real page (Content Health, Content Growth, Health, Agent Activity) has the line "Real data, snapshot from …" with a date and
+- a real page (Content Health, Content Growth, System Health, Agent Activity) has the line "Real data, snapshot from …" with a date and
   time, and no "Sample Data" badge
 - a placeholder page (Cost) has the red warning banner with its exact text, and the "Sample Data" badge
 - the banner is still at the top after scrolling

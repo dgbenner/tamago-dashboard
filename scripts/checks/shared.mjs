@@ -12,7 +12,7 @@ export const PAGE_IDS = ['content-health', 'growth', 'health', 'agent-activity',
 export const REAL_PAGES = ['content-health', 'growth', 'health', 'agent-activity']
 
 /**
- * Pages that need not have a chart. Health shows "Not measured yet" where its chart would be, and Content health has
+ * Pages that need not have a chart. System Health shows "Not measured yet" where its chart would be, and Content health has
  * trend lines only once the snapshot history holds two snapshots.
  */
 export const PAGES_WITHOUT_CHART = ['health', 'content-health']

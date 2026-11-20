@@ -11,6 +11,8 @@ interface PageFrameProps {
   sample?: boolean
   /** A short, smaller muted line under the description. */
   note?: ReactNode
+  /** A banner under the description, such as an `Alert` about a check that does not exist yet. */
+  notice?: ReactNode
   /** Something small on the right of the title row (desktop); at phone width it wraps below the title. */
   aside?: ReactNode
   /** The page's sections, usually `PageSection`s, stacked in order. */
@@ -18,7 +20,7 @@ interface PageFrameProps {
 }
 
 /** The frame every page shares: max width, padding, the header, then the sections in a stack. */
-export function PageFrame({ title, description, sample = false, note, aside, children }: PageFrameProps) {
+export function PageFrame({ title, description, sample = false, note, notice, aside, children }: PageFrameProps) {
   const heading = <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>
 
   return (
@@ -37,6 +39,7 @@ export function PageFrame({ title, description, sample = false, note, aside, chi
         </div>
         <p className="text-sm text-muted-foreground">{description}</p>
         {note ? <p className="text-xs text-muted-foreground">{note}</p> : null}
+        {notice ? <div className="mt-3">{notice}</div> : null}
       </header>
 
       {children}
@@ -74,14 +77,15 @@ export function DashboardPage({
   title,
   description,
   note,
+  notice,
   aside,
   sample = false,
   stats,
   chart,
   table,
-}: DashboardPageProps & { title: string; description: string; note?: ReactNode; aside?: ReactNode; sample?: boolean }) {
+}: DashboardPageProps & { title: string; description: string; note?: ReactNode; notice?: ReactNode; aside?: ReactNode; sample?: boolean }) {
   return (
-    <PageFrame title={title} description={description} note={note} aside={aside} sample={sample}>
+    <PageFrame title={title} description={description} note={note} notice={notice} aside={aside} sample={sample}>
       <PageSection label="Key Numbers">{stats}</PageSection>
       <PageSection label="Chart">{chart}</PageSection>
       <PageSection label="Table">{table}</PageSection>

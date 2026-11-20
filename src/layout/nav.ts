@@ -9,7 +9,7 @@ export type PageId = 'content-health' | 'growth' | 'health' | 'agent-activity' |
 export const NAV_ITEMS: { id: PageId; label: string; icon: LucideIcon; real: boolean }[] = [
   { id: 'content-health', label: 'Content Health', icon: Activity, real: true },
   { id: 'growth', label: 'Content Growth', icon: TrendingUp, real: true },
-  { id: 'health', label: 'Health', icon: HeartPulse, real: true },
+  { id: 'health', label: 'System Health', icon: HeartPulse, real: true },
   { id: 'agent-activity', label: 'Agent Activity', icon: Bot, real: true },
   { id: 'cost', label: 'Cost', icon: CircleDollarSign, real: false },
 ]

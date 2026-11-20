@@ -32,7 +32,7 @@ export interface RealTileValue {
 }
 
 /**
- * The real pages (Content health, Health, Agent activity). A card with no source gets the
+ * The real pages (Content Health, Content Growth, System Health, Agent Activity). A card with no source gets the
  * "Not measured yet" label as its value, `measured: false` and no trend.
  */
 export function buildRealTiles(page: TilePage, values: Record<string, RealTileValue>): StatTile[] {

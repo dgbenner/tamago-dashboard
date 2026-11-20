@@ -4,7 +4,7 @@ A trial dashboard built by several specialist agents from one component library.
 
 Live: https://dgbenner.github.io/tamago-dashboard/
 
-- **Content Health, Content Growth, Health and Agent Activity show real numbers**, taken as a snapshot from the public Tamago
+- **Content Health, Content Growth, System Health and Agent Activity show real numbers**, taken as a snapshot from the public Tamago
   repository and its GitHub records. Counts only. The date and time of the snapshot is at the top of each page.
 - **Cost is still a placeholder.** Every number on it is made up, and a red banner says so.
 - The published pages make no network calls. Everything they show is in `src/data/`.

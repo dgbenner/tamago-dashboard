@@ -26,6 +26,7 @@ here. If you need something that isn't listed, stop and propose it (see `CLAUDE.
 | [Select](#select) | `select.tsx` | Choosing one option from a list |
 | [Separator](#separator) | `separator.tsx` | A thin dividing line |
 | [Tooltip](#tooltip) | `tooltip.tsx` | A short explanation on hover or focus |
+| [Alert](#alert) | `alert.tsx` | A banner that calls out something missing or wrong |
 | [Chart](#chart) | `chart.tsx` | The wrapper around every Recharts chart |
 
 ---
@@ -185,6 +186,22 @@ parent with a height. `decorative` (default `true`) hides it from screen readers
   </TooltipTrigger>
   <TooltipContent>A sentence written but not yet checked by a native speaker.</TooltipContent>
 </Tooltip>
+```
+
+## Alert
+
+**File:** `src/components/ui/alert.tsx`
+**Exports:** `Alert`, `AlertTitle`, `AlertDescription`
+**For:** a banner in the page that calls out something missing or wrong, such as a check that does not
+exist yet. Not for the red placeholder banner at the top, which belongs to the shell.
+**Main props:** `variant`: `"default"` | `"destructive"`. A warning uses the default variant with the
+Tamago yellow tokens (`border-tamago-yellow bg-tamago-yellow/20`). An icon from `lucide-react` goes first.
+
+```tsx
+<Alert className="border-tamago-yellow bg-tamago-yellow/20">
+  <TriangleAlert />
+  <AlertDescription>Uptime needs a check that does not exist yet.</AlertDescription>
+</Alert>
 ```
 
 ## Chart
