@@ -4,6 +4,7 @@ on:
   push:
     branches: [main]
   workflow_dispatch:
+  workflow_call: # the daily snapshot calls this after it commits new data
 
 permissions:
   contents: read
@@ -19,6 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          # Called from the daily snapshot, build the commit it just pushed, not the one it started from.
+          ref: ${{ github.event_name == 'push' && github.sha || 'main' }}
       - uses: actions/setup-node@v4
         with:
           node-version: 24

@@ -27,4 +27,16 @@ Live: https://dgbenner.github.io/tamago-dashboard/
 - A number with no real source is written as empty and shown as "Not measured yet". Nothing is estimated.
 - To publish a new snapshot: run it, run the checks, commit and push.
 
+### Daily refresh
+
+`.github/workflows/daily-snapshot.yml` does the same thing on GitHub once a day at 12:00 UTC (6 AM in Chicago in
+winter, 7 AM in summer; GitHub can start scheduled runs a few minutes late). It takes the snapshot in Chicago time,
+runs the typecheck, the component and typed-number audits, the screenshots and the local page check, commits
+`snapshot.json` and `snapshot-history.json`, runs the secrets scan, pushes, deploys, and then runs the live-link check.
+It uses only the built-in `GITHUB_TOKEN`. Any failed step stops it before the push, so the live site keeps the last
+good snapshot.
+
+To refresh at once, either press **Run workflow** on the Daily snapshot workflow in the repo's Actions tab, or run
+the manual steps above. The workflow commits to `main` every day, so run `git pull` before a manual snapshot.
+
 `CLAUDE.md` and `COMPONENTS.md` hold the rules and the component list the agents build from.

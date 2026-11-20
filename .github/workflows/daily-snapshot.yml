@@ -1,0 +1,93 @@
+name: Daily snapshot
+
+# Once a day: take a new snapshot of Tamago, run the same checks as a manual publish, commit the data, deploy,
+# then check the live site. "Run workflow" on the Actions tab runs it at any time.
+on:
+  schedule:
+    - cron: '0 12 * * *' # 12:00 UTC: 6 AM in Chicago in winter, 7 AM in summer
+  workflow_dispatch:
+
+concurrency:
+  group: daily-snapshot
+  cancel-in-progress: false
+
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # to commit the new snapshot
+    env:
+      # The snapshot counts days and weeks in local time; Chicago keeps them the same as a manual run on Dan's Mac.
+      TZ: America/Chicago
+      # The built-in token. It reads the public Tamago repo's runs, logs and events through `gh`.
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # the secrets scan reads the whole history
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      # npm ci rejects the lock file on Linux (optional native packages differ from macOS).
+      - run: npm install --no-audit --no-fund
+
+      - name: Take the snapshot
+        run: npm run snapshot
+
+      - name: Typecheck
+        run: npx tsc -b
+      - name: Component audit
+        run: node scripts/checks/component-audit.mjs
+      - name: Typed-number audit
+        run: node scripts/checks/typed-number-audit.mjs
+
+      - name: Screenshots and local page check
+        run: |
+          npx vite --port 5173 --strictPort > /tmp/vite.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf http://localhost:5173/ > /dev/null && break; sleep 1; done
+          node scripts/checks/screenshots.mjs
+          node scripts/checks/live-check.mjs local
+
+      - name: Commit the new data
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add src/data/snapshot.json src/data/snapshot-history.json
+          git commit -q -m "Daily snapshot $(date +'%Y-%m-%d %H:%M %Z')"
+
+      - name: Secrets scan
+        run: |
+          curl -sSL https://github.com/gitleaks/gitleaks/releases/download/v8.30.1/gitleaks_8.30.1_linux_x64.tar.gz | tar -xz -C /tmp gitleaks
+          /tmp/gitleaks git --redact .
+
+      # A push made with the built-in token does not start deploy.yml, so this workflow deploys itself below.
+      - name: Push
+        run: git push origin HEAD:main
+
+  deploy:
+    needs: snapshot
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    uses: ./.github/workflows/deploy.yml
+
+  live-check:
+    needs: deploy
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm install --no-audit --no-fund
+      - name: Check the published site
+        run: |
+          sleep 30
+          node scripts/checks/live-check.mjs
