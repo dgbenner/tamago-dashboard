@@ -51,7 +51,7 @@ export function HierarchyLegend() {
       {contentHierarchy.levels.map((level, i) => (
         <li key={level.name} className="flex items-center gap-x-2 max-sm:gap-x-1">
           {i > 0 ? (
-            <span aria-hidden="true" className="-mt-1 text-4xl leading-none max-sm:text-3xl font-light text-muted-foreground/60">
+            <span aria-hidden="true" className="-mt-1 text-[29px] leading-none max-sm:text-2xl font-light text-muted-foreground/60">
               ›
             </span>
           ) : null}
