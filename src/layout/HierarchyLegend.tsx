@@ -29,7 +29,7 @@ function Level({ level }: { level: HierarchyLevel }) {
           onPointerLeave={(event: PointerEvent) => {
             if (event.pointerType === 'touch') event.preventDefault()
           }}
-          className="h-auto p-0 text-xs font-normal text-muted-foreground underline decoration-dotted underline-offset-4 hover:text-foreground"
+          className="h-auto p-0 text-sm font-normal max-sm:text-[13px] text-muted-foreground underline decoration-dotted underline-offset-4 hover:text-foreground"
         >
           {level.name}
         </Button>
@@ -47,11 +47,11 @@ function Level({ level }: { level: HierarchyLevel }) {
 /** Tamago's content levels, largest first, as a breadcrumb-style chain: Course › Part › … › Question. */
 export function HierarchyLegend() {
   return (
-    <ol aria-label="Content hierarchy" className="flex flex-wrap items-center gap-x-1.5 gap-y-1 max-sm:mb-1.5">
+    <ol aria-label="Content hierarchy" className="flex flex-wrap items-center gap-x-2 gap-y-1 max-sm:gap-x-1 max-sm:mb-1.5">
       {contentHierarchy.levels.map((level, i) => (
-        <li key={level.name} className="flex items-center gap-x-1.5">
+        <li key={level.name} className="flex items-center gap-x-2 max-sm:gap-x-1">
           {i > 0 ? (
-            <span aria-hidden="true" className="text-xs text-muted-foreground/60">
+            <span aria-hidden="true" className="-mt-1 text-4xl leading-none max-sm:text-3xl font-light text-muted-foreground/60">
               ›
             </span>
           ) : null}
