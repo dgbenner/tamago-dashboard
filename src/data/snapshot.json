@@ -1,5 +1,5 @@
 {
-  "takenAt": "2026-11-20T08:31:00-06:00",
+  "takenAt": "2026-11-21T12:44:00-06:00",
   "source": {
     "repo": "dgbenner/tamago",
     "branch": "main",
@@ -378,10 +378,10 @@
       ],
       "changesHidden": 0,
       "test": {
-        "result": "running",
-        "tests": null,
-        "passed": null,
-        "failed": null
+        "result": "passed",
+        "tests": 302,
+        "passed": 302,
+        "failed": 0
       }
     },
     {
@@ -569,18 +569,18 @@
   ],
   "health": {
     "fullSuite": {
-      "result": "failed",
-      "startedAt": "2026-11-20T14:07:34Z",
-      "finishedAt": "2026-11-20T14:23:16Z",
-      "durationSeconds": 942,
-      "tests": null,
-      "passed": null,
-      "failed": null,
-      "skipped": null,
-      "commit": "005c5e5",
+      "result": "passed",
+      "startedAt": "2026-11-20T14:22:59Z",
+      "finishedAt": "2026-11-20T14:41:23Z",
+      "durationSeconds": 1104,
+      "tests": 302,
+      "passed": 302,
+      "failed": 0,
+      "skipped": 0,
+      "commit": "9981c1f",
       "deploy": {
-        "number": 66,
-        "name": "Lemur"
+        "number": 67,
+        "name": "Meerkat"
       },
       "runsRecorded": 10,
       "stoppedAt": null
@@ -597,12 +597,6 @@
   },
   "activity": {
     "days": [
-      {
-        "date": "2026-11-07",
-        "commits": 14,
-        "pushes": 0,
-        "deploys": 0
-      },
       {
         "date": "2026-11-08",
         "commits": 0,
@@ -672,14 +666,20 @@
       {
         "date": "2026-11-19",
         "commits": 41,
-        "pushes": 1,
+        "pushes": 2,
         "deploys": 3
       },
       {
         "date": "2026-11-20",
         "commits": 26,
-        "pushes": 0,
+        "pushes": 3,
         "deploys": 6
+      },
+      {
+        "date": "2026-11-21",
+        "commits": 0,
+        "pushes": 0,
+        "deploys": 0
       }
     ],
     "firstCommit": "2026-11-07T08:41:36-06:00",
@@ -885,6 +885,16 @@
           "it": 2837,
           "pt": 2758
         }
+      },
+      {
+        "date": "2026-11-21",
+        "lessons": {
+          "fr": 3399,
+          "es": 3048,
+          "de": 3192,
+          "it": 2837,
+          "pt": 2758
+        }
       }
     ],
     "firstMeasured": "2026-11-10",
@@ -900,14 +910,14 @@
         "id": "es",
         "name": "Spanish",
         "totalLessons": 3048,
-        "newThisWeek": 2361,
+        "newThisWeek": 1650,
         "newThisMonth": 3048
       },
       {
         "id": "de",
         "name": "German",
         "totalLessons": 3192,
-        "newThisWeek": 2506,
+        "newThisWeek": 1649,
         "newThisMonth": 3192
       },
       {
