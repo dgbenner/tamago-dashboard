@@ -1,10 +1,10 @@
 {
-  "takenAt": "2026-11-21T12:44:00-06:00",
+  "takenAt": "2026-11-22T13:12:00-06:00",
   "source": {
     "repo": "dgbenner/tamago",
     "branch": "main",
-    "commit": "9981c1f",
-    "commitDate": "2026-11-20T08:15:27-06:00"
+    "commit": "b81e1c7",
+    "commitDate": "2026-11-22T10:15:35-06:00"
   },
   "languages": [
     {
@@ -25,15 +25,15 @@
       "coverage": {
         "list": "FLELex",
         "scope": "core 600",
-        "taught": 581,
+        "taught": 582,
         "total": 600,
         "percent": 97
       },
       "draftsWaiting": 890,
       "lastDeploy": {
-        "number": 59,
-        "name": "Elephant",
-        "date": "2026-11-19T16:36:21-06:00"
+        "number": 69,
+        "name": "Otter",
+        "date": "2026-11-22T09:53:25-06:00"
       }
     },
     {
@@ -60,9 +60,9 @@
       },
       "draftsWaiting": 809,
       "lastDeploy": {
-        "number": 59,
-        "name": "Elephant",
-        "date": "2026-11-19T16:36:21-06:00"
+        "number": 69,
+        "name": "Otter",
+        "date": "2026-11-22T09:53:25-06:00"
       }
     },
     {
@@ -89,9 +89,9 @@
       },
       "draftsWaiting": 616,
       "lastDeploy": {
-        "number": 59,
-        "name": "Elephant",
-        "date": "2026-11-19T16:36:21-06:00"
+        "number": 69,
+        "name": "Otter",
+        "date": "2026-11-22T09:53:25-06:00"
       }
     },
     {
@@ -118,9 +118,9 @@
       },
       "draftsWaiting": 1025,
       "lastDeploy": {
-        "number": 59,
-        "name": "Elephant",
-        "date": "2026-11-19T16:36:21-06:00"
+        "number": 69,
+        "name": "Otter",
+        "date": "2026-11-22T09:53:25-06:00"
       }
     },
     {
@@ -147,35 +147,126 @@
       },
       "draftsWaiting": 866,
       "lastDeploy": {
-        "number": 64,
-        "name": "Jaguar",
-        "date": "2026-11-20T07:55:29-06:00"
+        "number": 69,
+        "name": "Otter",
+        "date": "2026-11-22T09:53:25-06:00"
       }
     },
     {
       "id": "nl",
       "name": "Dutch",
-      "state": "started",
-      "status": "started",
-      "partsLive": 1,
+      "state": "live",
+      "status": "complete",
+      "partsLive": 4,
       "partsTotal": 4,
       "level": "A1",
-      "circles": 21,
-      "words": 240,
-      "wordsWiktionary": 211,
-      "recordingsLinguaLibre": 171,
-      "sentences": 776,
-      "sentencesTatoeba": 623,
-      "sentencesDrafted": 153,
+      "circles": 72,
+      "words": 1009,
+      "wordsWiktionary": 980,
+      "recordingsLinguaLibre": 523,
+      "sentences": 2992,
+      "sentencesTatoeba": 2316,
+      "sentencesDrafted": 676,
       "coverage": {
         "list": "hermitdave FrequencyWords",
         "scope": "core 600",
-        "taught": 148,
+        "taught": 541,
         "total": 600,
-        "percent": 25
+        "percent": 90
       },
-      "draftsWaiting": 153,
-      "lastDeploy": null
+      "draftsWaiting": 676,
+      "lastDeploy": {
+        "number": 69,
+        "name": "Otter",
+        "date": "2026-11-22T09:53:25-06:00"
+      }
+    },
+    {
+      "id": "pl",
+      "name": "Polish",
+      "state": "live",
+      "status": "complete",
+      "partsLive": 4,
+      "partsTotal": 4,
+      "level": "A1",
+      "circles": 72,
+      "words": 1568,
+      "wordsWiktionary": 1568,
+      "recordingsLinguaLibre": 589,
+      "sentences": 4659,
+      "sentencesTatoeba": 3046,
+      "sentencesDrafted": 1613,
+      "coverage": {
+        "list": "Kelly project",
+        "scope": "core 600",
+        "taught": 490,
+        "total": 600,
+        "percent": 82
+      },
+      "draftsWaiting": 1613,
+      "lastDeploy": {
+        "number": 69,
+        "name": "Otter",
+        "date": "2026-11-22T09:53:25-06:00"
+      }
+    },
+    {
+      "id": "da",
+      "name": "Danish",
+      "state": "live",
+      "status": "complete",
+      "partsLive": 4,
+      "partsTotal": 4,
+      "level": "A1",
+      "circles": 72,
+      "words": 1009,
+      "wordsWiktionary": 1004,
+      "recordingsLinguaLibre": 57,
+      "sentences": 2949,
+      "sentencesTatoeba": 2278,
+      "sentencesDrafted": 671,
+      "coverage": {
+        "list": "hermitdave FrequencyWords",
+        "scope": "core 600",
+        "taught": 557,
+        "total": 600,
+        "percent": 93
+      },
+      "draftsWaiting": 671,
+      "lastDeploy": {
+        "number": 69,
+        "name": "Otter",
+        "date": "2026-11-22T09:53:25-06:00"
+      }
+    },
+    {
+      "id": "sv",
+      "name": "Swedish",
+      "state": "live",
+      "status": "complete",
+      "partsLive": 4,
+      "partsTotal": 4,
+      "level": "A1",
+      "circles": 72,
+      "words": 1022,
+      "wordsWiktionary": 977,
+      "recordingsLinguaLibre": 136,
+      "sentences": 3092,
+      "sentencesTatoeba": 2141,
+      "sentencesDrafted": 951,
+      "coverage": {
+        "list": "Swedish Kelly list",
+        "scope": "core 600",
+        "taught": 472,
+        "total": 600,
+        "percent": 79
+      },
+      "draftsWaiting": 951,
+      "lastDeploy": {
+        "number": 69,
+        "name": "Otter",
+        "date": "2026-11-22T09:53:25-06:00"
+      }
     },
     {
       "id": "no",
@@ -201,173 +292,112 @@
       },
       "draftsWaiting": 135,
       "lastDeploy": null
-    },
-    {
-      "id": "da",
-      "name": "Danish",
-      "state": "started",
-      "status": "started",
-      "partsLive": 1,
-      "partsTotal": 4,
-      "level": "A1",
-      "circles": 21,
-      "words": 217,
-      "wordsWiktionary": 212,
-      "recordingsLinguaLibre": 30,
-      "sentences": 536,
-      "sentencesTatoeba": 426,
-      "sentencesDrafted": 110,
-      "coverage": {
-        "list": "hermitdave FrequencyWords",
-        "scope": "core 600",
-        "taught": 118,
-        "total": 600,
-        "percent": 20
-      },
-      "draftsWaiting": 110,
-      "lastDeploy": null
-    },
-    {
-      "id": "sv",
-      "name": "Swedish",
-      "state": "started",
-      "status": "started",
-      "partsLive": 1,
-      "partsTotal": 4,
-      "level": "A1",
-      "circles": 21,
-      "words": 225,
-      "wordsWiktionary": 180,
-      "recordingsLinguaLibre": 42,
-      "sentences": 519,
-      "sentencesTatoeba": 449,
-      "sentencesDrafted": 70,
-      "coverage": {
-        "list": "Swedish Kelly list",
-        "scope": "core 600",
-        "taught": 83,
-        "total": 600,
-        "percent": 14
-      },
-      "draftsWaiting": 70,
-      "lastDeploy": null
-    },
-    {
-      "id": "pl",
-      "name": "Polish",
-      "state": "coming-soon",
-      "status": null,
-      "partsLive": null,
-      "partsTotal": null,
-      "level": null,
-      "circles": null,
-      "words": null,
-      "wordsWiktionary": null,
-      "recordingsLinguaLibre": null,
-      "sentences": null,
-      "sentencesTatoeba": null,
-      "sentencesDrafted": null,
-      "coverage": null,
-      "draftsWaiting": null,
-      "lastDeploy": null
-    },
-    {
-      "id": "ro",
-      "name": "Romanian",
-      "state": "coming-soon",
-      "status": null,
-      "partsLive": null,
-      "partsTotal": null,
-      "level": null,
-      "circles": null,
-      "words": null,
-      "wordsWiktionary": null,
-      "recordingsLinguaLibre": null,
-      "sentences": null,
-      "sentencesTatoeba": null,
-      "sentencesDrafted": null,
-      "coverage": null,
-      "draftsWaiting": null,
-      "lastDeploy": null
-    },
-    {
-      "id": "fi",
-      "name": "Finnish",
-      "state": "coming-soon",
-      "status": null,
-      "partsLive": null,
-      "partsTotal": null,
-      "level": null,
-      "circles": null,
-      "words": null,
-      "wordsWiktionary": null,
-      "recordingsLinguaLibre": null,
-      "sentences": null,
-      "sentencesTatoeba": null,
-      "sentencesDrafted": null,
-      "coverage": null,
-      "draftsWaiting": null,
-      "lastDeploy": null
-    },
-    {
-      "id": "cs",
-      "name": "Czech",
-      "state": "coming-soon",
-      "status": null,
-      "partsLive": null,
-      "partsTotal": null,
-      "level": null,
-      "circles": null,
-      "words": null,
-      "wordsWiktionary": null,
-      "recordingsLinguaLibre": null,
-      "sentences": null,
-      "sentencesTatoeba": null,
-      "sentencesDrafted": null,
-      "coverage": null,
-      "draftsWaiting": null,
-      "lastDeploy": null
-    },
-    {
-      "id": "hu",
-      "name": "Hungarian",
-      "state": "coming-soon",
-      "status": null,
-      "partsLive": null,
-      "partsTotal": null,
-      "level": null,
-      "circles": null,
-      "words": null,
-      "wordsWiktionary": null,
-      "recordingsLinguaLibre": null,
-      "sentences": null,
-      "sentencesTatoeba": null,
-      "sentencesDrafted": null,
-      "coverage": null,
-      "draftsWaiting": null,
-      "lastDeploy": null
-    },
-    {
-      "id": "el",
-      "name": "Greek",
-      "state": "coming-soon",
-      "status": null,
-      "partsLive": null,
-      "partsTotal": null,
-      "level": null,
-      "circles": null,
-      "words": null,
-      "wordsWiktionary": null,
-      "recordingsLinguaLibre": null,
-      "sentences": null,
-      "sentencesTatoeba": null,
-      "sentencesDrafted": null,
-      "coverage": null,
-      "draftsWaiting": null,
-      "lastDeploy": null
     }
   ],
   "deploys": [
+    {
+      "number": 71,
+      "name": "Quokka",
+      "date": "2026-11-22T10:15:35-06:00",
+      "commit": "b81e1c7",
+      "changes": [
+        "Shelf note: final sweep (Norwegian branch, nothing running, scheduled work and costs, API spend)"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "passed",
+        "tests": 318,
+        "passed": 318,
+        "failed": 0
+      }
+    },
+    {
+      "number": 70,
+      "name": "Penguin",
+      "date": "2026-11-22T10:09:01-06:00",
+      "commit": "56b0500",
+      "changes": [
+        "Shelf note for Tamago on ice; bump version",
+        "Archive every review file before Tamago goes on ice: worktree-only _review files under _review/archive/<worktree>/, plus main's own uncom…"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "cancelled",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 69,
+      "name": "Otter",
+      "date": "2026-11-22T09:53:25-06:00",
+      "commit": "003ab8a",
+      "changes": [
+        "Bump version",
+        "Dutch, Swedish, Danish and Polish public (Dan approved); README lists the nine languages and their mock exams",
+        "Picker: three flags per row on phones, five then four when wide",
+        "Language picker: level + circle count under each name; pin the iPad-landscape Check button",
+        "Polish: U95 Society + News pruned as Swedish Part 4's newsroom circles (Developer only)",
+        "Polish: Fable's phase 6 review and Dan's calls applied (Developer only)",
+        "Danish: Fable's phase 6 review and Dan's calls applied (Developer only)",
+        "Swedish: Fable's phase 6 review and Dan's calls applied (Developer only)",
+        "Dutch: Fable's phase 6 review and Dan's calls applied (Developer only)",
+        "US spelling throughout the shipped English, every course",
+        "Form-of Glossary hints get their meaning, in the pipeline, every course",
+        "Language picker: only the nine committed courses"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "cancelled",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
+      "number": 68,
+      "name": "Narwhal",
+      "date": "2026-11-22T05:30:52-06:00",
+      "commit": "5f07839",
+      "changes": [
+        "Bump version for the Dutch, Swedish, Danish and Polish A1 push",
+        "Polish A1 wired and audited, Developer only: 72 notes and overview lines, units approved, icons, mock state certificate exam",
+        "Polish A1 Part 4, Out and About: content build for review (17 circles, 1,240 sentences: 770 Tatoeba, 470 drafts)",
+        "Polish A1 Part 3, Time and Plans: content build for review (17 circles, 1,293 sentences: 819 Tatoeba, 474 drafts)",
+        "Polish A1 Part 2, Everyday Life: content build for review (17 circles, 1,270 sentences: 807 Tatoeba, 463 drafts)",
+        "Polish A1 Part 1: content build for review (21 circles, 841 sentences: 599 Tatoeba, 242 drafts)",
+        "WIP Polish A1 Part 1 (session ran out; resumed next)",
+        "Danish A1 Parts 2 to 4 built and audited, Developer only: 51 notes and overview lines, units approved, icons, build",
+        "Danish A1 Part 4, Out and About: content build for review (17 circles, 672 sentences: 546 Tatoeba, 126 drafts)",
+        "Danish A1 Part 3, Time and Plans: content build for review (17 circles, 893 sentences: 706 Tatoeba, 187 drafts)",
+        "Danish A1 Part 2, Everyday Life: content build for review (17 circles, 859 sentences: 611 Tatoeba, 248 drafts)",
+        "Swedish mock exam: Swedex's four modules (it starts at A2; the note says so)",
+        "Swedish A1 Parts 2 to 4 built and audited, Developer only: 51 notes and overview lines, units approved, icons, build",
+        "Swedish A1 Part 4 under the dry-source line: 789 sentences (493 Tatoeba, 296 drafts, 37.5%)",
+        "Swedish A1 Part 4, Out and About: content build for review (17 circles, 916 sentences: 493 Tatoeba, 423 drafts)",
+        "Swedish A1 Part 3, Time and Plans: content build for review (17 circles, 980 sentences: 667 Tatoeba, 313 drafts)",
+        "Swedish A1 Part 2, Everyday Life: content build for review (17 circles, 845 sentences: 537 Tatoeba, 308 drafts)",
+        "Dutch mock exam: Basic Civic Integration Exam Abroad format (reading, then spoken Dutch; writing as practice)",
+        "Dutch A1 Parts 2 to 4 built and audited, Developer only: 51 notes and overview lines, units approved, icons, build",
+        "Dutch titles: U56 What People Are Like becomes Looks + Character (workbook v7, retitle-units); Parts 1 to 4 on the copy rule",
+        "Dutch A1 Part 4, Out and About: content build for review (17 circles, 786 sentences: 563 Tatoeba, 223 drafts)",
+        "Shared A1 stoplist, a standing step: oaths, slurs, violence, subtitle leftovers and official register never count toward A1 (Italian 44,…",
+        "Dutch A1 Part 3, Time and Plans: content build for review (17 circles, 740 sentences: 574 Tatoeba, 166 drafts)",
+        "Dutch A1 Part 2, Everyday Life: content build for review (17 circles, 690 sentences: 560 Tatoeba, 130 drafts)",
+        "Word splitter: Romanian and Polish letters count as letters (Dan approved); every existing course splits identically",
+        "Language picker: the pressed and picked flag takes the orange outline before the course opens",
+        "Language content pipeline spec (scout, gather, dry-source rule, check-in)",
+        "Language picker: the whole card scales as one unit on hover and press (one transform on the button, from its centre); the flag and name n…"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "passed",
+        "tests": 312,
+        "passed": 312,
+        "failed": 0
+      }
+    },
     {
       "number": 67,
       "name": "Meerkat",
@@ -396,7 +426,7 @@
       ],
       "changesHidden": 0,
       "test": {
-        "result": "failed",
+        "result": "cancelled",
         "tests": null,
         "passed": null,
         "failed": null
@@ -414,7 +444,7 @@
       ],
       "changesHidden": 0,
       "test": {
-        "result": "failed",
+        "result": "cancelled",
         "tests": null,
         "passed": null,
         "failed": null
@@ -434,7 +464,7 @@
       ],
       "changesHidden": 0,
       "test": {
-        "result": "failed",
+        "result": "cancelled",
         "tests": null,
         "passed": null,
         "failed": null
@@ -471,118 +501,29 @@
       ],
       "changesHidden": 0,
       "test": {
-        "result": "failed",
+        "result": "cancelled",
         "tests": null,
         "passed": null,
         "failed": null
-      }
-    },
-    {
-      "number": 61,
-      "name": "Gecko",
-      "date": "2026-11-19T20:13:05-06:00",
-      "commit": "bfec7ec",
-      "changes": [
-        "Opening screen live: FlagRow and opening-screen notes, version bump",
-        "Opening screen: halftone fade-in, the wordmark and sushi drop with a rebound, flags ripple in, hover and press"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "passed",
-        "tests": 272,
-        "passed": 272,
-        "failed": 0
-      }
-    },
-    {
-      "number": 60,
-      "name": "Flamingo",
-      "date": "2026-11-19T18:09:22-06:00",
-      "commit": "6f14443",
-      "changes": [
-        "Favicon: the sushi icon from the dashboard (32 px)"
-      ],
-      "changesHidden": 1,
-      "test": {
-        "result": "passed",
-        "tests": 272,
-        "passed": 272,
-        "failed": 0
-      }
-    },
-    {
-      "number": 59,
-      "name": "Elephant",
-      "date": "2026-11-19T16:36:21-06:00",
-      "commit": "d926c14",
-      "changes": [
-        "Elephant: deploy 59",
-        "Answer checking: leaving out a word is a miss, never a missing space",
-        "Adopt branch: components only, no visual change",
-        "Design System Card: Proposed, Not in the App",
-        "Publish script: reword a message Tailwind read as a class (app CSS identical again)",
-        "Publish script for the Storybook; Compare views fit the window",
-        "iOS bottom bar: a circle behind the current tab's icon, wholly inside the tab",
-        "Bottom bar: room around the sushi in Android's active pill; iOS gets a pill too",
-        "Circle ears on phones: quieter (28% at rest); the 5% notebook scale is phone-only",
-        "Circle ears: further up and out, the notebook drawn 5% smaller, every sample circle with a note",
-        "Circle icons sit above the circle like ears on phones (info upper left, note upper right)",
-        "Design system demonstration, step 4: the two full screens",
-        "iOS and Android styles: plain iOS banner, touch padding on tool pills, check or X on the Android answer bar",
-        "Styles page: the table as a real table (Storybook's docs don't render Markdown tables)",
-        "Design system demonstration, step 3: iOS and Android styles",
-        "In-progress circles: no \"Recall 72%\" in the screen-reader label, behind the same RECALL_FADE switch",
-        "Tree: a finished circle always shows a full, solid ring and just \"Finished\"",
-        "Dark theme chosen in Settings gets the dark icon-hover blue (--electric), and the duplicate line goes",
-        "Button kinds get plain names (main, continue, outline, link); unused toast kinds labeled",
-        "Design system demonstration, step 2: the rest of the first set",
-        "COMPONENTS.md: Duplicates to Settle (Pick What You Heard's own choice list)",
-        "Design system demonstration, step 1: Storybook with ChoiceList, AnswerBar and Sheet",
-        "Brush-Up green ring: only when emptied by the learner, or everything it covers is finished",
-        "Brush-Ups, checkpoints and the part review stay faded until reached or used",
-        "Grammar notes and circle overviews: the target language is bold and carries its language; the sweep in all five courses"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "failed",
-        "tests": null,
-        "passed": null,
-        "failed": null
-      }
-    },
-    {
-      "number": 58,
-      "name": "Dolphin",
-      "date": "2026-11-16T17:52:11-06:00",
-      "commit": "a7a215e",
-      "changes": [
-        "Tiered testing: a fast tier before every push, the full suite in GitHub Actions after it"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "passed",
-        "tests": 259,
-        "passed": 259,
-        "failed": 0
       }
     }
   ],
   "health": {
     "fullSuite": {
       "result": "passed",
-      "startedAt": "2026-11-20T14:22:59Z",
-      "finishedAt": "2026-11-20T14:41:23Z",
-      "durationSeconds": 1104,
-      "tests": 302,
-      "passed": 302,
+      "startedAt": "2026-11-22T16:17:24Z",
+      "finishedAt": "2026-11-22T16:52:07Z",
+      "durationSeconds": 2083,
+      "tests": 318,
+      "passed": 318,
       "failed": 0,
       "skipped": 0,
-      "commit": "9981c1f",
+      "commit": "b81e1c7",
       "deploy": {
-        "number": 67,
-        "name": "Meerkat"
+        "number": 71,
+        "name": "Quokka"
       },
-      "runsRecorded": 10,
+      "runsRecorded": 14,
       "stoppedAt": null
     },
     "auditNote": {
@@ -597,12 +538,6 @@
   },
   "activity": {
     "days": [
-      {
-        "date": "2026-11-08",
-        "commits": 0,
-        "pushes": 0,
-        "deploys": 0
-      },
       {
         "date": "2026-11-09",
         "commits": 38,
@@ -666,25 +601,31 @@
       {
         "date": "2026-11-19",
         "commits": 41,
-        "pushes": 2,
+        "pushes": 5,
         "deploys": 3
       },
       {
         "date": "2026-11-20",
-        "commits": 26,
-        "pushes": 3,
+        "commits": 40,
+        "pushes": 5,
         "deploys": 6
       },
       {
         "date": "2026-11-21",
-        "commits": 0,
+        "commits": 15,
         "pushes": 0,
         "deploys": 0
+      },
+      {
+        "date": "2026-11-22",
+        "commits": 28,
+        "pushes": 1,
+        "deploys": 4
       }
     ],
     "firstCommit": "2026-11-07T08:41:36-06:00",
-    "commitsTotal": 344,
-    "deploysTotal": 67,
+    "commitsTotal": 401,
+    "deploysTotal": 71,
     "reviewsApplied": [
       {
         "date": "2026-11-19T21:12:12-06:00",
@@ -753,7 +694,11 @@
           "es": 0,
           "de": 0,
           "it": 0,
-          "pt": 0
+          "pt": 0,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -763,7 +708,11 @@
           "es": 0,
           "de": 0,
           "it": 0,
-          "pt": 0
+          "pt": 0,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -773,7 +722,11 @@
           "es": 0,
           "de": 0,
           "it": 0,
-          "pt": 0
+          "pt": 0,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -783,7 +736,11 @@
           "es": 681,
           "de": 681,
           "it": 0,
-          "pt": 0
+          "pt": 0,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -793,7 +750,11 @@
           "es": 687,
           "de": 686,
           "it": 0,
-          "pt": 0
+          "pt": 0,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -803,7 +764,11 @@
           "es": 687,
           "de": 686,
           "it": 0,
-          "pt": 0
+          "pt": 0,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -813,7 +778,11 @@
           "es": 687,
           "de": 686,
           "it": 0,
-          "pt": 0
+          "pt": 0,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -823,7 +792,11 @@
           "es": 1399,
           "de": 1543,
           "it": 666,
-          "pt": 725
+          "pt": 725,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -833,7 +806,11 @@
           "es": 3007,
           "de": 3155,
           "it": 1185,
-          "pt": 725
+          "pt": 725,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -843,7 +820,11 @@
           "es": 3048,
           "de": 3192,
           "it": 2837,
-          "pt": 1879
+          "pt": 1879,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -853,7 +834,11 @@
           "es": 3048,
           "de": 3192,
           "it": 2837,
-          "pt": 1879
+          "pt": 1879,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -863,7 +848,11 @@
           "es": 3048,
           "de": 3192,
           "it": 2837,
-          "pt": 1879
+          "pt": 1879,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -873,7 +862,11 @@
           "es": 3048,
           "de": 3192,
           "it": 2837,
-          "pt": 1879
+          "pt": 1879,
+          "nl": 0,
+          "pl": 0,
+          "da": 0,
+          "sv": 0
         }
       },
       {
@@ -883,7 +876,11 @@
           "es": 3048,
           "de": 3192,
           "it": 2837,
-          "pt": 2758
+          "pt": 2758,
+          "nl": 2018,
+          "pl": 0,
+          "da": 358,
+          "sv": 355
         }
       },
       {
@@ -893,7 +890,25 @@
           "es": 3048,
           "de": 3192,
           "it": 2837,
-          "pt": 2758
+          "pt": 2758,
+          "nl": 2018,
+          "pl": 0,
+          "da": 2006,
+          "sv": 2111
+        }
+      },
+      {
+        "date": "2026-11-22",
+        "lessons": {
+          "fr": 3399,
+          "es": 3048,
+          "de": 3192,
+          "it": 2837,
+          "pt": 2758,
+          "nl": 2018,
+          "pl": 3107,
+          "da": 1995,
+          "sv": 2081
         }
       }
     ],
@@ -903,14 +918,14 @@
         "id": "fr",
         "name": "French",
         "totalLessons": 3399,
-        "newThisWeek": 2377,
+        "newThisWeek": 13,
         "newThisMonth": 3399
       },
       {
         "id": "es",
         "name": "Spanish",
         "totalLessons": 3048,
-        "newThisWeek": 1650,
+        "newThisWeek": 1649,
         "newThisMonth": 3048
       },
       {
@@ -924,15 +939,43 @@
         "id": "it",
         "name": "Italian",
         "totalLessons": 2837,
-        "newThisWeek": 2837,
+        "newThisWeek": 2171,
         "newThisMonth": 2837
       },
       {
         "id": "pt",
         "name": "Portuguese",
         "totalLessons": 2758,
-        "newThisWeek": 2758,
+        "newThisWeek": 2033,
         "newThisMonth": 2758
+      },
+      {
+        "id": "nl",
+        "name": "Dutch",
+        "totalLessons": 2018,
+        "newThisWeek": 2018,
+        "newThisMonth": 2018
+      },
+      {
+        "id": "pl",
+        "name": "Polish",
+        "totalLessons": 3107,
+        "newThisWeek": 3107,
+        "newThisMonth": 3107
+      },
+      {
+        "id": "da",
+        "name": "Danish",
+        "totalLessons": 1995,
+        "newThisWeek": 1995,
+        "newThisMonth": 1995
+      },
+      {
+        "id": "sv",
+        "name": "Swedish",
+        "totalLessons": 2081,
+        "newThisWeek": 2081,
+        "newThisMonth": 2081
       }
     ]
   }

@@ -135,9 +135,8 @@ export function LanguagesTable() {
       <CardHeader>
         <CardTitle>Languages</CardTitle>
         <CardDescription>
-          What is live, what is partly done, and what is queued up.{' '}
-          {formatCount(liveLanguages.length)} in the app, {formatCount(startedLanguages.length)} in progress,{' '}
-          {formatCount(comingSoonLanguages.length)} planned. Select a column heading to sort the languages with content.
+          What is live and what is still being built. {formatCount(liveLanguages.length)} in the app,{' '}
+          {formatCount(startedLanguages.length)} in progress. Select a column heading to sort.
         </CardDescription>
       </CardHeader>
       <CardContent>

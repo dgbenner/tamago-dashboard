@@ -136,7 +136,7 @@ const failedChecks = snapshot.health.fullSuite?.failed ?? null
 export const contentStatTiles: StatTile[] = buildRealTiles('content', {
   'languages-live': {
     value: formatCount(liveLanguages.length),
-    vars: { comingSoon: formatCount(comingSoonLanguages.length) },
+    vars: {},
     trend: trendOf('languagesLive'),
   },
   'courses-complete': {

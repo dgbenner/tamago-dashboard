@@ -103,7 +103,8 @@ export interface SnapshotHistoryEntryJson {
   commitsTotal: number | null
   /** Lessons in every live course together. Missing from snapshots taken before 2026-11-19 5 PM. */
   lessons?: number | null
-  languages: Record<string, { words?: number | null; sentences: number | null; circles: number | null; draftsWaiting: number | null; coveragePercent: number | null }>
+  /** Per live course. A course that went live after a snapshot is missing from that snapshot's entry. */
+  languages: Partial<Record<string, { words?: number | null; sentences: number | null; circles: number | null; draftsWaiting: number | null; coveragePercent: number | null }>>
 }
 
 /** The current snapshot, exactly as generated. */

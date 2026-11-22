@@ -89,7 +89,7 @@
       {
         "id": "languages-live",
         "label": "Languages Live",
-        "description": "Public in the app; {comingSoon} more planned"
+        "description": "Public in the app"
       },
       {
         "id": "courses-complete",
@@ -198,7 +198,7 @@
   },
   "columnHelp": {
     "language": "The course, by the language it teaches",
-    "status": "Live: every part is in the app. Live, Incomplete: in the app, with more parts still to come. In Progress: being built, not in the app yet. Planned: listed in the app, not started",
+    "status": "Live: every part is in the app. Live, Incomplete: in the app, with more parts still to come. In Progress: being built, not in the app yet.",
     "parts": "The CEFR level the course teaches, then its parts in the app out of the parts it will have. A part is a stretch of the tree, such as First Steps",
     "circles": "Places on the course tree: lesson circles, help circles, Brush-Ups and Pick Your Own",
     "words": "Words in the course word list",
