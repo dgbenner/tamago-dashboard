@@ -29,8 +29,8 @@ Live: https://dgbenner.github.io/tamago-dashboard/
 
 ### Daily refresh
 
-`.github/workflows/daily-snapshot.yml` does the same thing on GitHub once a day at 12:00 UTC (6 AM in Chicago in
-winter, 7 AM in summer; GitHub can start scheduled runs a few minutes late). It takes the snapshot in Chicago time,
+`.github/workflows/daily-snapshot.yml` does the same thing on GitHub once a day at 10:37 UTC (4:37 AM in Chicago in
+winter, 5:37 AM in summer; GitHub can start scheduled runs late, so it is set off the hour and well before 6 AM). It takes the snapshot in Chicago time,
 runs the typecheck, the component and typed-number audits, the screenshots and the local page check, commits
 `snapshot.json` and `snapshot-history.json`, runs the secrets scan, pushes, deploys, and then runs the live-link check.
 It uses only the built-in `GITHUB_TOKEN`. Any failed step stops it before the push, so the live site keeps the last

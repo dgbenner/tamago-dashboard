@@ -4,7 +4,7 @@ name: Daily snapshot
 # then check the live site. "Run workflow" on the Actions tab runs it at any time.
 on:
   schedule:
-    - cron: '0 12 * * *' # 12:00 UTC: 6 AM in Chicago in winter, 7 AM in summer
+    - cron: '37 10 * * *' # 10:37 UTC: 4:37 AM in Chicago in winter (CST), 5:37 AM in summer (CDT); off the hour, when GitHub delays fewer runs
   workflow_dispatch:
 
 concurrency:
