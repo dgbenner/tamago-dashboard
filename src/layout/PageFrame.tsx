@@ -15,16 +15,18 @@ interface PageFrameProps {
   notice?: ReactNode
   /** Something small on the right of the title row (desktop); at phone width it wraps below the title. */
   aside?: ReactNode
+  /** More room between the sections (a reading page such as CEFR, rather than a dashboard). */
+  spacious?: boolean
   /** The page's sections, usually `PageSection`s, stacked in order. */
   children: ReactNode
 }
 
 /** The frame every page shares: max width, padding, the header, then the sections in a stack. */
-export function PageFrame({ title, description, sample = false, note, notice, aside, children }: PageFrameProps) {
+export function PageFrame({ title, description, sample = false, note, notice, aside, spacious = false, children }: PageFrameProps) {
   const heading = <h1 className="text-2xl font-semibold tracking-tight">{title}</h1>
 
   return (
-    <div className="mx-auto flex w-full max-w-7xl min-w-0 flex-col gap-6 px-4 py-6 sm:px-6 lg:px-8 lg:py-8">
+    <div className={`mx-auto flex w-full max-w-7xl min-w-0 flex-col px-4 py-6 sm:px-6 lg:px-8 lg:py-8 ${spacious ? 'gap-12' : 'gap-6'}`}>
       <header className="flex min-w-0 flex-col gap-1">
         <div className="flex min-w-0 flex-wrap items-center justify-between gap-x-6 gap-y-2">
           {sample ? (

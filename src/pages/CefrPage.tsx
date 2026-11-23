@@ -25,12 +25,15 @@ export function CefrPage({ distance, vocabulary, exams }: CefrPageProps) {
     <PageFrame
       title={cefrHeader.title}
       description={cefrHeader.subtitle}
+      spacious
     >
       <PageSection label="The Six Levels">
         <CefrLadder />
       </PageSection>
       <PageSection label="What Each Level Measures">
-        <CefrSkills />
+        <div className="py-4">
+          <CefrSkills />
+        </div>
       </PageSection>
       <PageSection label="Same Level, Different Distance">{distance}</PageSection>
       <PageSection label="How Big Is Each Level">{vocabulary}</PageSection>

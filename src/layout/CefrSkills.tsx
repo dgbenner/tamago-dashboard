@@ -23,12 +23,12 @@ export function CefrSkills() {
           const Icon = SKILL_ICON[skill.id]
           return (
             <li key={skill.id} className="min-w-0">
-              <Card className="h-full py-3">
+              <Card className="h-full border-transparent bg-cefr-skill py-3 text-white">
                 <CardContent className="flex flex-col gap-1 px-4">
-                  <Icon aria-hidden="true" className="mb-1 size-4 text-muted-foreground" />
+                  <Icon aria-hidden="true" className="mb-1 size-4 text-white" />
                   <p className="text-sm font-medium">{skill.name}</p>
-                  <p className="text-xs text-muted-foreground">{skill.line}</p>
-                  {skill.note ? <p className="text-[11px] text-muted-foreground italic">{skill.note}</p> : null}
+                  <p className="text-xs text-white/80">{skill.line}</p>
+                  {skill.note ? <p className="text-[11px] text-white/70 italic">{skill.note}</p> : null}
                 </CardContent>
               </Card>
             </li>
