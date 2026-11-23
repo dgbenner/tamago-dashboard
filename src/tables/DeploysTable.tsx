@@ -51,8 +51,7 @@ export function DeploysTable() {
       <CardHeader>
         <CardTitle>Recent Deploys</CardTitle>
         <CardDescription>
-          The last {formatCount(recentDeploys.length)} deploys, newest first. A test result exists
-          only for deploys made since the full test run was set up on GitHub.
+          The last {formatCount(recentDeploys.length)} deploys, newest first.
         </CardDescription>
       </CardHeader>
       <CardContent>

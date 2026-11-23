@@ -39,7 +39,7 @@ function StatCard({ tile: first }: { tile: StatTile }) {
             {tile.value}
           </CardTitle>
         )}
-        <p className="mx-auto w-[72%] text-xs text-muted-foreground italic">{tile.description}</p>
+        <p className="mx-auto w-[88%] text-xs text-muted-foreground italic">{tile.description}</p>
       </CardHeader>
       {trend ? (
         <CardContent>
