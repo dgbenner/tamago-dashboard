@@ -6,8 +6,8 @@ import { cn } from '@/lib/utils'
 
 import { EMPTY, cell, head, pinnedCell, pinnedRow } from './cells'
 
-/** The outline around the column Tamago's mock exams follow, in the accent color. */
-const TAMAGO_COLUMN = 'border-x-2 border-tamago-yellow bg-tamago-yellow/10'
+/** The column Tamago's mock exams follow: a soft accent fill, rounded at its top and bottom, no border. */
+const TAMAGO_COLUMN = 'bg-tamago-yellow/15'
 
 /** One exam name, with its footnote number raised after it. */
 function Exam({ part }: { part: ExamPart }) {
@@ -37,7 +37,7 @@ export function ExamsTable() {
               {CEFR_LEVELS.map((level) => (
                 <TableHead
                   key={level}
-                  className={cn(head, 'h-auto py-2 align-bottom', level === cefrExams.tamagoLevel && cn(TAMAGO_COLUMN, 'border-t-2'))}
+                  className={cn(head, 'h-auto py-2 align-bottom', level === cefrExams.tamagoLevel && cn(TAMAGO_COLUMN, 'rounded-t-lg'))}
                 >
                   {level === cefrExams.tamagoLevel ? (
                     <span className="block text-[10px] leading-tight font-normal whitespace-normal text-muted-foreground">
@@ -60,7 +60,7 @@ export function ExamsTable() {
                       cell,
                       // The exam names are the data: regular weight, in the lighter description grey.
                       'min-w-28 align-top font-normal whitespace-normal text-muted-foreground',
-                      CEFR_LEVELS[i] === cefrExams.tamagoLevel && cn(TAMAGO_COLUMN, r === lastRow && 'border-b-2'),
+                      CEFR_LEVELS[i] === cefrExams.tamagoLevel && cn(TAMAGO_COLUMN, r === lastRow && 'rounded-b-lg'),
                     )}
                   >
                     {parts.length === 0 ? (
