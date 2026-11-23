@@ -85,6 +85,43 @@
     "intro": "One scale for every language, from first words to mastery.",
     "approx": "approx."
   },
+  "skills": {
+    "title": "What Each Level Measures",
+    "intro": "A level describes what you can do in each of these skills.",
+    "items": [
+      {
+        "id": "listening",
+        "name": "Listening",
+        "line": "From slow, simple phrases to fast, natural speech."
+      },
+      {
+        "id": "reading",
+        "name": "Reading",
+        "line": "From signs and notices to long, demanding texts."
+      },
+      {
+        "id": "interaction",
+        "name": "Spoken Interaction",
+        "line": "Taking part in conversation, from greetings to debate."
+      },
+      {
+        "id": "production",
+        "name": "Spoken Production",
+        "line": "Speaking on your own, from introducing yourself to giving a talk."
+      },
+      {
+        "id": "writing",
+        "name": "Writing",
+        "line": "From a short note to a clear, structured report."
+      },
+      {
+        "id": "mediation",
+        "name": "Mediation",
+        "line": "Passing meaning between people, texts or languages.",
+        "note": "Added in 2020"
+      }
+    ]
+  },
   "distance": {
     "title": "Same Level, Different Distance to Fluency",
     "intro": "Some languages take longer than others to reach the same level.",
@@ -93,8 +130,6 @@
       {
         "id": "cat1",
         "name": "Category I",
-        "low": 680,
-        "high": 680,
         "hours": "~680",
         "languages": [
           "fr",
@@ -104,27 +139,26 @@
           "nl",
           "sv",
           "da"
-        ]
+        ],
+        "value": 680
       },
       {
         "id": "cat2",
         "name": "Category II",
-        "low": 900,
-        "high": 900,
         "hours": "~900",
         "languages": [
           "de"
-        ]
+        ],
+        "value": 900
       },
       {
         "id": "cat3",
         "name": "Category III–IV",
-        "low": 1100,
-        "high": 1100,
         "hours": "~1,100",
         "languages": [
           "pl"
-        ]
+        ],
+        "value": 1100
       }
     ]
   },

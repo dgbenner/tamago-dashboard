@@ -2,6 +2,7 @@ import type { ReactNode } from 'react'
 
 import { cefrHeader } from '@/data'
 import { CefrLadder } from '@/layout/CefrLadder'
+import { CefrSkills } from '@/layout/CefrSkills'
 import { CefrSources } from '@/layout/CefrSources'
 import { CefrToday } from '@/layout/CefrToday'
 import { PageFrame, PageSection } from '@/layout/PageFrame'
@@ -16,7 +17,7 @@ interface CefrPageProps {
 }
 
 /**
- * The CEFR page: what the scale is (the header), the six levels, how long each language
+ * The CEFR page: what the scale is (the header), the six levels, the skills they measure, how long each language
  * takes, how many words a level means, the real exams, then where Tamago's courses sit today, and the sources.
  */
 export function CefrPage({ distance, vocabulary, exams }: CefrPageProps) {
@@ -27,6 +28,9 @@ export function CefrPage({ distance, vocabulary, exams }: CefrPageProps) {
     >
       <PageSection label="The Six Levels">
         <CefrLadder />
+      </PageSection>
+      <PageSection label="What Each Level Measures">
+        <CefrSkills />
       </PageSection>
       <PageSection label="Same Level, Different Distance">{distance}</PageSection>
       <PageSection label="How Big Is Each Level">{vocabulary}</PageSection>

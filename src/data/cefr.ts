@@ -72,19 +72,41 @@ export const cefrLadder = {
   }),
 }
 
+// ── Skills ──────────────────────────────────────────────────────────────────
+
+export type CefrSkillId = 'listening' | 'reading' | 'interaction' | 'production' | 'writing' | 'mediation'
+const SKILL_IDS = ['listening', 'reading', 'interaction', 'production', 'writing', 'mediation'] as const
+
+export interface CefrSkill {
+  id: CefrSkillId
+  name: string
+  line: string
+  /** A small note, e.g. "Added in 2020". null for most. */
+  note: string | null
+}
+
+export const cefrSkills = {
+  title: cefrJson.skills.title,
+  intro: cefrJson.skills.intro,
+  items: cefrJson.skills.items.map((item): CefrSkill => {
+    check((SKILL_IDS as readonly string[]).includes(item.id), `src/data/cefr.json: unknown skill "${item.id}"`)
+    return { id: item.id as CefrSkillId, name: item.name, line: item.line, note: 'note' in item ? (item.note as string) : null }
+  }),
+}
+
 // ── Same level, different distance (FSI) ────────────────────────────────────
 
 const distanceText = cefrJson.distance
 
 /**
- * One bar per live course with an FSI category, in category order then by name. Each row holds two values under its
- * own category's keys: `<cat>Low` (the bar up to the lower figure) and `<cat>Extra` (the rest of a range, drawn
- * lighter). The other categories' keys are left out, so the bars stack in one slot.
+ * One bar per live course with an FSI category, in category order then by name. Each row holds its hours under its own
+ * category's key, and leaves the other categories' keys out, so each category's bars get that category's color.
  */
 export interface DistanceRow {
   id: string
   name: string
   category: string
+  /** "~680 h", written after the bar */
   hours: string
   [key: string]: string | number
 }
@@ -99,14 +121,7 @@ export const distanceRows: DistanceRow[] = distanceText.categories.flatMap((cate
   liveLanguages
     .filter((l) => category.languages.includes(l.id))
     .sort((a, b) => a.name.localeCompare(b.name))
-    .map((l) => ({
-      id: l.id,
-      name: l.name,
-      category: category.id,
-      hours: hoursText(category.hours),
-      [`${category.id}Low`]: category.low,
-      [`${category.id}Extra`]: category.high - category.low,
-    })),
+    .map((l) => ({ id: l.id, name: l.name, category: category.id, hours: hoursText(category.hours), [category.id]: category.value })),
 )
 
 export const cefrDistance = {

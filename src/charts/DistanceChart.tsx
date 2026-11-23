@@ -2,30 +2,24 @@ import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
-import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart'
+import { ChartContainer, type ChartConfig } from '@/components/ui/chart'
 import { cefrDistance, distanceCategories, distanceRows, formatHours, type DistanceRow } from '@/data'
-
-import { TooltipRow } from './TooltipRow'
 
 /** FSI categories run from easiest to hardest, so their colors run from green to orange. */
 const CATEGORY_COLORS = ['var(--chart-6)', 'var(--chart-4)', 'var(--chart-2)']
-/** How strongly the far end of a range (~600–750) is drawn, against the solid part up to its lower figure. */
-const RANGE_OPACITY = 0.35
+/** Room on the right for the value written after each bar, in pixels. */
+const LABEL_ROOM = 64
 /** Height per language bar, in pixels. */
 const ROW_HEIGHT = 30
 
 const color = new Map(distanceCategories.map((category, i) => [category.id, CATEGORY_COLORS[i % CATEGORY_COLORS.length]]))
 const config: ChartConfig = Object.fromEntries(
-  distanceCategories.flatMap((category) => [
-    [`${category.id}Low`, { label: category.name, color: color.get(category.id) }],
-    [`${category.id}Extra`, { label: category.name, color: color.get(category.id) }],
-  ]),
+  distanceCategories.map((category) => [category.id, { label: category.name, color: color.get(category.id) }]),
 )
-const categoryName = new Map(distanceCategories.map((category) => [category.id, category.name]))
 
 /**
- * Horizontal bars: FSI class hours to professional working proficiency for each Tamago language, colored by FSI
- * category. A range is solid up to its lower figure and lighter to its upper one.
+ * Horizontal bars: the hours each Tamago language takes to reach working fluency, colored by FSI category, with the
+ * value written after each bar. No hover: everything is on the page.
  */
 export function DistanceChart() {
   return (
@@ -53,39 +47,28 @@ export function DistanceChart() {
           className="aspect-auto w-full"
           style={{ height: distanceRows.length * ROW_HEIGHT + 40 }}
         >
-          <BarChart data={distanceRows} layout="vertical" accessibilityLayer margin={{ top: 0, right: 16, bottom: 0, left: 0 }}>
+          <BarChart data={distanceRows} layout="vertical" margin={{ top: 0, right: LABEL_ROOM, bottom: 0, left: 0 }}>
             <CartesianGrid horizontal={false} />
             <XAxis type="number" tickFormatter={formatHours} tickLine={false} axisLine={false} allowDecimals={false} />
             <YAxis type="category" dataKey="name" tickLine={false} axisLine={false} width={88} />
-            <ChartTooltip
-              cursor={false}
-              content={({ active, payload }) => {
-                const row = payload?.[0]?.payload as DistanceRow | undefined
-                if (!active || !row) return null
-                return (
-                  <ChartTooltipContent
-                    active
-                    payload={payload?.slice(0, 1)}
-                    hideLabel
-                    formatter={() => (
-                      <TooltipRow color={color.get(row.category)} name={`${row.name}, ${categoryName.get(row.category)}`} value={row.hours} />
-                    )}
-                  />
-                )
-              }}
-            />
-            {distanceCategories.flatMap((category) => [
-              <Bar key={`${category.id}Low`} dataKey={`${category.id}Low`} stackId="hours" fill={`var(--color-${category.id}Low)`} barSize={18} />,
+            {distanceCategories.map((category) => (
               <Bar
-                key={`${category.id}Extra`}
-                dataKey={`${category.id}Extra`}
+                key={category.id}
+                dataKey={category.id}
                 stackId="hours"
-                fill={`var(--color-${category.id}Extra)`}
-                fillOpacity={RANGE_OPACITY}
+                fill={`var(--color-${category.id})`}
                 radius={[0, 4, 4, 0]}
                 barSize={18}
-              />,
-            ])}
+                isAnimationActive={false}
+                label={{
+                  position: 'right',
+                  offset: 8,
+                  className: 'fill-muted-foreground text-xs',
+                  // Each row's own text ("~680 h"), on the bar of the row's category only.
+                  valueAccessor: (entry: { payload: DistanceRow }) => (entry.payload.category === category.id ? entry.payload.hours : ''),
+                }}
+              />
+            ))}
           </BarChart>
         </ChartContainer>
       </CardContent>
