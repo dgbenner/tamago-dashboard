@@ -1,8 +1,7 @@
 {
   "header": {
-    "title": "CEFR",
-    "subtitle": "The Common European Framework of Reference for Languages: one scale for every language, from first words to mastery.",
-    "fact": "Published by the Council of Europe in 2001. Levels are defined by “can-do” statements, not grammar lists. The 2020 Companion Volume added a Pre-A1 level."
+    "title": "CEFR: Common European Framework of Reference for Languages",
+    "subtitle": "One scale for every language, from first words to mastery. Published by the Council of Europe in 2001, its levels are defined by “can-do” statements, not grammar lists. The 2020 Companion Volume added a Pre-A1 level."
   },
   "groups": [
     {
@@ -35,11 +34,6 @@
   ],
   "ladder": {
     "title": "The Six Levels",
-    "intro": "Each level, what a learner at that level can do, and roughly how long it takes to get there.",
-    "preA1": {
-      "code": "Pre-A1",
-      "canDo": "A handful of words and set phrases for immediate needs."
-    },
     "levels": [
       {
         "code": "A1",
@@ -87,7 +81,7 @@
     "hoursLabel": "{hours} hours",
     "tamagoBadgeAll": "Tamago: all {count} courses",
     "tamagoBadgeSome": "Tamago: {count} of {live} courses",
-    "footnote": "The hours are Cambridge English's guided-learning estimates for learners of English, counted from zero. Alliance Française gives similar figures for French (A1 60–100 through C2 1,060–1,200). Real time varies by learner and by language. See Same Level, Different Distance."
+    "footnote": "Real time varies by learner and by language. Cambridge English gives these hours as guided-learning estimates for learners of English, counted from zero. Alliance Française gives similar figures for French (A1 60–100 through C2 1,060–1,200)."
   },
   "distance": {
     "title": "Same Level, Different Distance",

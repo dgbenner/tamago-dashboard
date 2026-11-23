@@ -9,17 +9,11 @@ const shortName = new Map(cefrGroups.map((group) => [group.id, group.short]))
 
 /**
  * The six CEFR levels as a ladder of cards: six across on a wide screen, fewer as it narrows, one column on a phone.
- * The small Pre-A1 chip comes first. The accent badge sits on the highest level a Tamago course has completed.
+ * The accent badge sits on the highest level a Tamago course has completed.
  */
 export function CefrLadder() {
   return (
-    <CefrSection title={cefrLadder.title} intro={cefrLadder.intro}>
-      <div className="flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
-        <Badge variant="outline" className="text-muted-foreground">
-          {cefrLadder.preA1.code}
-        </Badge>
-        <span>{cefrLadder.preA1.canDo}</span>
-      </div>
+    <CefrSection title={cefrLadder.title}>
       <ol className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {cefrLadder.levels.map((level) => (
           <li key={level.code} className="min-w-0">
@@ -44,7 +38,7 @@ export function CefrLadder() {
           </li>
         ))}
       </ol>
-      <p className="text-xs text-muted-foreground">{cefrLadder.footnote}</p>
+      <p className="text-xs text-muted-foreground italic">{cefrLadder.footnote}</p>
     </CefrSection>
   )
 }
