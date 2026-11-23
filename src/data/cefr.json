@@ -87,7 +87,7 @@
   },
   "distance": {
     "title": "Same Level, Different Distance",
-    "intro": "Some languages take much longer than others to reach the same level.",
+    "intro": "Some languages take longer than others to reach the same level.",
     "axisLabel": "FSI class hours to professional working proficiency (not a CEFR level)",
     "hoursLabel": "{hours} class hours",
     "categories": [

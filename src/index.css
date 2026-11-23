@@ -43,6 +43,9 @@
     --color-cefr-basic: var(--cefr-basic);
     --color-cefr-independent: var(--cefr-independent);
     --color-cefr-proficient: var(--cefr-proficient);
+    --color-cefr-basic-fold: var(--cefr-basic-fold);
+    --color-cefr-independent-fold: var(--cefr-independent-fold);
+    --color-cefr-proficient-fold: var(--cefr-proficient-fold);
     --color-sidebar: var(--sidebar);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar-primary: var(--sidebar-primary);
@@ -91,6 +94,10 @@
     --cefr-basic: #0f7a55;
     --cefr-independent: #1f63b8;
     --cefr-proficient: #b8406f;
+    /* The fold under each ribbon (the part that wraps behind the card): the same hues, darker. */
+    --cefr-basic-fold: #094a33;
+    --cefr-independent-fold: #133c70;
+    --cefr-proficient-fold: #702743;
     --chart-neutral: oklch(0.556 0 0);
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);
