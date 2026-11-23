@@ -25,11 +25,8 @@ export function CefrLadder() {
                 <p className="text-[11px] font-medium tracking-wider text-muted-foreground uppercase">{level.name}</p>
               </CardHeader>
               <CardContent className="text-sm">{level.canDo}</CardContent>
-              <CardFooter className="items-center justify-center py-1 text-xs text-muted-foreground italic tabular-nums">
-                <span aria-hidden="true" className="mr-1.5 text-lg leading-none not-italic">
-                  {cefrLadder.approx}
-                </span>
-                <span>{level.hours}</span>
+              <CardFooter className="items-center justify-center px-2 py-1 text-xs whitespace-nowrap text-muted-foreground italic tabular-nums">
+                {cefrLadder.approx} {level.hours}
               </CardFooter>
             </Card>
           </li>

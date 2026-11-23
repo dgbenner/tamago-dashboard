@@ -58,7 +58,7 @@ const tamagoBadge =
 export const cefrLadder = {
   title: ladderText.title,
   intro: ladderText.intro,
-  /** The approximation mark shown before every hours figure. */
+  /** The word shown before every hours figure: "approx." */
   approx: ladderText.approx,
   footnote: ladderText.footnote,
   levels: ladderText.levels.map((level): CefrLevel => {
