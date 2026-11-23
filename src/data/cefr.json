@@ -486,7 +486,7 @@
     "detailsLabel": "Details"
   },
   "today": {
-    "title": "Tamago Today",
+    "title": "Tamago Currently",
     "intro": "Each course in the app, its CEFR level and its circles. Select one to see it on Content Health.",
     "complete": "{level} complete",
     "completeRange": "A1–{level} complete",

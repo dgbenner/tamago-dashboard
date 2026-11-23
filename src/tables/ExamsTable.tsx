@@ -81,7 +81,7 @@ export function ExamsTable() {
         </Table>
         <Accordion type="single" collapsible>
           <AccordionItem value="details" className="border-b-0">
-            <AccordionTrigger className="py-2 text-xs">{cefrExams.detailsLabel}</AccordionTrigger>
+            <AccordionTrigger className="flex-none items-center justify-start gap-1.5 [&>svg]:translate-y-0 py-2 text-xs">{cefrExams.detailsLabel}</AccordionTrigger>
             <AccordionContent>
               <ol className="flex list-decimal flex-col gap-1 pl-5 text-xs text-muted-foreground">
                 {cefrExams.footnotes.map((note) => (

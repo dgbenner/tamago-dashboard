@@ -7,7 +7,7 @@ export function CefrSources() {
     <footer aria-label={cefrSources.title} className="border-t">
       <Accordion type="single" collapsible>
         <AccordionItem value="sources" className="border-b-0">
-          <AccordionTrigger className="text-sm">{cefrSources.title}</AccordionTrigger>
+          <AccordionTrigger className="flex-none items-center justify-start gap-1.5 [&>svg]:translate-y-0 text-sm">{cefrSources.title}</AccordionTrigger>
           <AccordionContent className="flex flex-col gap-2 text-xs text-muted-foreground">
             <ul className="flex flex-col gap-1">
               {cefrSources.links.map((source) => (

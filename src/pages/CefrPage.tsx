@@ -35,7 +35,7 @@ export function CefrPage({ distance, exams }: CefrPageProps) {
       </PageSection>
       <PageSection label="Same Level, Different Distance">{distance}</PageSection>
       <PageSection label="The Real Exams">{exams}</PageSection>
-      <PageSection label="Tamago Today">
+      <PageSection label="Tamago Currently">
         <CefrToday />
       </PageSection>
       <CefrSources />

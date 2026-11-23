@@ -1,7 +1,7 @@
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardAction, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChartContainer, type ChartConfig } from '@/components/ui/chart'
 import { cefrDistance, distanceCategories, distanceRows, formatHours, type DistanceRow } from '@/data'
 
@@ -17,6 +17,23 @@ const config: ChartConfig = Object.fromEntries(
   distanceCategories.map((category) => [category.id, { label: category.name, color: color.get(category.id) }]),
 )
 
+/** The three FSI categories as chips: color, name and hours. */
+function CategoryChips({ className = '' }: { className?: string }) {
+  return (
+    <ul className={`flex flex-wrap gap-2 ${className}`}>
+      {distanceCategories.map((category) => (
+        <li key={category.id}>
+          <Badge variant="outline" className="h-auto gap-1.5 whitespace-normal">
+            <span aria-hidden="true" className="size-2 shrink-0 rounded-full" style={{ backgroundColor: color.get(category.id) }} />
+            {category.name}
+            <span className="font-normal text-muted-foreground">{category.hours}</span>
+          </Badge>
+        </li>
+      ))}
+    </ul>
+  )
+}
+
 /**
  * Horizontal bars: the hours each Tamago language takes to reach working fluency, colored by FSI category, with the
  * value written after each bar. No hover: everything is on the page.
@@ -24,22 +41,17 @@ const config: ChartConfig = Object.fromEntries(
 export function DistanceChart() {
   return (
     <Card>
-      <CardHeader className="gap-1">
+      {/* One column until the chips move up into the corner (the header splits in two whenever it has an action). */}
+      <CardHeader className="gap-1 max-lg:has-data-[slot=card-action]:grid-cols-1">
         <CardTitle>{cefrDistance.title}</CardTitle>
         <CardDescription>{cefrDistance.intro}</CardDescription>
+        {/* On a wide screen the chips sit in the header's top-right corner; narrower, they drop under it. */}
+        <CardAction className="hidden lg:block">
+          <CategoryChips className="justify-end" />
+        </CardAction>
       </CardHeader>
       <CardContent className="flex flex-col gap-3">
-        <ul className="flex flex-wrap gap-2">
-          {distanceCategories.map((category) => (
-            <li key={category.id}>
-              <Badge variant="outline" className="h-auto gap-1.5 whitespace-normal">
-                <span aria-hidden="true" className="size-2 shrink-0 rounded-full" style={{ backgroundColor: color.get(category.id) }} />
-                {category.name}
-                <span className="font-normal text-muted-foreground">{category.hours}</span>
-              </Badge>
-            </li>
-          ))}
-        </ul>
+        <CategoryChips className="lg:hidden" />
         <ChartContainer
           config={config}
           role="group"
