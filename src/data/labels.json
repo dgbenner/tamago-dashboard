@@ -1,5 +1,6 @@
 {
   "notMeasured": "Not measured yet",
+  "notMeasuredMark": "—",
   "notRecorded": "Not recorded",
   "realLanguageStatus": {
     "complete": "Live",

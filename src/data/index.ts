@@ -51,7 +51,7 @@
 
 export type * from './types'
 
-export { NOT_MEASURED, NOT_RECORDED, snapshotTakenAt, snapshotLabel, snapshotSource } from './snapshot'
+export { NOT_MEASURED, NOT_MEASURED_MARK, NOT_RECORDED, snapshotTakenAt, snapshotLabel, snapshotSource } from './snapshot'
 export * from './real-content'
 export * from './real-health'
 export { activityByDay, activitySeries, activityStatTiles, reviewsApplied, activityNotRecorded, activityNotice } from './real-activity'

@@ -27,7 +27,7 @@ export function HealthChecksTable() {
       <CardHeader>
         <CardTitle>Checks</CardTitle>
         <CardDescription>
-          Each check, when it last ran and how it ended, or why there is no measurement yet.
+          Each check, when it last ran and how it ended.
         </CardDescription>
       </CardHeader>
       <CardContent>

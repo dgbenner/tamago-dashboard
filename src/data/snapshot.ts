@@ -9,6 +9,8 @@ import type { IsoDateTime, TrendPoint } from './types'
 
 /** Shown in place of a number that has no real source: "Not measured yet". */
 export const NOT_MEASURED: string = labelsJson.notMeasured
+/** What a stat card shows in place of a number it has no source for: a dash, read aloud as NOT_MEASURED. */
+export const NOT_MEASURED_MARK: string = labelsJson.notMeasuredMark
 
 /** Shown for a deploy with no test run on record: "Not recorded". */
 export const NOT_RECORDED: string = labelsJson.notRecorded

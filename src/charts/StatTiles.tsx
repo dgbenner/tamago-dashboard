@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
-import { formatCount, formatPercent, type StatTile } from '@/data'
+import { formatCount, formatPercent, NOT_MEASURED_MARK, type StatTile } from '@/data'
 
 import { Sparkline } from './Sparkline'
 
@@ -47,15 +47,13 @@ function StatCard({ tile: first }: { tile: StatTile }) {
         <CardDescription>
           <CardLabel tile={tile} />
         </CardDescription>
-        {tile.measured ? (
-          <CardTitle className="max-w-full min-w-0 text-4xl font-semibold tabular-nums wrap-anywhere">
-            {tile.value}
-          </CardTitle>
-        ) : (
-          <CardTitle className="max-w-full min-w-0 py-1.5 text-[1.2rem] font-medium text-muted-foreground wrap-anywhere">
-            {tile.value}
-          </CardTitle>
-        )}
+        {/* A card with no source shows a dash at the same size and weight as a number, read aloud as "Not measured yet". */}
+        <CardTitle
+          className={`max-w-full min-w-0 text-4xl font-semibold tabular-nums wrap-anywhere ${tile.measured ? '' : 'text-muted-foreground'}`}
+          aria-label={tile.measured ? undefined : tile.value}
+        >
+          {tile.measured ? tile.value : NOT_MEASURED_MARK}
+        </CardTitle>
         <p className="mx-auto w-[88%] text-xs text-muted-foreground italic">{tile.description}</p>
       </CardHeader>
       <CardContent>{trend ? <Sparkline label={tile.label} trend={trend} formatValue={trendFormatter(tile)} /> : null}</CardContent>
@@ -86,7 +84,7 @@ function StatCard({ tile: first }: { tile: StatTile }) {
  * The row of stat cards on every page: one column on a phone, two from `sm`, four from `xl`.
  * Values arrive already formatted, so they are shown as they are.
  *
- * - A card that is not measured shows its "Not measured yet" label small and muted, not as a number.
+ * - A card that is not measured shows a muted dash in the number's place, with "Not measured yet" as its accessible name.
  * - A card with a trend (2+ snapshots) gets a sparkline under its description.
  * - A card with no trend keeps an empty sparkline row, so the cards beside it still line up.
  */
