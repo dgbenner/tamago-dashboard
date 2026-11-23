@@ -22,7 +22,7 @@
 //   Stat cards:  activityStatTiles: StatTile[]
 //   Bar chart:   activityByDay: ActivityDay[] ({ date, commits, pushes, deploys }), activitySeries
 //   Table:       reviewsApplied: ReviewApplied[] (newest first)
-//   Note:        activityNotRecorded: string[]
+//   Notice:      activityNotice: string | null (the yellow banner), from activityNotRecorded: string[]
 //
 // CEFR (./cefr): reference text from cefr.json; the Tamago badge, exam column, word range and Today chips are live
 //   cefrHeader, cefrGroups, cefrLadder, cefrSkills, distanceRows, distanceCategories, cefrDistance,
@@ -54,7 +54,7 @@ export type * from './types'
 export { NOT_MEASURED, NOT_RECORDED, snapshotTakenAt, snapshotLabel, snapshotSource } from './snapshot'
 export * from './real-content'
 export * from './real-health'
-export { activityByDay, activitySeries, activityStatTiles, reviewsApplied, activityNotRecorded } from './real-activity'
+export { activityByDay, activitySeries, activityStatTiles, reviewsApplied, activityNotRecorded, activityNotice } from './real-activity'
 export * from './cefr'
 export * from './growth'
 export * from './cost'
