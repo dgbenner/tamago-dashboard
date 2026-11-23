@@ -27,7 +27,8 @@ function inspect(page) {
       banner: banner?.innerText.trim() ?? null,
       bannerKind: banner?.getAttribute('data-banner') ?? null,
       bannerAtTop: !!box && box.top === 0 && Math.round(box.width) === window.innerWidth,
-      badge: document.querySelector('header [data-slot=badge]')?.textContent ?? null,
+      // Only the "Sample Data" badge counts: a page may have other badges in its header (the CEFR group chips).
+      badge: [...document.querySelectorAll('header [data-slot=badge]')].some((el) => el.textContent === 'Sample Data') ? 'Sample Data' : null,
       cards: document.querySelectorAll('[data-slot=card]').length,
       tableRows: document.querySelectorAll('table tbody tr').length,
       charts: document.querySelectorAll('.recharts-surface').length,

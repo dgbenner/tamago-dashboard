@@ -21,7 +21,7 @@ node scripts/checks/screenshots.mjs          # the local dev server
 node scripts/checks/screenshots.mjs live     # the published site
 ```
 
-Opens all five pages at 1440 px and 390 px wide and saves a full-height screenshot of each to
+Opens every page at 1440 px and 390 px wide and saves a full-height screenshot of each to
 `screenshots/`, replacing the old ones. It fails if a page logs a console error, scrolls sideways, or
 has no cards or table rows, or no chart on a page that should have one. It does not judge how a page looks; open the screenshots for that.
 
@@ -76,7 +76,7 @@ Opens each page from its own address, the way a bookmark would, scrolls to the b
 For each page it prints `DONE` or `NOT DONE` with the reasons. A page is done when:
 
 - the right page opens, and is the same after a refresh
-- a real page (Content Health, Content Growth, System Health, Agent Activity) has the line "Real data, snapshot from …" with a date and
+- a real page (Content Health, Content Growth, System Health, Agent Activity, CEFR) has the line "Real data, snapshot from …" with a date and
   time, and no "Sample Data" badge
 - a placeholder page (Cost) has the red warning banner with its exact text, and the "Sample Data" badge
 - the banner is still at the top after scrolling

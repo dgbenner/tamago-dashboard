@@ -40,7 +40,7 @@ function StatCard({ tile: first }: { tile: StatTile }) {
   const trend = tile.trend !== null && tile.trend.length >= TREND_MIN_POINTS ? tile.trend : null
 
   return (
-    <Card className="gap-4 py-4">
+    <Card id={`tile-${first.id}`} className="gap-4 py-4">
       <CardHeader className="justify-items-center text-center">
         <CardDescription>
           <CardLabel tile={tile} />

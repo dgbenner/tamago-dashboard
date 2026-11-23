@@ -185,3 +185,24 @@
   33% { transform: scale(1.08, 1); opacity: 1; }
   36.5%, 100% { transform: none; opacity: 1; }
 }
+
+/* An element the address jumped to (#/content-health/language-fr): a brief yellow wash so the eye finds it. */
+.jump-target {
+  animation: jump-target 2s ease-out;
+}
+@keyframes jump-target {
+  0%,
+  40% {
+    background-color: color-mix(in oklab, var(--tamago-yellow) 35%, transparent);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+/* A table row: wash each cell instead, so the pinned first column (which paints its own background) is washed too. */
+tr.jump-target {
+  animation: none;
+}
+tr.jump-target > td {
+  animation: jump-target 2s ease-out;
+}

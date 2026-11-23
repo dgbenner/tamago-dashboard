@@ -1,0 +1,533 @@
+{
+  "header": {
+    "title": "CEFR",
+    "subtitle": "The Common European Framework of Reference for Languages: one scale for every language, from first words to mastery.",
+    "fact": "Published by the Council of Europe in 2001. Levels are defined by “can-do” statements, not grammar lists. The 2020 Companion Volume added a Pre-A1 level."
+  },
+  "groups": [
+    {
+      "id": "basic",
+      "name": "Basic user",
+      "short": "Basic",
+      "levels": [
+        "A1",
+        "A2"
+      ]
+    },
+    {
+      "id": "independent",
+      "name": "Independent user",
+      "short": "Independent",
+      "levels": [
+        "B1",
+        "B2"
+      ]
+    },
+    {
+      "id": "proficient",
+      "name": "Proficient user",
+      "short": "Proficient",
+      "levels": [
+        "C1",
+        "C2"
+      ]
+    }
+  ],
+  "ladder": {
+    "title": "The Six Levels",
+    "intro": "Each level, what a learner at that level can do, and roughly how long it takes to get there.",
+    "preA1": {
+      "code": "Pre-A1",
+      "canDo": "A handful of words and set phrases for immediate needs."
+    },
+    "levels": [
+      {
+        "code": "A1",
+        "name": "Breakthrough",
+        "group": "basic",
+        "canDo": "Introduce yourself and ask and answer simple personal questions, if the other person speaks slowly and helps.",
+        "hours": "~90–100"
+      },
+      {
+        "code": "A2",
+        "name": "Waystage",
+        "group": "basic",
+        "canDo": "Handle routine exchanges about familiar things like shopping, work, family and your area.",
+        "hours": "~180–200"
+      },
+      {
+        "code": "B1",
+        "name": "Threshold",
+        "group": "independent",
+        "canDo": "Get by in most travel situations, and talk about experiences, plans and opinions in simple connected speech.",
+        "hours": "~350–400"
+      },
+      {
+        "code": "B2",
+        "name": "Vantage",
+        "group": "independent",
+        "canDo": "Follow the main ideas of complex texts and talk with native speakers without strain on either side.",
+        "hours": "~500–600"
+      },
+      {
+        "code": "C1",
+        "name": "Effective Operational Proficiency",
+        "group": "proficient",
+        "canDo": "Understand long, demanding texts, including implied meaning, and speak fluently without searching for words.",
+        "hours": "~700–800"
+      },
+      {
+        "code": "C2",
+        "name": "Mastery",
+        "group": "proficient",
+        "canDo": "Understand virtually everything, summarize from several sources, and express fine shades of meaning.",
+        "hours": "~1,000–1,200"
+      }
+    ],
+    "hoursLabel": "{hours} hours",
+    "tamagoBadgeAll": "Tamago: all {count} courses",
+    "tamagoBadgeSome": "Tamago: {count} of {live} courses",
+    "footnote": "The hours are Cambridge English's guided-learning estimates for learners of English, counted from zero. Alliance Française gives similar figures for French (A1 60–100 through C2 1,060–1,200). Real time varies by learner and by language. See Same Level, Different Distance."
+  },
+  "distance": {
+    "title": "Same Level, Different Distance",
+    "intro": "A level means the same thing in every language, but getting there takes longer in some.",
+    "axisLabel": "FSI class hours to professional working proficiency (not a CEFR level)",
+    "hoursLabel": "{hours} class hours",
+    "categories": [
+      {
+        "id": "cat1",
+        "name": "Category I",
+        "low": 600,
+        "high": 750,
+        "hours": "~600–750",
+        "languages": [
+          "fr",
+          "es",
+          "it",
+          "pt",
+          "nl",
+          "sv",
+          "da"
+        ]
+      },
+      {
+        "id": "cat2",
+        "name": "Category II",
+        "low": 900,
+        "high": 900,
+        "hours": "~900",
+        "languages": [
+          "de"
+        ]
+      },
+      {
+        "id": "cat3",
+        "name": "Category III–IV",
+        "low": 1100,
+        "high": 1100,
+        "hours": "~1,100",
+        "languages": [
+          "pl"
+        ],
+        "note": "FSI's label depends on the edition"
+      }
+    ],
+    "caption": "Polish takes almost twice as long as Spanish to reach the same point. Its grammar has seven cases.",
+    "note": "FSI measures time to professional proficiency for adult diplomats in full-time class. It's a way to compare languages, not a CEFR conversion."
+  },
+  "vocabulary": {
+    "title": "How Big Is Each Level?",
+    "headline": "A1 means hundreds of words; A2 means roughly a thousand.",
+    "bars": [
+      {
+        "id": "stuck",
+        "label": "Learners stuck at A1",
+        "low": 500,
+        "high": 800,
+        "words": "500–800 words"
+      },
+      {
+        "id": "a2",
+        "label": "Official A2 word lists",
+        "low": 1000,
+        "high": 1000,
+        "words": "~1,000 words"
+      }
+    ],
+    "facts": [
+      "Official A2 (“Waystage”) word lists for English and French each contain about 1,000 words (Milton).",
+      "Research suggests that learners who know only 500–800 words don't get past A1 (Milton, 2022)."
+    ],
+    "tamago": "Tamago's A1 courses teach {min}–{max} words.",
+    "caveat": "Vocabulary size is a guide, not a definition. CEFR levels are defined by what you can do.",
+    "tamagoBar": "Tamago's A1 courses",
+    "wordsLabel": "{words} words",
+    "axisLabel": "Words"
+  },
+  "exams": {
+    "title": "The Real Exams, by Language",
+    "intro": "Most languages have an official exam at every level. Dutch, Swedish and Danish exams are tied to residence and integration, so their ladders are uneven.",
+    "tamagoColumn": "Tamago's mock exams follow these",
+    "rows": [
+      {
+        "id": "fr",
+        "cells": [
+          [
+            {
+              "text": "DELF A1"
+            }
+          ],
+          [
+            {
+              "text": "DELF A2"
+            }
+          ],
+          [
+            {
+              "text": "DELF B1"
+            }
+          ],
+          [
+            {
+              "text": "DELF B2"
+            }
+          ],
+          [
+            {
+              "text": "DALF C1"
+            }
+          ],
+          [
+            {
+              "text": "DALF C2"
+            }
+          ]
+        ]
+      },
+      {
+        "id": "es",
+        "cells": [
+          [
+            {
+              "text": "DELE A1"
+            }
+          ],
+          [
+            {
+              "text": "DELE A2"
+            }
+          ],
+          [
+            {
+              "text": "DELE B1"
+            }
+          ],
+          [
+            {
+              "text": "DELE B2"
+            }
+          ],
+          [
+            {
+              "text": "DELE C1"
+            }
+          ],
+          [
+            {
+              "text": "DELE C2"
+            }
+          ]
+        ]
+      },
+      {
+        "id": "de",
+        "cells": [
+          [
+            {
+              "text": "Goethe-Zertifikat A1 (Start Deutsch 1)"
+            }
+          ],
+          [
+            {
+              "text": "Goethe A2"
+            }
+          ],
+          [
+            {
+              "text": "Goethe B1"
+            }
+          ],
+          [
+            {
+              "text": "Goethe B2"
+            }
+          ],
+          [
+            {
+              "text": "Goethe C1"
+            }
+          ],
+          [
+            {
+              "text": "Goethe C2"
+            }
+          ]
+        ]
+      },
+      {
+        "id": "it",
+        "cells": [
+          [
+            {
+              "text": "CILS A1"
+            }
+          ],
+          [
+            {
+              "text": "CILS A2"
+            }
+          ],
+          [
+            {
+              "text": "CILS UNO-B1"
+            }
+          ],
+          [
+            {
+              "text": "CILS DUE-B2"
+            }
+          ],
+          [
+            {
+              "text": "CILS TRE-C1"
+            }
+          ],
+          [
+            {
+              "text": "CILS QUATTRO-C2"
+            }
+          ]
+        ]
+      },
+      {
+        "id": "pt",
+        "cells": [
+          [
+            {
+              "text": "CAPLE ACESSO"
+            }
+          ],
+          [
+            {
+              "text": "CAPLE CIPLE"
+            }
+          ],
+          [
+            {
+              "text": "CAPLE DEPLE"
+            }
+          ],
+          [
+            {
+              "text": "CAPLE DIPLE"
+            }
+          ],
+          [
+            {
+              "text": "CAPLE DAPLE"
+            }
+          ],
+          [
+            {
+              "text": "CAPLE DUPLE"
+            }
+          ]
+        ]
+      },
+      {
+        "id": "nl",
+        "cells": [
+          [
+            {
+              "text": "Basisexamen inburgering buitenland",
+              "note": 1
+            }
+          ],
+          [
+            {
+              "text": "Inburgeringsexamen A2"
+            }
+          ],
+          [
+            {
+              "text": "Staatsexamen NT2 I"
+            }
+          ],
+          [
+            {
+              "text": "Staatsexamen NT2 II"
+            }
+          ],
+          [],
+          []
+        ]
+      },
+      {
+        "id": "sv",
+        "cells": [
+          [
+            {
+              "text": "",
+              "note": 2
+            }
+          ],
+          [
+            {
+              "text": "Swedex A2B1"
+            }
+          ],
+          [
+            {
+              "text": "Swedex A2B1"
+            }
+          ],
+          [
+            {
+              "text": "Swedex B2C1"
+            }
+          ],
+          [
+            {
+              "text": "Swedex B2C1"
+            }
+          ],
+          []
+        ]
+      },
+      {
+        "id": "da",
+        "cells": [
+          [
+            {
+              "text": "Danskprøve A1",
+              "note": 3
+            }
+          ],
+          [
+            {
+              "text": "Danskprøve A2",
+              "note": 3
+            },
+            {
+              "text": "Prøve i Dansk 1",
+              "note": 4
+            }
+          ],
+          [
+            {
+              "text": "Prøve i Dansk 2"
+            }
+          ],
+          [
+            {
+              "text": "Prøve i Dansk 3"
+            }
+          ],
+          [
+            {
+              "text": "Studieprøven"
+            }
+          ],
+          []
+        ]
+      },
+      {
+        "id": "pl",
+        "cells": [
+          [
+            {
+              "text": "State certificate A1",
+              "note": 5
+            }
+          ],
+          [
+            {
+              "text": "State certificate A2"
+            }
+          ],
+          [
+            {
+              "text": "State certificate B1"
+            }
+          ],
+          [
+            {
+              "text": "State certificate B2"
+            }
+          ],
+          [
+            {
+              "text": "State certificate C1"
+            }
+          ],
+          [
+            {
+              "text": "State certificate C2"
+            }
+          ]
+        ]
+      }
+    ],
+    "footnotes": [
+      "Taken abroad, at a Dutch embassy, before moving to the Netherlands on a partner visa.",
+      "Swedex has no A1 test. A result just under A2 on the A2B1 test can earn an A1 certificate.",
+      "Tests for people joining family in Denmark.",
+      "Prøve i Dansk 1 is scored at mixed levels, roughly A2 written and B1 spoken. Sources differ on the exact split.",
+      "The adult state exams cover A1–C2. Most sessions are held at B1 and above, so A1 sittings are rare."
+    ]
+  },
+  "today": {
+    "title": "Tamago Today",
+    "intro": "Each course in the app, its CEFR level and its circles. Select one to see it on Content Health.",
+    "complete": "{level} complete",
+    "completeRange": "A1–{level} complete",
+    "incomplete": "{level}, incomplete",
+    "circles": "{count} circles",
+    "allComplete": "Every course in the app is {level}-complete.",
+    "someComplete": "{complete} of {live} courses in the app are {level}-complete.",
+    "awaitingBefore": "{sentences} sentences across {courses} courses haven't had a ",
+    "awaitingLink": "native-speaker check",
+    "awaitingAfter": " yet."
+  },
+  "sources": {
+    "title": "Sources",
+    "links": [
+      {
+        "label": "Council of Europe: CEFR levels",
+        "url": "https://www.coe.int/en/web/common-european-framework-reference-languages/level-descriptions"
+      },
+      {
+        "label": "Council of Europe: the official global scale",
+        "url": "https://www.coe.int/en/web/common-european-framework-reference-languages/table-1-cefr-3.3-common-reference-levels-global-scale"
+      },
+      {
+        "label": "Council of Europe: CEFR Companion Volume (2020), including Pre-A1",
+        "url": "https://rm.coe.int/16809ea0d4"
+      },
+      {
+        "label": "Cambridge English: guided learning hours",
+        "url": "https://support.cambridgeenglish.org/hc/en-gb/articles/202838506-Guided-learning-hours"
+      },
+      {
+        "label": "FSI language difficulty categories (summary)",
+        "url": "https://en.wikibooks.org/wiki/Wikibooks:Language_Learning_Difficulty_for_English_Speakers"
+      },
+      {
+        "label": "Milton: French as a foreign language and the CEFR",
+        "url": "https://web-archive.southampton.ac.uk/www.llas.ac.uk/resources/paper/2715"
+      }
+    ],
+    "exams": "Exams: France Éducation international (DELF A1), Instituto Cervantes (DELE), Goethe-Institut (Start Deutsch 1), Università per Stranieri di Siena (CILS), CAPLE, IND (basisexamen inburgering buitenland), Folkuniversitetet (Swedex), nyidanmark.dk (Danish tests), certyfikatpolski.pl (Polish state certificate)"
+  }
+}

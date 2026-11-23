@@ -76,7 +76,7 @@ function LanguageRow({ row }: { row: RealLanguage }) {
   const comingSoon = statusKey === 'coming-soon'
 
   return (
-    <TableRow className={cn(pinnedRow, comingSoon && 'text-muted-foreground')}>
+    <TableRow id={`language-${row.id}`} className={cn(pinnedRow, comingSoon && 'text-muted-foreground')}>
       <TableCell className={cn(cell, pinnedCell, 'font-medium whitespace-nowrap')}>{row.name}</TableCell>
       <TableCell className={cn(cell, centredCell)}>
         <Badge

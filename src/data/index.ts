@@ -27,6 +27,10 @@
 // PERIODS (./periods) — the fixed dates of the MOCK pages only
 //   periods ({ today, thisWeek, thisMonth, last14Days, last30Days }), today, isInPeriod, inPeriod
 //
+// CEFR (./cefr): reference text from cefr.json; the Tamago badge, exam column, word range and Today chips are live
+//   cefrHeader, cefrGroups, cefrLadder, distanceRows, distanceCategories, cefrDistance, vocabRows, cefrVocabulary,
+//   examRows, cefrExams, todayChips, cefrToday, cefrSources
+//
 // CONTENT GROWTH, real (./growth)
 //   Stat cards:  growthStatCards: StatTile[]
 //   Line chart:  lessonsByDay: LessonsDay[] ({ date, fr, es, … } per day since lessons were first recorded),
@@ -58,6 +62,7 @@ export * from './real-content'
 export * from './real-health'
 export { activityByDay, activitySeries, activityStatTiles, reviewsApplied, activityNotRecorded } from './real-activity'
 export * from './periods'
+export * from './cefr'
 export * from './growth'
 export { agents, agentSeries, agentName, agentDaily, sumAgentDays, averageCostPerRun } from './agents'
 export * from './cost'

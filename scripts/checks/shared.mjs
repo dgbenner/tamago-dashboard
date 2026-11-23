@@ -5,11 +5,11 @@ import path from 'node:path'
 /** The project root (two folders up from scripts/checks). */
 export const ROOT = path.resolve(import.meta.dirname, '../..')
 
-/** The five pages, by the id used in the address (`#/growth`). */
-export const PAGE_IDS = ['content-health', 'growth', 'health', 'agent-activity', 'cost']
+/** The pages, by the id used in the address (`#/growth`). */
+export const PAGE_IDS = ['content-health', 'growth', 'health', 'agent-activity', 'cost', 'cefr']
 
 /** Pages that show the real snapshot. The others are placeholders and must say so. */
-export const REAL_PAGES = ['content-health', 'growth', 'health', 'agent-activity']
+export const REAL_PAGES = ['content-health', 'growth', 'health', 'agent-activity', 'cefr']
 
 /**
  * Pages that need not have a chart. System Health shows "Not measured yet" where its chart would be, and Content health has

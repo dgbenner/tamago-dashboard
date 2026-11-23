@@ -2,19 +2,23 @@ import { useEffect, useState, type ReactNode } from 'react'
 
 import { ActivityByDayChart } from '@/charts/ActivityByDayChart'
 import { CostByDayChart } from '@/charts/CostByDayChart'
+import { DistanceChart } from '@/charts/DistanceChart'
 import { LessonsChart } from '@/charts/LessonsChart'
 import { ResponseTimeChart } from '@/charts/ResponseTimeChart'
 import { StatTiles } from '@/charts/StatTiles'
+import { VocabularyChart } from '@/charts/VocabularyChart'
 import { activityStatTiles, contentStatTiles, costStatCards, growthStatCards, healthStatTiles } from '@/data'
 import { AppShell } from '@/layout/AppShell'
 import { NAV_ITEMS, type PageId } from '@/layout/nav'
 import { AgentActivityPage } from '@/pages/AgentActivityPage'
+import { CefrPage } from '@/pages/CefrPage'
 import { ContentHealthPage } from '@/pages/ContentHealthPage'
 import { CostPage } from '@/pages/CostPage'
 import { GrowthPage } from '@/pages/GrowthPage'
 import { HealthPage } from '@/pages/HealthPage'
 import { AgentCostTable } from '@/tables/AgentCostTable'
 import { DeploysTable } from '@/tables/DeploysTable'
+import { ExamsTable } from '@/tables/ExamsTable'
 import { GrowthTable } from '@/tables/GrowthTable'
 import { HealthChecksTable } from '@/tables/HealthChecksTable'
 import { LanguagesTable } from '@/tables/LanguagesTable'
@@ -60,22 +64,43 @@ const PAGES: Record<PageId, () => ReactNode> = {
       table={<AgentCostTable />}
     />
   ),
+  cefr: () => <CefrPage distance={<DistanceChart />} vocabulary={<VocabularyChart />} exams={<ExamsTable />} />,
 }
 
-/** The page named in the address (`#/growth`). Anything unknown falls back to the first page. */
-function pageFromHash(): PageId {
-  const id = window.location.hash.replace(/^#\/?/, '')
-  return NAV_ITEMS.find((item) => item.id === id)?.id ?? NAV_ITEMS[0].id
+/**
+ * The page named in the address (`#/growth`), and the element to scroll to when the address names one
+ * (`#/content-health/language-fr`). An unknown page falls back to the first page.
+ */
+function routeFromHash(): { page: PageId; target: string | null } {
+  const [id = '', target = ''] = window.location.hash.replace(/^#\/?/, '').split('/')
+  return { page: NAV_ITEMS.find((item) => item.id === id)?.id ?? NAV_ITEMS[0].id, target: target || null }
 }
+
+/** How long a jumped-to element stays highlighted, in milliseconds. */
+const TARGET_HIGHLIGHT_MS = 2000
 
 function App() {
-  const [current, setCurrent] = useState<PageId>(pageFromHash)
+  const [route, setRoute] = useState(routeFromHash)
+  const current = route.page
 
   useEffect(() => {
-    const onHashChange = () => setCurrent(pageFromHash())
+    const onHashChange = () => setRoute(routeFromHash())
     window.addEventListener('hashchange', onHashChange)
     return () => window.removeEventListener('hashchange', onHashChange)
   }, [])
+
+  // After the page has drawn (and the shell has scrolled to the top), bring the named element into view and mark it.
+  useEffect(() => {
+    if (!route.target) return
+    const frame = requestAnimationFrame(() => {
+      const element = document.getElementById(route.target ?? '')
+      if (!element) return
+      element.scrollIntoView({ block: 'center', behavior: 'smooth' })
+      element.classList.add('jump-target')
+      window.setTimeout(() => element.classList.remove('jump-target'), TARGET_HIGHLIGHT_MS)
+    })
+    return () => cancelAnimationFrame(frame)
+  }, [route])
 
   return <AppShell current={current}>{PAGES[current]()}</AppShell>
 }
