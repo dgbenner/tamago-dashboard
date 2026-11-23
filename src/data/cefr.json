@@ -40,49 +40,50 @@
         "name": "Breakthrough",
         "group": "basic",
         "canDo": "Introduce yourself and ask and answer simple personal questions, if the other person speaks slowly and helps.",
-        "hours": "~90–100"
+        "hours": "90–100"
       },
       {
         "code": "A2",
         "name": "Waystage",
         "group": "basic",
         "canDo": "Handle routine exchanges about familiar things like shopping, work, family and your area.",
-        "hours": "~180–200"
+        "hours": "180–200"
       },
       {
         "code": "B1",
         "name": "Threshold",
         "group": "independent",
         "canDo": "Get by in most travel situations, and talk about experiences, plans and opinions in simple connected speech.",
-        "hours": "~350–400"
+        "hours": "350–400"
       },
       {
         "code": "B2",
         "name": "Vantage",
         "group": "independent",
         "canDo": "Follow the main ideas of complex texts and talk with native speakers without strain on either side.",
-        "hours": "~500–600"
+        "hours": "500–600"
       },
       {
         "code": "C1",
         "name": "Operational Proficiency",
         "group": "proficient",
         "canDo": "Understand long, demanding texts, including implied meaning, and speak fluently without searching for words.",
-        "hours": "~700–800"
+        "hours": "700–800"
       },
       {
         "code": "C2",
         "name": "Mastery",
         "group": "proficient",
         "canDo": "Understand virtually everything, summarize from several sources, and express fine shades of meaning.",
-        "hours": "~1,000–1,200"
+        "hours": "1,000–1,200"
       }
     ],
-    "hoursLabel": "{hours} hours",
+    "hoursLabel": "{hours} h",
     "tamagoBadgeAll": "Tamago: all {count} courses",
     "tamagoBadgeSome": "Tamago: {count} of {live} courses",
     "footnote": "Real time varies by learner and by language. Cambridge English gives these hours as guided-learning estimates for learners of English, counted from zero. Alliance Française gives similar figures for French (A1 60–100 through C2 1,060–1,200).",
-    "intro": "One scale for every language, from first words to mastery."
+    "intro": "One scale for every language, from first words to mastery.",
+    "approx": "~"
   },
   "distance": {
     "title": "Same Level, Different Distance",

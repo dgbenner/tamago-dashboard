@@ -27,7 +27,7 @@ export interface CefrLevel {
   name: string
   group: CefrGroupId
   canDo: string
-  /** "~90–100 hours" */
+  /** "90–100 h", shown after the approximation mark */
   hours: string
   /** The accent badge, on the highest level any live course has completed. null on the others. */
   tamagoBadge: string | null
@@ -58,6 +58,8 @@ const tamagoBadge =
 export const cefrLadder = {
   title: ladderText.title,
   intro: ladderText.intro,
+  /** The approximation mark shown before every hours figure. */
+  approx: ladderText.approx,
   footnote: ladderText.footnote,
   levels: ladderText.levels.map((level): CefrLevel => {
     check(cefrGroups.some((g) => g.id === level.group), `src/data/cefr.json: level ${level.code} has unknown group "${level.group}"`)
