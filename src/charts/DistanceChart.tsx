@@ -1,7 +1,7 @@
 import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart'
 import { cefrDistance, distanceCategories, distanceRows, formatCount, type DistanceRow } from '@/data'
 
@@ -42,7 +42,6 @@ export function DistanceChart() {
                 <span aria-hidden="true" className="size-2 shrink-0 rounded-full" style={{ backgroundColor: color.get(category.id) }} />
                 {category.name}
                 <span className="font-normal text-muted-foreground">{category.hours}</span>
-                {category.note ? <span className="font-normal text-muted-foreground italic">({category.note})</span> : null}
               </Badge>
             </li>
           ))}
@@ -50,7 +49,7 @@ export function DistanceChart() {
         <ChartContainer
           config={config}
           role="group"
-          aria-label={cefrDistance.axisLabel}
+          aria-label={cefrDistance.title}
           className="aspect-auto w-full"
           style={{ height: distanceRows.length * ROW_HEIGHT + 40 }}
         >
@@ -89,12 +88,7 @@ export function DistanceChart() {
             ])}
           </BarChart>
         </ChartContainer>
-        <p className="text-xs text-muted-foreground">{cefrDistance.axisLabel}</p>
       </CardContent>
-      <CardFooter className="flex-col items-start gap-1">
-        <p className="text-sm font-medium">{cefrDistance.caption}</p>
-        <p className="text-xs text-muted-foreground">{cefrDistance.note}</p>
-      </CardFooter>
     </Card>
   )
 }

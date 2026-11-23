@@ -88,7 +88,6 @@
   "distance": {
     "title": "Same Level, Different Distance",
     "intro": "Some languages take longer than others to reach the same level.",
-    "axisLabel": "FSI class hours to professional working proficiency (not a CEFR level)",
     "hoursLabel": "{hours} class hours",
     "categories": [
       {
@@ -125,12 +124,9 @@
         "hours": "~1,100",
         "languages": [
           "pl"
-        ],
-        "note": "FSI's label depends on the edition"
+        ]
       }
-    ],
-    "caption": "Polish takes almost twice as long as Spanish to reach the same point. Its grammar has seven cases.",
-    "note": "FSI measures time to professional proficiency for adult diplomats in full-time class. It's a way to compare languages, not a CEFR conversion."
+    ]
   },
   "vocabulary": {
     "title": "How Big Is Each Level?",

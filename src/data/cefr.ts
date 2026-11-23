@@ -89,7 +89,7 @@ export interface DistanceRow {
   [key: string]: string | number
 }
 
-export const distanceCategories = distanceText.categories.map(({ id, name, hours, note }) => ({ id, name, hours, note: note ?? null }))
+export const distanceCategories = distanceText.categories.map(({ id, name, hours }) => ({ id, name, hours }))
 
 export const distanceRows: DistanceRow[] = distanceText.categories.flatMap((category) =>
   liveLanguages
@@ -108,9 +108,6 @@ export const distanceRows: DistanceRow[] = distanceText.categories.flatMap((cate
 export const cefrDistance = {
   title: distanceText.title,
   intro: distanceText.intro,
-  axisLabel: distanceText.axisLabel,
-  caption: distanceText.caption,
-  note: distanceText.note,
 }
 
 // ── Vocabulary ──────────────────────────────────────────────────────────────
