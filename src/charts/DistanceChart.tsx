@@ -3,7 +3,7 @@ import { Bar, BarChart, CartesianGrid, XAxis, YAxis } from 'recharts'
 import { Badge } from '@/components/ui/badge'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { ChartContainer, ChartTooltip, ChartTooltipContent, type ChartConfig } from '@/components/ui/chart'
-import { cefrDistance, distanceCategories, distanceRows, formatCount, type DistanceRow } from '@/data'
+import { cefrDistance, distanceCategories, distanceRows, formatHours, type DistanceRow } from '@/data'
 
 import { TooltipRow } from './TooltipRow'
 
@@ -55,7 +55,7 @@ export function DistanceChart() {
         >
           <BarChart data={distanceRows} layout="vertical" accessibilityLayer margin={{ top: 0, right: 16, bottom: 0, left: 0 }}>
             <CartesianGrid horizontal={false} />
-            <XAxis type="number" tickFormatter={formatCount} tickLine={false} axisLine={false} allowDecimals={false} />
+            <XAxis type="number" tickFormatter={formatHours} tickLine={false} axisLine={false} allowDecimals={false} />
             <YAxis type="category" dataKey="name" tickLine={false} axisLine={false} width={88} />
             <ChartTooltip
               cursor={false}

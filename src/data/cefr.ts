@@ -89,7 +89,11 @@ export interface DistanceRow {
   [key: string]: string | number
 }
 
-export const distanceCategories = distanceText.categories.map(({ id, name, hours }) => ({ id, name, hours }))
+/** An hours figure as the chart shows it: "~680 h" for a category's text, "300 h" for an axis number. */
+const hoursText = (hours: string) => fill(distanceText.hoursLabel, { hours })
+export const formatHours = (hours: number) => hoursText(formatCount(hours))
+
+export const distanceCategories = distanceText.categories.map(({ id, name, hours }) => ({ id, name, hours: hoursText(hours) }))
 
 export const distanceRows: DistanceRow[] = distanceText.categories.flatMap((category) =>
   liveLanguages
@@ -99,7 +103,7 @@ export const distanceRows: DistanceRow[] = distanceText.categories.flatMap((cate
       id: l.id,
       name: l.name,
       category: category.id,
-      hours: fill(distanceText.hoursLabel, { hours: category.hours }),
+      hours: hoursText(category.hours),
       [`${category.id}Low`]: category.low,
       [`${category.id}Extra`]: category.high - category.low,
     })),

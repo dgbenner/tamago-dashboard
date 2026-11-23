@@ -88,14 +88,14 @@
   "distance": {
     "title": "Same Level, Different Distance to Fluency",
     "intro": "Some languages take longer than others to reach the same level.",
-    "hoursLabel": "{hours} class hours",
+    "hoursLabel": "{hours} h",
     "categories": [
       {
         "id": "cat1",
         "name": "Category I",
-        "low": 600,
-        "high": 750,
-        "hours": "~600–750",
+        "low": 680,
+        "high": 680,
+        "hours": "~680",
         "languages": [
           "fr",
           "es",
