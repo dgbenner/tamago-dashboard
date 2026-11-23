@@ -10,7 +10,7 @@ export function AgentActivityPage(props: DashboardPageProps) {
   return (
     <DashboardPage
       title="Agent Activity"
-      description="What the agents did, as the repo and GitHub record it: commits, pushes, deploys and reviews applied."
+      description="What the agents have done, as recorded on GitHub."
       notice={activityNotice ? <MissingSourceNotice>{activityNotice}</MissingSourceNotice> : undefined}
       {...props}
     />
