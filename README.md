@@ -4,9 +4,10 @@ A trial dashboard built by several specialist agents from one component library.
 
 Live: https://dgbenner.github.io/tamago-dashboard/
 
-- **Content Health, Content Growth, System Health and Agent Activity show real numbers**, taken as a snapshot from the public Tamago
-  repository and its GitHub records. Counts only. The date and time of the snapshot is at the top of each page.
-- **Cost is still a placeholder.** Every number on it is made up, and a red banner says so.
+- **Every page shows real numbers**, taken as a snapshot from the public Tamago repository and its GitHub records.
+  Counts only. The date and time of the snapshot is at the top of each page.
+- **Cost shows Claude Code tokens**, counted from the sessions saved on Dan's Mac that worked on Tamago. Dollars need
+  a billing source, so the two cost cards say "Not measured yet". The CEFR page is reference text plus a few live counts.
 - The published pages make no network calls. Everything they show is in `src/data/`.
 
 ## Commands
@@ -24,6 +25,10 @@ Live: https://dgbenner.github.io/tamago-dashboard/
   from there, and from the GitHub API. It never reads or writes a local working copy of Tamago.
 - It writes `src/data/snapshot.json`, stamped with the date and time, and adds one entry to
   `src/data/snapshot-history.json`. Trend lines appear on the pages once the history holds two snapshots.
+- On the Mac it also counts Claude Code tokens: it reads the session files in `~/.claude/projects`, keeps only the
+  replies from sessions working in `~/Sites/tamago` or a worktree beside it (`~/Sites/tamago-*`), and stores counts
+  by model and day, never message text. The GitHub run has no such folder, so it keeps the last count, which says when
+  it was taken.
 - A number with no real source is written as empty and shown as "Not measured yet". Nothing is estimated.
 - To publish a new snapshot: run it, run the checks, commit and push.
 

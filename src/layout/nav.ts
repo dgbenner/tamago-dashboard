@@ -11,7 +11,7 @@ export const NAV_ITEMS: { id: PageId; label: string; icon: LucideIcon; real: boo
   { id: 'growth', label: 'Content Growth', icon: TrendingUp, real: true },
   { id: 'health', label: 'System Health', icon: HeartPulse, real: true },
   { id: 'agent-activity', label: 'Agent Activity', icon: Bot, real: true },
-  { id: 'cost', label: 'Cost', icon: CircleDollarSign, real: false },
+  { id: 'cost', label: 'Cost', icon: CircleDollarSign, real: true },
   { id: 'cefr', label: 'CEFR', icon: GraduationCap, real: true },
 ]
 

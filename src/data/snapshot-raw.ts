@@ -69,6 +69,21 @@ export interface SnapshotJson {
     uptimePercent: unknown
     responseTimeMs: unknown
   }
+  /**
+   * Claude Code tokens from the sessions saved on Dan's Mac that worked in ~/Sites/tamago or a worktree beside it.
+   * Measured only when the snapshot runs on the Mac; the GitHub run keeps the last count with its own measuredAt.
+   * null until the first local run.
+   */
+  usage: {
+    measuredAt: string
+    scope: string
+    /** One per day, oldest first: tokens by model id. */
+    days: { date: string; models: Partial<Record<string, number>> }[]
+    week: {
+      sessions: number
+      models: { model: string; input: number; output: number; cacheRead: number; cacheWrite: number; total: number }[]
+    }
+  } | null
   growth: {
     days: { date: string; lessons: Record<string, number | null> }[]
     firstMeasured: string | null
@@ -103,6 +118,8 @@ export interface SnapshotHistoryEntryJson {
   commitsTotal: number | null
   /** Lessons in every live course together. Missing from snapshots taken before 2026-11-19 5 PM. */
   lessons?: number | null
+  /** Claude Code tokens in Tamago sessions, last 7 days. Only on snapshots that measured them (taken on the Mac). */
+  tokensThisWeek?: number | null
   /** Per live course. A course that went live after a snapshot is missing from that snapshot's entry. */
   languages: Partial<Record<string, { words?: number | null; sentences: number | null; circles: number | null; draftsWaiting: number | null; coveragePercent: number | null }>>
 }

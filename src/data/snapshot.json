@@ -1,5 +1,5 @@
 {
-  "takenAt": "2026-11-22T13:12:00-06:00",
+  "takenAt": "2026-11-23T10:39:00-06:00",
   "source": {
     "repo": "dgbenner/tamago",
     "branch": "main",
@@ -539,12 +539,6 @@
   "activity": {
     "days": [
       {
-        "date": "2026-11-09",
-        "commits": 38,
-        "pushes": 20,
-        "deploys": 0
-      },
-      {
         "date": "2026-11-10",
         "commits": 106,
         "pushes": 77,
@@ -607,7 +601,7 @@
       {
         "date": "2026-11-20",
         "commits": 40,
-        "pushes": 5,
+        "pushes": 6,
         "deploys": 6
       },
       {
@@ -619,8 +613,14 @@
       {
         "date": "2026-11-22",
         "commits": 28,
-        "pushes": 1,
+        "pushes": 3,
         "deploys": 4
+      },
+      {
+        "date": "2026-11-23",
+        "commits": 0,
+        "pushes": 0,
+        "deploys": 0
       }
     ],
     "firstCommit": "2026-11-07T08:41:36-06:00",
@@ -910,6 +910,20 @@
           "da": 1995,
           "sv": 2081
         }
+      },
+      {
+        "date": "2026-11-23",
+        "lessons": {
+          "fr": 3399,
+          "es": 3048,
+          "de": 3192,
+          "it": 2837,
+          "pt": 2758,
+          "nl": 2018,
+          "pl": 3107,
+          "da": 1995,
+          "sv": 2081
+        }
       }
     ],
     "firstMeasured": "2026-11-10",
@@ -918,35 +932,35 @@
         "id": "fr",
         "name": "French",
         "totalLessons": 3399,
-        "newThisWeek": 13,
+        "newThisWeek": 0,
         "newThisMonth": 3399
       },
       {
         "id": "es",
         "name": "Spanish",
         "totalLessons": 3048,
-        "newThisWeek": 1649,
+        "newThisWeek": 0,
         "newThisMonth": 3048
       },
       {
         "id": "de",
         "name": "German",
         "totalLessons": 3192,
-        "newThisWeek": 1649,
+        "newThisWeek": 0,
         "newThisMonth": 3192
       },
       {
         "id": "it",
         "name": "Italian",
         "totalLessons": 2837,
-        "newThisWeek": 2171,
+        "newThisWeek": 0,
         "newThisMonth": 2837
       },
       {
         "id": "pt",
         "name": "Portuguese",
         "totalLessons": 2758,
-        "newThisWeek": 2033,
+        "newThisWeek": 879,
         "newThisMonth": 2758
       },
       {
@@ -978,5 +992,170 @@
         "newThisMonth": 2081
       }
     ]
+  },
+  "usage": {
+    "measuredAt": "2026-11-23T10:39:00-06:00",
+    "scope": "Claude Code sessions in ~/Sites/tamago and its worktrees",
+    "days": [
+      {
+        "date": "2026-11-10",
+        "models": {
+          "claude-opus-5-5": 530482580,
+          "claude-fable-5-1": 27702755
+        }
+      },
+      {
+        "date": "2026-11-11",
+        "models": {
+          "claude-opus-5-5": 89199902,
+          "claude-fable-5-1": 773935,
+          "claude-fable-5-2": 15426579
+        }
+      },
+      {
+        "date": "2026-11-12",
+        "models": {
+          "claude-opus-5-5": 62079589
+        }
+      },
+      {
+        "date": "2026-11-13",
+        "models": {
+          "claude-opus-5-5": 84308881
+        }
+      },
+      {
+        "date": "2026-11-14",
+        "models": {
+          "claude-opus-5-5": 468324474,
+          "claude-fable-5-2": 92367561,
+          "claude-fable-5-1": 21987163
+        }
+      },
+      {
+        "date": "2026-11-15",
+        "models": {
+          "claude-opus-5-5": 255175592,
+          "claude-fable-5-2": 159171741,
+          "claude-fable-5-1": 7984007
+        }
+      },
+      {
+        "date": "2026-11-16",
+        "models": {
+          "claude-opus-5-5": 223569595,
+          "claude-fable-5-2": 71736128,
+          "claude-fable-5-1": 3879688
+        }
+      },
+      {
+        "date": "2026-11-17",
+        "models": {
+          "claude-opus-5-5": 4263190,
+          "claude-opus-5": 18293092
+        }
+      },
+      {
+        "date": "2026-11-18",
+        "models": {
+          "claude-fable-5-2": 6335638
+        }
+      },
+      {
+        "date": "2026-11-19",
+        "models": {
+          "claude-opus-5-5": 191720551,
+          "claude-fable-5-2": 59587913,
+          "claude-opus-4-8": 227414721,
+          "claude-haiku-5-5": 50505,
+          "claude-fable-5-1": 32999535
+        }
+      },
+      {
+        "date": "2026-11-20",
+        "models": {
+          "claude-opus-5-5": 208483953,
+          "claude-opus-4-8": 48644769,
+          "claude-fable-5-1": 1824441
+        }
+      },
+      {
+        "date": "2026-11-21",
+        "models": {
+          "claude-opus-4-8": 4977020,
+          "claude-opus-5-5": 348886287,
+          "claude-haiku-5-5": 940857,
+          "claude-fable-5-1": 3744065
+        }
+      },
+      {
+        "date": "2026-11-22",
+        "models": {
+          "claude-opus-4-8": 32403625,
+          "claude-opus-5-5": 101995273,
+          "claude-haiku-5-5": 684308,
+          "claude-fable-5-1": 5562715
+        }
+      },
+      {
+        "date": "2026-11-23",
+        "models": {
+          "claude-opus-5-5": 26405946
+        }
+      }
+    ],
+    "week": {
+      "sessions": 7,
+      "models": [
+        {
+          "model": "claude-opus-5-5",
+          "input": 7008,
+          "output": 2747912,
+          "cacheRead": 925184953,
+          "cacheWrite": 21659440,
+          "total": 949599313
+        },
+        {
+          "model": "claude-opus-4-8",
+          "input": 1884,
+          "output": 1226251,
+          "cacheRead": 304957975,
+          "cacheWrite": 7254025,
+          "total": 313440135
+        },
+        {
+          "model": "claude-fable-5-2",
+          "input": 380,
+          "output": 273340,
+          "cacheRead": 65094386,
+          "cacheWrite": 555445,
+          "total": 65923551
+        },
+        {
+          "model": "claude-fable-5-1",
+          "input": 2080,
+          "output": 189952,
+          "cacheRead": 41817997,
+          "cacheWrite": 2120727,
+          "total": 44130756
+        },
+        {
+          "model": "claude-opus-5",
+          "input": 182,
+          "output": 42167,
+          "cacheRead": 18168577,
+          "cacheWrite": 82166,
+          "total": 18293092
+        },
+        {
+          "model": "claude-haiku-5-5",
+          "input": 52,
+          "output": 50577,
+          "cacheRead": 917036,
+          "cacheWrite": 708005,
+          "total": 1675670
+        }
+      ]
+    }
   }
 }

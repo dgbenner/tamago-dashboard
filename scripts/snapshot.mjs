@@ -11,7 +11,8 @@
 // Rules it keeps: counts only. No sentence text, nothing from _review/, no names or emails. A number with no real
 // source is written as null and the pages show it as "Not measured yet"; nothing is estimated.
 import { execFileSync } from 'node:child_process'
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, readFileSync, readdirSync, writeFileSync } from 'node:fs'
+import os from 'node:os'
 import path from 'node:path'
 
 const ROOT = path.resolve(import.meta.dirname, '..')
@@ -334,9 +335,76 @@ const growth = {
   languages: growthLanguages,
 }
 
+// ---- 6b. Claude Code tokens (local only) ------------------------------------------------------------------------
+// Claude Code saves every session on this Mac in ~/.claude/projects, one JSON line per message. Each reply records
+// its model and the tokens it used. Only replies from sessions working in ~/Sites/tamago or one of its worktrees
+// (~/Sites/tamago-*) count. Counts only: no message text is read into the snapshot. The GitHub run has no such
+// folder, so it keeps the last count, which carries its own measuredAt date.
+const USAGE_DAYS = 14
+const SESSIONS = path.join(os.homedir(), '.claude', 'projects')
+const TAMAGO_DIR = path.join(os.homedir(), 'Sites', 'tamago')
+/** ~/Sites/tamago itself, or a worktree beside it named tamago-<something>, or any folder inside either. */
+const isTamagoCwd = (cwd) => {
+  if (cwd === TAMAGO_DIR || cwd.startsWith(`${TAMAGO_DIR}/`)) return true
+  if (!cwd.startsWith(`${TAMAGO_DIR}-`)) return false
+  return !cwd.slice(TAMAGO_DIR.length + 1).startsWith('/')
+}
+function readUsage() {
+  if (!existsSync(SESSIONS)) return null
+  const walk = (dir) => readdirSync(dir, { withFileTypes: true }).flatMap((e) => (e.isDirectory() ? walk(path.join(dir, e.name)) : e.name.endsWith('.jsonl') ? [path.join(dir, e.name)] : []))
+  const since = new Date(takenAt); since.setDate(since.getDate() - (USAGE_DAYS - 1)); since.setHours(0, 0, 0, 0)
+  const weekStart = new Date(takenAt); weekStart.setDate(weekStart.getDate() - 7)
+  const seen = new Set()
+  const days = new Map()
+  const week = new Map()
+  const sessions = new Set()
+  for (const file of walk(SESSIONS)) {
+    for (const line of readFileSync(file, 'utf8').split('\n')) {
+      if (!line.includes('"usage"')) continue
+      let row
+      try { row = JSON.parse(line) } catch { continue }
+      const message = row.message
+      if (row.type !== 'assistant' || !message?.usage || !row.cwd || !isTamagoCwd(row.cwd) || !row.timestamp) continue
+      // A reply can be written more than once while it streams; count each message once.
+      const key = message.id ?? `${file}:${row.uuid}`
+      if (seen.has(key)) continue
+      seen.add(key)
+      const at = new Date(row.timestamp)
+      if (at < since || at > takenAt) continue
+      const model = message.model ?? 'unknown'
+      if (model === '<synthetic>') continue
+      const u = message.usage
+      const counts = { input: u.input_tokens ?? 0, output: u.output_tokens ?? 0, cacheRead: u.cache_read_input_tokens ?? 0, cacheWrite: u.cache_creation_input_tokens ?? 0 }
+      const total = counts.input + counts.output + counts.cacheRead + counts.cacheWrite
+      const day = localDay(at)
+      const dayModels = days.get(day) ?? {}
+      dayModels[model] = (dayModels[model] ?? 0) + total
+      days.set(day, dayModels)
+      if (at >= weekStart) {
+        const m = week.get(model) ?? { model, input: 0, output: 0, cacheRead: 0, cacheWrite: 0, total: 0 }
+        for (const k of ['input', 'output', 'cacheRead', 'cacheWrite']) m[k] += counts[k]
+        m.total += total
+        week.set(model, m)
+        sessions.add(row.sessionId ?? file)
+      }
+    }
+  }
+  const dayList = Array.from({ length: USAGE_DAYS }, (_, i) => { const d = new Date(since); d.setDate(d.getDate() + i); return localDay(d) })
+    .map((date) => ({ date, models: days.get(date) ?? {} }))
+  return {
+    scope: 'Claude Code sessions in ~/Sites/tamago and its worktrees',
+    days: dayList,
+    week: { sessions: sessions.size, models: [...week.values()].sort((a, b) => b.total - a.total) },
+  }
+}
+const previousSnapshot = existsSync(path.join(DATA, 'snapshot.json')) ? JSON.parse(readFileSync(path.join(DATA, 'snapshot.json'), 'utf8')) : null
+const freshUsage = readUsage()
+
 // ---- 7. Write ---------------------------------------------------------------------------------------------------
 const offset = -takenAt.getTimezoneOffset()
 const stamp = `${localDay(takenAt)}T${String(takenAt.getHours()).padStart(2, '0')}:${String(takenAt.getMinutes()).padStart(2, '0')}:00${offset >= 0 ? '+' : '-'}${String(Math.floor(Math.abs(offset) / 60)).padStart(2, '0')}:${String(Math.abs(offset) % 60).padStart(2, '0')}`
+// A fresh count is stamped with this run's time; otherwise the last one is kept as it was.
+const usage = freshUsage ? { measuredAt: stamp, ...freshUsage } : previousSnapshot?.usage ?? null
 const snapshot = {
   takenAt: stamp,
   source: { repo: REPO, branch: 'main', commit: head.commit, commitDate: head.date },
@@ -345,6 +413,7 @@ const snapshot = {
   health,
   activity,
   growth,
+  usage,
 }
 writeFileSync(path.join(DATA, 'snapshot.json'), `${JSON.stringify(snapshot, null, 2)}\n`)
 
@@ -365,6 +434,8 @@ const entry = {
   testsPassed: health.fullSuite?.passed ?? null,
   testsFailed: health.fullSuite?.failed ?? null,
   commitsTotal: activity.commitsTotal,
+  // Only a count measured in this run goes in the history; a carried-forward one would repeat itself.
+  tokensThisWeek: freshUsage ? usage.week.models.reduce((n, m) => n + m.total, 0) : null,
   lessons: growthLanguages.every((l) => l.totalLessons !== null) ? growthLanguages.reduce((n, l) => n + l.totalLessons, 0) : null,
   languages: Object.fromEntries(live.map((l) => [l.id, { words: l.words, sentences: l.sentences, circles: l.circles, draftsWaiting: l.draftsWaiting, coveragePercent: l.coverage?.percent ?? null }])),
 }
@@ -376,4 +447,5 @@ writeFileSync(historyFile, `${JSON.stringify(kept, null, 2)}\n`)
 console.log(`Snapshot ${stamp} of ${REPO}@${head.commit}`)
 console.log(`  ${live.length} live languages, ${languages.length - live.length} coming soon, ${entry.sentences} sentences, ${entry.draftsWaiting} drafts waiting`)
 console.log(`  ${snapshot.deploys.length} recent deploys (newest ${deploys[0]?.name} ${deploys[0]?.number}); full suite: ${health.fullSuite ? `${health.fullSuite.result}, ${health.fullSuite.passed}/${health.fullSuite.tests}` : 'no run recorded'}`)
+console.log(`  tokens (Tamago sessions, last 7 days): ${usage ? `${usage.week.models.reduce((n, m) => n + m.total, 0)} across ${usage.week.sessions} sessions, measured ${usage.measuredAt}` : 'none recorded'}`)
 console.log(`  history: ${kept.length} snapshot(s) in src/data/snapshot-history.json`)

@@ -1,11 +1,11 @@
 import { useEffect, useState, type ReactNode } from 'react'
 
 import { ActivityByDayChart } from '@/charts/ActivityByDayChart'
-import { CostByDayChart } from '@/charts/CostByDayChart'
 import { DistanceChart } from '@/charts/DistanceChart'
 import { LessonsChart } from '@/charts/LessonsChart'
 import { ResponseTimeChart } from '@/charts/ResponseTimeChart'
 import { StatTiles } from '@/charts/StatTiles'
+import { TokensByDayChart } from '@/charts/TokensByDayChart'
 import { activityStatTiles, contentStatTiles, costStatCards, growthStatCards, healthStatTiles } from '@/data'
 import { AppShell } from '@/layout/AppShell'
 import { NAV_ITEMS, type PageId } from '@/layout/nav'
@@ -15,7 +15,6 @@ import { ContentHealthPage } from '@/pages/ContentHealthPage'
 import { CostPage } from '@/pages/CostPage'
 import { GrowthPage } from '@/pages/GrowthPage'
 import { HealthPage } from '@/pages/HealthPage'
-import { AgentCostTable } from '@/tables/AgentCostTable'
 import { DeploysTable } from '@/tables/DeploysTable'
 import { ExamsTable } from '@/tables/ExamsTable'
 import { GrowthTable } from '@/tables/GrowthTable'
@@ -23,6 +22,7 @@ import { HealthChecksTable } from '@/tables/HealthChecksTable'
 import { LanguagesTable } from '@/tables/LanguagesTable'
 import { ReviewsAppliedTable } from '@/tables/ReviewsAppliedTable'
 import { SentencesTable } from '@/tables/SentencesTable'
+import { TokensByModelTable } from '@/tables/TokensByModelTable'
 
 // Assembled by the coordinator: each section comes from the agent that owns it.
 // Content Health, Content Growth, System Health and Agent Activity read the real snapshot (npm run snapshot); Cost is a placeholder.
@@ -59,8 +59,8 @@ const PAGES: Record<PageId, () => ReactNode> = {
   cost: () => (
     <CostPage
       stats={<StatTiles tiles={costStatCards} />}
-      chart={<CostByDayChart />}
-      table={<AgentCostTable />}
+      chart={<TokensByDayChart />}
+      table={<TokensByModelTable />}
     />
   ),
   cefr: () => <CefrPage distance={<DistanceChart />} exams={<ExamsTable />} />,

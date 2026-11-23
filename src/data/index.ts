@@ -24,9 +24,6 @@
 //   Table:       reviewsApplied: ReviewApplied[] (newest first)
 //   Note:        activityNotRecorded: string[]
 //
-// PERIODS (./periods) — the fixed dates of the MOCK pages only
-//   periods ({ today, thisWeek, thisMonth, last14Days, last30Days }), today, isInPeriod, inPeriod
-//
 // CEFR (./cefr): reference text from cefr.json; the Tamago badge, exam column, word range and Today chips are live
 //   cefrHeader, cefrGroups, cefrLadder, cefrSkills, distanceRows, distanceCategories, cefrDistance,
 //   examRows, cefrExams, todayChips, cefrToday, cefrSources
@@ -38,14 +35,11 @@
 //   Table:       growthRows: GrowthRow[]
 //   Legend:      contentHierarchy: { levels: HierarchyLevel[] } (text, beside the title)
 //
-// AGENTS, mock (./agents) — behind the Cost page
-//   agents, agentSeries, agentName, agentDaily, sumAgentDays, averageCostPerRun
-//
-// COST, mock (./cost)
-//   Stat cards:  costStatCards: StatTile[]
-//   Bar chart:   costByDay: CostByDayPoint[] (30 days, { date, cost })
-//   Table:       agentCostRows: AgentCostRow[] (one per agent, this month)
-//   Helpers:     costTotalsThisMonth, highestCostAgent
+// COST, real (./cost): Claude Code tokens in Tamago sessions, from the snapshot's local count
+//   Stat cards:  costStatCards: StatTile[] (the two dollar cards are "Not measured yet")
+//   Bar chart:   tokensByDay (14 days, { date, <model id>: tokens }), tokenSeries
+//   Table:       tokenRows: TokenRow[] (one per model, last 7 days)
+//   Helpers:     modelName, tokenTableText
 //
 // FORMATTERS (./format) — pages never format a number or date themselves
 //   formatCount "2,179" · formatDelta "+8" · formatPercent "70.3%" · formatUptime "99.92%" ·
@@ -61,9 +55,7 @@ export { NOT_MEASURED, NOT_RECORDED, snapshotTakenAt, snapshotLabel, snapshotSou
 export * from './real-content'
 export * from './real-health'
 export { activityByDay, activitySeries, activityStatTiles, reviewsApplied, activityNotRecorded } from './real-activity'
-export * from './periods'
 export * from './cefr'
 export * from './growth'
-export { agents, agentSeries, agentName, agentDaily, sumAgentDays, averageCostPerRun } from './agents'
 export * from './cost'
 export * from './format'

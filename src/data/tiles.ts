@@ -7,20 +7,6 @@ import type { StatTile, TrendPoint } from './types'
 type TilePage = keyof typeof labelsJson.statTiles
 type TileText = { id: string; label: string; description: string }
 
-/**
- * The placeholder (mock) pages, Growth and Cost: pair each card's label and description (labels.json,
- * in page order) with its formatted value. Mock cards are always "measured" and have no trend.
- */
-export function buildTiles(page: TilePage, values: Record<string, string>): StatTile[] {
-  const texts: TileText[] = labelsJson.statTiles[page]
-  check(texts.length === Object.keys(values).length, `${page} stat cards and their values don't match`)
-  return texts.map((text) => {
-    const value = values[text.id]
-    check(value !== undefined, `no value for the ${page} stat card "${text.id}"`)
-    return { ...text, value, measured: true, trend: null }
-  })
-}
-
 /** One real card's value. `value: null` means there is no real source. */
 export interface RealTileValue {
   /** The formatted value, or null when the snapshot has no source for it. */

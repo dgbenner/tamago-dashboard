@@ -177,22 +177,22 @@
       {
         "id": "cost-this-month",
         "label": "Cost This Month",
-        "description": "All agents, month to date"
+        "description": "Needs a billing source"
       },
       {
         "id": "cost-per-run",
         "label": "Average Cost per Run",
-        "description": "Month to date"
+        "description": "Needs a billing source"
       },
       {
-        "id": "tokens-this-month",
-        "label": "Tokens This Month",
-        "description": "All agents, month to date"
+        "id": "tokens-this-week",
+        "label": "Tokens This Week",
+        "description": "Claude Code on Tamago, last 7 days; {cache} re-read from the cache{measured}"
       },
       {
-        "id": "highest-cost-agent",
-        "label": "Highest-Cost Agent",
-        "description": "Month to date"
+        "id": "top-model",
+        "label": "Top Model This Week",
+        "description": "{share} of this week's tokens"
       }
     ]
   },
@@ -252,5 +252,19 @@
       "A2"
     ],
     "noneAtLevel": "No course has {level} content yet"
+  },
+  "usage": {
+    "measured": ", measured {date}",
+    "models": {
+      "claude-opus-5-5": "Opus 5.5",
+      "claude-opus-5": "Opus 5",
+      "claude-opus-4-8": "Opus 4.8",
+      "claude-fable-5-2": "Fable 5.2",
+      "claude-fable-5-1": "Fable 5.1",
+      "claude-sonnet-5-5": "Sonnet 5.5",
+      "claude-haiku-5-5": "Haiku 5.5"
+    },
+    "tableDescription": "The last 7 days. Most tokens are the earlier conversation, re-read from the cache on each reply.",
+    "tableScope": "{sessions} sessions; counted {measuredAt}."
   }
 }
