@@ -7,6 +7,8 @@ import { defineConfig } from 'vite'
 // The published site lives at dgbenner.github.io/tamago-dashboard/. The dev server stays at the root.
 export default defineConfig(({ command }) => ({
   base: command === 'build' ? '/tamago-dashboard/' : '/',
+  // Its own port, so it never lands on Tamago's dev server (5173) or the other way round.
+  server: { port: 5180, strictPort: true },
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

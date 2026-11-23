@@ -17,7 +17,7 @@ export const REAL_PAGES = ['content-health', 'growth', 'health', 'agent-activity
  */
 export const PAGES_WITHOUT_CHART = ['health', 'content-health']
 
-export const LOCAL_URL = 'http://localhost:5173/'
+export const LOCAL_URL = 'http://localhost:5180/'
 export const LIVE_URL = 'https://dgbenner.github.io/tamago-dashboard/'
 
 /** The code the agents write: everything a page is made of, without the library or the data. */

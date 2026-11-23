@@ -125,22 +125,46 @@ function sumOverLive(read: (language: RealLanguage) => number | null): number | 
  * Live courses where every part is live: the same test as the Status column (languageStatusKey).
  * null when there is no live course.
  */
-const coursesComplete = liveLanguages.length === 0 ? null : liveLanguages.filter((language) => languageStatusKey(language) === 'complete').length
 const draftsWaitingTotal = sumOverLive((language) => language.draftsWaiting)
 const failedChecks = snapshot.health.fullSuite?.failed ?? null
+
+// ── Courses complete, by CEFR level ──────────────────────────────────────────
+
+/** The CEFR levels in order, lowest first, to compare a course's level with the one chosen. */
+const CEFR_ORDER = ['A1', 'A2', 'B1', 'B2', 'C1', 'C2']
+const cefrRank = (level: string) => CEFR_ORDER.indexOf(level)
+const levelText = labelsJson.coursesCompleteByLevel
+for (const level of levelText.levels) check(cefrRank(level) >= 0, `src/data/labels.json: "${level}" is not a CEFR level`)
+
+/**
+ * Live courses complete through a level: every part live, and the course teaches up to that level or beyond. Parts
+ * carry no level of their own in Tamago, so a course's level comes from its units (`level`). null when no course is
+ * live.
+ */
+function coursesCompleteThrough(level: string): number | null {
+  if (liveLanguages.length === 0) return null
+  return liveLanguages.filter((l) => languageStatusKey(l) === 'complete' && l.level !== null && cefrRank(l.level) >= cefrRank(level)).length
+}
+/** "9 of 9", or null when no course is live. */
+const completeText = (complete: number | null) =>
+  complete === null ? null : fill(labelsJson.coursesComplete, { complete: formatCount(complete), live: formatCount(liveLanguages.length) })
+/** The card's text in labels.json, before its {level} is filled. */
+const completeTileText = labelsJson.statTiles.content.find((t) => t.id === 'courses-complete')!
+const anyCourseReaches = (level: string) => liveLanguages.some((l) => l.level !== null && cefrRank(l.level) >= cefrRank(level))
 
 /**
  * The Content health page's four stat cards, in page order: Languages live, Courses complete,
  * Awaiting native check, Failed checks.
  */
-export const contentStatTiles: StatTile[] = buildRealTiles('content', {
+const baseContentTiles: StatTile[] = buildRealTiles('content', {
   'languages-live': {
     value: formatCount(liveLanguages.length),
     vars: {},
     trend: trendOf('languagesLive'),
   },
   'courses-complete': {
-    value: coursesComplete === null ? null : fill(labelsJson.coursesComplete, { complete: formatCount(coursesComplete), live: formatCount(liveLanguages.length) }),
+    value: completeText(coursesCompleteThrough(levelText.levels[0])),
+    vars: { level: levelText.levels[0] },
     trend: trendOf('coursesComplete'),
   },
   'drafts-waiting': {
@@ -152,6 +176,30 @@ export const contentStatTiles: StatTile[] = buildRealTiles('content', {
     vars: { run: fullTestRunLabel() },
     trend: trendOf('testsFailed'),
   },
+})
+
+/**
+ * The Courses Complete card for one level. The first level is the card built above (it has the history, so the trend);
+ * the others have no history yet.
+ */
+function coursesCompleteTile(base: StatTile, level: string, index: number): StatTile {
+  const label = fill(base.label, { level })
+  if (index === 0) return { ...base, label }
+  const value = completeText(coursesCompleteThrough(level))
+  if (value === null) return { ...base, label }
+  return {
+    ...base,
+    label,
+    value,
+    description: fill(anyCourseReaches(level) ? completeTileText.description : levelText.noneAtLevel, { level }),
+    trend: null,
+  }
+}
+
+export const contentStatTiles: StatTile[] = baseContentTiles.map((tile) => {
+  if (tile.id !== 'courses-complete') return tile
+  const options = levelText.levels.map((level, i) => ({ value: level, tile: coursesCompleteTile(tile, level, i) }))
+  return { ...options[0].tile, choice: { label: levelText.menuLabel, options } }
 })
 
 // ── Column help ──────────────────────────────────────────────────────────────

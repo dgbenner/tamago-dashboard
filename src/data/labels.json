@@ -93,8 +93,8 @@
       },
       {
         "id": "courses-complete",
-        "label": "Courses Complete",
-        "description": "Courses with every part in the app"
+        "label": "Courses Complete Through {level}",
+        "description": "Every part through {level} is in the app"
       },
       {
         "id": "drafts-waiting",
@@ -244,5 +244,13 @@
         "example": "Pick the meaning of “bonjour”"
       }
     ]
+  },
+  "coursesCompleteByLevel": {
+    "menuLabel": "Complete by CEFR level",
+    "levels": [
+      "A1",
+      "A2"
+    ],
+    "noneAtLevel": "No course has {level} content yet"
   }
 }

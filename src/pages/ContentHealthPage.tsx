@@ -1,6 +1,7 @@
 import type { ReactNode } from 'react'
 
 import { formatDate, recentDeploys } from '@/data'
+import { HierarchyLegend } from '@/layout/HierarchyLegend'
 import { PageFrame, PageSection } from '@/layout/PageFrame'
 
 interface ContentHealthPageProps {
@@ -23,6 +24,7 @@ export function ContentHealthPage({ stats, languages, sentences, deploys }: Cont
     <PageFrame
       title="Content Health"
       description="The state of every language course: content, checks and deploys."
+      aside={<HierarchyLegend />}
       note={
         latest ? (
           <>

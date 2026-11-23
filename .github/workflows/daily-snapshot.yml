@@ -44,8 +44,8 @@ jobs:
 
       - name: Screenshots and local page check
         run: |
-          npx vite --port 5173 --strictPort > /tmp/vite.log 2>&1 &
-          for i in $(seq 1 60); do curl -sf http://localhost:5173/ > /dev/null && break; sleep 1; done
+          npx vite --port 5180 --strictPort > /tmp/vite.log 2>&1 &
+          for i in $(seq 1 60); do curl -sf http://localhost:5180/ > /dev/null && break; sleep 1; done
           node scripts/checks/screenshots.mjs
           node scripts/checks/live-check.mjs local
 

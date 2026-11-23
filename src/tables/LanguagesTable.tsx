@@ -14,8 +14,6 @@ import {
   languageColumnHelp,
   languageStatusKey,
   languagesWithContent,
-  liveLanguages,
-  startedLanguages,
   realLanguageStatusLabels,
   type LanguageColumnHelpKey,
   type RealLanguage,
@@ -135,8 +133,7 @@ export function LanguagesTable() {
       <CardHeader>
         <CardTitle>Languages</CardTitle>
         <CardDescription>
-          What is live and what is still being built. {formatCount(liveLanguages.length)} in the app,{' '}
-          {formatCount(startedLanguages.length)} in progress. Select a column heading to sort.
+          Each course's status, size, CEFR coverage and latest deploy.
         </CardDescription>
       </CardHeader>
       <CardContent>

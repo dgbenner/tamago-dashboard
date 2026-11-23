@@ -183,6 +183,18 @@ export interface StatTile {
    * with no matching history field, and for mock cards. Show the number alone when it is null.
    */
   trend: TrendPoint[] | null
+  /**
+   * Other versions of this card that a menu under it switches between, e.g. one per CEFR level. The first option is
+   * the card shown on load and matches the fields above. Most cards have none.
+   */
+  choice?: StatTileChoice
+}
+
+/** The menu under a card: its label and one finished card per option. */
+export interface StatTileChoice {
+  /** The menu's label, e.g. "Complete by CEFR level". */
+  label: string
+  options: { value: string; tile: StatTile }[]
 }
 
 /** One line or bar series of a chart: `id` is the key into each chart row, `name` is the legend text. */
