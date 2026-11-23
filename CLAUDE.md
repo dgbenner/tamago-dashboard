@@ -46,6 +46,13 @@ for `src/`.
 - A real page carries the quiet line "Real data, snapshot from …" and no "Sample Data" badge. A placeholder page
   carries the red banner and the badge.
 
+## The System Card (not part of the dashboard)
+
+- `system-card.html` is a standalone page in this repo (moved from danbenner.com/tamago.html, 2026-11-23): no sidebar,
+  no snapshot banner, published at dgbenner.github.io/tamago-dashboard/system-card.html. Its code is in
+  `src/system-card/`, its text in `src/data/system-card.json` (reference text, dated where it counts; the spec total
+  is summed in code). Same components and theme as the dashboard. The dashboard checks don't cover it.
+
 ## Working here
 
 - The dev server is usually already running (`npm run dev`) and reloads the page on every save.

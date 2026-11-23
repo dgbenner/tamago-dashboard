@@ -1,0 +1,152 @@
+{
+  "header": {
+    "title": "System Card",
+    "subtitle": "How Tamago was built and checked: the agents and their rules, who it’s for, what the model does, and how the work is tested.",
+    "draft": "Under construction: everything on this page is draft content."
+  },
+  "stories": {
+    "label": "01 · Agent Stories",
+    "title": "One Job Each, Written Down",
+    "intro": "Tamago was built by a small team of AI agents. Each has one job, written down the same way.",
+    "definition": "The agent story is a little more definition around the interactions or decisions made by an agent to help the user go in a desired direction or reach goals.",
+    "template": [
+      { "lead": "As", "text": "[who], when [trigger], I want [goal], so that [outcome]." },
+      { "lead": "It may:", "text": "[the actions and tools it gets]" },
+      { "lead": "It must never:", "text": "[hard rules]" },
+      { "lead": "It decides:", "text": "[what’s left to the model’s judgment]" },
+      { "lead": "It stops when:", "text": "[what counts as done, plus limits]" },
+      { "lead": "I’ll know it works when:", "text": "[the test and the number]" }
+    ],
+    "agents": [
+      {
+        "id": "planner",
+        "name": "Planner",
+        "story": "As the person orchestrating the build, when I think out loud in voice notes, I want them turned into specs and labeled instructions, so that each agent gets one clear task.",
+        "may": ["Collect my notes", "Write specs", "Write one labeled instruction per agent", "Keep the project record"],
+        "never": ["Touch the code", "Send instructions while I’m still giving notes", "Present a guess as a fact"],
+        "decides": ["What goes in a batch", "Which agent gets it", "What waits"],
+        "stops": ["The instruction is written and labeled for one agent"],
+        "works": ["The builder needs no follow-up questions", "The checklist that comes back matches what I asked for"]
+      },
+      {
+        "id": "builder",
+        "name": "Builder",
+        "story": "As the person orchestrating the build, when I hand over a spec or a batch of notes, I want working code and course content, tested and live, so that I can judge the result instead of supervising the work.",
+        "may": ["Read the spec and the project rules", "Write code and course content", "Run tests and audits", "Push to the live site"],
+        "never": ["Spend money or create accounts", "Make anything public or delete data without me", "Take facts from model memory", "Swap in content before the judge’s review", "Push without pulling and testing first"],
+        "decides": ["How to build it", "Which checked sentences fit a lesson", "When to stop and ask"],
+        "stops": ["The batch is live with a Live / Not Done checklist, or a stop rule is reached"],
+        "works": ["Every push passes the tests", "Both content audits are clean", "The checklist matches the request"]
+      },
+      {
+        "id": "judge",
+        "name": "Judge",
+        "story": "As the person orchestrating the build, when a builder finishes a course part or a screen, I want an independent review, so that the builder isn’t grading its own work.",
+        "may": ["Read every new sentence and screen", "Mark each one Use, Reject, Keep, Fix or Cut", "Score screens against the craft rubric", "Check facts against Wiktionary"],
+        "never": ["Change code", "Write outside the review folder", "Claim a native speaker’s authority"],
+        "decides": ["Whether a sentence is natural, correct and right for A1", "The fix or the swap", "The craft score"],
+        "stops": ["The review file is written, with counts for each verdict"],
+        "works": ["Every part is reviewed before it’s swapped in", "Each fix names the line, the correction and the reason", "The audits stay clean after the fixes"]
+      },
+      {
+        "id": "debugger",
+        "name": "Debugger",
+        "story": "As the person orchestrating the build, when something breaks on a real device, I want one fresh session on that one bug, so that the fix comes with a cause and a test.",
+        "may": ["Reproduce the bug on a simulated iPhone and iPad", "Read the code", "Fix it", "Add a test"],
+        "never": ["Ship a guess", "Fix more than its one bug", "Touch another agent’s unfinished work"],
+        "decides": ["The cause", "Whether it can be shown", "What only a real phone can confirm"],
+        "stops": ["The fix is live with its test, or it reports that the cause wasn’t found and what it needs from the phone"],
+        "works": ["The new test fails without the fix", "The bug doesn’t come back"]
+      }
+    ],
+    "outro": [
+      "Tamago’s team is agents, not a pipeline. Each one plans its own steps inside written rules.",
+      "The rules live in one file that every session reads first, so every change to them is tracked."
+    ]
+  },
+  "product": {
+    "label": "02 · Product Definition",
+    "title": "Who This Helps, Who It Doesn’t",
+    "intro": "This section defines the product: who it helps, who it hands to teachers and real exams, and where it stops.",
+    "columns": [
+      {
+        "id": "helps",
+        "title": "Where it helps",
+        "items": ["Adults starting French, German or Spanish from zero", "Getting from reading to first conversations", "Learners who stalled on gamified apps", "Practicing for the DELF, DELE or Goethe A1 exam", "Reaching A1 with an honest measure of progress", "Self-directed study with no locks or streaks", "Ten-minute daily lessons", "Travel tasks: ordering, directions, forms"]
+      },
+      {
+        "id": "maybe",
+        "title": "Where it might help",
+        "items": ["A2 learners reviewing the basics", "Classroom learners who want extra practice", "Heritage speakers filling gaps in reading and writing", "Italian and Brazilian Portuguese (courses still in progress)", "Listening at natural speed", "Pronunciation (record and compare, never graded)", "Spain’s Spanish (the course teaches Latin American Spanish)"]
+      },
+      {
+        "id": "hands-off",
+        "title": "Where it hands off",
+        "items": ["Anything needing a native speaker’s ear (the content is AI-reviewed, not yet native-checked)", "B1 and above", "Certified proof of level (the official exams)", "Children under 13", "Graded pronunciation and accent coaching", "Languages in other alphabets (Arabic, Greek, Asian languages)", "Live conversation with a person (tutors, language exchanges)", "Professional language (legal, medical, business)"]
+      }
+    ]
+  },
+  "scope": {
+    "label": "03 · Model Scope",
+    "title": "How We Guide the Model, How the Model Guides the Learner",
+    "intro": "The lessons are fixed, checked content. The model steps in only where a live answer helps: conversation, explanations and notes on writing.",
+    "goal": "Help learners practice real conversation at their level.",
+    "tableTitle": "In and Out of Model’s Scope",
+    "rows": [
+      { "category": "Facts", "do": "Definitions and verb forms from Wiktionary", "avoid": "Model memory" },
+      { "category": "Vocabulary", "do": "Words the learner has met", "avoid": "Words past their level" },
+      { "category": "Corrections", "do": "Two or three, after the conversation", "avoid": "Interrupting to correct" },
+      { "category": "Speaking", "do": "Listen, record, compare", "avoid": "Grading pronunciation" },
+      { "category": "Asking for help", "do": "Repeat, slow down, spell, explain, in the language", "avoid": "Switching to English" },
+      { "category": "Feedback", "do": "One word and the right answer", "avoid": "Praise screens, streak pressure" },
+      { "category": "Progress", "do": "Honest numbers", "avoid": "Predicting an exam result" }
+    ],
+    "outro": [
+      "The pattern across every row: the model sets up the practice and reports honestly.",
+      "It never does the learning for the learner, and it never invents the facts."
+    ]
+  },
+  "spec": {
+    "label": "04 · Behavioral Spec",
+    "title": "Behavioral Spec Inventory",
+    "intro": "Everything that tells the agents and the product how to behave.",
+    "countedOn": "17 November 2026",
+    "note": "Counted from the repo, not estimated. CLAUDE.md is read first by every session, so a rule changed there reaches the next agent without anyone being told.",
+    "rows": [
+      { "part": "Working Mode and Stop Rules", "file": "CLAUDE.md", "words": 110, "does": "When the builder works alone and when it stops for me." },
+      { "part": "Team", "file": "CLAUDE.md", "words": 297, "does": "Who does what: planner, builders, judge, debugger." },
+      { "part": "Push and Testing Rules", "file": "CLAUDE.md", "words": 1215, "does": "Pull before every push, the fast tier, the full suite on GitHub after." },
+      { "part": "Content Rules", "file": "CLAUDE.md", "words": 708, "does": "Checked sources first, facts from Wiktionary, the review before any swap." },
+      { "part": "Craft Rubric", "file": "_source/craft-review.md", "words": 746, "does": "Nine criteria the judge scores each screen against." },
+      { "part": "Autonomous Build Rules", "file": "_source/autonomous-build.md", "words": 568, "does": "How an unattended overnight run starts, reports and stops." },
+      { "part": "Learning Methods", "file": "_source/learning-methods.md", "words": 2856, "does": "The teaching research the course design has to answer to." },
+      { "part": "Question Types", "file": "_source/question-types.md", "words": 1366, "does": "Every question type and what it asks of the learner." },
+      { "part": "Feature List", "file": "_source/tamago-feature-list.md", "words": 2709, "does": "What the product does, feature by feature." },
+      { "part": "Model Story", "file": "_source/model-story.md", "words": 1657, "does": "What the model is for, and where it stops." },
+      { "part": "Conversation Partner Prompt", "file": "server/converse.mjs", "words": 541, "does": "Runs a short conversation at the learner’s level and answers the help phrases." },
+      { "part": "End-of-Conversation Review", "file": "server/converse.mjs", "words": 15, "does": "Picks the two or three most useful gentle corrections once the scene is over." },
+      { "part": "Writing Notes Prompt", "file": "server/converse.mjs", "words": 42, "does": "Notes on meaning, grammar and missing points. Not a score." },
+      { "part": "Explanation Prompt", "file": "server/explain.mjs", "words": 112, "does": "Explains one wrong answer in plain words." },
+      { "part": "Self-Study Prompt", "file": "server/generate.mjs", "words": 61, "does": "Turns the learner’s request into practice that fits the question types." }
+    ]
+  },
+  "evaluation": {
+    "label": "05 · Evaluation",
+    "title": "What the Agents Get Right, How We Know",
+    "intro": "Each row takes one industry term and points to the piece of this project that does that job, with a link to the tool or artifact.",
+    "rows": [
+      { "term": "Eval Set", "artifact": "Every lesson of every course, built and walked: 123,247 questions in French, 116,809 in German, 110,967 in Spanish", "status": "built", "link": "Every-Lesson Check", "href": "https://github.com/dgbenner/tamago/tree/main/scripts/audit" },
+      { "term": "Eval Rubric", "artifact": "Nine craft criteria scored 1 to 5, from “no dead time” to “obvious in one second”", "status": "built", "link": "Craft Review", "href": "https://github.com/dgbenner/tamago/blob/main/_source/craft-review.md" },
+      { "term": "LLM-as-Judge", "artifact": "An independent model session reviews every sentence batch and screen. It changes no code, and a person has the final word", "status": "built", "link": "Quality Pass", "href": null },
+      { "term": "Eval Labels", "artifact": "A verdict on every sentence (Use, Reject, Keep, Fix, Cut), each with a reason", "status": "built", "link": "Quality Pass", "href": null },
+      { "term": "Targeted Eval", "artifact": "Every new word is shown before it’s tested, across 14,355 lessons in five courses. The exception is 83 words that look the same in English, like taxi and train. No lesson adds more than four new words.", "status": "built", "link": "Word Audit", "href": "https://github.com/dgbenner/tamago/blob/main/scripts/audit/word-audit.mjs" },
+      { "term": "Regression Test", "artifact": "Every fixed bug gets a test that fails without the fix. 43 test files", "status": "built", "link": "Test Suite", "href": "https://github.com/dgbenner/tamago/tree/main/test" },
+      { "term": "Smoke Test", "artifact": "A script taps through a real lesson on a simulated iPhone and iPad before every push", "status": "built", "link": "Pre-Push Check", "href": "https://github.com/dgbenner/tamago/tree/main/test" },
+      { "term": "CI · Tiered Testing", "artifact": "A fast check before each push (about 30 seconds for an engine-only change, 6.5 minutes for a French content change), the full suite on GitHub after", "status": "built", "link": "GitHub Actions", "href": "https://github.com/dgbenner/tamago/actions" },
+      { "term": "Benchmark", "artifact": "Coverage of official A1 word lists: French 97% of the core 600, German 91%, Spanish 90%", "status": "built", "link": "Coverage Report", "href": "https://github.com/dgbenner/tamago/blob/main/scripts/a1-coverage.mjs" },
+      { "term": "AI Economics", "artifact": "A small model runs the live features, with a daily cap per device and a monthly limit", "status": "built", "link": "Conversation Partner", "href": "https://tamago-83f.pages.dev" },
+      { "term": "Eval Set from Production Traces", "artifact": "Learner flags (“my answer should be accepted”) collected for review", "status": "progress", "link": null, "href": null },
+      { "term": "Human Review", "artifact": "Native speakers checking the drafted sentences", "status": "planned", "link": null, "href": null }
+    ]
+  }
+}

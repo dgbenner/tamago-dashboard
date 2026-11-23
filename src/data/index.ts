@@ -59,3 +59,7 @@ export * from './cefr'
 export * from './growth'
 export * from './cost'
 export * from './format'
+// SYSTEM CARD (./system-card): reference text from system-card.json (moved from danbenner.com/tamago.html); the spec
+//   total is summed in code. systemCardHeader, systemCardStories, agentStoryElements, systemCardProduct,
+//   systemCardScope, systemCardSpec, systemCardEvaluation, evalStatusLabels
+export * from './system-card'
