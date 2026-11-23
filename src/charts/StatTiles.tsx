@@ -43,7 +43,7 @@ function StatCard({ tile: first }: { tile: StatTile }) {
     // Three rows (text, sparkline, menu) shared with the other cards in the same row of the grid (subgrid), so every
     // sparkline starts at the same height however many lines the text above it takes (Dan, 2026-11-23).
     <Card id={`tile-${first.id}`} className="row-span-3 grid grid-rows-subgrid gap-4 py-4">
-      <CardHeader className="justify-items-center text-center">
+      <CardHeader className="content-start justify-items-center text-center">
         <CardDescription>
           <CardLabel tile={tile} />
         </CardDescription>
