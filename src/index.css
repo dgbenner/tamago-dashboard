@@ -40,6 +40,9 @@
     --color-tamago-yellow: var(--tamago-yellow);
     --color-tamago-green: var(--tamago-green);
     --color-tamago-ink: var(--tamago-ink);
+    --color-cefr-basic: var(--cefr-basic);
+    --color-cefr-independent: var(--cefr-independent);
+    --color-cefr-proficient: var(--cefr-proficient);
     --color-sidebar: var(--sidebar);
     --color-sidebar-foreground: var(--sidebar-foreground);
     --color-sidebar-primary: var(--sidebar-primary);
@@ -83,6 +86,11 @@
     --tamago-yellow: #ffc21a;
     --tamago-green: #22b573;
     --tamago-ink: #1c1a17;
+    /* The CEFR group chips: darker versions of chart-3, chart-1 and chart-5, so white text on them passes AA
+       (5.3, 5.9 and 5.3 to 1). The same in light and dark. */
+    --cefr-basic: #0f7a55;
+    --cefr-independent: #1f63b8;
+    --cefr-proficient: #b8406f;
     --chart-neutral: oklch(0.556 0 0);
     --sidebar: oklch(0.985 0 0);
     --sidebar-foreground: oklch(0.145 0 0);

@@ -57,6 +57,7 @@ const tamagoBadge =
 
 export const cefrLadder = {
   title: ladderText.title,
+  intro: ladderText.intro,
   footnote: ladderText.footnote,
   levels: ladderText.levels.map((level): CefrLevel => {
     check(cefrGroups.some((g) => g.id === level.group), `src/data/cefr.json: level ${level.code} has unknown group "${level.group}"`)

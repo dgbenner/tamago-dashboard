@@ -1,7 +1,7 @@
 {
   "header": {
     "title": "CEFR: Common European Framework of Reference for Languages",
-    "subtitle": "One scale for every language, from first words to mastery. Published by the Council of Europe in 2001, its levels are defined by “can-do” statements, not grammar lists. The 2020 Companion Volume added a Pre-A1 level."
+    "subtitle": "Published by the Council of Europe in 2001, its levels are defined by “can-do” statements, not grammar lists."
   },
   "groups": [
     {
@@ -65,7 +65,7 @@
       },
       {
         "code": "C1",
-        "name": "Effective Operational Proficiency",
+        "name": "Operational Proficiency",
         "group": "proficient",
         "canDo": "Understand long, demanding texts, including implied meaning, and speak fluently without searching for words.",
         "hours": "~700–800"
@@ -81,7 +81,8 @@
     "hoursLabel": "{hours} hours",
     "tamagoBadgeAll": "Tamago: all {count} courses",
     "tamagoBadgeSome": "Tamago: {count} of {live} courses",
-    "footnote": "Real time varies by learner and by language. Cambridge English gives these hours as guided-learning estimates for learners of English, counted from zero. Alliance Française gives similar figures for French (A1 60–100 through C2 1,060–1,200)."
+    "footnote": "Real time varies by learner and by language. Cambridge English gives these hours as guided-learning estimates for learners of English, counted from zero. Alliance Française gives similar figures for French (A1 60–100 through C2 1,060–1,200).",
+    "intro": "One scale for every language, from first words to mastery."
   },
   "distance": {
     "title": "Same Level, Different Distance",

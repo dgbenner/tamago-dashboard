@@ -1,5 +1,5 @@
 import { Badge } from '@/components/ui/badge'
-import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card'
+import { Card, CardContent, CardHeader } from '@/components/ui/card'
 import { cefrGroups, cefrLadder } from '@/data'
 
 import { CefrGroupChip } from './CefrGroupChip'
@@ -7,33 +7,34 @@ import { CefrSection } from './CefrSection'
 
 const shortName = new Map(cefrGroups.map((group) => [group.id, group.short]))
 
+/** A chip centred on a card's top or bottom border, half over it. */
+const ON_TOP_BORDER = 'absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2'
+const ON_BOTTOM_BORDER = 'absolute bottom-0 left-1/2 -translate-x-1/2 translate-y-1/2'
+
 /**
  * The six CEFR levels as a ladder of cards: six across on a wide screen, fewer as it narrows, one column on a phone.
- * The accent badge sits on the highest level a Tamago course has completed.
+ * The group chip sits on each card's top border and the hours on its bottom border. The cards share their rows
+ * (subgrid), so the codes, the names and the can-do lines start at the same height across a row, however long a name.
+ * The A1 card's yellow border marks the highest level a Tamago course has completed.
  */
 export function CefrLadder() {
   return (
-    <CefrSection title={cefrLadder.title}>
-      <ol className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+    <CefrSection title={cefrLadder.title} intro={cefrLadder.intro}>
+      <ol className="grid grid-cols-1 gap-x-3 gap-y-8 pt-3 pb-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {cefrLadder.levels.map((level) => (
-          <li key={level.code} className="min-w-0">
-            <Card className={`h-full gap-3 py-4 ${level.tamagoBadge ? 'border-tamago-yellow' : ''}`}>
+          <li key={level.code} className="row-span-2 grid min-w-0 grid-rows-subgrid">
+            <Card
+              className={`relative row-span-2 grid grid-rows-subgrid gap-2 pt-6 pb-7 ${level.tamagoBadge ? 'border-tamago-yellow' : ''}`}
+            >
+              <CefrGroupChip group={level.group} label={shortName.get(level.group) ?? level.group} className={ON_TOP_BORDER} />
               <CardHeader className="gap-1">
                 <p className="text-3xl font-semibold tracking-tight">{level.code}</p>
                 <p className="text-[11px] font-medium tracking-wider text-muted-foreground uppercase">{level.name}</p>
-                <div className="flex flex-wrap gap-1.5 pt-1">
-                  <CefrGroupChip group={level.group} label={shortName.get(level.group) ?? level.group} />
-                  {level.tamagoBadge ? (
-                    <Badge className="border-transparent bg-tamago-yellow text-tamago-ink">{level.tamagoBadge}</Badge>
-                  ) : null}
-                </div>
               </CardHeader>
-              <CardContent className="flex-1 text-sm">{level.canDo}</CardContent>
-              <CardFooter>
-                <Badge variant="secondary" className="tabular-nums">
-                  {level.hours}
-                </Badge>
-              </CardFooter>
+              <CardContent className="text-sm">{level.canDo}</CardContent>
+              <Badge variant="secondary" className={`${ON_BOTTOM_BORDER} border-transparent tabular-nums`}>
+                {level.hours}
+              </Badge>
             </Card>
           </li>
         ))}
