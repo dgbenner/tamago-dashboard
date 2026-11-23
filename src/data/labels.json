@@ -74,11 +74,11 @@
     "deploys": "Deploys"
   },
   "activityNotRecorded": {
-    "pushes": "the pushes on some days",
-    "runsByAgent": "which agent did the work",
-    "runDurations": "how long each run took",
-    "itemsFlagged": "what it flagged",
-    "runsStopped": "what a stop rule halted"
+    "pushes": "pushes on some days",
+    "runsByAgent": "which agent did what",
+    "runDurations": "run times",
+    "itemsFlagged": "flags",
+    "runsStopped": "stop rules"
   },
   "lastDays": {
     "plain": "Last {days} days",
@@ -267,5 +267,5 @@
     "tableDescription": "The last 7 days. Most tokens are the earlier conversation, re-read from the cache on each reply.",
     "tableScope": "{sessions} sessions; counted {measuredAt}."
   },
-  "activityNotice": "{items} need a run log the agents write. None exists yet."
+  "activityNotice": "The agents need to keep a run log before this page can show more (e.g., {items})."
 }

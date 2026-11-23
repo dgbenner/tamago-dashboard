@@ -63,15 +63,9 @@ export const activityNotRecorded: string[] = [
     .map((key) => labelsJson.activityNotRecorded[key]),
 ]
 
-/** "a, b and c", with the first letter raised. */
-function sentenceList(items: string[]): string {
-  const text = items.length < 2 ? items.join('') : `${items.slice(0, -1).join(', ')} and ${items[items.length - 1]}`
-  return text.charAt(0).toUpperCase() + text.slice(1)
-}
-
 /** The yellow banner on Agent Activity: what is not recorded and what would record it. null once everything is. */
 export const activityNotice: string | null =
-  activityNotRecorded.length > 0 ? fill(labelsJson.activityNotice, { items: sentenceList(activityNotRecorded) }) : null
+  activityNotRecorded.length > 0 ? fill(labelsJson.activityNotice, { items: activityNotRecorded.join(', ') }) : null
 
 // ── Stat cards ───────────────────────────────────────────────────────────────
 
