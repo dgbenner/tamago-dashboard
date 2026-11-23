@@ -27,6 +27,7 @@ here. If you need something that isn't listed, stop and propose it (see `CLAUDE.
 | [Separator](#separator) | `separator.tsx` | A thin dividing line |
 | [Tooltip](#tooltip) | `tooltip.tsx` | A short explanation on hover or focus |
 | [Alert](#alert) | `alert.tsx` | A banner that calls out something missing or wrong |
+| [Accordion](#accordion) | `accordion.tsx` | A section that opens and closes, such as a page's sources |
 | [Chart](#chart) | `chart.tsx` | The wrapper around every Recharts chart |
 
 ---
@@ -202,6 +203,23 @@ Tamago yellow tokens (`border-tamago-yellow bg-tamago-yellow/20`). An icon from 
   <TriangleAlert />
   <AlertDescription>Uptime needs a check that does not exist yet.</AlertDescription>
 </Alert>
+```
+
+## Accordion
+
+**File:** `src/components/ui/accordion.tsx`
+**Exports:** `Accordion`, `AccordionItem`, `AccordionTrigger`, `AccordionContent`
+**For:** a section the reader opens when they want it, such as the sources at the foot of a page. Closed on load.
+**Main props:** `Accordion`: `type`: `"single"` (with `collapsible` so it can close again) | `"multiple"`.
+`AccordionItem`: `value` (required).
+
+```tsx
+<Accordion type="single" collapsible>
+  <AccordionItem value="sources">
+    <AccordionTrigger>Sources</AccordionTrigger>
+    <AccordionContent>…</AccordionContent>
+  </AccordionItem>
+</Accordion>
 ```
 
 ## Chart

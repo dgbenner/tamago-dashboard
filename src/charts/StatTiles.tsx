@@ -40,7 +40,9 @@ function StatCard({ tile: first }: { tile: StatTile }) {
   const trend = tile.trend !== null && tile.trend.length >= TREND_MIN_POINTS ? tile.trend : null
 
   return (
-    <Card id={`tile-${first.id}`} className="gap-4 py-4">
+    // Three rows (text, sparkline, menu) shared with the other cards in the same row of the grid (subgrid), so every
+    // sparkline starts at the same height however many lines the text above it takes (Dan, 2026-11-23).
+    <Card id={`tile-${first.id}`} className="row-span-3 grid grid-rows-subgrid gap-4 py-4">
       <CardHeader className="justify-items-center text-center">
         <CardDescription>
           <CardLabel tile={tile} />
@@ -56,13 +58,9 @@ function StatCard({ tile: first }: { tile: StatTile }) {
         )}
         <p className="mx-auto w-[88%] text-xs text-muted-foreground italic">{tile.description}</p>
       </CardHeader>
-      {trend ? (
-        <CardContent>
-          <Sparkline label={tile.label} trend={trend} formatValue={trendFormatter(tile)} />
-        </CardContent>
-      ) : null}
+      <CardContent>{trend ? <Sparkline label={tile.label} trend={trend} formatValue={trendFormatter(tile)} /> : null}</CardContent>
       {first.choice ? (
-        <CardFooter className="mt-auto justify-center gap-2">
+        <CardFooter className="justify-center gap-2">
           <span className="text-xs text-muted-foreground">{first.choice.label}</span>
           <Select value={chosen} onValueChange={setChosen}>
             <SelectTrigger size="sm" aria-label={first.choice.label} className="h-7 text-xs">
@@ -77,7 +75,9 @@ function StatCard({ tile: first }: { tile: StatTile }) {
             </SelectContent>
           </Select>
         </CardFooter>
-      ) : null}
+      ) : (
+        <div aria-hidden="true" />
+      )}
     </Card>
   )
 }
@@ -88,7 +88,7 @@ function StatCard({ tile: first }: { tile: StatTile }) {
  *
  * - A card that is not measured shows its "Not measured yet" label small and muted, not as a number.
  * - A card with a trend (2+ snapshots) gets a sparkline under its description.
- * - A card with no trend simply ends after the description: no chart, no reserved space.
+ * - A card with no trend keeps an empty sparkline row, so the cards beside it still line up.
  */
 export function StatTiles({ tiles }: { tiles: StatTile[] }) {
   return (

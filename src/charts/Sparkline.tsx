@@ -9,7 +9,7 @@ import {
 } from '@/components/ui/chart'
 import { formatDateTime, type TrendPoint } from '@/data'
 
-/** The Y range given to a trend that sits flat at zero, so the chart's tick maths has a range to work with. */
+/** The Y range given to a flat trend at zero, so the chart's tick maths has a range to work with. */
 const FLAT_ZERO_PAD = 1
 
 /** The lowest and highest value of a trend. */
@@ -19,13 +19,13 @@ function extent(trend: TrendPoint[]): [number, number] {
 }
 
 /**
- * The hidden Y domain, from zero (Dan, 2026-11-23): every sparkline shares the same baseline, so a line's height
- * shows the value itself, not only how it moved. A trend that is zero throughout gets a range of one, which keeps
- * its line on the baseline.
+ * The hidden Y domain, from the trend's own lowest value to its highest (Dan, 2026-11-23): every sparkline starts on
+ * the same baseline at the bottom of its box, so the cards line up, and climbs from there. A trend that never moves
+ * gets a range above its value, which keeps its line on the baseline.
  */
 function yDomain(trend: TrendPoint[]): [number, number] {
   const [min, max] = extent(trend)
-  return [Math.min(0, min), max > 0 ? max : FLAT_ZERO_PAD]
+  return [min, max > min ? max : min + (Math.abs(min) || FLAT_ZERO_PAD)]
 }
 
 /**
