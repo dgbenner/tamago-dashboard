@@ -8,7 +8,7 @@ const shortName = new Map(cefrGroups.map((group) => [group.id, group.short]))
 
 /**
  * The six CEFR levels as a ladder of cards: six across on a wide screen, fewer as it narrows, one column on a phone.
- * Each card: the group chip, the code and name, the can-do line, then the hours. The cards share their rows
+ * Each card: the group chip (top right), the code and name, the can-do line, then the hours. The cards share their rows
  * (subgrid), so each of those starts at the same height across a row, however long a name or a can-do line.
  * The A1 card's yellow border marks the highest level a Tamago course has completed.
  */
@@ -20,12 +20,12 @@ export function CefrLadder() {
           <li key={level.code} className="row-span-3 grid min-w-0 grid-rows-subgrid">
             <Card className={`row-span-3 grid grid-rows-subgrid gap-3 py-5 ${level.tamagoBadge ? 'border-tamago-yellow' : ''}`}>
               <CardHeader className="content-start gap-1">
-                <CefrGroupChip group={level.group} label={shortName.get(level.group) ?? level.group} className="mb-3 justify-self-start" />
+                <CefrGroupChip group={level.group} label={shortName.get(level.group) ?? level.group} className="mb-3 justify-self-end" />
                 <p className="text-3xl font-semibold tracking-tight">{level.code}</p>
                 <p className="text-[11px] font-medium tracking-wider text-muted-foreground uppercase">{level.name}</p>
               </CardHeader>
               <CardContent className="text-sm">{level.canDo}</CardContent>
-              <CardFooter className="items-center py-1 text-xs text-muted-foreground italic tabular-nums">
+              <CardFooter className="items-center justify-center py-1 text-xs text-muted-foreground italic tabular-nums">
                 <span aria-hidden="true" className="mr-1.5 text-lg leading-none not-italic">
                   {cefrLadder.approx}
                 </span>
@@ -35,7 +35,7 @@ export function CefrLadder() {
           </li>
         ))}
       </ol>
-      <p className="text-xs text-muted-foreground italic">{cefrLadder.footnote}</p>
+      <p className="w-[80%] text-xs text-muted-foreground italic">{cefrLadder.footnote}</p>
     </CefrSection>
   )
 }

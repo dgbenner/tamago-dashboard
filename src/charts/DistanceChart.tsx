@@ -30,7 +30,7 @@ const categoryName = new Map(distanceCategories.map((category) => [category.id, 
 export function DistanceChart() {
   return (
     <Card>
-      <CardHeader>
+      <CardHeader className="gap-1">
         <CardTitle>{cefrDistance.title}</CardTitle>
         <CardDescription>{cefrDistance.intro}</CardDescription>
       </CardHeader>
