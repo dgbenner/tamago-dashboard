@@ -184,12 +184,13 @@ const baseContentTiles: StatTile[] = buildRealTiles('content', {
  */
 function coursesCompleteTile(base: StatTile, level: string, index: number): StatTile {
   const label = fill(base.label, { level })
-  if (index === 0) return { ...base, label }
+  if (index === 0) return { ...base, label, labelEmphasis: level }
   const value = completeText(coursesCompleteThrough(level))
-  if (value === null) return { ...base, label }
+  if (value === null) return { ...base, label, labelEmphasis: level }
   return {
     ...base,
     label,
+    labelEmphasis: level,
     value,
     description: fill(anyCourseReaches(level) ? completeTileText.description : levelText.noneAtLevel, { level }),
     trend: null,

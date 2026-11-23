@@ -169,6 +169,8 @@ export interface StatTile {
   id: string
   /** Card title, e.g. "Lessons". */
   label: string
+  /** A part of the title to show in bold, e.g. the CEFR level in "Courses Complete Through A1". Most cards have none. */
+  labelEmphasis?: string
   /**
    * The value, already formatted for display, e.g. "726", "87.8%", "259/259". When `measured` is
    * false this is the `NOT_MEASURED` label ("Not measured yet"), never a number.

@@ -1,3 +1,4 @@
+import { useId } from 'react'
 import { Area, AreaChart, XAxis, YAxis } from 'recharts'
 
 import {
@@ -8,7 +9,7 @@ import {
 } from '@/components/ui/chart'
 import { formatDateTime, type TrendPoint } from '@/data'
 
-/** Half the Y range given to a trend that sits flat at zero. */
+/** The Y range given to a trend that sits flat at zero, so the chart's tick maths has a range to work with. */
 const FLAT_ZERO_PAD = 1
 
 /** The lowest and highest value of a trend. */
@@ -18,15 +19,13 @@ function extent(trend: TrendPoint[]): [number, number] {
 }
 
 /**
- * The hidden Y domain. It hugs the trend's own range so small movements still show. A trend that
- * never moves has no range, so it gets one made from its own value, which puts the line mid-height.
+ * The hidden Y domain, from zero (Dan, 2026-11-23): every sparkline shares the same baseline, so a line's height
+ * shows the value itself, not only how it moved. A trend that is zero throughout gets a range of one, which keeps
+ * its line on the baseline.
  */
 function yDomain(trend: TrendPoint[]): [number, number] {
   const [min, max] = extent(trend)
-  if (min < max) return [min, max]
-  // A flat line at zero gets a range of one either side: a vanishingly small range breaks the chart's tick maths.
-  const pad = Math.abs(min) || FLAT_ZERO_PAD
-  return [min - pad, max + pad]
+  return [Math.min(0, min), max > 0 ? max : FLAT_ZERO_PAD]
 }
 
 /**
@@ -39,7 +38,8 @@ function movesInSteps(trend: TrendPoint[]): boolean {
 }
 
 /**
- * The sparkline under a stat card: one grey line over the snapshots a trend holds, no axes. The
+ * The sparkline under a stat card: one line over the snapshots a trend holds, no axes, coloured with the same
+ * yellow-to-green gradient as the "Real data" strip at the top of the page. The
  * tooltip gives the snapshot's date and time and its value. Only drawn for a trend of 2+ points;
  * the caller leaves it out entirely when there is no trend.
  */
@@ -54,7 +54,10 @@ export function Sparkline({
   /** How to write one trend value in the tooltip. */
   formatValue: (value: number) => string
 }) {
-  const config = { value: { label, color: 'var(--chart-neutral)' } } satisfies ChartConfig
+  const config = { value: { label, color: 'var(--tamago-green)' } } satisfies ChartConfig
+  // The gradient is measured across the whole chart (userSpaceOnUse), so a flat line still gets it: a gradient sized
+  // to the line's own box has no height for a flat line and would draw nothing.
+  const gradientId = `sparkline-${useId().replace(/:/g, '')}`
 
   return (
     <ChartContainer
@@ -64,6 +67,12 @@ export function Sparkline({
       className="aspect-auto h-12 w-full"
     >
       <AreaChart data={trend} accessibilityLayer margin={{ top: 4, right: 2, bottom: 4, left: 2 }}>
+        <defs>
+          <linearGradient id={gradientId} gradientUnits="userSpaceOnUse" x1="0%" y1="0" x2="100%" y2="0">
+            <stop offset="0%" stopColor="var(--tamago-yellow)" />
+            <stop offset="100%" stopColor="var(--tamago-green)" />
+          </linearGradient>
+        </defs>
         <XAxis dataKey="takenAt" hide />
         <YAxis hide domain={yDomain(trend)} />
         <ChartTooltip
@@ -87,7 +96,7 @@ export function Sparkline({
         <Area
           dataKey="value"
           type={movesInSteps(trend) ? 'step' : 'monotone'}
-          stroke="var(--color-value)"
+          stroke={`url(#${gradientId})`}
           strokeWidth={2}
           fill="none"
           dot={false}

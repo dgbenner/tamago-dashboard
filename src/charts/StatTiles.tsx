@@ -17,6 +17,19 @@ function trendFormatter(tile: StatTile): (value: number) => string {
   return tile.value.trim().endsWith('%') ? formatPercent : formatCount
 }
 
+/** The card's title, with its `labelEmphasis` part (if any) in bold. */
+function CardLabel({ tile }: { tile: StatTile }) {
+  const at = tile.labelEmphasis ? tile.label.lastIndexOf(tile.labelEmphasis) : -1
+  if (!tile.labelEmphasis || at < 0) return tile.label
+  return (
+    <>
+      {tile.label.slice(0, at)}
+      <span className="font-semibold text-foreground">{tile.labelEmphasis}</span>
+      {tile.label.slice(at + tile.labelEmphasis.length)}
+    </>
+  )
+}
+
 /**
  * One stat card. A card with a `choice` gets a small menu at the bottom that switches it between its versions (for
  * example one per CEFR level); the first version shows on load.
@@ -29,7 +42,9 @@ function StatCard({ tile: first }: { tile: StatTile }) {
   return (
     <Card className="gap-4 py-4">
       <CardHeader className="justify-items-center text-center">
-        <CardDescription>{tile.label}</CardDescription>
+        <CardDescription>
+          <CardLabel tile={tile} />
+        </CardDescription>
         {tile.measured ? (
           <CardTitle className="max-w-full min-w-0 text-4xl font-semibold tabular-nums wrap-anywhere">
             {tile.value}
