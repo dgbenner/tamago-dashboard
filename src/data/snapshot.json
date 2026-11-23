@@ -1,10 +1,10 @@
 {
-  "takenAt": "2026-11-23T10:39:00-06:00",
+  "takenAt": "2026-11-23T16:14:00-06:00",
   "source": {
     "repo": "dgbenner/tamago",
     "branch": "main",
-    "commit": "b81e1c7",
-    "commitDate": "2026-11-22T10:15:35-06:00"
+    "commit": "940cb04",
+    "commitDate": "2026-11-23T11:19:18-06:00"
   },
   "languages": [
     {
@@ -296,6 +296,28 @@
   ],
   "deploys": [
     {
+      "number": 72,
+      "name": "Raccoon",
+      "date": "2026-11-23T11:19:18-06:00",
+      "commit": "940cb04",
+      "changes": [
+        "Version Raccoon (deploy 72)",
+        "Right-hand panel as an accordion: a tool's page unfolds from the top, and the tool cards fold back in one after another",
+        "Take the sushi mark back out of index.html (Dan: it didn't help)",
+        "Offline copy per course: the worker saves only the app at install (3.3 MB, was 95 MB) and the open course's files once the page is up; th…",
+        "Faster first screen on weak Wi-Fi: a launch waits at most 1.5 s for the page before opening the saved copy; the sushi mark is drawn in in…",
+        "Language switch: no opening screen; the tree's rows fade in from the top and an info toast says Switched to <language>",
+        "Under construction banner under the title of Conversations, Glossary, Progress, Self-Study and Verbs"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "passed",
+        "tests": 318,
+        "passed": 318,
+        "failed": 0
+      }
+    },
+    {
       "number": 71,
       "name": "Quokka",
       "date": "2026-11-22T10:15:35-06:00",
@@ -488,42 +510,24 @@
         "passed": 281,
         "failed": 0
       }
-    },
-    {
-      "number": 62,
-      "name": "Hedgehog",
-      "date": "2026-11-20T06:40:40-06:00",
-      "commit": "05e6505",
-      "changes": [
-        "Portuguese: Fable's Parts 2-4 review applied; Brazilian words taught, Portugal's accepted; senses, impersonal verbs, você commands",
-        "Portuguese A1 Part 4, Out and About: 17 circles, 34 task items, mock ACESSO; Camões A1 from 445 to 625 (96%); audits clean",
-        "Portuguese A1 Part 4 (work in progress, parked): config, workbook v7, import and Wiktionary check"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "cancelled",
-        "tests": null,
-        "passed": null,
-        "failed": null
-      }
     }
   ],
   "health": {
     "fullSuite": {
       "result": "passed",
-      "startedAt": "2026-11-22T16:17:24Z",
-      "finishedAt": "2026-11-22T16:52:07Z",
-      "durationSeconds": 2083,
+      "startedAt": "2026-11-23T17:29:37Z",
+      "finishedAt": "2026-11-23T18:05:34Z",
+      "durationSeconds": 2157,
       "tests": 318,
       "passed": 318,
       "failed": 0,
       "skipped": 0,
-      "commit": "b81e1c7",
+      "commit": "940cb04",
       "deploy": {
-        "number": 71,
-        "name": "Quokka"
+        "number": 72,
+        "name": "Raccoon"
       },
-      "runsRecorded": 14,
+      "runsRecorded": 15,
       "stoppedAt": null
     },
     "auditNote": {
@@ -613,19 +617,19 @@
       {
         "date": "2026-11-22",
         "commits": 28,
-        "pushes": 3,
+        "pushes": 4,
         "deploys": 4
       },
       {
         "date": "2026-11-23",
-        "commits": 0,
+        "commits": 7,
         "pushes": 0,
-        "deploys": 0
+        "deploys": 1
       }
     ],
     "firstCommit": "2026-11-07T08:41:36-06:00",
-    "commitsTotal": 401,
-    "deploysTotal": 71,
+    "commitsTotal": 408,
+    "deploysTotal": 72,
     "reviewsApplied": [
       {
         "date": "2026-11-19T21:12:12-06:00",
