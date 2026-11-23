@@ -28,7 +28,7 @@
 //   periods ({ today, thisWeek, thisMonth, last14Days, last30Days }), today, isInPeriod, inPeriod
 //
 // CEFR (./cefr): reference text from cefr.json; the Tamago badge, exam column, word range and Today chips are live
-//   cefrHeader, cefrGroups, cefrLadder, distanceRows, distanceCategories, cefrDistance, vocabRows, cefrVocabulary,
+//   cefrHeader, cefrGroups, cefrLadder, cefrSkills, distanceRows, distanceCategories, cefrDistance,
 //   examRows, cefrExams, todayChips, cefrToday, cefrSources
 //
 // CONTENT GROWTH, real (./growth)

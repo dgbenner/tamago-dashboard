@@ -162,38 +162,9 @@
       }
     ]
   },
-  "vocabulary": {
-    "title": "How Big Is Each Level?",
-    "headline": "A1 means hundreds of words; A2 means roughly a thousand.",
-    "bars": [
-      {
-        "id": "stuck",
-        "label": "Learners stuck at A1",
-        "low": 500,
-        "high": 800,
-        "words": "500–800 words"
-      },
-      {
-        "id": "a2",
-        "label": "Official A2 word lists",
-        "low": 1000,
-        "high": 1000,
-        "words": "~1,000 words"
-      }
-    ],
-    "facts": [
-      "Official A2 (“Waystage”) word lists for English and French each contain about 1,000 words (Milton).",
-      "Research suggests that learners who know only 500–800 words don't get past A1 (Milton, 2022)."
-    ],
-    "tamago": "Tamago's A1 courses teach {min}–{max} words.",
-    "caveat": "Vocabulary size is a guide, not a definition. CEFR levels are defined by what you can do.",
-    "tamagoBar": "Tamago's A1 courses",
-    "wordsLabel": "{words} words",
-    "axisLabel": "Words"
-  },
   "exams": {
     "title": "The Real Exams, by Language",
-    "intro": "Most languages have an official exam at every level. Dutch, Swedish and Danish exams are tied to residence and integration, so their ladders are uneven.",
+    "intro": "Most languages have an official exam at every level.",
     "tamagoColumn": "Tamago's mock exams follow these",
     "rows": [
       {
@@ -511,7 +482,8 @@
       "Tests for people joining family in Denmark.",
       "Prøve i Dansk 1 is scored at mixed levels, roughly A2 written and B1 spoken. Sources differ on the exact split.",
       "The adult state exams cover A1–C2. Most sessions are held at B1 and above, so A1 sittings are rare."
-    ]
+    ],
+    "detailsLabel": "Details"
   },
   "today": {
     "title": "Tamago Today",

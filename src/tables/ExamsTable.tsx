@@ -1,3 +1,4 @@
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
 import { CEFR_LEVELS, cefrExams, examRows, type ExamPart } from '@/data'
@@ -18,7 +19,7 @@ function Exam({ part }: { part: ExamPart }) {
   )
 }
 
-/** A grid of official exams: one row per Tamago course in the app, one column per CEFR level, with footnotes under it. */
+/** A grid of official exams: one row per Tamago course in the app, one column per CEFR level, with the footnotes in a closed Details accordion. */
 export function ExamsTable() {
   const lastRow = examRows.length - 1
 
@@ -57,7 +58,8 @@ export function ExamsTable() {
                     key={CEFR_LEVELS[i]}
                     className={cn(
                       cell,
-                      'min-w-28 align-top whitespace-normal',
+                      // The exam names are the data: regular weight, in the lighter description grey.
+                      'min-w-28 align-top font-normal whitespace-normal text-muted-foreground',
                       CEFR_LEVELS[i] === cefrExams.tamagoLevel && cn(TAMAGO_COLUMN, r === lastRow && 'border-b-2'),
                     )}
                   >
@@ -77,11 +79,18 @@ export function ExamsTable() {
             ))}
           </TableBody>
         </Table>
-        <ol className="flex list-decimal flex-col gap-1 pl-5 text-xs text-muted-foreground">
-          {cefrExams.footnotes.map((note) => (
-            <li key={note}>{note}</li>
-          ))}
-        </ol>
+        <Accordion type="single" collapsible>
+          <AccordionItem value="details" className="border-b-0">
+            <AccordionTrigger className="py-2 text-xs">{cefrExams.detailsLabel}</AccordionTrigger>
+            <AccordionContent>
+              <ol className="flex list-decimal flex-col gap-1 pl-5 text-xs text-muted-foreground">
+                {cefrExams.footnotes.map((note) => (
+                  <li key={note}>{note}</li>
+                ))}
+              </ol>
+            </AccordionContent>
+          </AccordionItem>
+        </Accordion>
       </CardContent>
     </Card>
   )

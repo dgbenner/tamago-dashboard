@@ -10,17 +10,15 @@ import { PageFrame, PageSection } from '@/layout/PageFrame'
 interface CefrPageProps {
   /** "Same level, different distance": the FSI bar chart, in its own Card. */
   distance: ReactNode
-  /** "How big is each level?": the vocabulary card. */
-  vocabulary: ReactNode
   /** The exams grid, in its own Card. */
   exams: ReactNode
 }
 
 /**
  * The CEFR page: what the scale is (the header), the six levels, the skills they measure, how long each language
- * takes, how many words a level means, the real exams, then where Tamago's courses sit today, and the sources.
+ * takes, the real exams, then where Tamago's courses sit today, and the sources.
  */
-export function CefrPage({ distance, vocabulary, exams }: CefrPageProps) {
+export function CefrPage({ distance, exams }: CefrPageProps) {
   return (
     <PageFrame
       title={cefrHeader.title}
@@ -36,7 +34,6 @@ export function CefrPage({ distance, vocabulary, exams }: CefrPageProps) {
         </div>
       </PageSection>
       <PageSection label="Same Level, Different Distance">{distance}</PageSection>
-      <PageSection label="How Big Is Each Level">{vocabulary}</PageSection>
       <PageSection label="The Real Exams">{exams}</PageSection>
       <PageSection label="Tamago Today">
         <CefrToday />

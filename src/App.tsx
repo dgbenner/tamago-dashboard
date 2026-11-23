@@ -6,7 +6,6 @@ import { DistanceChart } from '@/charts/DistanceChart'
 import { LessonsChart } from '@/charts/LessonsChart'
 import { ResponseTimeChart } from '@/charts/ResponseTimeChart'
 import { StatTiles } from '@/charts/StatTiles'
-import { VocabularyChart } from '@/charts/VocabularyChart'
 import { activityStatTiles, contentStatTiles, costStatCards, growthStatCards, healthStatTiles } from '@/data'
 import { AppShell } from '@/layout/AppShell'
 import { NAV_ITEMS, type PageId } from '@/layout/nav'
@@ -64,7 +63,7 @@ const PAGES: Record<PageId, () => ReactNode> = {
       table={<AgentCostTable />}
     />
   ),
-  cefr: () => <CefrPage distance={<DistanceChart />} vocabulary={<VocabularyChart />} exams={<ExamsTable />} />,
+  cefr: () => <CefrPage distance={<DistanceChart />} exams={<ExamsTable />} />,
 }
 
 /**

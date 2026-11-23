@@ -129,47 +129,6 @@ export const cefrDistance = {
   intro: distanceText.intro,
 }
 
-// ── Vocabulary ──────────────────────────────────────────────────────────────
-
-const vocabText = cefrJson.vocabulary
-const liveWords = liveLanguages.map((l) => l.words).filter((n): n is number => n !== null)
-const minWords = liveWords.length ? Math.min(...liveWords) : null
-const maxWords = liveWords.length ? Math.max(...liveWords) : null
-
-/** The vocabulary bars: the two research figures, then Tamago's own range from the snapshot (when it has one). */
-export interface VocabRow {
-  id: string
-  label: string
-  words: string
-  low: number
-  extra: number
-  tamago: boolean
-}
-
-export const vocabRows: VocabRow[] = [
-  ...vocabText.bars.map((bar) => ({ id: bar.id, label: bar.label, words: bar.words, low: bar.low, extra: bar.high - bar.low, tamago: false })),
-  ...(minWords !== null && maxWords !== null
-    ? [{
-        id: 'tamago',
-        label: vocabText.tamagoBar,
-        words: fill(vocabText.wordsLabel, { words: `${formatCount(minWords)}–${formatCount(maxWords)}` }),
-        low: minWords,
-        extra: maxWords - minWords,
-        tamago: true,
-      }]
-    : []),
-]
-
-export const cefrVocabulary = {
-  title: vocabText.title,
-  headline: vocabText.headline,
-  facts: vocabText.facts,
-  axisLabel: vocabText.axisLabel,
-  /** "Tamago's A1 courses teach 934–1,568 words.", or null when the snapshot has no word counts. */
-  tamago: minWords !== null && maxWords !== null ? fill(vocabText.tamago, { min: formatCount(minWords), max: formatCount(maxWords) }) : null,
-  caveat: vocabText.caveat,
-}
-
 // ── Exams ───────────────────────────────────────────────────────────────────
 
 /** One part of an exam cell: the exam's name and, if it has one, its footnote number. */
@@ -200,6 +159,8 @@ export const cefrExams = {
   title: examText.title,
   intro: examText.intro,
   tamagoColumn: examText.tamagoColumn,
+  /** The accordion the footnotes sit in, closed on load. */
+  detailsLabel: examText.detailsLabel,
   /** The column Tamago's mock exams follow: the highest level any course has completed. */
   tamagoLevel: topLevel,
   footnotes: examText.footnotes,
