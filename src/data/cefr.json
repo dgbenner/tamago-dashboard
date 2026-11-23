@@ -39,42 +39,42 @@
         "code": "A1",
         "name": "Breakthrough",
         "group": "basic",
-        "canDo": "Introduce yourself and ask and answer simple personal questions, if the other person speaks slowly and helps.",
+        "canDo": "Introduce yourself and answer simple questions.",
         "hours": "90–100"
       },
       {
         "code": "A2",
         "name": "Waystage",
         "group": "basic",
-        "canDo": "Handle routine exchanges about familiar things like shopping, work, family and your area.",
+        "canDo": "Handle routine talk: shopping, work, family.",
         "hours": "180–200"
       },
       {
         "code": "B1",
         "name": "Threshold",
         "group": "independent",
-        "canDo": "Get by in most travel situations, and talk about experiences, plans and opinions in simple connected speech.",
+        "canDo": "Get by while traveling; share plans and opinions.",
         "hours": "350–400"
       },
       {
         "code": "B2",
         "name": "Vantage",
         "group": "independent",
-        "canDo": "Follow the main ideas of complex texts and talk with native speakers without strain on either side.",
+        "canDo": "Follow complex ideas; talk easily with native speakers.",
         "hours": "500–600"
       },
       {
         "code": "C1",
         "name": "Operational Proficiency",
         "group": "proficient",
-        "canDo": "Understand long, demanding texts, including implied meaning, and speak fluently without searching for words.",
+        "canDo": "Read demanding texts; speak fluently without searching for words.",
         "hours": "700–800"
       },
       {
         "code": "C2",
         "name": "Mastery",
         "group": "proficient",
-        "canDo": "Understand virtually everything, summarize from several sources, and express fine shades of meaning.",
+        "canDo": "Understand nearly everything; express fine nuance.",
         "hours": "1,000–1,200"
       }
     ],
