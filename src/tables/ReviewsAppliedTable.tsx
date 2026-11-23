@@ -1,6 +1,6 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card'
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table'
-import { formatCount, formatDate, reviewsApplied } from '@/data'
+import { formatDate, reviewsApplied } from '@/data'
 
 import { cn } from '@/lib/utils'
 
@@ -14,8 +14,7 @@ export function ReviewsAppliedTable() {
       <CardHeader>
         <CardTitle>Reviews Applied</CardTitle>
         <CardDescription>
-          The commits that record a review being applied to the course:{' '}
-          {formatCount(reviewsApplied.length)} in all, newest first.
+          The commits that record a review being applied to the course.
         </CardDescription>
       </CardHeader>
       <CardContent>
@@ -39,7 +38,7 @@ export function ReviewsAppliedTable() {
               <TableRow key={`${review.date}-${i}`}>
                 <TableCell className={cn(cell, 'align-top whitespace-nowrap')}>{formatDate(review.date)}</TableCell>
                 <TableCell className={cn(cell, 'align-top')}>
-                  <div className={wrappingText}>{review.subject}</div>
+                  <div className={cn(wrappingText, 'text-muted-foreground italic')}>{review.subject}</div>
                 </TableCell>
               </TableRow>
             ))}
