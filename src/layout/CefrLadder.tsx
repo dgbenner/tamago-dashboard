@@ -18,11 +18,11 @@ export function CefrLadder() {
       <ol className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
         {cefrLadder.levels.map((level) => (
           <li key={level.code} className="row-span-3 grid min-w-0 grid-rows-subgrid">
-            <Card className={`row-span-3 grid grid-rows-subgrid gap-3 py-5 ${level.tamagoBadge ? 'border-tamago-yellow' : ''}`}>
+            <Card className={`row-span-3 grid grid-rows-subgrid gap-3 pt-6 pb-5 ${level.tamagoBadge ? 'border-tamago-yellow' : ''}`}>
               <CardHeader className="content-start gap-1">
-                {/* The code and the ribbon share one line, centred on each other. The ribbon runs past the header
+                {/* The code and the ribbon share one line, centred on each other, 24px from the top like the sides. The ribbon runs past the header
                     padding (24px) and the border (1px) by its 6px overhang. */}
-                <div className="-mt-1.5 flex items-center justify-between gap-2">
+                <div className="flex items-center justify-between gap-2">
                   <p className="text-3xl leading-none font-semibold tracking-tight">{level.code}</p>
                   <CefrGroupRibbon group={level.group} label={shortName.get(level.group) ?? level.group} className="-mr-[31px]" />
                 </div>
