@@ -99,7 +99,7 @@
       {
         "id": "course-builder",
         "name": "Curator",
-        "story": "As the person orchestrating the build, when a language is next in line, I want one builder per language, on its own branch, to produce its words, sentences, audio and grammar notes, so that each course reaches A1 without me building it by hand.",
+        "story": "As the orchestrator, when a language starts, I want its content gathered from checked sources and arranged into lessons.",
         "may": [
           "Gather checked sentences and recordings for each part",
           "Filter the word list against the shared stoplist",
