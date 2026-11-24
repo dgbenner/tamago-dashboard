@@ -227,8 +227,8 @@
           "Adults starting any of nine European languages from zero",
           "Getting from reading to first conversations",
           "Learners who stalled on gamified apps",
-          "Practicing for an official A1 exam",
-          "Reaching A1 with an honest measure of progress",
+          "Practicing for the official exam at your course’s level",
+          "Reaching a real CEFR level with an honest measure of progress",
           "Self-directed study with no locks or streaks",
           "Ten-minute daily lessons",
           "Travel tasks: ordering, directions, forms"
@@ -238,7 +238,7 @@
         "id": "maybe",
         "title": "Where It Might Help",
         "items": [
-          "A2 learners reviewing the basics",
+          "Learners past the course’s level reviewing the basics",
           "Classroom learners who want extra practice",
           "Heritage speakers filling gaps in reading and writing",
           "Listening at natural speed",
@@ -252,7 +252,7 @@
         "title": "Where It Hands Off",
         "items": [
           "Anything needing a native speaker’s ear (the content is AI-reviewed, not yet native-checked)",
-          "B1 and above",
+          "Levels beyond what the course teaches",
           "Certified proof of level (the official exams)",
           "Children under 13",
           "Graded pronunciation and accent coaching",
