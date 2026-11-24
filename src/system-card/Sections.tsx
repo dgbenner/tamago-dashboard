@@ -47,17 +47,6 @@ function CardSection({ id, label, title, intro, children }: { id: string; label:
   )
 }
 
-/** Two closing lines under a section, quieter than the content. */
-function Outro({ lines }: { lines: string[] }) {
-  return (
-    <div className="flex max-w-3xl flex-col gap-1 text-sm text-muted-foreground">
-      {lines.map((line) => (
-        <p key={line}>{line}</p>
-      ))}
-    </div>
-  )
-}
-
 function Lines({ items }: { items: string[] }) {
   if (items.length === 1) return <p>{items[0]}</p>
   return (
@@ -203,7 +192,6 @@ export function SystemCardScope() {
           </TableBody>
         </Table>
       </Card>
-      <Outro lines={m.outro} />
     </CardSection>
   )
 }

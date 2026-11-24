@@ -314,10 +314,6 @@
         "do": "Honest numbers",
         "avoid": "Predicting exam results"
       }
-    ],
-    "outro": [
-      "In every row, the model sets up the practice and reports honestly.",
-      "It never does the learning for the learner, and never invents facts."
     ]
   },
   "spec": {
