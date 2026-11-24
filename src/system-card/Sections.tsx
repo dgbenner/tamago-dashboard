@@ -58,11 +58,10 @@ export function SystemCardStories() {
   return (
     <CardSection id={s.id} label={s.label} title={s.title} intro={s.intro}>
       <figure className="my-6 flex max-w-xl flex-col gap-3">
+        {/* The title sits above the card, like Agent Stories above the tabs (Dan, 2026-11-24). */}
+        <h3 className="text-base leading-snug font-semibold">{s.templateTitle}</h3>
         {/* Reversed out (Dan, 2026-11-24): dark card, light text. */}
         <Card className="gap-3 border-foreground bg-foreground py-5 text-background">
-          <CardHeader className="px-5">
-            <CardTitle>{s.templateTitle}</CardTitle>
-          </CardHeader>
           <CardContent className="flex flex-col gap-1.5 px-5 text-sm">
             {s.template.map((line) => (
               <p key={line.lead}>
