@@ -133,6 +133,7 @@
         "may": [
           "Move repeated pieces of the app into shared components",
           "Give each component a page in the library showing its states",
+          "Show each component in desktop, iOS and Android styles",
           "Keep the component list (COMPONENTS.md) current"
         ],
         "never": [
@@ -142,6 +143,7 @@
         ],
         "decides": [
           "Which pieces become components",
+          "How each one adapts to iOS and Android",
           "Which near-duplicates to merge, and which to flag for me"
         ],
         "stops": [
