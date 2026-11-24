@@ -116,23 +116,28 @@ export function SystemCardStories() {
   )
 }
 
-/** 02: where Tamago helps, might help, and hands off, as three cards. */
+/** Each column's heading color: green where it helps, grey for the judgement call, red where it hands off. */
+const FIT_HEADING: Record<string, string> = { helps: 'text-chart-6', maybe: 'text-foreground/65', 'hands-off': 'text-destructive' }
+
+/**
+ * 02: where Tamago helps, might help, and hands off. The fit matrix from danbenner.com/stealth.html (Dan, 2026-11-24):
+ * one panel in three columns with rules between them, the middle one the literal grey area, and small capital headings
+ * in green, grey and red.
+ */
 export function SystemCardProduct() {
   const p = systemCardProduct
   return (
     <CardSection id={p.id} label={p.label} title={p.title} intro={p.intro}>
-      <div className="grid gap-4 md:grid-cols-3">
+      <Card className="grid gap-0 divide-y overflow-hidden py-0 shadow-none md:grid-cols-3 md:divide-x md:divide-y-0">
         {p.columns.map((column) => (
-          <Card key={column.id} className="gap-3 bg-muted/70 shadow-none">
-            <CardHeader>
-              <CardTitle>{column.title}</CardTitle>
-            </CardHeader>
-            <CardContent className="pr-10 text-sm">
+          <div key={column.id} className={`pt-[30px] pr-8 pb-6 pl-[30px] ${column.id === 'maybe' ? 'bg-muted/60' : ''}`}>
+            <h3 className={`mb-3 text-[11px] font-bold tracking-[0.1em] uppercase ${FIT_HEADING[column.id] ?? ''}`}>{column.title}</h3>
+            <div className="text-sm leading-relaxed">
               <Lines items={column.items} />
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         ))}
-      </div>
+      </Card>
     </CardSection>
   )
 }
