@@ -264,20 +264,20 @@
   "scope": {
     "id": "model-scope",
     "label": "03 · Model Scope",
-    "title": "How We Guide the Model, How the Model Guides the Learner",
-    "intro": "The lessons are fixed, checked content. The model steps in only where a live answer helps: conversation, explanations and notes on writing.",
+    "title": "What the Model Does, and What It Won’t",
+    "intro": "Lessons are fixed, checked content. The model only steps in for live conversation, explanations and feedback on writing.",
     "goal": "Help learners practice real conversation at their level.",
-    "tableTitle": "In and Out of Model’s Scope",
+    "tableTitle": "In and Out of Scope",
     "rows": [
       {
         "category": "Facts",
         "do": "Definitions and verb forms from Wiktionary",
-        "avoid": "Model memory"
+        "avoid": "From model memory"
       },
       {
         "category": "Vocabulary",
         "do": "Words the learner has met",
-        "avoid": "Words past their level"
+        "avoid": "Words they haven’t learned yet"
       },
       {
         "category": "Corrections",
@@ -291,12 +291,12 @@
       },
       {
         "category": "Asking for help",
-        "do": "Repeat, slow down, spell, explain, in the language",
+        "do": "Help phrases in the language (repeat, slow down, spell, explain)",
         "avoid": "Switching to English"
       },
       {
         "category": "Feedback",
-        "do": "One word and the right answer",
+        "do": "A one-word verdict and the right answer",
         "avoid": "Praise screens, streak pressure"
       },
       {
@@ -306,8 +306,8 @@
       }
     ],
     "outro": [
-      "The pattern across every row: the model sets up the practice and reports honestly.",
-      "It never does the learning for the learner, and it never invents the facts."
+      "In every row, the model sets up the practice and reports honestly.",
+      "It never does the learning for the learner, and never invents facts."
     ]
   },
   "spec": {
