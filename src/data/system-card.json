@@ -251,14 +251,12 @@
         "id": "hands-off",
         "title": "Where It Hands Off",
         "items": [
-          "Anything needing a native speaker’s ear (the content is AI-reviewed, not yet native-checked)",
-          "Learners who need games, streaks or rewards to keep studying",
-          "Certified proof of level (the official exams)",
+          "A native speaker’s ear: checked sentences, graded pronunciation, accent coaching (content is AI-reviewed, not yet native-checked)",
+          "Live conversation (tutors, language exchanges)",
           "Children, and anyone who needs a teacher to set the pace",
-          "Graded pronunciation and accent coaching",
-          "Languages in other alphabets (Arabic, Greek, Asian languages)",
-          "Live conversation with a person (tutors, language exchanges)",
-          "Professional language (legal, medical, business)"
+          "Certified proof of level (the official exams)",
+          "Games, streaks or rewards to keep studying",
+          "Other alphabets (Arabic, Greek, Asian languages) and professional language (legal, medical, business)"
         ]
       }
     ]
