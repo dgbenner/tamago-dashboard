@@ -47,7 +47,7 @@
           "Collect my notes",
           "Write specs",
           "Write one labeled instruction per agent",
-          "Keep the project record"
+          "Keep the project record in repo"
         ],
         "never": [
           "Touch the code",
