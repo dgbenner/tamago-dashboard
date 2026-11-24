@@ -238,7 +238,6 @@ export function SystemCardSpec() {
           </TableFooter>
         </Table>
       </Card>
-      <p className="max-w-3xl text-sm text-muted-foreground">{sp.note}</p>
     </CardSection>
   )
 }

@@ -330,7 +330,6 @@
     "title": "Behavioral Spec Inventory",
     "intro": "Everything that tells the agents and the product how to behave.",
     "countedOn": "24 November 2026",
-    "note": "Counted from the repo, not estimated. CLAUDE.md is read first by every session, so a rule changed there reaches the next agent without anyone being told.",
     "rows": [
       {
         "part": "Working Mode and Stop Rules",
