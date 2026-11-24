@@ -284,13 +284,13 @@
     "rows": [
       {
         "category": "Meanings and Grammar",
-        "do": "Taken from Wiktionary",
+        "do": "Wiktionary, Tatoeba and official word lists",
         "avoid": "The AI’s memory"
       },
       {
         "category": "Vocabulary",
-        "do": "Words the learner has met",
-        "avoid": "Words they haven’t learned yet"
+        "do": "Only words already taught",
+        "avoid": "Words not taught yet"
       },
       {
         "category": "Corrections",
