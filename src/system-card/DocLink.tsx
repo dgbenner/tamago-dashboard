@@ -50,9 +50,10 @@ export function DocLink({ id, title, label, className = '' }: { id: string; titl
           <DialogContent className="w-[calc(100vw-2rem)] max-w-sm p-6">
             <DialogTitle>{systemCardGate.title}</DialogTitle>
             <DialogDescription className="mt-1">{systemCardGate.text}</DialogDescription>
-            <div className="mt-4 flex gap-2">
+            <div className="mt-4 flex">
               <Input
-                type="password"
+                type="text"
+                className="rounded-r-none! border-r-0! focus-visible:z-10"
                 inputMode="numeric"
                 autoComplete="off"
                 aria-label={systemCardGate.title}
@@ -61,7 +62,7 @@ export function DocLink({ id, title, label, className = '' }: { id: string; titl
                 onChange={(e) => { setTyped(e.target.value); setWrong(false) }}
                 onKeyDown={(e) => { if (e.key === 'Enter') submit() }}
               />
-              <Button onClick={submit}>{systemCardGate.button}</Button>
+              <Button className="rounded-l-none!" onClick={submit}>{systemCardGate.button}</Button>
             </div>
             <p role="status" className="mt-2 min-h-5 text-sm text-destructive">{wrong ? systemCardGate.wrong : ''}</p>
           </DialogContent>
