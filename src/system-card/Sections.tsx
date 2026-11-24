@@ -20,13 +20,27 @@ import {
 const CAPS = 'text-[11px] font-bold tracking-[0.1em] uppercase'
 
 /** One numbered section of the System Card: a small label, the title, one line of intro, then its content. */
-function CardSection({ id, label, title, intro, children }: { id: string; label: string; title: string; intro: string; children: ReactNode }) {
+/** A subtitle is one line, or lettered lines (A, B) when it sets two things side by side. */
+type Intro = string | { mark: string; text: string }[]
+
+function CardSection({ id, label, title, intro, children }: { id: string; label: string; title: string; intro: Intro; children: ReactNode }) {
   return (
     <section id={id} aria-label={title} className="flex min-w-0 scroll-mt-8 flex-col gap-4">
       <div className="mb-4 flex max-w-3xl flex-col">
         <p className="mb-3 text-xs font-medium tracking-wide text-muted-foreground uppercase">{label}</p>
         <h2 className="text-2xl font-semibold tracking-tight sm:text-[1.75rem] sm:leading-tight">{title}</h2>
-        <p className="mt-0.5 text-sm text-muted-foreground">{intro}</p>
+        {typeof intro === 'string' ? (
+          <p className="mt-0.5 text-sm text-muted-foreground">{intro}</p>
+        ) : (
+          <div className="mt-1 flex flex-col gap-1 text-sm text-muted-foreground">
+            {intro.map((line) => (
+              <p key={line.mark} className="flex gap-2">
+                <span className="w-3 shrink-0 font-semibold text-foreground">{line.mark}</span>
+                <span>{line.text}</span>
+              </p>
+            ))}
+          </div>
+        )}
       </div>
       {children}
     </section>
