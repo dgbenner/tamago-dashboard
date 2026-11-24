@@ -265,13 +265,13 @@
     "id": "model-scope",
     "label": "03 · Model Scope",
     "title": "What the Model Does, and What It Won’t",
-    "intro": "Lessons are fixed, checked content. The model only steps in for live conversation, explanations and feedback on writing.",
+    "intro": "Lessons are fixed, checked content. The model steps in only for live conversation, explanations and feedback on writing.",
     "goal": "Help learners practice real conversation at their level.",
     "tableTitle": "In and Out of Scope",
     "rows": [
       {
         "category": "Facts",
-        "do": "Definitions and verb forms from Wiktionary",
+        "do": "From Wiktionary",
         "avoid": "From model memory"
       },
       {
@@ -297,12 +297,12 @@
       {
         "category": "Feedback",
         "do": "A one-word verdict and the right answer",
-        "avoid": "Praise screens, streak pressure"
+        "avoid": "Praise screens or streak pressure"
       },
       {
         "category": "Progress",
         "do": "Honest numbers",
-        "avoid": "Predicting an exam result"
+        "avoid": "Predicting exam results"
       }
     ],
     "outro": [
