@@ -241,12 +241,17 @@ export function SystemCardSpec() {
           </Table>
         </Card>
       ))}
-      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-1 text-sm">
-        <p className="text-muted-foreground">Counted on {sp.countedOn}</p>
-        <p className="font-semibold">
-          Total (both groups): <span className="tabular-nums">{sp.totalLabel}</span>
-        </p>
-      </div>
+      {/* The total of both groups, outside the cards but on the tables' own columns, so the number sits under the
+          Words column; the count date on the right. Same widths as the tables above. */}
+      <Table className="min-w-[720px] table-fixed">
+        <TableBody>
+          <TableRow className="border-0 hover:bg-transparent">
+            <TableCell className="w-[30%] pl-6 font-semibold whitespace-normal">Total (both groups)</TableCell>
+            <TableCell className="w-[12%] pr-6 text-right font-semibold tabular-nums">{sp.totalLabel}</TableCell>
+            <TableCell className="pr-6 text-right text-muted-foreground">Counted on {sp.countedOn}</TableCell>
+          </TableRow>
+        </TableBody>
+      </Table>
     </CardSection>
   )
 }
