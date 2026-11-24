@@ -101,29 +101,29 @@
         "name": "Curator",
         "story": "As the orchestrator, when a language starts, I want its content gathered from checked sources and arranged into lessons.",
         "may": [
-          "Gather checked sentences and recordings for each part",
-          "Filter the word list against the shared stoplist",
-          "Write grammar notes and draft sentences where sources run thin",
-          "Build, audit and add a mock A1 exam"
+          "Choose the language’s official word list",
+          "Pull sentences from Tatoeba, recordings from Lingua Libre, and word facts from Wiktionary",
+          "Arrange words into lessons in a teachable order",
+          "Draft sentences where sources run thin, and mark them"
         ],
         "never": [
-          "Push, merge or make a course public",
           "Take definitions or verb forms from model memory",
-          "Touch a language another session already has",
-          "Build a language put on hold"
+          "Push a course live or make it public",
+          "Touch a language another session is working on",
+          "Build a language on hold"
         ],
         "decides": [
-          "Which checked sentences fit each lesson",
-          "What the stoplist drops for its language",
-          "Which exam format the final check follows"
+          "Which word list to use, and logs why",
+          "Which sentences fit each lesson",
+          "Which words the stoplist drops"
         ],
         "stops": [
-          "The course is A1-complete with clean audits, or drafts pass 40% of a part, which puts the language on hold"
+          "The sources are gathered and arranged into lessons, or drafts pass 40% of a part. Then the language goes on hold."
         ],
         "works": [
-          "No word is tested before it’s shown",
-          "No lesson adds more than four new words",
-          "The every-lesson check finds no issues"
+          "Every word fact traces back to a source",
+          "Drafts stay under 40% of each part, and every one is marked",
+          "No word is tested before it’s shown"
         ]
       },
       {
