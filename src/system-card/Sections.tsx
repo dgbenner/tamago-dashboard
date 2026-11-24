@@ -57,7 +57,7 @@ export function SystemCardStories() {
   const s = systemCardStories
   return (
     <CardSection id={s.id} label={s.label} title={s.title} intro={s.intro}>
-      <div className="my-6 grid items-center gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-10">
+      <figure className="my-6 flex max-w-xl flex-col gap-3">
         <Card className="gap-3 py-5">
           <CardHeader className="px-5">
             <CardTitle>{s.templateTitle}</CardTitle>
@@ -70,8 +70,8 @@ export function SystemCardStories() {
             ))}
           </CardContent>
         </Card>
-        <p className="max-w-xl text-sm">{s.definition}</p>
-      </div>
+        <figcaption className="px-1 text-xs leading-relaxed text-muted-foreground">{s.definition}</figcaption>
+      </figure>
       {/* Folder tabs (Dan, 2026-11-24): each agent a tab with its own border, the open one joined to the table card
           below it (a strip in the card's color covers the card's top border under the open tab). */}
       <Tabs defaultValue={s.agents[0].id} className="mt-4 gap-0">
