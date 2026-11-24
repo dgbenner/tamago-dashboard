@@ -16,8 +16,6 @@ import {
   type EvalStatus,
 } from '@/data'
 
-import { GoalOptions } from './GoalOptions'
-
 /** Small capitals for the second layer of text: column headers, tab labels, the fit headings (Dan, 2026-11-24). */
 const CAPS = 'text-[11px] font-bold tracking-[0.1em] uppercase'
 
@@ -155,7 +153,11 @@ export function SystemCardScope() {
   const m = systemCardScope
   return (
     <CardSection id={m.id} label={m.label} title={m.title} intro={m.intro}>
-      <GoalOptions label={m.goalLabel} goal={m.goal} />
+      {/* The Goal (Dan picked option 3 of six, 2026-11-24): reversed out in Tamago's ink, the label in its yellow. */}
+      <div className="rounded-2xl bg-tamago-ink px-5 py-4 text-white">
+        <p className={`${CAPS} text-tamago-yellow`}>{m.goalLabel}</p>
+        <p className="mt-1 text-lg font-semibold">{m.goal}</p>
+      </div>
       <Card className="gap-0 pb-0">
         <CardHeader className="pb-4">
           <CardTitle>{m.tableTitle}</CardTitle>
