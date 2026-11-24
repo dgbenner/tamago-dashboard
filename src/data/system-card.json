@@ -283,9 +283,9 @@
     "avoidHeading": "Instead of",
     "rows": [
       {
-        "category": "Facts",
-        "do": "From Wiktionary",
-        "avoid": "From model memory"
+        "category": "Meanings and grammar",
+        "do": "Taken from Wiktionary",
+        "avoid": "The AI’s memory"
       },
       {
         "category": "Vocabulary",
