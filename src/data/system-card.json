@@ -160,28 +160,28 @@
         "name": "Judge",
         "story": "As the person orchestrating the build, when a builder finishes a course part or a screen, I want an independent review, so that the builder isn’t grading its own work.",
         "may": [
-          "Read every new sentence and screen",
-          "Mark each one Use, Reject, Keep, Fix or Cut",
+          "Review every new sentence and screen",
+          "Give each sentence a verdict: Use, Reject, Keep, Fix or Cut",
           "Score screens against the craft rubric",
-          "Check facts against Wiktionary"
+          "Check word facts against Wiktionary"
         ],
         "never": [
           "Change code",
           "Write outside the review folder",
-          "Claim a native speaker’s authority"
+          "Claim to be a native speaker"
         ],
         "decides": [
-          "Whether a sentence is natural, correct and right for A1",
-          "The fix or the swap",
+          "Whether a sentence is natural, correct and right for the learner’s level",
+          "What should replace a weak sentence",
           "The craft score"
         ],
         "stops": [
-          "The review file is written, with counts for each verdict"
+          "The review is written, with a count for each verdict."
         ],
         "works": [
-          "Every part is reviewed before it’s swapped in",
+          "Every part is reviewed before it goes live",
           "Each fix names the line, the correction and the reason",
-          "The audits stay clean after the fixes"
+          "The audits stay clean after the fixes are applied"
         ]
       },
       {
