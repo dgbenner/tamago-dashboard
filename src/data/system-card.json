@@ -187,7 +187,7 @@
       {
         "id": "debugger",
         "name": "Debugger",
-        "story": "As the person orchestrating the build, when something breaks on a real device, I want one fresh session on that one bug, so that the fix comes with a cause and a test.",
+        "story": "As the orchestrator, when something breaks on a real device, I want one fresh session on that one bug, so that the fix comes with a cause and a test.",
         "may": [
           "Reproduce the bug on a simulated iPhone and iPad",
           "Read the code",
@@ -201,11 +201,11 @@
         ],
         "decides": [
           "The cause",
-          "Whether it can be shown",
-          "What only a real phone can confirm"
+          "Whether the bug can be reproduced",
+          "What only a real device can confirm"
         ],
         "stops": [
-          "The fix is live with its test, or it reports that the cause wasn’t found and what it needs from the phone"
+          "The fix is live with its test, or it reports that the cause wasn’t found and what it needs from a real device"
         ],
         "works": [
           "The new test fails without the fix",
