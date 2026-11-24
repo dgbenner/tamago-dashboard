@@ -222,7 +222,7 @@
     "columns": [
       {
         "id": "helps",
-        "title": "Where it helps",
+        "title": "Where It Helps",
         "items": [
           "Adults starting any of nine European languages from zero",
           "Getting from reading to first conversations",
@@ -236,7 +236,7 @@
       },
       {
         "id": "maybe",
-        "title": "Where it might help",
+        "title": "Where It Might Help",
         "items": [
           "A2 learners reviewing the basics",
           "Classroom learners who want extra practice",
@@ -249,7 +249,7 @@
       },
       {
         "id": "hands-off",
-        "title": "Where it hands off",
+        "title": "Where It Hands Off",
         "items": [
           "Anything needing a native speaker’s ear (the content is AI-reviewed, not yet native-checked)",
           "B1 and above",
