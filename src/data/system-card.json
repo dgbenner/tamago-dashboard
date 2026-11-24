@@ -333,7 +333,7 @@
     "groups": [
       {
         "title": "Rules the Agents Follow",
-        "intro": "Read by every build session. CLAUDE.md comes first and points to the rest.",
+        "intro": "Every agent reads these before it starts work. The main rulebook, CLAUDE.md, points to the rest.",
         "rows": [
           {
             "part": "Working Mode and Stop Rules",
