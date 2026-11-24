@@ -161,13 +161,14 @@ export function SystemCardScope() {
       <Card className="gap-0 pb-0">
         <CardHeader className="pb-4">
           <CardTitle>{m.tableTitle}</CardTitle>
+          <CardDescription>{m.tableIntro}</CardDescription>
         </CardHeader>
         <Table>
           <TableHeader>
             <TableRow>
               <TableHead className={`w-28 pl-6 sm:w-44 ${CAPS} text-muted-foreground`}>Category</TableHead>
-              <TableHead className={`${CAPS} text-muted-foreground`}>Do</TableHead>
-              <TableHead className={`${CAPS} text-muted-foreground`}>Avoid</TableHead>
+              <TableHead className={`${CAPS} text-muted-foreground`}>{m.doHeading}</TableHead>
+              <TableHead className={`${CAPS} text-muted-foreground`}>{m.avoidHeading}</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -176,13 +177,13 @@ export function SystemCardScope() {
                 <TableCell className="pl-6 font-medium">{row.category}</TableCell>
                 <TableCell className="whitespace-normal">
                   <span className="flex items-start gap-2">
-                    <Check aria-label="Do" className="mt-0.5 size-4 shrink-0 text-foreground" />
+                    <Check aria-label={m.doHeading} className="mt-0.5 size-4 shrink-0 text-foreground" />
                     {row.do}
                   </span>
                 </TableCell>
                 <TableCell className="whitespace-normal text-muted-foreground">
                   <span className="flex items-start gap-2">
-                    <X aria-label="Avoid" className="mt-0.5 size-4 shrink-0" />
+                    <X aria-label={m.avoidHeading} className="mt-0.5 size-4 shrink-0" />
                     {row.avoid}
                   </span>
                 </TableCell>

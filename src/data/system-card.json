@@ -277,7 +277,10 @@
     ],
     "goalLabel": "Goal",
     "goal": "Help adults reach a measurable level in a new language, with short form lessons, honest progress and no games.",
-    "tableTitle": "In and Out of Scope",
+    "tableTitle": "Teaching Choices",
+    "tableIntro": "Each row picks the honest option over the shortcut most apps take.",
+    "doHeading": "What Tamago does",
+    "avoidHeading": "Instead of",
     "rows": [
       {
         "category": "Facts",
