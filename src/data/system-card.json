@@ -162,7 +162,7 @@
         "may": [
           "Review every new sentence and screen",
           "Give each sentence a verdict: Use, Reject, Keep, Fix or Cut",
-          "Rate each screen on nine design criteria, such as “obvious in one second”",
+          "Rate each screen on nine design criteria",
           "Check word facts against Wiktionary"
         ],
         "never": [
