@@ -330,102 +330,114 @@
     "title": "Behavioral Spec Inventory",
     "intro": "Everything that tells the agents and the product how to behave.",
     "countedOn": "24 November 2026",
-    "rows": [
+    "groups": [
       {
-        "part": "Working Mode and Stop Rules",
-        "file": "CLAUDE.md",
-        "words": 110,
-        "does": "When the builder works alone and when it stops for me."
+        "title": "Rules the Agents Follow",
+        "intro": "Read by every build session. CLAUDE.md comes first and points to the rest.",
+        "rows": [
+          {
+            "part": "Working Mode and Stop Rules",
+            "file": "CLAUDE.md",
+            "words": 110,
+            "does": "When the builder works alone and when it stops for me."
+          },
+          {
+            "part": "Team",
+            "file": "CLAUDE.md",
+            "words": 297,
+            "does": "Who does what: planner, builders, judge, debugger."
+          },
+          {
+            "part": "Push and Testing Rules",
+            "file": "CLAUDE.md",
+            "words": 1215,
+            "does": "Pull before every push, the fast tier, the full suite on GitHub after."
+          },
+          {
+            "part": "Content Rules",
+            "file": "CLAUDE.md",
+            "words": 1216,
+            "does": "Checked sources first, facts from Wiktionary, the review before any swap."
+          },
+          {
+            "part": "Craft Rubric",
+            "file": "_source/craft-review.md",
+            "words": 746,
+            "does": "Nine criteria the judge scores each screen against."
+          },
+          {
+            "part": "Autonomous Build Rules",
+            "file": "_source/autonomous-build.md",
+            "words": 568,
+            "does": "How an unattended overnight run starts, reports and stops."
+          },
+          {
+            "part": "Language Pipeline",
+            "file": "_source/language-pipeline.md",
+            "words": 904,
+            "does": "How a new language is scouted, gathered and built to a level, and when a thin source puts it on hold."
+          },
+          {
+            "part": "Learning Methods",
+            "file": "_source/learning-methods.md",
+            "words": 2856,
+            "does": "The teaching research the course design has to answer to."
+          },
+          {
+            "part": "Question Types",
+            "file": "_source/question-types.md",
+            "words": 1366,
+            "does": "Every question type and what it asks of the learner."
+          },
+          {
+            "part": "Feature List",
+            "file": "_source/tamago-feature-list.md",
+            "words": 2709,
+            "does": "What the product does, feature by feature."
+          },
+          {
+            "part": "Model Story",
+            "file": "_source/model-story.md",
+            "words": 1657,
+            "does": "What the AI is for, and where it stops."
+          }
+        ]
       },
       {
-        "part": "Team",
-        "file": "CLAUDE.md",
-        "words": 297,
-        "does": "Who does what: planner, builders, judge, debugger."
-      },
-      {
-        "part": "Push and Testing Rules",
-        "file": "CLAUDE.md",
-        "words": 1215,
-        "does": "Pull before every push, the fast tier, the full suite on GitHub after."
-      },
-      {
-        "part": "Content Rules",
-        "file": "CLAUDE.md",
-        "words": 1216,
-        "does": "Checked sources first, facts from Wiktionary, the review before any swap."
-      },
-      {
-        "part": "Craft Rubric",
-        "file": "_source/craft-review.md",
-        "words": 746,
-        "does": "Nine criteria the judge scores each screen against."
-      },
-      {
-        "part": "Autonomous Build Rules",
-        "file": "_source/autonomous-build.md",
-        "words": 568,
-        "does": "How an unattended overnight run starts, reports and stops."
-      },
-      {
-        "part": "Language Pipeline",
-        "file": "_source/language-pipeline.md",
-        "words": 904,
-        "does": "How a new language is scouted, gathered and built to A1, and when a thin source puts it on hold."
-      },
-      {
-        "part": "Learning Methods",
-        "file": "_source/learning-methods.md",
-        "words": 2856,
-        "does": "The teaching research the course design has to answer to."
-      },
-      {
-        "part": "Question Types",
-        "file": "_source/question-types.md",
-        "words": 1366,
-        "does": "Every question type and what it asks of the learner."
-      },
-      {
-        "part": "Feature List",
-        "file": "_source/tamago-feature-list.md",
-        "words": 2709,
-        "does": "What the product does, feature by feature."
-      },
-      {
-        "part": "Model Story",
-        "file": "_source/model-story.md",
-        "words": 1657,
-        "does": "What the model is for, and where it stops."
-      },
-      {
-        "part": "Conversation Partner Prompt",
-        "file": "server/converse.mjs",
-        "words": 541,
-        "does": "Runs a short conversation at the learner’s level and answers the help phrases."
-      },
-      {
-        "part": "End-of-Conversation Review",
-        "file": "server/converse.mjs",
-        "words": 15,
-        "does": "Picks the two or three most useful gentle corrections once the scene is over."
-      },
-      {
-        "part": "Writing Notes Prompt",
-        "file": "server/converse.mjs",
-        "words": 42,
-        "does": "Notes on meaning, grammar and missing points. Not a score."
-      },
-      {
-        "part": "Explanation Prompt",
-        "file": "server/explain.mjs",
-        "words": 112,
-        "does": "Explains one wrong answer in plain words."
-      },
-      {
-        "part": "Self-Study Prompt",
-        "file": "server/generate.mjs",
-        "words": 61,
-        "does": "Turns the learner’s request into practice that fits the question types."
+        "title": "Prompts the App’s AI Runs On",
+        "intro": "Sent to the AI each time a learner chats, asks why an answer was wrong, or requests practice.",
+        "rows": [
+          {
+            "part": "Conversation Partner Prompt",
+            "file": "server/converse.mjs",
+            "words": 541,
+            "does": "Runs a short conversation at the learner’s level and answers the help phrases."
+          },
+          {
+            "part": "End-of-Conversation Review",
+            "file": "server/converse.mjs",
+            "words": 15,
+            "does": "Picks the two or three most useful gentle corrections once the scene is over."
+          },
+          {
+            "part": "Writing Notes Prompt",
+            "file": "server/converse.mjs",
+            "words": 42,
+            "does": "Notes on meaning, grammar and missing points. Not a score."
+          },
+          {
+            "part": "Explanation Prompt",
+            "file": "server/explain.mjs",
+            "words": 112,
+            "does": "Explains one wrong answer in plain words."
+          },
+          {
+            "part": "Self-Study Prompt",
+            "file": "server/generate.mjs",
+            "words": 61,
+            "does": "Turns the learner’s request into practice that fits the question types."
+          }
+        ]
       }
     ]
   },

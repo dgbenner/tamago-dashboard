@@ -201,43 +201,53 @@ export function SystemCardSpec() {
   const sp = systemCardSpec
   return (
     <CardSection id={sp.id} label={sp.label} title={sp.title} intro={`${sp.intro} ${sp.aboutLabel} of English, no code.`}>
-      <Card className="gap-0 pb-0">
-        <CardHeader className="pb-4">
-          <CardTitle>Rules and Prompts</CardTitle>
-          <CardDescription>Counted on {sp.countedOn}</CardDescription>
-        </CardHeader>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead className={`pl-6 ${CAPS} text-muted-foreground`}>Part</TableHead>
-              <TableHead className={`${CAPS} text-muted-foreground`}>File</TableHead>
-              <TableHead className={`text-right ${CAPS} text-muted-foreground`}>Words</TableHead>
-              <TableHead className={`pr-6 ${CAPS} text-muted-foreground`}>What it does</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {sp.rows.map((row) => (
-              <TableRow key={row.part} className="hover:bg-transparent">
-                <TableCell className="pl-6 font-medium">{row.part}</TableCell>
-                <TableCell>
-                  <code className="rounded bg-muted px-1.5 py-0.5 text-xs">{row.file}</code>
-                </TableCell>
-                <TableCell className="text-right tabular-nums">{row.wordsLabel}</TableCell>
-                <TableCell className="min-w-64 pr-6 whitespace-normal text-muted-foreground">{row.does}</TableCell>
+      {/* Two groups (Dan, 2026-11-24): the rules the build agents read, then the prompts the app's AI runs on, each
+          with its own subtotal; the total of both and the count date sit under them. */}
+      {sp.groups.map((group) => (
+        <Card key={group.title} className="gap-0 pb-0">
+          <CardHeader className="pb-4">
+            <CardTitle>{group.title}</CardTitle>
+            <CardDescription>{group.intro}</CardDescription>
+          </CardHeader>
+          <Table className="min-w-[720px] table-fixed">
+            <TableHeader>
+              <TableRow>
+                <TableHead className={`w-[26%] pl-6 ${CAPS} text-muted-foreground`}>Part</TableHead>
+                <TableHead className={`w-[26%] ${CAPS} text-muted-foreground`}>File</TableHead>
+                <TableHead className={`w-[9%] text-right ${CAPS} text-muted-foreground`}>Words</TableHead>
+                <TableHead className={`pr-6 ${CAPS} text-muted-foreground`}>What it does</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-          <TableFooter>
-            <TableRow className="hover:bg-transparent">
-              <TableCell className="pl-6 font-semibold" colSpan={2}>
-                Total
-              </TableCell>
-              <TableCell className="text-right font-semibold tabular-nums">{sp.totalLabel}</TableCell>
-              <TableCell />
-            </TableRow>
-          </TableFooter>
-        </Table>
-      </Card>
+            </TableHeader>
+            <TableBody>
+              {group.rows.map((row) => (
+                <TableRow key={row.part} className="hover:bg-transparent">
+                  <TableCell className="pl-6 font-medium whitespace-normal">{row.part}</TableCell>
+                  <TableCell>
+                    <code className="rounded bg-muted px-1.5 py-0.5 text-xs">{row.file}</code>
+                  </TableCell>
+                  <TableCell className="text-right tabular-nums">{row.wordsLabel}</TableCell>
+                  <TableCell className="pr-6 whitespace-normal text-muted-foreground">{row.does}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+            <TableFooter>
+              <TableRow className="hover:bg-transparent">
+                <TableCell className="pl-6 font-semibold" colSpan={2}>
+                  Subtotal
+                </TableCell>
+                <TableCell className="text-right font-semibold tabular-nums">{group.subtotalLabel}</TableCell>
+                <TableCell />
+              </TableRow>
+            </TableFooter>
+          </Table>
+        </Card>
+      ))}
+      <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1 px-1 text-sm">
+        <p className="text-muted-foreground">Counted on {sp.countedOn}</p>
+        <p className="font-semibold">
+          Total (both groups): <span className="tabular-nums">{sp.totalLabel}</span>
+        </p>
+      </div>
     </CardSection>
   )
 }

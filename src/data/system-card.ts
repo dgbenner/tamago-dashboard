@@ -49,12 +49,17 @@ export const agentStoryElements: { key: keyof Omit<AgentStory, 'id' | 'name'>; l
   { key: 'works', label: 'I’ll know it works when' },
 ]
 
-const specTotal = cardJson.spec.rows.reduce((sum, row) => sum + row.words, 0)
+const specGroups = cardJson.spec.groups.map((group) => {
+  const subtotal = group.rows.reduce((sum, row) => sum + row.words, 0)
+  return { ...group, subtotal, subtotalLabel: formatCount(subtotal), rows: group.rows.map((row) => ({ ...row, wordsLabel: formatCount(row.words) })) }
+})
+const specTotal = specGroups.reduce((sum, group) => sum + group.subtotal, 0)
 export const systemCardSpec = {
   ...cardJson.spec,
-  rows: cardJson.spec.rows.map((row) => ({ ...row, wordsLabel: formatCount(row.words) })),
+  /** Rules the agents follow, then the prompts the app's AI runs on; each with its subtotal, summed here. */
+  groups: specGroups,
   totalLabel: formatCount(specTotal),
-  /** "About 13,000 words", rounded to the nearest thousand from the sum. */
+  /** "About 14,000 words", rounded to the nearest thousand from the sum. */
   aboutLabel: `About ${formatCount(Math.round(specTotal / 1000) * 1000)} words`,
 }
 
