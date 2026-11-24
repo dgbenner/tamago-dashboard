@@ -444,8 +444,8 @@
   "evaluation": {
     "id": "evaluation",
     "label": "05 · Evaluation",
-    "title": "What the Agents Get Right, How We Know",
-    "intro": "Each row takes one industry term and points to the piece of this project that does that job, with a link to the tool or artifact.",
+    "title": "How the Work Is Tested",
+    "intro": "The evaluation methods used across the AI industry, applied to Tamago’s own testing tools.",
     "rows": [
       {
         "term": "Eval Set",
