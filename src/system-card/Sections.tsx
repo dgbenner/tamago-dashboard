@@ -123,7 +123,7 @@ export function SystemCardProduct() {
     <CardSection id={p.id} label={p.label} title={p.title} intro={p.intro}>
       <div className="grid gap-4 md:grid-cols-3">
         {p.columns.map((column) => (
-          <Card key={column.id} className="gap-3">
+          <Card key={column.id} className="gap-3 bg-muted/70 shadow-none">
             <CardHeader>
               <CardTitle>{column.title}</CardTitle>
             </CardHeader>
