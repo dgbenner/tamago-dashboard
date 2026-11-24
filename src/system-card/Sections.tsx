@@ -15,6 +15,7 @@ import {
   systemCardStories,
   type EvalStatus,
 } from '@/data'
+import { MissingSourceNotice } from '@/layout/MissingSourceNotice'
 
 /** Small capitals for the second layer of text: column headers, tab labels, the fit headings (Dan, 2026-11-24). */
 const CAPS = 'text-[11px] font-bold tracking-[0.1em] uppercase'
@@ -263,6 +264,8 @@ export function SystemCardEvaluation() {
   const e = systemCardEvaluation
   return (
     <CardSection id={e.id} label={e.label} title={e.title} intro={e.intro}>
+      {/* Placeholder (Dan, 2026-11-24): the artifact column's wording is being redone; the banner says so until it is. */}
+      <MissingSourceNotice>{e.notice}</MissingSourceNotice>
       <Card className="py-0">
         <Table>
           <TableHeader>

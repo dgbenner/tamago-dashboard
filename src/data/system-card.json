@@ -446,6 +446,7 @@
     "label": "05 · Evaluation",
     "title": "How the Work Is Tested",
     "intro": "The evaluation methods used across the AI industry, applied to Tamago’s own testing tools.",
+    "notice": "Work in progress: the Project Artifact descriptions are still being rewritten.",
     "rows": [
       {
         "term": "Eval Set",
