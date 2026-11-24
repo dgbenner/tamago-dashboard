@@ -319,8 +319,8 @@
       },
       {
         "category": "Progress",
-        "do": "Honest numbers",
-        "avoid": "Predicting exam results"
+        "do": "Honest numbers mapped to CEFR levels",
+        "avoid": "In-app points, gems and levels"
       }
     ]
   },
