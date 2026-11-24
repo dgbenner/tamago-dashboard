@@ -205,25 +205,24 @@ export function SystemCardSpec() {
           with its own subtotal; the total of both and the count date sit under them. */}
       {sp.groups.map((group) => (
         <Card key={group.title} className="gap-0 pb-0">
-          <CardHeader className="pb-4">
+          <CardHeader className="pb-1">
             <CardTitle>{group.title}</CardTitle>
             <CardDescription>{group.intro}</CardDescription>
           </CardHeader>
           <Table className="min-w-[720px] table-fixed">
             <TableHeader>
               <TableRow>
-                <TableHead className={`w-[26%] pl-6 ${CAPS} text-muted-foreground`}>Part</TableHead>
-                <TableHead className={`w-[26%] ${CAPS} text-muted-foreground`}>File</TableHead>
-                <TableHead className={`w-[9%] text-right ${CAPS} text-muted-foreground`}>Words</TableHead>
+                <TableHead className={`w-[36%] pl-6 ${CAPS} text-muted-foreground`}>Part / File</TableHead>
+                <TableHead className={`w-[10%] text-right ${CAPS} text-muted-foreground`}>Words</TableHead>
                 <TableHead className={`pr-6 ${CAPS} text-muted-foreground`}>What it does</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
               {group.rows.map((row) => (
                 <TableRow key={row.part} className="hover:bg-transparent">
-                  <TableCell className="pl-6 font-medium whitespace-normal">{row.part}</TableCell>
-                  <TableCell>
-                    <code className="rounded bg-muted px-1.5 py-0.5 text-xs">{row.file}</code>
+                  <TableCell className="pl-6 whitespace-normal">
+                    <p className="font-medium">{row.part}</p>
+                    <p className={`mt-0.5 ${CAPS} font-medium text-muted-foreground`}>{row.file}</p>
                   </TableCell>
                   <TableCell className="text-right tabular-nums">{row.wordsLabel}</TableCell>
                   <TableCell className="pr-6 whitespace-normal text-muted-foreground">{row.does}</TableCell>
@@ -232,7 +231,7 @@ export function SystemCardSpec() {
             </TableBody>
             <TableFooter>
               <TableRow className="hover:bg-transparent">
-                <TableCell className="pl-6 font-semibold" colSpan={2}>
+                <TableCell className="pl-6 font-semibold">
                   Subtotal
                 </TableCell>
                 <TableCell className="text-right font-semibold tabular-nums">{group.subtotalLabel}</TableCell>
