@@ -265,7 +265,7 @@
     "id": "model-scope",
     "label": "03 · Teaching Rules",
     "title": "What Tamago Does, and What It Won’t",
-    "intro": "Every lesson is written and checked in advance. The AI runs live only when you chat, ask why an answer was wrong, get notes on your writing, or request extra practice. The same rules apply to both.",
+    "intro": "Every lesson is written and checked in advance. The AI runs live only when you chat, ask why an answer was wrong, get notes on your writing, or request extra practice.",
     "goalLabel": "Goal",
     "goal": "Help learners practice real conversation at their level.",
     "tableTitle": "In and Out of Scope",
