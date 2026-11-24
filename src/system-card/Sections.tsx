@@ -276,10 +276,10 @@ export function SystemCardEvaluation() {
             {e.rows.map((row) => (
               <TableRow key={row.term} className="align-top hover:bg-transparent">
                 <TableCell className="py-3 align-top pl-6 font-medium whitespace-normal">{row.term}</TableCell>
-                <TableCell className="min-w-72 py-3 whitespace-normal">{row.artifact}</TableCell>
+                <TableCell className="min-w-72 py-3 align-top whitespace-normal">{row.artifact}</TableCell>
                 <TableCell className="py-3 align-top pr-6">
                   <div className="flex flex-col items-start gap-1.5">
-                    <Badge variant={STATUS_VARIANT[row.status]}>{evalStatusLabels[row.status]}</Badge>
+                    <Badge variant={STATUS_VARIANT[row.status]} className={row.status === 'built' ? 'border-transparent bg-chart-6 text-white' : undefined}>{evalStatusLabels[row.status]}</Badge>
                     {row.link && row.href ? (
                       <a href={row.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm underline underline-offset-4 hover:text-muted-foreground">
                         {row.link}
