@@ -55,9 +55,7 @@
           "Present a guess as a fact"
         ],
         "decides": [
-          "What goes in a batch",
-          "Which agent gets it",
-          "What waits"
+          "How to group notes into tasks"
         ],
         "stops": [
           "The instruction is written and labeled for one agent"
