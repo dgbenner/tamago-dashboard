@@ -1,5 +1,5 @@
 {
-  "takenAt": "2026-11-23T16:14:00-06:00",
+  "takenAt": "2026-11-24T14:52:00-06:00",
   "source": {
     "repo": "dgbenner/tamago",
     "branch": "main",
@@ -543,12 +543,6 @@
   "activity": {
     "days": [
       {
-        "date": "2026-11-10",
-        "commits": 106,
-        "pushes": 77,
-        "deploys": 0
-      },
-      {
         "date": "2026-11-11",
         "commits": 21,
         "pushes": 14,
@@ -617,7 +611,7 @@
       {
         "date": "2026-11-22",
         "commits": 28,
-        "pushes": 4,
+        "pushes": 6,
         "deploys": 4
       },
       {
@@ -625,6 +619,12 @@
         "commits": 7,
         "pushes": 0,
         "deploys": 1
+      },
+      {
+        "date": "2026-11-24",
+        "commits": 0,
+        "pushes": 0,
+        "deploys": 0
       }
     ],
     "firstCommit": "2026-11-07T08:41:36-06:00",
@@ -917,6 +917,20 @@
       },
       {
         "date": "2026-11-23",
+        "lessons": {
+          "fr": 3399,
+          "es": 3048,
+          "de": 3192,
+          "it": 2837,
+          "pt": 2758,
+          "nl": 2018,
+          "pl": 3107,
+          "da": 1995,
+          "sv": 2081
+        }
+      },
+      {
+        "date": "2026-11-24",
         "lessons": {
           "fr": 3399,
           "es": 3048,
