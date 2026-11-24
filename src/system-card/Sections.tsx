@@ -16,6 +16,9 @@ import {
   type EvalStatus,
 } from '@/data'
 
+/** Small capitals for the second layer of text: column headers, tab labels, the fit headings (Dan, 2026-11-24). */
+const CAPS = 'text-[11px] font-bold tracking-[0.1em] uppercase'
+
 /** One numbered section of the System Card: a small label, the title, one line of intro, then its content. */
 function CardSection({ id, label, title, intro, children }: { id: string; label: string; title: string; intro: string; children: ReactNode }) {
   return (
@@ -86,7 +89,7 @@ export function SystemCardStories() {
             <TabsTrigger
               key={agent.id}
               value={agent.id}
-              className="relative h-auto! flex-none! cursor-pointer data-[state=active]:cursor-default rounded-t-lg! rounded-b-none! border! border-b-0! border-foreground! bg-foreground! px-3! py-2.5! text-sm text-background/75! shadow-none! ring-0! outline-none! after:hidden hover:bg-foreground/85! hover:text-background! sm:px-5! data-[state=active]:z-10 data-[state=active]:border-border! data-[state=active]:bg-card! data-[state=active]:text-foreground! data-[state=active]:before:absolute data-[state=active]:before:inset-x-0 data-[state=active]:before:bottom-0 data-[state=active]:before:h-px data-[state=active]:before:bg-card data-[state=active]:before:content-['']"
+              className="relative h-auto! flex-none! cursor-pointer data-[state=active]:cursor-default rounded-t-lg! rounded-b-none! border! border-b-0! border-foreground! bg-foreground! px-3! py-3! text-[11px]! font-bold! tracking-[0.1em] uppercase text-background/75! shadow-none! ring-0! outline-none! after:hidden hover:bg-foreground/85! hover:text-background! sm:px-5! data-[state=active]:z-10 data-[state=active]:border-border! data-[state=active]:bg-card! data-[state=active]:text-foreground! data-[state=active]:before:absolute data-[state=active]:before:inset-x-0 data-[state=active]:before:bottom-0 data-[state=active]:before:h-px data-[state=active]:before:bg-card data-[state=active]:before:content-['']"
             >
               {agent.name}
             </TabsTrigger>
@@ -131,7 +134,7 @@ export function SystemCardProduct() {
       <Card className="grid gap-0 divide-y overflow-hidden py-0 shadow-none md:grid-cols-3 md:divide-x md:divide-y-0">
         {p.columns.map((column) => (
           <div key={column.id} className={`pt-[30px] pr-8 pb-6 pl-[30px] ${column.id === 'maybe' ? 'bg-muted/60' : ''}`}>
-            <h3 className={`mb-3 text-[11px] font-bold tracking-[0.1em] uppercase ${FIT_HEADING[column.id] ?? ''}`}>{column.title}</h3>
+            <h3 className={`mb-3 ${CAPS} ${FIT_HEADING[column.id] ?? ''}`}>{column.title}</h3>
             <div className="text-sm leading-relaxed">
               <Lines items={column.items} />
             </div>
@@ -160,9 +163,9 @@ export function SystemCardScope() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-28 pl-6 sm:w-44">Category</TableHead>
-              <TableHead>Do</TableHead>
-              <TableHead>Avoid</TableHead>
+              <TableHead className={`w-28 pl-6 sm:w-44 ${CAPS} text-muted-foreground`}>Category</TableHead>
+              <TableHead className={`${CAPS} text-muted-foreground`}>Do</TableHead>
+              <TableHead className={`${CAPS} text-muted-foreground`}>Avoid</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -204,10 +207,10 @@ export function SystemCardSpec() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="pl-6">Part</TableHead>
-              <TableHead>File</TableHead>
-              <TableHead className="text-right">Words</TableHead>
-              <TableHead className="pr-6">What it does</TableHead>
+              <TableHead className={`pl-6 ${CAPS} text-muted-foreground`}>Part</TableHead>
+              <TableHead className={`${CAPS} text-muted-foreground`}>File</TableHead>
+              <TableHead className={`text-right ${CAPS} text-muted-foreground`}>Words</TableHead>
+              <TableHead className={`pr-6 ${CAPS} text-muted-foreground`}>What it does</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
@@ -249,9 +252,9 @@ export function SystemCardEvaluation() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="w-32 pl-6 sm:w-52">Industry Term</TableHead>
-              <TableHead>Project Artifact</TableHead>
-              <TableHead className="w-56 pr-6">Status</TableHead>
+              <TableHead className={`w-32 pl-6 sm:w-52 ${CAPS} text-muted-foreground`}>Industry Term</TableHead>
+              <TableHead className={`${CAPS} text-muted-foreground`}>Project Artifact</TableHead>
+              <TableHead className={`w-56 pr-6 ${CAPS} text-muted-foreground`}>Status</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
