@@ -129,30 +129,27 @@
       {
         "id": "design-system",
         "name": "Design System",
-        "story": "As the person orchestrating the build, when the app’s screens repeat the same pieces, I want them built once as a component library in Storybook, in desktop, iOS and Android styles, so that every screen is built from the same parts.",
+        "story": "As the orchestrator, when screens repeat the same pieces, I want each one built once in a shared library, so every screen uses the same parts.",
         "may": [
-          "Lift shared pieces out of the app into components",
-          "Write a Storybook story for each one",
-          "Draw each component in Tamago, iOS and Android styles",
-          "List every component in COMPONENTS.md"
+          "Move repeated pieces of the app into shared components",
+          "Give each component a page in the library showing its states",
+          "Keep the component list (COMPONENTS.md) current"
         ],
         "never": [
-          "Change how the app looks while lifting a component",
-          "Hand-write a copy of a component that exists",
-          "Put the iOS or Android styles into the app",
-          "Republish the Storybook without me"
+          "Change how the app looks while moving a piece",
+          "Build a second copy of a component that already exists",
+          "Publish the library without me"
         ],
         "decides": [
           "Which pieces become components",
-          "How each one adapts to iOS and Android",
-          "What goes on the list of proposals"
+          "Which near-duplicates to merge, and which to flag for me"
         ],
         "stops": [
-          "The component is in the library with its story and its entry, and the app is unchanged"
+          "The component is in the library and on the list, and the app looks the same."
         ],
         "works": [
-          "The app’s built CSS is identical before and after",
-          "Screenshots match",
+          "The app’s styles are identical before and after",
+          "Before-and-after screenshots match",
           "Every screen uses library components"
         ]
       },
