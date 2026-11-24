@@ -283,7 +283,7 @@
     "avoidHeading": "Instead of",
     "rows": [
       {
-        "category": "Meanings and grammar",
+        "category": "Meanings and Grammar",
         "do": "Taken from Wiktionary",
         "avoid": "The AI’s memory"
       },
@@ -303,7 +303,7 @@
         "avoid": "Grading pronunciation"
       },
       {
-        "category": "Asking for help",
+        "category": "Asking for Help",
         "do": "Help phrases in the language (repeat, slow down, spell, explain)",
         "avoid": "Switching to English"
       },
