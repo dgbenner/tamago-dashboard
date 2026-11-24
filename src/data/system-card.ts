@@ -29,6 +29,12 @@ export interface EvalRow {
 }
 
 export const systemCardHeader = cardJson.header
+
+/** The contents list under the title: one entry per numbered section, label and number read from "01 · Agent Stories". */
+export const systemCardContents = [cardJson.stories, cardJson.product, cardJson.scope, cardJson.spec, cardJson.evaluation].map((section) => {
+  const [num, label] = section.label.split(' · ')
+  return { id: section.id, num, label }
+})
 export const systemCardStories = { ...cardJson.stories, agents: cardJson.stories.agents as AgentStory[] }
 export const systemCardProduct = cardJson.product
 export const systemCardScope = cardJson.scope

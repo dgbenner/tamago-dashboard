@@ -17,13 +17,13 @@ import {
 } from '@/data'
 
 /** One numbered section of the System Card: a small label, the title, one line of intro, then its content. */
-function CardSection({ label, title, intro, children }: { label: string; title: string; intro: string; children: ReactNode }) {
+function CardSection({ id, label, title, intro, children }: { id: string; label: string; title: string; intro: string; children: ReactNode }) {
   return (
-    <section aria-label={title} className="flex min-w-0 flex-col gap-4">
-      <div className="flex max-w-3xl flex-col gap-1">
-        <p className="text-xs font-medium tracking-wide text-muted-foreground uppercase">{label}</p>
-        <h2 className="text-xl font-semibold tracking-tight">{title}</h2>
-        <p className="text-sm text-muted-foreground">{intro}</p>
+    <section id={id} aria-label={title} className="flex min-w-0 scroll-mt-8 flex-col gap-4">
+      <div className="mb-4 flex max-w-3xl flex-col">
+        <p className="mb-3 text-xs font-medium tracking-wide text-muted-foreground uppercase">{label}</p>
+        <h2 className="text-2xl font-semibold tracking-tight sm:text-[1.75rem] sm:leading-tight">{title}</h2>
+        <p className="mt-0.5 text-sm text-muted-foreground">{intro}</p>
       </div>
       {children}
     </section>
@@ -56,7 +56,7 @@ function Lines({ items }: { items: string[] }) {
 export function SystemCardStories() {
   const s = systemCardStories
   return (
-    <CardSection label={s.label} title={s.title} intro={s.intro}>
+    <CardSection id={s.id} label={s.label} title={s.title} intro={s.intro}>
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
         <p className="max-w-xl text-sm">{s.definition}</p>
         <Card className="gap-2 py-4">
@@ -112,7 +112,7 @@ export function SystemCardStories() {
 export function SystemCardProduct() {
   const p = systemCardProduct
   return (
-    <CardSection label={p.label} title={p.title} intro={p.intro}>
+    <CardSection id={p.id} label={p.label} title={p.title} intro={p.intro}>
       <div className="grid gap-4 md:grid-cols-3">
         {p.columns.map((column) => (
           <Card key={column.id} className="gap-3">
@@ -133,7 +133,7 @@ export function SystemCardProduct() {
 export function SystemCardScope() {
   const m = systemCardScope
   return (
-    <CardSection label={m.label} title={m.title} intro={m.intro}>
+    <CardSection id={m.id} label={m.label} title={m.title} intro={m.intro}>
       <Card className="gap-1 border-tamago-yellow bg-tamago-yellow/20 py-4">
         <CardContent className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-4">
           <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Model Goal</span>
@@ -182,7 +182,7 @@ export function SystemCardScope() {
 export function SystemCardSpec() {
   const sp = systemCardSpec
   return (
-    <CardSection label={sp.label} title={sp.title} intro={`${sp.intro} ${sp.aboutLabel} of English, no code.`}>
+    <CardSection id={sp.id} label={sp.label} title={sp.title} intro={`${sp.intro} ${sp.aboutLabel} of English, no code.`}>
       <Card className="gap-0 pb-0">
         <CardHeader className="pb-4">
           <CardTitle>Rules and Prompts</CardTitle>
@@ -231,7 +231,7 @@ const STATUS_VARIANT: Record<EvalStatus, 'default' | 'secondary' | 'outline'> = 
 export function SystemCardEvaluation() {
   const e = systemCardEvaluation
   return (
-    <CardSection label={e.label} title={e.title} intro={e.intro}>
+    <CardSection id={e.id} label={e.label} title={e.title} intro={e.intro}>
       <Card className="py-0">
         <Table>
           <TableHeader>
