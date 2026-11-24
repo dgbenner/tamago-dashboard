@@ -187,7 +187,7 @@
       {
         "id": "debugger",
         "name": "Debugger",
-        "story": "As the orchestrator, when something breaks on a real device, I want one fresh session on that one bug, so that the fix comes with a cause and a test.",
+        "story": "As the orchestrator, when something breaks on a real device, I want a fresh session for the bug, so that the fix comes with the root cause and a test.",
         "may": [
           "Reproduce the bug on a simulated iPhone and iPad",
           "Read the code",
