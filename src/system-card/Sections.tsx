@@ -57,10 +57,12 @@ export function SystemCardStories() {
   const s = systemCardStories
   return (
     <CardSection id={s.id} label={s.label} title={s.title} intro={s.intro}>
-      <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_minmax(0,1.1fr)]">
-        <p className="max-w-xl text-sm">{s.definition}</p>
-        <Card className="gap-2 py-4">
-          <CardContent className="flex flex-col gap-1.5 px-4 text-sm">
+      <div className="my-6 grid items-center gap-6 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,1fr)] lg:gap-10">
+        <Card className="gap-3 py-5">
+          <CardHeader className="px-5">
+            <CardTitle>{s.templateTitle}</CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-col gap-1.5 px-5 text-sm">
             {s.template.map((line) => (
               <p key={line.lead}>
                 <strong className="font-semibold">{line.lead}</strong> <span className="text-muted-foreground">{line.text}</span>
@@ -68,18 +70,25 @@ export function SystemCardStories() {
             ))}
           </CardContent>
         </Card>
+        <p className="max-w-xl text-sm">{s.definition}</p>
       </div>
-      <Tabs defaultValue={s.agents[0].id} className="gap-3">
-        <TabsList variant="line" aria-label="Agent">
+      {/* Folder tabs (Dan, 2026-11-24): each agent a tab with its own border, the open one joined to the table card
+          below it (a strip in the card's color covers the card's top border under the open tab). */}
+      <Tabs defaultValue={s.agents[0].id} className="mt-4 gap-0">
+        <TabsList aria-label="Agent" className="h-auto w-full justify-start gap-1 rounded-none bg-transparent p-0 sm:gap-1.5">
           {s.agents.map((agent) => (
-            <TabsTrigger key={agent.id} value={agent.id}>
+            <TabsTrigger
+              key={agent.id}
+              value={agent.id}
+              className="relative h-auto flex-none rounded-t-lg rounded-b-none border border-b-0 border-border bg-muted px-3 py-2.5 text-sm text-muted-foreground shadow-none after:hidden hover:bg-muted/60 hover:text-foreground focus-visible:ring-inset sm:px-5 data-[state=active]:z-10 data-[state=active]:border-border data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-none data-[state=active]:before:absolute data-[state=active]:before:inset-x-0 data-[state=active]:before:-bottom-0.5 data-[state=active]:before:h-1 data-[state=active]:before:bg-card data-[state=active]:before:content-[''] dark:data-[state=active]:border-border dark:data-[state=active]:bg-card"
+            >
               {agent.name}
             </TabsTrigger>
           ))}
         </TabsList>
         {s.agents.map((agent) => (
           <TabsContent key={agent.id} value={agent.id}>
-            <Card className="py-0">
+            <Card className="rounded-tl-none py-0">
               <Table>
                 <TableHeader>
                   <TableRow>
