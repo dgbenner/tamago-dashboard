@@ -42,7 +42,7 @@
       {
         "id": "planner",
         "name": "Planner",
-        "story": "As the person orchestrating the build, when I think out loud in voice notes, I want them turned into specs and labeled instructions, so that each agent gets one clear task.",
+        "story": "As the orchestrator, when I talk through ideas, I want them turned into tasks.",
         "may": [
           "Collect my notes",
           "Write specs",
