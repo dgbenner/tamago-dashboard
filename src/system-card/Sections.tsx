@@ -86,7 +86,7 @@ export function SystemCardStories() {
             <TabsTrigger
               key={agent.id}
               value={agent.id}
-              className="relative h-auto! flex-none! rounded-t-lg! rounded-b-none! border! border-b-0! border-foreground! bg-foreground! px-3! py-2.5! text-sm text-background/75! shadow-none! ring-0! outline-none! after:hidden hover:bg-foreground/85! hover:text-background! sm:px-5! data-[state=active]:z-10 data-[state=active]:border-border! data-[state=active]:bg-card! data-[state=active]:text-foreground! data-[state=active]:before:absolute data-[state=active]:before:inset-x-0 data-[state=active]:before:bottom-0 data-[state=active]:before:h-px data-[state=active]:before:bg-card data-[state=active]:before:content-['']"
+              className="relative h-auto! flex-none! cursor-pointer data-[state=active]:cursor-default rounded-t-lg! rounded-b-none! border! border-b-0! border-foreground! bg-foreground! px-3! py-2.5! text-sm text-background/75! shadow-none! ring-0! outline-none! after:hidden hover:bg-foreground/85! hover:text-background! sm:px-5! data-[state=active]:z-10 data-[state=active]:border-border! data-[state=active]:bg-card! data-[state=active]:text-foreground! data-[state=active]:before:absolute data-[state=active]:before:inset-x-0 data-[state=active]:before:bottom-0 data-[state=active]:before:h-px data-[state=active]:before:bg-card data-[state=active]:before:content-['']"
             >
               {agent.name}
             </TabsTrigger>
