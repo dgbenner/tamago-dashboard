@@ -248,7 +248,7 @@ export function SystemCardSpec() {
           <TableRow className="border-0 hover:bg-transparent">
             <TableCell className="w-[30%] pl-6 font-semibold whitespace-normal">Total (both groups)</TableCell>
             <TableCell className="w-[12%] pr-6 text-right font-semibold tabular-nums">{sp.totalLabel}</TableCell>
-            <TableCell className="pr-6 text-right text-muted-foreground">Counted on {sp.countedOn}</TableCell>
+            <TableCell className="pr-6 text-right text-muted-foreground">Last checked: {sp.countedOn}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
