@@ -404,7 +404,7 @@
         ]
       },
       {
-        "title": "Prompts the App’s AI Runs On",
+        "title": "Prompts Tamago’s AI Elements Run On",
         "intro": "Sent to the AI each time a learner chats, asks why an answer was wrong, or requests practice.",
         "rows": [
           {
