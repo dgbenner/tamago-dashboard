@@ -304,13 +304,13 @@
       },
       {
         "category": "Speaking",
-        "do": "Listen, record, compare",
-        "avoid": "Grading pronunciation"
+        "do": "Listen and compare your recording",
+        "avoid": "Grading pronunciation (for now)"
       },
       {
-        "category": "Asking for Help",
-        "do": "Help phrases in the language (repeat, slow down, spell, explain)",
-        "avoid": "Switching to English"
+        "category": "Getting Unstuck",
+        "do": "Teaches the phrases for asking someone to repeat, slow down or spell it",
+        "avoid": "Tapping a word for its translation"
       },
       {
         "category": "Feedback",

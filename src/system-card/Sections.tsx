@@ -177,13 +177,13 @@ export function SystemCardScope() {
                 <TableCell className="pl-6 font-medium">{row.category}</TableCell>
                 <TableCell className="whitespace-normal">
                   <span className="flex items-start gap-2">
-                    <Check aria-label={m.doHeading} className="mt-0.5 size-4 shrink-0 text-foreground" />
+                    <Check aria-label={m.doHeading} className="mt-0.5 size-4 shrink-0 text-chart-6" />
                     {row.do}
                   </span>
                 </TableCell>
                 <TableCell className="whitespace-normal text-muted-foreground">
                   <span className="flex items-start gap-2">
-                    <X aria-label={m.avoidHeading} className="mt-0.5 size-4 shrink-0" />
+                    <X aria-label={m.avoidHeading} className="mt-0.5 size-4 shrink-0 text-destructive" />
                     {row.avoid}
                   </span>
                 </TableCell>
