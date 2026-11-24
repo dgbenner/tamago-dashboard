@@ -70,7 +70,7 @@ export function SystemCardStories() {
             ))}
           </CardContent>
         </Card>
-        <figcaption className="px-1 text-xs leading-relaxed text-muted-foreground">{s.definition}</figcaption>
+        <figcaption className="px-1 text-center text-xs leading-relaxed text-muted-foreground/70 italic">{s.definition}</figcaption>
       </figure>
       {/* Folder tabs (Dan, 2026-11-24): each agent a tab with its own border, the open one joined to the table card
           below it (a strip in the card's color covers the card's top border under the open tab). */}

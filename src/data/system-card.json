@@ -9,8 +9,8 @@
     "label": "01 · Agent Stories",
     "title": "Each Agent Has One Job and Clear Limits",
     "intro": "Every role is written like a user story: what it’s for, what it can do, what it must never do, and how we know it worked.",
-    "definition": "The agent story is a little more definition around the interactions or decisions made by an agent to help the user go in a desired direction or reach goals.",
-    "templateTitle": "The Agent Story Template",
+    "definition": "An agent story is a user story adapted for an AI agent.",
+    "templateTitle": "Agent Story Template",
     "template": [
       {
         "lead": "As",
