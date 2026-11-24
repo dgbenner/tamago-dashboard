@@ -127,7 +127,7 @@ export function SystemCardProduct() {
             <CardHeader>
               <CardTitle>{column.title}</CardTitle>
             </CardHeader>
-            <CardContent className="text-sm">
+            <CardContent className="pr-10 text-sm">
               <Lines items={column.items} />
             </CardContent>
           </Card>
