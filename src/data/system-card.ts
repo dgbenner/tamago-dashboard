@@ -12,8 +12,6 @@ const EVAL_STATUSES = ['built', 'progress', 'planned'] as const
 export interface AgentStory {
   id: string
   name: string
-  /** The table's heading when "The <name>’s agent story" doesn't read well. */
-  heading?: string
   story: string
   may: string[]
   never: string[]
@@ -42,7 +40,7 @@ export const systemCardProduct = cardJson.product
 export const systemCardScope = cardJson.scope
 
 /** The rows of an agent story, in the order the template names them. */
-export const agentStoryElements: { key: keyof Omit<AgentStory, 'id' | 'name' | 'heading'>; label: string }[] = [
+export const agentStoryElements: { key: keyof Omit<AgentStory, 'id' | 'name'>; label: string }[] = [
   { key: 'story', label: 'As / when / I want / so that' },
   { key: 'may', label: 'It may' },
   { key: 'never', label: 'It must never' },

@@ -75,13 +75,18 @@ export function SystemCardStories() {
       {/* Folder tabs (Dan, 2026-11-24): each agent a tab with its own border, the open one joined to the table card
           below it (the row overlaps the card's top border by a pixel, and a strip in the card's color covers it under the open tab).
           Six tabs are wider than a phone, so the row scrolls sideways there. */}
-      <Tabs defaultValue={s.agents[0].id} className="mt-4 gap-0">
-        <TabsList aria-label="Agent" className="relative z-10 -mb-px h-auto w-full justify-start gap-1 overflow-x-auto rounded-none bg-transparent p-0 [scrollbar-width:none] sm:gap-1.5">
+      <h3 className="mt-4 text-base leading-snug font-semibold">{s.tabsTitle}</h3>
+      {/* The library's tab classes are merged without dropping conflicts, so the folder-tab look is marked ! to win
+          (without it the row kept its 36 px height and cut the tabs' tops, and Firefox drew the library's focus ring
+          after a click). No separate focus mark: the arrow keys move focus and open that tab together (Radix's automatic
+          activation), so the open tab is where keyboard focus is. */}
+      <Tabs defaultValue={s.agents[0].id} className="gap-0">
+        <TabsList aria-label="Agent" className="relative z-10 -mb-px h-auto! w-full justify-start gap-1 overflow-x-auto overflow-y-hidden rounded-none! bg-transparent! p-0! [scrollbar-width:none] sm:gap-1.5">
           {s.agents.map((agent) => (
             <TabsTrigger
               key={agent.id}
               value={agent.id}
-              className="relative h-auto flex-none rounded-t-lg rounded-b-none border border-b-0 border-border bg-muted px-3 py-2.5 text-sm text-muted-foreground shadow-none after:hidden hover:bg-muted/60 hover:text-foreground focus-visible:ring-inset sm:px-5 data-[state=active]:z-10 data-[state=active]:border-border data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-none data-[state=active]:before:absolute data-[state=active]:before:inset-x-0 data-[state=active]:before:bottom-0 data-[state=active]:before:h-px data-[state=active]:before:bg-card data-[state=active]:before:content-[''] dark:data-[state=active]:border-border dark:data-[state=active]:bg-card"
+              className="relative h-auto! flex-none! rounded-t-lg! rounded-b-none! border! border-b-0! border-border! bg-muted! px-3! py-2.5! text-sm text-muted-foreground! shadow-none! ring-0! outline-none! after:hidden hover:bg-muted/60! hover:text-foreground! sm:px-5! data-[state=active]:z-10 data-[state=active]:bg-card! data-[state=active]:text-foreground! data-[state=active]:before:absolute data-[state=active]:before:inset-x-0 data-[state=active]:before:bottom-0 data-[state=active]:before:h-px data-[state=active]:before:bg-card data-[state=active]:before:content-['']"
             >
               {agent.name}
             </TabsTrigger>
@@ -91,18 +96,12 @@ export function SystemCardStories() {
           <TabsContent key={agent.id} value={agent.id}>
             <Card className="rounded-tl-none py-0">
               <Table>
-                <TableHeader>
-                  <TableRow>
-                    <TableHead className="w-28 sm:w-56">Story element</TableHead>
-                    <TableHead>{agent.heading ?? `The ${agent.name}’s agent story`}</TableHead>
-                  </TableRow>
-                </TableHeader>
                 <TableBody>
                   {agentStoryElements.map(({ key, label }) => {
                     const value = agent[key]
                     return (
                       <TableRow key={key} className="align-top hover:bg-transparent">
-                        <TableCell className="py-3 align-top font-medium text-muted-foreground">{label}</TableCell>
+                        <TableCell className="w-28 py-3 align-top font-medium text-muted-foreground sm:w-56">{label}</TableCell>
                         <TableCell className="py-3 align-top whitespace-normal">{Array.isArray(value) ? <Lines items={value} /> : <p className="max-w-2xl">{value}</p>}</TableCell>
                       </TableRow>
                     )

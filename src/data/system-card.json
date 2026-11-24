@@ -37,6 +37,7 @@
         "text": "[the test and the number]"
       }
     ],
+    "tabsTitle": "Agent Stories",
     "agents": [
       {
         "id": "planner",
@@ -130,7 +131,6 @@
       {
         "id": "design-system",
         "name": "Design System",
-        "heading": "The design-system agent’s story",
         "story": "As the person orchestrating the build, when the app’s screens repeat the same pieces, I want them built once as a component library in Storybook, in desktop, iOS and Android styles, so that every screen is built from the same parts.",
         "may": [
           "Lift shared pieces out of the app into components",
