@@ -213,10 +213,6 @@
           "The bug doesn’t come back"
         ]
       }
-    ],
-    "outro": [
-      "One builder splits its work among helper agents, each in its own copy of the code. A separate judge reviews the results. Each agent plans its own steps inside written rules.",
-      "The rules live in one file that every session reads first, so every change to them is tracked."
     ]
   },
   "product": {

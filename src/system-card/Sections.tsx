@@ -112,7 +112,6 @@ export function SystemCardStories() {
           </TabsContent>
         ))}
       </Tabs>
-      <Outro lines={s.outro} />
     </CardSection>
   )
 }
