@@ -67,8 +67,8 @@
       },
       {
         "id": "builder",
-        "name": "Code Builder",
-        "story": "As the person orchestrating the build, when I hand over a spec or a batch of notes, I want working code and course content, tested and live, so that I can judge the result instead of supervising the work.",
+        "name": "Coder",
+        "story": "As the orchestrator, when I hand over a task, I want it built, tested and live, so I can judge the result instead of supervising the work.",
         "may": [
           "Read the spec and the project rules",
           "Write code and course content",
