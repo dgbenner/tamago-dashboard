@@ -16,6 +16,8 @@ import {
   type EvalStatus,
 } from '@/data'
 
+import { GoalOptions } from './GoalOptions'
+
 /** Small capitals for the second layer of text: column headers, tab labels, the fit headings (Dan, 2026-11-24). */
 const CAPS = 'text-[11px] font-bold tracking-[0.1em] uppercase'
 
@@ -153,12 +155,7 @@ export function SystemCardScope() {
   const m = systemCardScope
   return (
     <CardSection id={m.id} label={m.label} title={m.title} intro={m.intro}>
-      <Card className="gap-1 border-tamago-yellow bg-tamago-yellow/20 py-4">
-        <CardContent className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-4">
-          <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">{m.goalLabel}</span>
-          <span className="font-semibold">{m.goal}</span>
-        </CardContent>
-      </Card>
+      <GoalOptions label={m.goalLabel} goal={m.goal} />
       <Card className="gap-0 pb-0">
         <CardHeader className="pb-4">
           <CardTitle>{m.tableTitle}</CardTitle>
