@@ -158,7 +158,7 @@
       {
         "id": "judge",
         "name": "Judge",
-        "story": "As the person orchestrating the build, when a builder finishes a course part or a screen, I want an independent review, so that the builder isn’t grading its own work.",
+        "story": "As the orchestrator, when a builder finishes work, I want an independent review, so the builder isn’t grading its own work.",
         "may": [
           "Review every new sentence and screen",
           "Give each sentence a verdict: Use, Reject, Keep, Fix or Cut",
