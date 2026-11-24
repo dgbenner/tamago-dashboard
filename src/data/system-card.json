@@ -293,9 +293,14 @@
         "avoid": "Words not taught yet"
       },
       {
-        "category": "Corrections",
-        "do": "Two or three, after the conversation",
-        "avoid": "Interrupting to correct"
+        "category": "Typos and Accents",
+        "do": "Forgives small slips",
+        "avoid": "Failing a missing accent"
+      },
+      {
+        "category": "Chat Corrections",
+        "do": "TBD",
+        "avoid": "TBD"
       },
       {
         "category": "Speaking",
