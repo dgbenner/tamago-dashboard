@@ -1,4 +1,5 @@
 {
+  "gate": {"title": "Enter the Password", "text": "You only need to do this once.", "password": "1234", "wrong": "That isn’t the password.", "button": "Open"},
   "header": {
     "title": "System Card",
     "subtitle": "A plain-language record of how an AI product works and how it’s checked.",

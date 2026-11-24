@@ -1,4 +1,4 @@
-import { Check, ExternalLink, X } from 'lucide-react'
+import { Check, X } from 'lucide-react'
 import type { ReactNode } from 'react'
 
 import { Badge } from '@/components/ui/badge'
@@ -16,6 +16,8 @@ import {
   type EvalStatus,
 } from '@/data'
 import { MissingSourceNotice } from '@/layout/MissingSourceNotice'
+
+import { DocLink } from './DocLink'
 
 /** Small capitals for the second layer of text: column headers, tab labels, the fit headings (Dan, 2026-11-24). */
 const CAPS = 'text-[11px] font-bold tracking-[0.1em] uppercase'
@@ -223,7 +225,7 @@ export function SystemCardSpec() {
                 <TableRow key={row.part} className="hover:bg-transparent">
                   <TableCell className="pl-6 whitespace-normal">
                     <p className="font-medium">{row.part}</p>
-                    <p className={`mt-0.5 ${CAPS} font-medium text-muted-foreground`}>{row.file}</p>
+                    <DocLink id={row.part} title={row.part} label={row.file} className={`mt-0.5 ${CAPS}`} />
                   </TableCell>
                   <TableCell className="pr-6 text-right tabular-nums">{row.wordsLabel}</TableCell>
                   <TableCell className="pr-6 whitespace-normal text-muted-foreground">{row.does}</TableCell>
@@ -283,15 +285,7 @@ export function SystemCardEvaluation() {
                 <TableCell className="py-3 align-top pr-6">
                   <div className="flex flex-col items-start gap-1.5">
                     <Badge variant={STATUS_VARIANT[row.status]} className={row.status === 'built' ? 'border-transparent bg-chart-6 text-white' : undefined}>{evalStatusLabels[row.status]}</Badge>
-                    {row.link && row.href ? (
-                      <a href={row.href} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 text-sm underline underline-offset-4 hover:text-muted-foreground">
-                        {row.link}
-                        <ExternalLink aria-hidden="true" className="size-3.5" />
-                        <span className="sr-only">(opens in a new tab)</span>
-                      </a>
-                    ) : row.link ? (
-                      <span className="text-sm text-muted-foreground">{row.link}</span>
-                    ) : null}
+                    {row.link ? <DocLink id={row.term} title={row.term} label={row.link} /> : null}
                   </div>
                 </TableCell>
               </TableRow>

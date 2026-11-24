@@ -28,6 +28,7 @@ here. If you need something that isn't listed, stop and propose it (see `CLAUDE.
 | [Tooltip](#tooltip) | `tooltip.tsx` | A short explanation on hover or focus |
 | [Alert](#alert) | `alert.tsx` | A banner that calls out something missing or wrong |
 | [Accordion](#accordion) | `accordion.tsx` | A section that opens and closes, such as a page's sources |
+| [Dialog](#dialog) | `dialog.tsx` | A window over the page, closed with X, Escape or a click outside |
 | [Chart](#chart) | `chart.tsx` | The wrapper around every Recharts chart |
 
 ---
@@ -221,6 +222,13 @@ Tamago yellow tokens (`border-tamago-yellow bg-tamago-yellow/20`). An icon from 
   </AccordionItem>
 </Accordion>
 ```
+
+## Dialog
+
+**File:** `src/components/ui/dialog.tsx`
+**Exports:** `Dialog`, `DialogContent`, `DialogTitle`, `DialogDescription`
+**For:** a window over the page (the System Card's file reader). Set the size on `DialogContent`.
+**Main props:** `Dialog`: `open`, `onOpenChange`. Always give it a `DialogTitle` and a `DialogDescription`.
 
 ## Chart
 

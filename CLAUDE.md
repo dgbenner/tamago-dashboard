@@ -51,7 +51,9 @@ for `src/`.
 - `system-card.html` is a standalone page in this repo (moved from danbenner.com/tamago.html, 2026-11-23): no sidebar,
   no snapshot banner, published at dgbenner.github.io/tamago-dashboard/system-card.html. Its code is in
   `src/system-card/`, its text in `src/data/system-card.json` (reference text, dated where it counts; the spec total
-  is summed in code). Same components and theme as the dashboard. The dashboard checks don't cover it.
+  is summed in code). Its file links open a window: hand-written summaries in `src/data/system-card-docs.json` beside
+  copies of the Tamago files in `system-card-files.json` (generated, `node scripts/sync-card-files.mjs`; never edited by
+  hand). Same components and theme as the dashboard. The dashboard checks don't cover it.
 
 ## Working here
 

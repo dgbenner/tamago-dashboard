@@ -28,6 +28,8 @@ export interface EvalRow {
   href: string | null
 }
 
+/** The password screen before the first file opens. */
+export const systemCardGate = cardJson.gate
 export const systemCardHeader = cardJson.header
 
 /** The contents list under the title: one entry per numbered section, label and number read from "01 · Agent Stories". */
