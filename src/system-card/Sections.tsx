@@ -152,7 +152,7 @@ export function SystemCardScope() {
     <CardSection id={m.id} label={m.label} title={m.title} intro={m.intro}>
       <Card className="gap-1 border-tamago-yellow bg-tamago-yellow/20 py-4">
         <CardContent className="flex flex-wrap items-baseline gap-x-3 gap-y-1 px-4">
-          <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">Model Goal</span>
+          <span className="text-xs font-medium tracking-wide text-muted-foreground uppercase">{m.goalLabel}</span>
           <span className="font-semibold">{m.goal}</span>
         </CardContent>
       </Card>
