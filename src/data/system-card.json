@@ -68,7 +68,7 @@
       },
       {
         "id": "builder",
-        "name": "Builder",
+        "name": "Code Builder",
         "story": "As the person orchestrating the build, when I hand over a spec or a batch of notes, I want working code and course content, tested and live, so that I can judge the result instead of supervising the work.",
         "may": [
           "Read the spec and the project rules",
@@ -95,6 +95,67 @@
           "Every push passes the tests",
           "Both content audits are clean",
           "The checklist matches the request"
+        ]
+      },
+      {
+        "id": "course-builder",
+        "name": "Course Builder",
+        "story": "As the person orchestrating the build, when a language is next in line, I want one builder per language, on its own branch, to produce its words, sentences, audio and grammar notes, so that each course reaches A1 without me building it by hand.",
+        "may": [
+          "Gather checked sentences and recordings for each part",
+          "Filter the word list against the shared stoplist",
+          "Write grammar notes and draft sentences where sources run thin",
+          "Build, audit and add a mock A1 exam"
+        ],
+        "never": [
+          "Push, merge or make a course public",
+          "Take definitions or verb forms from model memory",
+          "Touch a language another session already has",
+          "Build a language put on hold"
+        ],
+        "decides": [
+          "Which checked sentences fit each lesson",
+          "What the stoplist drops for its language",
+          "Which exam format the final check follows"
+        ],
+        "stops": [
+          "The course is A1-complete with clean audits, or drafts pass 40% of a part, which puts the language on hold"
+        ],
+        "works": [
+          "No word is tested before it’s shown",
+          "No lesson adds more than four new words",
+          "The every-lesson check finds no issues"
+        ]
+      },
+      {
+        "id": "design-system",
+        "name": "Design System",
+        "heading": "The design-system agent’s story",
+        "story": "As the person orchestrating the build, when the app’s screens repeat the same pieces, I want them built once as a component library in Storybook, in desktop, iOS and Android styles, so that every screen is built from the same parts.",
+        "may": [
+          "Lift shared pieces out of the app into components",
+          "Write a Storybook story for each one",
+          "Draw each component in Tamago, iOS and Android styles",
+          "List every component in COMPONENTS.md"
+        ],
+        "never": [
+          "Change how the app looks while lifting a component",
+          "Hand-write a copy of a component that exists",
+          "Put the iOS or Android styles into the app",
+          "Republish the Storybook without me"
+        ],
+        "decides": [
+          "Which pieces become components",
+          "How each one adapts to iOS and Android",
+          "What goes on the list of proposals"
+        ],
+        "stops": [
+          "The component is in the library with its story and its entry, and the app is unchanged"
+        ],
+        "works": [
+          "The app’s built CSS is identical before and after",
+          "Screenshots match",
+          "Every screen uses library components"
         ]
       },
       {

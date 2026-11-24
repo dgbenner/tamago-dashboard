@@ -73,14 +73,15 @@ export function SystemCardStories() {
         <figcaption className="px-1 text-center text-xs leading-relaxed text-muted-foreground/70 italic">{s.definition}</figcaption>
       </figure>
       {/* Folder tabs (Dan, 2026-11-24): each agent a tab with its own border, the open one joined to the table card
-          below it (a strip in the card's color covers the card's top border under the open tab). */}
+          below it (the row overlaps the card's top border by a pixel, and a strip in the card's color covers it under the open tab).
+          Six tabs are wider than a phone, so the row scrolls sideways there. */}
       <Tabs defaultValue={s.agents[0].id} className="mt-4 gap-0">
-        <TabsList aria-label="Agent" className="h-auto w-full justify-start gap-1 rounded-none bg-transparent p-0 sm:gap-1.5">
+        <TabsList aria-label="Agent" className="relative z-10 -mb-px h-auto w-full justify-start gap-1 overflow-x-auto rounded-none bg-transparent p-0 [scrollbar-width:none] sm:gap-1.5">
           {s.agents.map((agent) => (
             <TabsTrigger
               key={agent.id}
               value={agent.id}
-              className="relative h-auto flex-none rounded-t-lg rounded-b-none border border-b-0 border-border bg-muted px-3 py-2.5 text-sm text-muted-foreground shadow-none after:hidden hover:bg-muted/60 hover:text-foreground focus-visible:ring-inset sm:px-5 data-[state=active]:z-10 data-[state=active]:border-border data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-none data-[state=active]:before:absolute data-[state=active]:before:inset-x-0 data-[state=active]:before:-bottom-0.5 data-[state=active]:before:h-1 data-[state=active]:before:bg-card data-[state=active]:before:content-[''] dark:data-[state=active]:border-border dark:data-[state=active]:bg-card"
+              className="relative h-auto flex-none rounded-t-lg rounded-b-none border border-b-0 border-border bg-muted px-3 py-2.5 text-sm text-muted-foreground shadow-none after:hidden hover:bg-muted/60 hover:text-foreground focus-visible:ring-inset sm:px-5 data-[state=active]:z-10 data-[state=active]:border-border data-[state=active]:bg-card data-[state=active]:text-foreground data-[state=active]:shadow-none data-[state=active]:before:absolute data-[state=active]:before:inset-x-0 data-[state=active]:before:bottom-0 data-[state=active]:before:h-px data-[state=active]:before:bg-card data-[state=active]:before:content-[''] dark:data-[state=active]:border-border dark:data-[state=active]:bg-card"
             >
               {agent.name}
             </TabsTrigger>
@@ -93,7 +94,7 @@ export function SystemCardStories() {
                 <TableHeader>
                   <TableRow>
                     <TableHead className="w-28 sm:w-56">Story element</TableHead>
-                    <TableHead>The {agent.name}’s agent story</TableHead>
+                    <TableHead>{agent.heading ?? `The ${agent.name}’s agent story`}</TableHead>
                   </TableRow>
                 </TableHeader>
                 <TableBody>
