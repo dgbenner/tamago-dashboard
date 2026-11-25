@@ -1,10 +1,10 @@
 {
-  "takenAt": "2026-11-24T14:52:00-06:00",
+  "takenAt": "2026-11-25T14:09:00-06:00",
   "source": {
     "repo": "dgbenner/tamago",
     "branch": "main",
-    "commit": "940cb04",
-    "commitDate": "2026-11-23T11:19:18-06:00"
+    "commit": "c8c6ece",
+    "commitDate": "2026-11-25T13:52:21-06:00"
   },
   "languages": [
     {
@@ -296,6 +296,28 @@
   ],
   "deploys": [
     {
+      "number": 73,
+      "name": "Seal",
+      "date": "2026-11-25T13:52:21-06:00",
+      "commit": "c8c6ece",
+      "changes": [
+        "Version Seal (deploy 73)",
+        "A returning launch shows home as it last looked, pictures included, until the app has drawn it",
+        "Opening only until a language is picked; a pick wipes straight to that course's tree with no reload; a saved language skips to the tree",
+        "Opening: the pause at rest cut to a third",
+        "Opening: flags in the page as the sushi lands, the tree shows through once drawn, a tap anywhere reveals it",
+        "Opening: black screen, logo and sushi drop from the first paint; flags next, tree loads behind (replaces the tree placeholder)",
+        "Tree placeholder from the first paint, sent by the service worker before the network answers"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "running",
+        "tests": null,
+        "passed": null,
+        "failed": null
+      }
+    },
+    {
       "number": 72,
       "name": "Raccoon",
       "date": "2026-11-23T11:19:18-06:00",
@@ -491,25 +513,6 @@
         "passed": null,
         "failed": null
       }
-    },
-    {
-      "number": 63,
-      "name": "Iguana",
-      "date": "2026-11-20T06:59:54-06:00",
-      "commit": "a7c4cb4",
-      "changes": [
-        "Dutch wiring, part 2: exam, conversations, tests and audits; additive gender override; content rebuilt under main (US spelling)",
-        "Dutch wiring, part 1: tables, course entry (Developer only), converse LANG, auth, admin, Developer, vite, voice lab, articles",
-        "Apply Fable's Dutch Part 1 review",
-        "Add Dutch (nl) course, A1 Part 1"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "passed",
-        "tests": 281,
-        "passed": 281,
-        "failed": 0
-      }
     }
   ],
   "health": {
@@ -527,7 +530,7 @@
         "number": 72,
         "name": "Raccoon"
       },
-      "runsRecorded": 15,
+      "runsRecorded": 16,
       "stoppedAt": null
     },
     "auditNote": {
@@ -542,12 +545,6 @@
   },
   "activity": {
     "days": [
-      {
-        "date": "2026-11-11",
-        "commits": 21,
-        "pushes": 14,
-        "deploys": 17
-      },
       {
         "date": "2026-11-12",
         "commits": 6,
@@ -625,11 +622,17 @@
         "commits": 0,
         "pushes": 0,
         "deploys": 0
+      },
+      {
+        "date": "2026-11-25",
+        "commits": 7,
+        "pushes": 0,
+        "deploys": 1
       }
     ],
     "firstCommit": "2026-11-07T08:41:36-06:00",
-    "commitsTotal": 408,
-    "deploysTotal": 72,
+    "commitsTotal": 415,
+    "deploysTotal": 73,
     "reviewsApplied": [
       {
         "date": "2026-11-19T21:12:12-06:00",
@@ -931,6 +934,20 @@
       },
       {
         "date": "2026-11-24",
+        "lessons": {
+          "fr": 3399,
+          "es": 3048,
+          "de": 3192,
+          "it": 2837,
+          "pt": 2758,
+          "nl": 2018,
+          "pl": 3107,
+          "da": 1995,
+          "sv": 2081
+        }
+      },
+      {
+        "date": "2026-11-25",
         "lessons": {
           "fr": 3399,
           "es": 3048,
