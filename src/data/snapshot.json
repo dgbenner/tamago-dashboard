@@ -1,10 +1,10 @@
 {
-  "takenAt": "2026-11-25T14:09:00-06:00",
+  "takenAt": "2026-11-26T13:49:00-06:00",
   "source": {
     "repo": "dgbenner/tamago",
     "branch": "main",
-    "commit": "c8c6ece",
-    "commitDate": "2026-11-25T13:52:21-06:00"
+    "commit": "277a485",
+    "commitDate": "2026-11-25T14:16:51-06:00"
   },
   "languages": [
     {
@@ -296,6 +296,23 @@
   ],
   "deploys": [
     {
+      "number": 74,
+      "name": "Tapir",
+      "date": "2026-11-25T14:16:51-06:00",
+      "commit": "277a485",
+      "changes": [
+        "Version Tapir (deploy 74)",
+        "Home behind the opening is an exact copy of the real page with the scrollbar's room, so nothing shifts at the handover"
+      ],
+      "changesHidden": 0,
+      "test": {
+        "result": "passed",
+        "tests": 318,
+        "passed": 318,
+        "failed": 0
+      }
+    },
+    {
       "number": 73,
       "name": "Seal",
       "date": "2026-11-25T13:52:21-06:00",
@@ -311,7 +328,7 @@
       ],
       "changesHidden": 0,
       "test": {
-        "result": "running",
+        "result": "cancelled",
         "tests": null,
         "passed": null,
         "failed": null
@@ -493,44 +510,24 @@
         "passed": null,
         "failed": null
       }
-    },
-    {
-      "number": 64,
-      "name": "Jaguar",
-      "date": "2026-11-20T07:55:29-06:00",
-      "commit": "392ca09",
-      "changes": [
-        "Swedish: app wiring (Developer only), titles to the copy rule, icons, six words moved to the circle that first uses them; no-exam general…",
-        "Dutch titles to the copy rule (workbook v3); one-word color gloss in Dutch and Portuguese; final check runs the general format for a cour…",
-        "Apply Fable's Swedish Part 1 review",
-        "Dutch notes and overview lines: Dutch runs in bold, as every course since 2026-11-16 (wording unchanged)",
-        "Swedish A1 Part 1 (content only, Builder 2)"
-      ],
-      "changesHidden": 0,
-      "test": {
-        "result": "cancelled",
-        "tests": null,
-        "passed": null,
-        "failed": null
-      }
     }
   ],
   "health": {
     "fullSuite": {
       "result": "passed",
-      "startedAt": "2026-11-23T17:29:37Z",
-      "finishedAt": "2026-11-23T18:05:34Z",
-      "durationSeconds": 2157,
+      "startedAt": "2026-11-25T20:18:41Z",
+      "finishedAt": "2026-11-25T20:39:58Z",
+      "durationSeconds": 1277,
       "tests": 318,
       "passed": 318,
       "failed": 0,
       "skipped": 0,
-      "commit": "940cb04",
+      "commit": "277a485",
       "deploy": {
-        "number": 72,
-        "name": "Raccoon"
+        "number": 74,
+        "name": "Tapir"
       },
-      "runsRecorded": 16,
+      "runsRecorded": 17,
       "stoppedAt": null
     },
     "auditNote": {
@@ -545,12 +542,6 @@
   },
   "activity": {
     "days": [
-      {
-        "date": "2026-11-12",
-        "commits": 6,
-        "pushes": 4,
-        "deploys": 5
-      },
       {
         "date": "2026-11-13",
         "commits": 11,
@@ -625,14 +616,20 @@
       },
       {
         "date": "2026-11-25",
-        "commits": 7,
+        "commits": 9,
         "pushes": 0,
-        "deploys": 1
+        "deploys": 2
+      },
+      {
+        "date": "2026-11-26",
+        "commits": 0,
+        "pushes": 0,
+        "deploys": 0
       }
     ],
     "firstCommit": "2026-11-07T08:41:36-06:00",
-    "commitsTotal": 415,
-    "deploysTotal": 73,
+    "commitsTotal": 417,
+    "deploysTotal": 74,
     "reviewsApplied": [
       {
         "date": "2026-11-19T21:12:12-06:00",
@@ -948,6 +945,20 @@
       },
       {
         "date": "2026-11-25",
+        "lessons": {
+          "fr": 3399,
+          "es": 3048,
+          "de": 3192,
+          "it": 2837,
+          "pt": 2758,
+          "nl": 2018,
+          "pl": 3107,
+          "da": 1995,
+          "sv": 2081
+        }
+      },
+      {
+        "date": "2026-11-26",
         "lessons": {
           "fr": 3399,
           "es": 3048,
