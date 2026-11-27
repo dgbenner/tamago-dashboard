@@ -986,5 +986,86 @@
         "coveragePercent": 79
       }
     }
+  },
+  {
+    "takenAt": "2026-11-27T13:38:00-06:00",
+    "commit": "277a485",
+    "languagesLive": 9,
+    "coursesComplete": 9,
+    "sentences": 33934,
+    "circles": 683,
+    "draftsWaiting": 8117,
+    "coveragePercentAverage": 90,
+    "deployNumber": 74,
+    "testsPassed": 318,
+    "testsFailed": 0,
+    "commitsTotal": 417,
+    "tokensThisWeek": null,
+    "lessons": 24435,
+    "languages": {
+      "fr": {
+        "words": 989,
+        "sentences": 4464,
+        "circles": 103,
+        "draftsWaiting": 890,
+        "coveragePercent": 97
+      },
+      "es": {
+        "words": 907,
+        "sentences": 4022,
+        "circles": 74,
+        "draftsWaiting": 809,
+        "coveragePercent": 90
+      },
+      "de": {
+        "words": 934,
+        "sentences": 4237,
+        "circles": 74,
+        "draftsWaiting": 616,
+        "coveragePercent": 91
+      },
+      "it": {
+        "words": 1101,
+        "sentences": 3793,
+        "circles": 72,
+        "draftsWaiting": 1025,
+        "coveragePercent": 92
+      },
+      "pt": {
+        "words": 1006,
+        "sentences": 3726,
+        "circles": 72,
+        "draftsWaiting": 866,
+        "coveragePercent": 96
+      },
+      "nl": {
+        "words": 1009,
+        "sentences": 2992,
+        "circles": 72,
+        "draftsWaiting": 676,
+        "coveragePercent": 90
+      },
+      "pl": {
+        "words": 1568,
+        "sentences": 4659,
+        "circles": 72,
+        "draftsWaiting": 1613,
+        "coveragePercent": 82
+      },
+      "da": {
+        "words": 1009,
+        "sentences": 2949,
+        "circles": 72,
+        "draftsWaiting": 671,
+        "coveragePercent": 93
+      },
+      "sv": {
+        "words": 1022,
+        "sentences": 3092,
+        "circles": 72,
+        "draftsWaiting": 951,
+        "coveragePercent": 79
+      }
+    }
   }
 ]

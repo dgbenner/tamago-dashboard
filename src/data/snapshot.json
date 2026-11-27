@@ -1,5 +1,5 @@
 {
-  "takenAt": "2026-11-26T13:49:00-06:00",
+  "takenAt": "2026-11-27T13:38:00-06:00",
   "source": {
     "repo": "dgbenner/tamago",
     "branch": "main",
@@ -543,12 +543,6 @@
   "activity": {
     "days": [
       {
-        "date": "2026-11-13",
-        "commits": 11,
-        "pushes": 3,
-        "deploys": 4
-      },
-      {
         "date": "2026-11-14",
         "commits": 34,
         "pushes": 7,
@@ -622,6 +616,12 @@
       },
       {
         "date": "2026-11-26",
+        "commits": 0,
+        "pushes": 0,
+        "deploys": 0
+      },
+      {
+        "date": "2026-11-27",
         "commits": 0,
         "pushes": 0,
         "deploys": 0
@@ -970,6 +970,20 @@
           "da": 1995,
           "sv": 2081
         }
+      },
+      {
+        "date": "2026-11-27",
+        "lessons": {
+          "fr": 3399,
+          "es": 3048,
+          "de": 3192,
+          "it": 2837,
+          "pt": 2758,
+          "nl": 2018,
+          "pl": 3107,
+          "da": 1995,
+          "sv": 2081
+        }
       }
     ],
     "firstMeasured": "2026-11-10",
@@ -1006,14 +1020,14 @@
         "id": "pt",
         "name": "Portuguese",
         "totalLessons": 2758,
-        "newThisWeek": 879,
+        "newThisWeek": 0,
         "newThisMonth": 2758
       },
       {
         "id": "nl",
         "name": "Dutch",
         "totalLessons": 2018,
-        "newThisWeek": 2018,
+        "newThisWeek": 1521,
         "newThisMonth": 2018
       },
       {
@@ -1027,14 +1041,14 @@
         "id": "da",
         "name": "Danish",
         "totalLessons": 1995,
-        "newThisWeek": 1995,
+        "newThisWeek": 1637,
         "newThisMonth": 1995
       },
       {
         "id": "sv",
         "name": "Swedish",
         "totalLessons": 2081,
-        "newThisWeek": 2081,
+        "newThisWeek": 1726,
         "newThisMonth": 2081
       }
     ]
